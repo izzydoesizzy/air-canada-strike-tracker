@@ -11,14 +11,26 @@ const LOSS_PER_MINUTE = LOSS_PER_DAY / (24 * 60);
 const LOSS_PER_SECOND = LOSS_PER_DAY / (24 * 60 * 60);
 const FLIGHT_ATTENDANTS = 10511;
 
-// Visitor tracking constants - Updated to match real data
-const VISITORS_AT_START = 9600; // 9.6K visitors at strike start
-const CURRENT_TOTAL_VISITORS = 27100; // Current real total: 27.1K
-const CURRENT_VISITORS_PER_HOUR = 1900; // Current real rate: 1.9K/hour
-const ACCELERATION_FACTOR = 0.15; // Increased acceleration to match real growth
-const BASE_VISITORS_PER_MINUTE = CURRENT_VISITORS_PER_HOUR / 60;
-const BASE_VISITORS_PER_SECOND = CURRENT_VISITORS_PER_HOUR / 3600;
+// Visitor simulation settings (simulated, not real analytics)
+const BASE_VISITORS_PER_HOUR = 1000; // ~1K/hour baseline
+const INITIAL_VISITOR_BASELINE = 10200; // 10.2K total at baseline
+const RATE_VARIANCE = 0.1; // ±10% small variance
 
+function diurnalFactor(hour: number) {
+  if (hour >= 0 && hour < 5) return 0.5;
+  if (hour >= 5 && hour < 9) return 0.8;
+  if (hour >= 9 && hour < 12) return 1.05;
+  if (hour >= 12 && hour < 15) return 1.2;
+  if (hour >= 15 && hour < 18) return 1.1;
+  if (hour >= 18 && hour < 21) return 0.85;
+  return 0.6;
+}
+
+function getHourlyRate(now: Date) {
+  const hour = now.getHours();
+  const variance = 1 + RATE_VARIANCE * Math.sin((now.getMinutes() / 60) * 2 * Math.PI);
+  return BASE_VISITORS_PER_HOUR * diurnalFactor(hour) * variance;
+}
 const sources = {
   dailyLoss: {
     title: "TD Cowen analyst estimates C$300M ($217M) loss for 3-day strike - Reuters",
@@ -33,6 +45,8 @@ const sources = {
 export function StrikeImpactDashboard() {
   const { t } = useTranslation('dashboard');
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [baselineTotal, setBaselineTotal] = useState<number | null>(null);
+  const [baselineTime, setBaselineTime] = useState<Date | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -41,22 +55,38 @@ export function StrikeImpactDashboard() {
     return () => clearInterval(timer);
   }, []);
 
+  // Initialize visitor simulation baseline using localStorage for simple persistence
+  useEffect(() => {
+    const storedTotal = localStorage.getItem('visitorBaselineTotal');
+    const storedTime = localStorage.getItem('visitorBaselineTime');
+    if (storedTotal && storedTime) {
+      const parsedTotal = parseInt(storedTotal, 10);
+      const parsedTime = new Date(storedTime);
+      if (!isNaN(parsedTotal) && !isNaN(parsedTime.getTime())) {
+        setBaselineTotal(parsedTotal);
+        setBaselineTime(parsedTime);
+        return;
+      }
+    }
+    const initialTotal = INITIAL_VISITOR_BASELINE;
+    const now = new Date();
+    setBaselineTotal(initialTotal);
+    setBaselineTime(now);
+    localStorage.setItem('visitorBaselineTotal', String(initialTotal));
+    localStorage.setItem('visitorBaselineTime', now.toISOString());
+  }, []);
   const timeElapsed = Math.max(0, currentTime.getTime() - STRIKE_START.getTime());
   const daysElapsed = timeElapsed / (1000 * 60 * 60 * 24);
   const totalLoss = daysElapsed * LOSS_PER_DAY;
   const totalLossPerFA = totalLoss / FLIGHT_ATTENDANTS;
 
-  // Visitor calculations - Updated to match real data
-  const hoursElapsedSinceStart = timeElapsed / (1000 * 60 * 60);
-  // Calculate what the base rate should be to reach current totals
-  const effectiveBaseRate = hoursElapsedSinceStart > 0 ? 
-    (CURRENT_TOTAL_VISITORS - VISITORS_AT_START) / hoursElapsedSinceStart : 
-    CURRENT_VISITORS_PER_HOUR;
-  const currentVisitorRate = CURRENT_VISITORS_PER_HOUR * (1 + ACCELERATION_FACTOR * (hoursElapsedSinceStart / 24));
-  const totalVisitors = VISITORS_AT_START + (hoursElapsedSinceStart * effectiveBaseRate);
+  // Visitor calculations - Simulated calibration (~10.2K total, ~1K/hour)
+  const currentVisitorRate = getHourlyRate(currentTime);
   const currentVisitorsPerSecond = currentVisitorRate / 3600;
   const currentVisitorsPerMinute = currentVisitorRate / 60;
-
+  const totalVisitors = baselineTotal && baselineTime
+    ? baselineTotal + ((currentTime.getTime() - baselineTime.getTime()) / 1000) * currentVisitorsPerSecond
+    : INITIAL_VISITOR_BASELINE;
   const daysElapsedWhole = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
   const hoursElapsed = Math.floor(timeElapsed % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
   const minutesElapsed = Math.floor(timeElapsed % (1000 * 60 * 60) / (1000 * 60));
@@ -172,7 +202,10 @@ export function StrikeImpactDashboard() {
 
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
-                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">{t('metrics.totalPageVisitors')}</h2>
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">{t('metrics.totalPageVisitors')}</h2>
+                  <div className="px-2 py-1 bg-accent/10 border border-accent/20 rounded text-xs text-accent font-medium">SIM</div>
+                </div>
                 <div className="h-20 flex items-center justify-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-primary-blue leading-none animate-fade-in overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
                     {formatVisitors(totalVisitors)}
@@ -189,7 +222,10 @@ export function StrikeImpactDashboard() {
 
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
-                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">{t('metrics.visitorsPerHour')}</h2>
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">{t('metrics.visitorsPerHour')}</h2>
+                  <div className="px-2 py-1 bg-accent/10 border border-accent/20 rounded text-xs text-accent font-medium">SIM</div>
+                </div>
                 <div className="h-20 flex items-center justify-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-primary-blue leading-none animate-fade-in overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
                     {formatVisitors(currentVisitorRate)}
