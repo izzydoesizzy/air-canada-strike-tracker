@@ -58,7 +58,7 @@ export function Sources() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 px-4 sm:px-0">
           {sources.map((source, index) => (
             <Card key={index} className="p-6 bg-surface-elevated border border-border/20 shadow-elegant hover:shadow-medium transition-all duration-300 group">
               <div className="space-y-4">

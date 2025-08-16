@@ -100,7 +100,10 @@ export function StrikeInfo() {
               <div className="flex justify-between items-start py-3 border-b border-border/20">
                 <span className="text-muted-foreground font-medium">Commencement</span>
                 <SourceTooltip source={sources.strikeDetails}>
-                  <span className="text-foreground text-right">August 16, 2025<br />1:00 AM ET</span>
+                  <div className="text-right">
+                    <div className="text-foreground">August 16, 2025</div>
+                    <div className="text-foreground">1:00 AM ET</div>
+                  </div>
                 </SourceTooltip>
               </div>
               <div className="flex justify-between items-start py-3 border-b border-border/20">

@@ -92,7 +92,7 @@ export function StrikeImpactDashboard() {
               <div className="text-center space-y-6">
                 <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Total Strike Losses</h2>
                 <SourceTooltip source={sources.dailyLoss}>
-                  <div className="text-[4rem] md:text-[6rem] font-mono text-loss-indicator leading-none animate-fade-in">
+                  <div className="text-[2.5rem] md:text-[6rem] font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden">
                     {formatLargeCurrency(totalLoss)}
                   </div>
                 </SourceTooltip>
@@ -108,7 +108,7 @@ export function StrikeImpactDashboard() {
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
                 <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Loss Per Flight Attendant</h2>
-                <div className="text-[4rem] md:text-[6rem] font-mono text-loss-indicator leading-none animate-fade-in">
+                <div className="text-[2.5rem] md:text-[6rem] font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden">
                   {formatLargeCurrency(totalLossPerFA)}
                 </div>
                 <div className="space-y-2">
