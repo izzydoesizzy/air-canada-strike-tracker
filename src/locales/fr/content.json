@@ -1,0 +1,44 @@
+{
+  "strikeOverview": {
+    "title": "Aperçu de la Grève",
+    "description": "Détails clés sur la grève en cours des agents de bord d'Air Canada",
+    "strikeDetails": "Détails de la Grève",
+    "timeline": "Chronologie",
+    "impactSummary": "Résumé de l'Impact",
+    "union": "Syndicat",
+    "affectedWorkers": "Travailleurs Affectés",
+    "strikeNotice": "Période de Préavis de Grève",
+    "status": "Statut",
+    "strikeNoticeIssued": "Préavis de Grève Émis",
+    "strikeCommenced": "Grève Commencée",
+    "affectedPassengers": "Passagers Affectés",
+    "affectedDestinations": "Destinations Affectées",
+    "strikingAttendants": "Agents de Bord en Grève"
+  },
+  "strikeInfo": {
+    "title": "Informations sur la Grève des Agents de Bord d'Air Canada",
+    "description": "Aperçu complet du conflit de travail en cours entre Air Canada et le Syndicat canadien de la fonction publique (SCFP), représentant les agents de bord.",
+    "keyStats": "Statistiques Clés",
+    "strikeTimeline": "Chronologie de la Grève",
+    "keyDisputeAreas": "Zones de Conflit Clés",
+    "operationalImpact": "Impact Opérationnel",
+    "commencement": "Commencement",
+    "unionRep": "Représentant Syndical",
+    "negotiationPeriod": "Période de Négociation",
+    "windDownPeriod": "Période de Ralentissement",
+    "companyOffer": "Offre de l'Entreprise",
+    "primaryIssue": "Question Principale",
+    "unionPosition": "Position du Syndicat",
+    "affectedOps": "Opérations Affectées",
+    "continuingServices": "Services Continus"
+  },
+  "footer": {
+    "creatorTools": "Créateur et Outils",
+    "madeBy": "Créé par",
+    "builtWith": "Construit avec",
+    "sources": "Sources et Méthodologie",
+    "disclaimer": "Données provenant de rapports publics et de déclarations officielles. Les projections sont des estimations basées sur les informations disponibles.",
+    "contact": "Questions ou suggestions ? Connectez-vous avec moi sur",
+    "dataNote": "Les calculs en temps réel sont basés sur des données financières publiques et des estimations industrielles."
+  }
+}

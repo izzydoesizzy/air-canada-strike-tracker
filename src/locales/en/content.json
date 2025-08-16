@@ -1,0 +1,44 @@
+{
+  "strikeOverview": {
+    "title": "Strike Overview",
+    "description": "Key details about the ongoing Air Canada flight attendant strike",
+    "strikeDetails": "Strike Details",
+    "timeline": "Timeline",
+    "impactSummary": "Impact Summary",
+    "union": "Union",
+    "affectedWorkers": "Affected Workers",
+    "strikeNotice": "Strike Notice Period",
+    "status": "Status",
+    "strikeNoticeIssued": "Strike Notice Issued",
+    "strikeCommenced": "Strike Commenced",
+    "affectedPassengers": "Affected Passengers",
+    "affectedDestinations": "Affected Destinations",
+    "strikingAttendants": "Striking Flight Attendants"
+  },
+  "strikeInfo": {
+    "title": "Air Canada Flight Attendant Strike Information",
+    "description": "Comprehensive overview of the ongoing labor dispute between Air Canada and the Canadian Union of Public Employees (CUPE), representing flight attendants.",
+    "keyStats": "Key Statistics",
+    "strikeTimeline": "Strike Timeline",
+    "keyDisputeAreas": "Key Dispute Areas",
+    "operationalImpact": "Operational Impact",
+    "commencement": "Commencement",
+    "unionRep": "Union Representative",
+    "negotiationPeriod": "Negotiation Period",
+    "windDownPeriod": "Wind-down Period",
+    "companyOffer": "Company's Offer",
+    "primaryIssue": "Primary Issue",
+    "unionPosition": "Union's Position",
+    "affectedOps": "Affected Operations",
+    "continuingServices": "Continuing Services"
+  },
+  "footer": {
+    "creatorTools": "Creator & Tools",
+    "madeBy": "Made by",
+    "builtWith": "Built with",
+    "sources": "Sources & Methodology",
+    "disclaimer": "Data sourced from public reports and official statements. Projections are estimates based on available information.",
+    "contact": "Questions or suggestions? Connect with me on",
+    "dataNote": "Real-time calculations are based on publicly available financial data and industry estimates."
+  }
+}

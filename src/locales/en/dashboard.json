@@ -1,0 +1,21 @@
+{
+  "title": "Air Canada Flight Attendant Strike",
+  "subtitle": "Real-time financial impact tracking",
+  "metrics": {
+    "projectedStrikeLosses": "Projected Strike Losses",
+    "lossPerFlightAttendant": "Loss Per Flight Attendant",
+    "totalPageVisitors": "Total Page Visitors",
+    "visitorsPerHour": "Visitors Per Hour"
+  },
+  "breakdown": {
+    "perSecond": "Per Second",
+    "perMinute": "Per Minute",
+    "perHour": "Per Hour",
+    "perDay": "Per Day"
+  },
+  "milestones": {
+    "strikeDuration": "Strike Duration",
+    "impactPerFA": "Impact Per Flight Attendant (10 Days)"
+  },
+  "disclaimer": "* Projections based on publicly available data and industry estimates"
+}

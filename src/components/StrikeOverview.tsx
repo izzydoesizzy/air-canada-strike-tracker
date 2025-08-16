@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Calendar, MapPin, Briefcase } from "lucide-react";
 import { SourceTooltip } from "@/components/SourceTooltip";
+import { useTranslation } from "react-i18next";
 const sources = {
   cupe: {
     title: "CUPE 4092 represents flight attendants",
@@ -13,11 +14,13 @@ const sources = {
   }
 };
 export function StrikeOverview() {
+  const { t } = useTranslation('content');
+  
   return <div className="space-y-8">
       <div className="text-center space-y-4">
-        <h2 className="text-3xl font-light text-foreground tracking-tight">Strike Overview</h2>
+        <h2 className="text-3xl font-light text-foreground tracking-tight">{t('strikeOverview.title')}</h2>
         <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-          Understanding the labour dispute between Air Canada and flight attendants union CUPE 4092
+          {t('strikeOverview.description')}
         </p>
       </div>
 
@@ -27,7 +30,7 @@ export function StrikeOverview() {
           <CardHeader>
             <CardTitle className="flex items-center space-x-2 text-lg">
               <Briefcase className="h-5 w-5" />
-              <span>Strike Details</span>
+              <span>{t('strikeOverview.strikeDetails')}</span>
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">

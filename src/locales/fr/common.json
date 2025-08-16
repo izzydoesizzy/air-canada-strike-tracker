@@ -1,0 +1,25 @@
+{
+  "navigation": {
+    "title": "Suivi de la Grève Projetée d'Air Canada",
+    "status": "EN COURS",
+    "overview": "Aperçu",
+    "impactAnalysis": "Analyse d'Impact",
+    "sources": "Sources",
+    "liveTracker": "Suivi en Direct",
+    "projectedLoss": "Perte Projetée",
+    "timeElapsed": "Temps Écoulé",
+    "flights": "vols"
+  },
+  "buttons": {
+    "viewSource": "Voir la source",
+    "learnMore": "En Savoir Plus"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "days": "jours",
+    "hours": "heures",
+    "minutes": "minutes",
+    "seconds": "secondes"
+  }
+}

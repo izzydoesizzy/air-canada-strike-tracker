@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, TrendingDown, Plane, AlertCircle } from "lucide-react";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00");
 const LOSS_PER_DAY = 100000000;
 export function Navigation() {
+  const { t } = useTranslation();
   const [currentTime, setCurrentTime] = useState(new Date());
   useEffect(() => {
     const timer = setInterval(() => {
@@ -34,11 +37,11 @@ export function Navigation() {
           {/* Logo and Status */}
           <div className="flex items-center space-x-4">
             <div className="flex flex-col">
-              <h1 className="text-lg font-semibold text-foreground">Air Canada Projected Strike Tracker</h1>
+              <h1 className="text-lg font-semibold text-foreground">{t('navigation.title')}</h1>
             </div>
             <Badge variant="destructive" className="flex items-center space-x-1">
               <AlertCircle className="h-3 w-3" />
-              <span className="text-xs font-medium">ONGOING</span>
+              <span className="text-xs font-medium">{t('navigation.status')}</span>
             </Badge>
           </div>
 
@@ -49,7 +52,7 @@ export function Navigation() {
               <span className="font-mono text-loss-indicator font-medium">
                 {formatCompactCurrency(totalLoss)}
               </span>
-              <span className="text-muted-foreground">projected loss</span>
+              <span className="text-muted-foreground">{t('navigation.projectedLoss')}</span>
             </div>
             <div className="flex items-center space-x-2 text-sm">
               <Clock className="h-4 w-4 text-muted-foreground" />
@@ -59,24 +62,25 @@ export function Navigation() {
             </div>
             <div className="flex items-center space-x-2 text-sm">
               <Plane className="h-4 w-4 text-muted-foreground" />
-              <span>500+ flights</span>
+              <span>500+ {t('navigation.flights')}</span>
             </div>
           </div>
 
           {/* Navigation Links */}
           <div className="hidden lg:flex items-center space-x-6 text-sm">
             <button onClick={() => scrollToSection('overview')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Overview
+              {t('navigation.overview')}
             </button>
             <button onClick={() => scrollToSection('analysis')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Impact Analysis
+              {t('navigation.impactAnalysis')}
             </button>
             <button onClick={() => scrollToSection('sources')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Sources
+              {t('navigation.sources')}
             </button>
             <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-muted-foreground hover:text-foreground transition-colors">
-              Live Tracker
+              {t('navigation.liveTracker')}
             </button>
+            <LanguageSwitcher />
           </div>
 
           {/* Last Updated */}

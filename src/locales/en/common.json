@@ -1,0 +1,25 @@
+{
+  "navigation": {
+    "title": "Air Canada Projected Strike Tracker",
+    "status": "ONGOING",
+    "overview": "Overview",
+    "impactAnalysis": "Impact Analysis",
+    "sources": "Sources",
+    "liveTracker": "Live Tracker",
+    "projectedLoss": "Projected Loss",
+    "timeElapsed": "Time Elapsed",
+    "flights": "flights"
+  },
+  "buttons": {
+    "viewSource": "View source",
+    "learnMore": "Learn More"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds"
+  }
+}

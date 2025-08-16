@@ -1,0 +1,21 @@
+{
+  "title": "Grève des Agents de Bord d'Air Canada",
+  "subtitle": "Suivi en temps réel de l'impact financier",
+  "metrics": {
+    "projectedStrikeLosses": "Pertes Projetées de la Grève",
+    "lossPerFlightAttendant": "Perte par Agent de Bord",
+    "totalPageVisitors": "Total des Visiteurs",
+    "visitorsPerHour": "Visiteurs par Heure"
+  },
+  "breakdown": {
+    "perSecond": "Par Seconde",
+    "perMinute": "Par Minute",
+    "perHour": "Par Heure",
+    "perDay": "Par Jour"
+  },
+  "milestones": {
+    "strikeDuration": "Durée de la Grève",
+    "impactPerFA": "Impact par Agent de Bord (10 Jours)"
+  },
+  "disclaimer": "* Projections basées sur des données publiques et des estimations industrielles"
+}

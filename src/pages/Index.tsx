@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Navigation } from "@/components/Navigation";
 import { StoryIntroduction } from "@/components/StoryIntroduction";
 import { StoryHighlights } from "@/components/StoryHighlights";
@@ -5,7 +6,9 @@ import { StrikeImpactDashboard } from "@/components/StrikeImpactDashboard";
 import { StrikeOverview } from "@/components/StrikeOverview";
 import { StrikeInfo } from "@/components/StrikeInfo";
 import { Sources } from "@/components/Sources";
+
 const Index = () => {
+  const { t } = useTranslation('content');
   return <div className="min-h-screen bg-background">
       {/* Navigation */}
       <Navigation />
@@ -46,10 +49,10 @@ const Index = () => {
             
             {/* Creator & Tools */}
             <div className="space-y-6">
-              <h3 className="text-base font-semibold text-foreground tracking-wide">Creator & Tools</h3>
+              <h3 className="text-base font-semibold text-foreground tracking-wide">{t('footer.creatorTools')}</h3>
               <div className="space-y-5">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Made by{" "}
+                  {t('footer.madeBy')}{" "}
                   <a 
                     href="http://linkedin.com/in/izzydoesizzy" 
                     target="_blank" 

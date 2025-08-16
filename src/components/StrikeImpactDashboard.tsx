@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
 import { SourceTooltip } from "@/components/SourceTooltip";
 import { Plane } from "lucide-react";
+
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00");
 const LOSS_PER_DAY = 100000000;
 const LOSS_PER_HOUR = LOSS_PER_DAY / 24;
@@ -16,6 +18,7 @@ const CURRENT_VISITORS_PER_HOUR = 1900; // Current real rate: 1.9K/hour
 const ACCELERATION_FACTOR = 0.15; // Increased acceleration to match real growth
 const BASE_VISITORS_PER_MINUTE = CURRENT_VISITORS_PER_HOUR / 60;
 const BASE_VISITORS_PER_SECOND = CURRENT_VISITORS_PER_HOUR / 3600;
+
 const sources = {
   dailyLoss: {
     title: "TD Cowen analyst estimates C$300M ($217M) loss for 3-day strike - Reuters",
@@ -26,14 +29,18 @@ const sources = {
     url: "https://www.aircanada.com/ca/en/aco/home/book/travel-news-and-updates/2025/ac-action.html"
   }
 };
+
 export function StrikeImpactDashboard() {
+  const { t } = useTranslation('dashboard');
   const [currentTime, setCurrentTime] = useState(new Date());
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+
   const timeElapsed = Math.max(0, currentTime.getTime() - STRIKE_START.getTime());
   const daysElapsed = timeElapsed / (1000 * 60 * 60 * 24);
   const totalLoss = daysElapsed * LOSS_PER_DAY;
@@ -49,10 +56,12 @@ export function StrikeImpactDashboard() {
   const totalVisitors = VISITORS_AT_START + (hoursElapsedSinceStart * effectiveBaseRate);
   const currentVisitorsPerSecond = currentVisitorRate / 3600;
   const currentVisitorsPerMinute = currentVisitorRate / 60;
+
   const daysElapsedWhole = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
   const hoursElapsed = Math.floor(timeElapsed % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
   const minutesElapsed = Math.floor(timeElapsed % (1000 * 60 * 60) / (1000 * 60));
   const secondsElapsed = Math.floor(timeElapsed % (1000 * 60) / 1000);
+
   const formatLargeCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -61,6 +70,7 @@ export function StrikeImpactDashboard() {
       maximumFractionDigits: 0
     }).format(amount);
   };
+
   const formatCurrency = (amount: number) => {
     if (amount >= 1000000000) {
       return `$${(amount / 1000000000).toFixed(1)}B`;
@@ -74,6 +84,7 @@ export function StrikeImpactDashboard() {
       currency: 'USD'
     }).format(amount);
   };
+
   const formatVisitors = (count: number) => {
     if (count >= 1000000) {
       return `${(count / 1000000).toFixed(1)}M`;
@@ -82,7 +93,9 @@ export function StrikeImpactDashboard() {
     }
     return Math.round(count).toLocaleString();
   };
-  return <div className="relative overflow-hidden">
+
+  return (
+    <div className="relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/5 via-background to-primary-blue-subtle"></div>
       
@@ -95,7 +108,7 @@ export function StrikeImpactDashboard() {
               <span className="text-xs font-medium text-primary-blue uppercase tracking-wide">Air Canada Labour Dispute</span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground tracking-tight leading-tight">
-              Strike Impact Tracker
+              {t('title')}
             </h1>
             <div className="flex items-center justify-center space-x-4 text-sm text-muted-foreground">
               <a 
@@ -121,7 +134,7 @@ export function StrikeImpactDashboard() {
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
                 <div className="flex items-center justify-center space-x-2 mb-2">
-                  <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Projected Strike Losses</h2>
+                  <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">{t('metrics.projectedStrikeLosses')}</h2>
                   <div className="px-2 py-1 bg-warning/10 border border-warning/20 rounded text-xs text-warning font-medium">EST</div>
                 </div>
                 <SourceTooltip source={sources.dailyLoss}>
@@ -142,7 +155,7 @@ export function StrikeImpactDashboard() {
 
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
-                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Loss Per Flight Attendant</h2>
+                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">{t('metrics.lossPerFlightAttendant')}</h2>
                 <div className="h-20 flex items-center justify-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
                     {formatLargeCurrency(totalLossPerFA)}
@@ -159,7 +172,7 @@ export function StrikeImpactDashboard() {
 
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
-                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Total Page Visitors</h2>
+                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">{t('metrics.totalPageVisitors')}</h2>
                 <div className="h-20 flex items-center justify-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-primary-blue leading-none animate-fade-in overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
                     {formatVisitors(totalVisitors)}
@@ -176,7 +189,7 @@ export function StrikeImpactDashboard() {
 
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
-                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Visitors Per Hour</h2>
+                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">{t('metrics.visitorsPerHour')}</h2>
                 <div className="h-20 flex items-center justify-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-primary-blue leading-none animate-fade-in overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
                     {formatVisitors(currentVisitorRate)}
@@ -197,7 +210,7 @@ export function StrikeImpactDashboard() {
             <div className="inline-flex items-center space-x-2 text-xs text-muted-foreground/70 bg-muted/20 px-3 py-1 rounded-full border border-border/30">
               <span className="font-medium text-warning">PROJECTED</span>
               <span>•</span>
-              <span>Based on TD Cowen analyst estimates</span>
+              <span>{t('disclaimer')}</span>
             </div>
           </div>
 
@@ -205,7 +218,7 @@ export function StrikeImpactDashboard() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <Card className="p-6 bg-surface-elevated/70 backdrop-blur-sm border border-border/20 shadow-xl">
               <div className="text-center space-y-3">
-                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Per Second</h3>
+                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{t('breakdown.perSecond')}</h3>
                 <div className="text-number-medium font-mono text-loss-indicator">
                   {formatCurrency(LOSS_PER_SECOND)}
                 </div>
@@ -213,7 +226,7 @@ export function StrikeImpactDashboard() {
             </Card>
             <Card className="p-6 bg-surface-elevated/70 backdrop-blur-sm border border-border/20 shadow-xl">
               <div className="text-center space-y-3">
-                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Per Minute</h3>
+                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{t('breakdown.perMinute')}</h3>
                 <div className="text-number-medium font-mono text-loss-indicator">
                   {formatCurrency(LOSS_PER_MINUTE)}
                 </div>
@@ -221,7 +234,7 @@ export function StrikeImpactDashboard() {
             </Card>
             <Card className="p-6 bg-surface-elevated/70 backdrop-blur-sm border border-border/20 shadow-xl">
               <div className="text-center space-y-3">
-                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Per Hour</h3>
+                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{t('breakdown.perHour')}</h3>
                 <div className="text-number-medium font-mono text-loss-indicator">
                   {formatCurrency(LOSS_PER_HOUR)}
                 </div>
@@ -229,7 +242,7 @@ export function StrikeImpactDashboard() {
             </Card>
             <Card className="p-6 bg-surface-elevated/70 backdrop-blur-sm border border-border/20 shadow-xl">
               <div className="text-center space-y-3">
-                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Per Day</h3>
+                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{t('breakdown.perDay')}</h3>
                 <div className="text-number-medium font-mono text-loss-indicator">
                   {formatCurrency(LOSS_PER_DAY)}
                 </div>
@@ -241,7 +254,7 @@ export function StrikeImpactDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="p-8 bg-gradient-to-br from-surface-elevated to-surface-subtle border border-border/30 shadow-xl">
               <div className="text-center space-y-4">
-                <h3 className="text-lg font-semibold text-foreground">Strike Duration</h3>
+                <h3 className="text-lg font-semibold text-foreground">{t('milestones.strikeDuration')}</h3>
                 <div className="grid grid-cols-4 gap-2 text-center">
                   <div>
                     <div className="text-number-small font-mono text-loss-indicator">{daysElapsedWhole.toString().padStart(2, '0')}</div>
@@ -265,17 +278,16 @@ export function StrikeImpactDashboard() {
 
             <Card className="p-8 bg-gradient-to-br from-surface-elevated to-surface-subtle border border-border/30 shadow-xl">
               <div className="text-center space-y-4">
-                <h3 className="text-lg font-semibold text-foreground">10 Days Impact</h3>
+                <h3 className="text-lg font-semibold text-foreground">{t('milestones.impactPerFA')}</h3>
                 <div className="text-number-large font-mono text-loss-indicator">
                   $95,000
                 </div>
                 <p className="text-sm text-muted-foreground">burned per flight attendant</p>
               </div>
             </Card>
-
-            
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 }
