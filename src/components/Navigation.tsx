@@ -44,10 +44,6 @@ export function Navigation() {
               <AlertCircle className="h-3 w-3" />
               <span className="text-xs font-medium">{t('navigation.status')}</span>
             </Badge>
-            {/* Mobile-prominent language navigation */}
-            <div className="md:hidden">
-              <LanguageNavigation />
-            </div>
           </div>
 
           {/* Quick Stats */}
@@ -73,23 +69,8 @@ export function Navigation() {
 
           {/* Enhanced Navigation */}
           <div className="flex items-center space-x-4">
-            {/* Quick Live Tracker Link - Always visible on desktop */}
-            <div className="hidden lg:block">
-              <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {t('navigation.liveTracker')}
-              </button>
-            </div>
-
             {/* Desktop collapsible navigation */}
             <DesktopNavigationMenu scrollToSection={scrollToSection} />
-
-            {/* Desktop language navigation */}
-            <div className="hidden md:block">
-              <LanguageNavigation />
-            </div>
 
             {/* Mobile navigation menu */}
             <MobileNavigationMenu 

@@ -212,13 +212,7 @@ export function MobileNavigationMenu({
                 </div>
               </AccordionTrigger>
               <AccordionContent className="pt-2">
-                <div className="flex items-center gap-2">
-                  <Globe className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">{t('navigation.language')}</span>
-                </div>
-                <div className="mt-2">
-                  <LanguageNavigation />
-                </div>
+                <LanguageNavigation />
               </AccordionContent>
             </AccordionItem>
           </Accordion>

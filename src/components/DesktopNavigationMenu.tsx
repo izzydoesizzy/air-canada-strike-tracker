@@ -11,6 +11,7 @@ import {
   BarChart3,
   Menu
 } from "lucide-react";
+import { LanguageNavigation } from "./LanguageNavigation";
 
 interface DesktopNavigationMenuProps {
   scrollToSection: (id: string) => void;
@@ -23,10 +24,10 @@ export function DesktopNavigationMenu({ scrollToSection }: DesktopNavigationMenu
     <div className="hidden lg:flex items-center">
       <Accordion type="multiple" defaultValue={["main-nav"]} className="flex items-center">
         <AccordionItem value="main-nav" className="border-0">
-          <AccordionTrigger className="hover:no-underline py-0 text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <AccordionTrigger className="hover:no-underline py-0 text-sm text-muted-foreground hover:text-foreground transition-colors [&>svg]:hidden">
             <div className="flex items-center gap-1">
               <Menu className="h-4 w-4" />
-              <ChevronDown className="h-3 w-3 shrink-0 transition-transform duration-200" />
+              <ChevronDown className="h-3 w-3 shrink-0 transition-transform duration-200 data-[state=open]:rotate-180" />
             </div>
           </AccordionTrigger>
           <AccordionContent className="absolute top-full right-0 mt-2 w-64 bg-background/95 backdrop-blur-md border border-border/20 rounded-lg shadow-lg p-4 z-50">
@@ -95,6 +96,11 @@ export function DesktopNavigationMenu({ scrollToSection }: DesktopNavigationMenu
                   <FileText className="h-4 w-4 mr-2" />
                   {t('navigation.resources')}
                 </Button>
+              </div>
+              
+              <div className="border-t border-border/20 my-2 pt-2">
+                <div className="text-xs font-medium text-muted-foreground mb-2">{t('navigation.settings')}</div>
+                <LanguageNavigation />
               </div>
             </div>
           </AccordionContent>
