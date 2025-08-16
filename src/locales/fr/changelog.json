@@ -1,138 +1,85 @@
 {
   "title": "Journal des modifications",
   "subtitle": "Suivez toutes les mises à jour, améliorations et nouvelles fonctionnalités",
-  "description": "Un historique complet de tous les changements apportés au Suivi de Grève d'Air Canada",
+  "description": "Un historique complet de tous les changements apportés au Suivi de Grève d'Air Canada entre le 15-16 août 2025",
   "versions": {
-    "1.1.0": {
-      "title": "Navigation améliorée et expérience utilisateur",
+    "1.2.0": {
+      "title": "Système de Journal des Modifications Complet",
       "date": "16 août 2025",
       "type": "major",
-      "summary": "Refonte complète de la navigation avec un design mobile-first et une accessibilité améliorée",
+      "summary": "Système complet de journal des modifications avec suivi détaillé des versions et documentation complète",
+      "changes": [
+        {
+          "category": "Documentation",
+          "type": "feature",
+          "description": "Système complet de journal des modifications avec pages dédiées (FR/EN)",
+          "details": [
+            "Design de journal basé sur une chronologie avec indicateurs visuels",
+            "Sections détaillées pliables pour des informations complètes",
+            "Système de catégorisation des versions (versions majeures/mineures)",
+            "Classification des types de changements (Fonctionnalités, Améliorations, Corrections, Sécurité)",
+            "Documentation complète de toutes les fonctionnalités développées"
+          ]
+        }
+      ]
+    },
+    "1.1.0": {
+      "title": "Navigation Améliorée et Expérience Utilisateur",
+      "date": "16 août 2025",
+      "type": "major",
+      "summary": "Refonte complète de la navigation avec design mobile-first et accessibilité améliorée",
       "changes": [
         {
           "category": "Navigation",
           "type": "feature",
-          "description": "Menu hamburger responsive mobile avec sections organisées"
-        },
-        {
-          "category": "Navigation",
-          "type": "feature", 
-          "description": "Navigation bureau pliable avec contenu catégorisé"
-        },
-        {
-          "category": "UX",
-          "type": "improvement",
-          "description": "Accessibilité améliorée avec étiquettes ARIA et navigation clavier"
-        },
-        {
-          "category": "UX",
-          "type": "improvement",
-          "description": "Expérience mobile améliorée avec interface tactile"
-        },
-        {
-          "category": "Navigation", 
-          "type": "feature",
-          "description": "Raccourcis de navigation rapide pour les sections clés"
+          "description": "Menu hamburger responsive mobile avec sections organisées",
+          "details": [
+            "Implémentation du composant Sheet pour la navigation mobile",
+            "Structure de menu catégorisée basée sur Accordion",
+            "Intégration de données en direct dans le menu mobile"
+          ]
         }
       ]
     },
     "1.0.1": {
-      "title": "Amélioration du contenu et contexte",
-      "date": "15 août 2025",
-      "type": "minor", 
-      "summary": "Ajout d'explications détaillées et de contexte pour les calculs d'impact de grève",
+      "title": "Amélioration du Contenu et Contexte",
+      "date": "15 août 2025", 
+      "type": "minor",
+      "summary": "Ajout d'explications détaillées et contexte pour les calculs d'impact de grève",
       "changes": [
         {
           "category": "Contenu",
           "type": "feature",
-          "description": "Explication détaillée des heures non payées avec contexte du travail des agents de bord"
-        },
-        {
-          "category": "Contenu",
-          "type": "feature",
-          "description": "Couverture des implications de sécurité dans l'analyse de grève"
-        },
-        {
-          "category": "Contenu", 
-          "type": "improvement",
-          "description": "Transparence renforcée dans la méthodologie de calcul des pertes"
-        },
-        {
-          "category": "Sources",
-          "type": "improvement",
-          "description": "Vérification des sources élargie avec info-bulles"
+          "description": "Explication détaillée des heures non payées avec contexte du travail des agents de bord",
+          "details": [
+            "Section complète de crise des heures non payées avec icône Timer",
+            "Explication détaillée de ce qui constitue le travail non payé"
+          ]
         }
       ]
     },
     "1.0.0": {
-      "title": "Lancement initial",
-      "date": "14 août 2025",
+      "title": "Lancement Initial", 
+      "date": "15 août 2025",
       "type": "major",
       "summary": "Lancement complet du Suivi de Grève d'Air Canada avec fonctionnalités complètes",
       "changes": [
         {
           "category": "Tableau de bord",
-          "type": "feature", 
-          "description": "Suivi de grève en temps réel avec pertes financières projetées"
-        },
-        {
-          "category": "Localisation",
           "type": "feature",
-          "description": "Support bilingue complet (anglais/français)"
-        },
-        {
-          "category": "Actualités",
-          "type": "feature",
-          "description": "Système de bannière d'actualités avec mises à jour en direct"
-        },
-        {
-          "category": "Chronologie",
-          "type": "feature",
-          "description": "Chronologie interactive des événements et jalons de grève"
-        },
-        {
-          "category": "Analyse",
-          "type": "feature",
-          "description": "Analyse complète de grève avec impact économique"
-        },
-        {
-          "category": "Sources", 
-          "type": "feature",
-          "description": "Système de vérification des sources avec médias crédibles"
-        },
-        {
-          "category": "Ressources",
-          "type": "feature",
-          "description": "Centre de ressources avec liens externes et documentation"
-        },
-        {
-          "category": "Technique",
-          "type": "feature",
-          "description": "Design responsive optimisé pour tous les appareils"
+          "description": "Suivi de grève en temps réel avec pertes financières projetées",
+          "details": [
+            "Calculs de pertes financières en direct basés sur les estimations de l'analyste TD Cowen",
+            "Suivi de visiteurs en temps réel avec simulation de motifs diurnes"
+          ]
         }
       ]
     }
   },
-  "categories": {
-    "Tableau de bord": "Fonctionnalité de suivi principal",
-    "Navigation": "Navigation du site et systèmes de menu",
-    "Contenu": "Contenu éditorial et explications",
-    "UX": "Améliorations de l'expérience utilisateur", 
-    "Localisation": "Fonctionnalités linguistiques et régionales",
-    "Actualités": "Système d'actualités et de mises à jour",
-    "Chronologie": "Fonctionnalités de chronologie d'événements",
-    "Analyse": "Analyse de données et insights",
-    "Sources": "Vérification et crédibilité des sources",
-    "Ressources": "Ressources externes et documentation",
-    "Technique": "Infrastructure technique et performance"
-  },
   "types": {
-    "feature": "Nouvelle fonctionnalité",
-    "improvement": "Amélioration",
-    "fix": "Correction de bug", 
-    "security": "Mise à jour sécurité"
-  },
-  "footer": {
-    "changelog": "Journal des modifications"
+    "feature": "Nouvelle Fonctionnalité",
+    "improvement": "Amélioration", 
+    "fix": "Correction de Bug",
+    "security": "Mise à Jour de Sécurité"
   }
 }

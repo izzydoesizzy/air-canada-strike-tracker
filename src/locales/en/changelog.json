@@ -1,8 +1,48 @@
 {
   "title": "Changelog",
   "subtitle": "Track all updates, improvements, and new features",
-  "description": "A comprehensive history of all changes made to the Air Canada Strike Tracker",
+  "description": "A comprehensive history of all changes made to the Air Canada Strike Tracker between August 15-16, 2025",
   "versions": {
+    "1.2.0": {
+      "title": "Comprehensive Changelog System",
+      "date": "August 16, 2025",
+      "type": "major",
+      "summary": "Complete changelog system with detailed version tracking and comprehensive documentation",
+      "changes": [
+        {
+          "category": "Documentation",
+          "type": "feature",
+          "description": "Full changelog system with dedicated pages (EN/FR)",
+          "details": [
+            "Timeline-based changelog design with visual indicators",
+            "Collapsible detailed sections for comprehensive information",
+            "Version categorization system (Major/Minor releases)",
+            "Change type classification (Features, Improvements, Fixes, Security)",
+            "Comprehensive documentation of all features developed"
+          ]
+        },
+        {
+          "category": "Navigation",
+          "type": "feature",
+          "description": "Footer integration with changelog links",
+          "details": [
+            "Added changelog links to both English and French homepages",
+            "Seamless language switching between changelog versions",
+            "Proper routing integration for /changelog and /fr/changelog"
+          ]
+        },
+        {
+          "category": "Technical",
+          "type": "improvement",
+          "description": "Enhanced i18n configuration for changelog namespace",
+          "details": [
+            "Added changelog namespace to translation system",
+            "Comprehensive translation files for both languages",
+            "Proper import and export of changelog translations"
+          ]
+        }
+      ]
+    },
     "1.1.0": {
       "title": "Enhanced Navigation & User Experience",
       "date": "August 16, 2025",
@@ -12,27 +52,58 @@
         {
           "category": "Navigation",
           "type": "feature",
-          "description": "Mobile-responsive hamburger menu with organized sections"
+          "description": "Mobile-responsive hamburger menu with organized sections",
+          "details": [
+            "Sheet component implementation for mobile navigation",
+            "Accordion-based categorized menu structure",
+            "Live data integration directly in mobile menu",
+            "Real-time strike metrics and visitor counters",
+            "Touch-friendly interface with proper spacing"
+          ]
         },
         {
           "category": "Navigation", 
           "type": "feature",
-          "description": "Desktop collapsible navigation with categorized content"
+          "description": "Desktop collapsible navigation with categorized content",
+          "details": [
+            "Organized navigation into logical sections: Live Data, Quick Navigation, Main Content, Additional Info, Settings",
+            "Collapsible accordion interface for desktop users",
+            "Quick access to all major sections and features",
+            "Enhanced navigation hierarchy for better user flow"
+          ]
         },
         {
           "category": "UX",
           "type": "improvement",
-          "description": "Improved accessibility with proper ARIA labels and keyboard navigation"
+          "description": "Improved accessibility with proper ARIA labels and keyboard navigation",
+          "details": [
+            "Comprehensive ARIA labeling for screen readers",
+            "Keyboard navigation support for all interactive elements",
+            "Semantic HTML structure for better accessibility",
+            "Focus management for sheet and accordion components"
+          ]
         },
         {
-          "category": "UX",
+          "category": "Mobile",
           "type": "improvement", 
-          "description": "Enhanced mobile experience with touch-friendly interface"
+          "description": "Enhanced mobile experience with touch-friendly interface",
+          "details": [
+            "Optimized touch targets for mobile devices",
+            "Responsive grid layouts for different screen sizes",
+            "Mobile-specific navigation patterns",
+            "Swipe-friendly gesture support"
+          ]
         },
         {
-          "category": "Navigation",
+          "category": "Technical",
           "type": "feature",
-          "description": "Quick navigation shortcuts for key sections"
+          "description": "Advanced component integration and state management",
+          "details": [
+            "Integration of Radix UI Sheet component for mobile menu",
+            "Accordion component for organized content display",
+            "Real-time data passing to navigation components",
+            "Proper event handling for smooth scrolling navigation"
+          ]
         }
       ]
     },
@@ -40,75 +111,180 @@
       "title": "Content Enhancement & Context",
       "date": "August 15, 2025", 
       "type": "minor",
-      "summary": "Added detailed explanations and context for strike impact calculations",
+      "summary": "Added detailed explanations and context for strike impact calculations with enhanced source verification",
       "changes": [
         {
           "category": "Content",
           "type": "feature",
-          "description": "Detailed unpaid hours explanation with flight attendant work context"
+          "description": "Detailed unpaid hours explanation with flight attendant work context",
+          "details": [
+            "Comprehensive unpaid hours crisis section with Timer icon",
+            "Detailed explanation of what constitutes unpaid work for flight attendants",
+            "Context about pre-flight preparation, post-flight duties, and safety procedures",
+            "Visual breakdown of unpaid duties with bullet points and styling"
+          ]
         },
         {
           "category": "Content",
           "type": "feature", 
-          "description": "Safety implications coverage in strike analysis"
-        },
-        {
-          "category": "Content",
-          "type": "improvement",
-          "description": "Enhanced transparency in loss calculation methodology"
+          "description": "Safety implications coverage in strike analysis",
+          "details": [
+            "Added safety title and description sections",
+            "Coverage of how unpaid work affects safety protocols",
+            "Explanation of the connection between compensation and safety standards",
+            "Professional presentation of safety concerns"
+          ]
         },
         {
           "category": "Sources",
           "type": "improvement",
-          "description": "Expanded source verification with tooltips"
+          "description": "Enhanced transparency in loss calculation methodology",
+          "details": [
+            "Source verification system with comprehensive tooltips",
+            "SourceTooltip component for credible source linking",
+            "Hover effects and visual indicators for sourced information",
+            "External link integration with proper accessibility"
+          ]
+        },
+        {
+          "category": "Technical",
+          "type": "feature",
+          "description": "Advanced tooltip system for source verification",
+          "details": [
+            "Custom SourceTooltip component with Radix UI integration",
+            "Animated hover effects with pulse indicators",
+            "Proper tooltip positioning and backdrop blur effects",
+            "Accessibility features for screen readers"
+          ]
         }
       ]
     },
     "1.0.0": {
       "title": "Initial Launch", 
-      "date": "August 14, 2025",
+      "date": "August 15, 2025",
       "type": "major",
-      "summary": "Full launch of Air Canada Strike Tracker with comprehensive features",
+      "summary": "Full launch of Air Canada Strike Tracker with comprehensive real-time tracking and analysis features",
       "changes": [
         {
           "category": "Dashboard",
           "type": "feature",
-          "description": "Real-time strike tracking with projected financial losses"
-        },
-        {
-          "category": "Localization",
-          "type": "feature", 
-          "description": "Complete bilingual support (English/French)"
-        },
-        {
-          "category": "News",
-          "type": "feature",
-          "description": "Breaking news banner system with live updates"
-        },
-        {
-          "category": "Timeline",
-          "type": "feature",
-          "description": "Interactive timeline of strike events and milestones"
-        },
-        {
-          "category": "Analysis", 
-          "type": "feature",
-          "description": "Comprehensive strike analysis with economic impact"
-        },
-        {
-          "category": "Sources",
-          "type": "feature",
-          "description": "Source verification system with credible news outlets"
-        },
-        {
-          "category": "Resources",
-          "type": "feature", 
-          "description": "Resource center with external links and documentation"
+          "description": "Real-time strike tracking with projected financial losses",
+          "details": [
+            "Live financial loss calculations based on TD Cowen analyst estimates",
+            "Real-time visitor tracking with diurnal pattern simulation",
+            "Strike duration timer with days, hours, minutes, seconds",
+            "Per-flight-attendant loss calculations and projections",
+            "Formatted currency display with large number abbreviations",
+            "Responsive card layout with gradient backgrounds and shadows"
+          ]
         },
         {
           "category": "Technical",
           "type": "feature",
-          "description": "Responsive design optimized for all devices"
+          "description": "Advanced React architecture with modern tooling",
+          "details": [
+            "React 18.3 with TypeScript for type safety",
+            "Vite build system for fast development and optimization",
+            "TanStack Query for efficient data management",
+            "React Router DOM for client-side routing",
+            "Modern React patterns with hooks and functional components"
+          ]
+        },
+        {
+          "category": "Localization",
+          "type": "feature", 
+          "description": "Complete bilingual support (English/French)",
+          "details": [
+            "i18next integration with language detection",
+            "Comprehensive translation files for all content",
+            "Language switching with persistent user preference",
+            "Proper URL routing for language-specific pages (/fr)",
+            "Browser language detection and localStorage caching"
+          ]
+        },
+        {
+          "category": "News",
+          "type": "feature",
+          "description": "Breaking news banner system with live updates",
+          "details": [
+            "Dismissible breaking news banner with gradient backgrounds",
+            "Animated pulse effects and background patterns",
+            "External link integration to news sources",
+            "Responsive design for mobile and desktop",
+            "Alert triangle icons and proper styling"
+          ]
+        },
+        {
+          "category": "Timeline",
+          "type": "feature",
+          "description": "Interactive timeline of strike events and milestones",
+          "details": [
+            "Comprehensive timeline from contract expiry to current events",
+            "Visual timeline with icons for different event types",
+            "Source verification for all timeline events",
+            "Badge system for event categorization (destructive, warning, secondary)",
+            "Card-based layout with proper spacing and typography"
+          ]
+        },
+        {
+          "category": "Content", 
+          "type": "feature",
+          "description": "Comprehensive strike story with financial analysis",
+          "details": [
+            "Story introduction with timeline cards",
+            "Financial absurdity calculations and context",
+            "Story highlights with staggered animation reveal",
+            "Intersection Observer for scroll-triggered animations",
+            "Professional typography with display and text sizing"
+          ]
+        },
+        {
+          "category": "Sources",
+          "type": "feature",
+          "description": "Source verification system with credible news outlets",
+          "details": [
+            "Comprehensive source linking to Reuters, CNBC, CUPE, Air Canada",
+            "Source categorization and verification badges",
+            "External link handling with proper security (noopener noreferrer)",
+            "Source tooltip system for transparency",
+            "Credible journalism standards with proper attribution"
+          ]
+        },
+        {
+          "category": "Resources",
+          "type": "feature", 
+          "description": "Resource center with categorized external links",
+          "details": [
+            "Organized resource categories for different stakeholder groups",
+            "External link management with proper routing",
+            "Card-based resource presentation",
+            "Search and filtering capabilities for resources",
+            "Comprehensive documentation and reference materials"
+          ]
+        },
+        {
+          "category": "Design",
+          "type": "feature",
+          "description": "Professional design system with Tailwind CSS",
+          "details": [
+            "Comprehensive design tokens for colors, typography, spacing",
+            "Semantic color system with HSL values for theming",
+            "Gradient backgrounds and shadow system",
+            "Animation utilities with keyframes and transitions",
+            "Responsive design patterns for all screen sizes"
+          ]
+        },
+        {
+          "category": "Performance",
+          "type": "feature",
+          "description": "Optimized performance with modern web standards",
+          "details": [
+            "Code splitting with dynamic imports",
+            "Optimized bundle size with tree shaking",
+            "Efficient re-rendering with React optimization patterns",
+            "Local storage integration for visitor tracking persistence",
+            "Intersection Observer API for performance-friendly animations"
+          ]
         }
       ]
     }
@@ -118,13 +294,17 @@
     "Navigation": "Site navigation and menu systems",
     "Content": "Editorial content and explanations", 
     "UX": "User experience improvements",
+    "Mobile": "Mobile-specific enhancements",
     "Localization": "Language and regional features",
     "News": "Breaking news and updates system",
     "Timeline": "Event timeline features",
     "Analysis": "Data analysis and insights",
     "Sources": "Source verification and credibility", 
     "Resources": "External resources and documentation",
-    "Technical": "Technical infrastructure and performance"
+    "Technical": "Technical infrastructure and performance",
+    "Design": "UI/UX design and visual improvements",
+    "Performance": "Speed and optimization improvements",
+    "Documentation": "Project documentation and changelog"
   },
   "types": {
     "feature": "New Feature",
