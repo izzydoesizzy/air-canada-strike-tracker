@@ -92,7 +92,7 @@ export function StrikeImpactDashboard() {
               <div className="text-center space-y-6">
                 <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Total Strike Losses</h2>
                 <SourceTooltip source={sources.dailyLoss}>
-                  <div className="text-[2.5rem] md:text-[6rem] font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden">
+                  <div className="text-[1.8rem] sm:text-[2.5rem] md:text-[6rem] font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden break-all">
                     {formatLargeCurrency(totalLoss)}
                   </div>
                 </SourceTooltip>
