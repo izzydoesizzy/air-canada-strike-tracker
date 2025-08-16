@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { SourceTooltip } from "@/components/SourceTooltip";
 import { Plane } from "lucide-react";
-
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00");
 const LOSS_PER_DAY = 100000000;
 const LOSS_PER_HOUR = LOSS_PER_DAY / 24;
@@ -16,7 +15,6 @@ const BASE_VISITORS_PER_HOUR = 1000; // Base 1K visitors per hour
 const ACCELERATION_FACTOR = 0.1; // 10% increase per hour
 const BASE_VISITORS_PER_MINUTE = BASE_VISITORS_PER_HOUR / 60;
 const BASE_VISITORS_PER_SECOND = BASE_VISITORS_PER_HOUR / 3600;
-
 const sources = {
   dailyLoss: {
     title: "TD Cowen analyst estimates C$300M ($217M) loss for 3-day strike - Reuters",
@@ -27,18 +25,14 @@ const sources = {
     url: "https://www.aircanada.com/ca/en/aco/home/book/travel-news-and-updates/2025/ac-action.html"
   }
 };
-
 export function StrikeImpactDashboard() {
   const [currentTime, setCurrentTime] = useState(new Date());
-
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
-
   const timeElapsed = Math.max(0, currentTime.getTime() - STRIKE_START.getTime());
   const daysElapsed = timeElapsed / (1000 * 60 * 60 * 24);
   const totalLoss = daysElapsed * LOSS_PER_DAY;
@@ -46,26 +40,23 @@ export function StrikeImpactDashboard() {
 
   // Visitor calculations with acceleration
   const hoursElapsedSinceStart = timeElapsed / (1000 * 60 * 60);
-  const acceleratedRate = BASE_VISITORS_PER_HOUR * (1 + (ACCELERATION_FACTOR * hoursElapsedSinceStart));
-  const totalVisitors = CURRENT_TOTAL_VISITORS + (hoursElapsedSinceStart * acceleratedRate);
+  const acceleratedRate = BASE_VISITORS_PER_HOUR * (1 + ACCELERATION_FACTOR * hoursElapsedSinceStart);
+  const totalVisitors = CURRENT_TOTAL_VISITORS + hoursElapsedSinceStart * acceleratedRate;
   const currentVisitorRate = acceleratedRate;
   const currentVisitorsPerSecond = acceleratedRate / 3600;
   const currentVisitorsPerMinute = acceleratedRate / 60;
-
   const daysElapsedWhole = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
-  const hoursElapsed = Math.floor((timeElapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutesElapsed = Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60));
-  const secondsElapsed = Math.floor((timeElapsed % (1000 * 60)) / 1000);
-
+  const hoursElapsed = Math.floor(timeElapsed % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+  const minutesElapsed = Math.floor(timeElapsed % (1000 * 60 * 60) / (1000 * 60));
+  const secondsElapsed = Math.floor(timeElapsed % (1000 * 60) / 1000);
   const formatLargeCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
+      maximumFractionDigits: 0
     }).format(amount);
   };
-
   const formatCurrency = (amount: number) => {
     if (amount >= 1000000000) {
       return `$${(amount / 1000000000).toFixed(1)}B`;
@@ -74,9 +65,11 @@ export function StrikeImpactDashboard() {
     } else if (amount >= 1000) {
       return `$${(amount / 1000).toFixed(0)}K`;
     }
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    }).format(amount);
   };
-
   const formatVisitors = (count: number) => {
     if (count >= 1000000) {
       return `${(count / 1000000).toFixed(1)}M`;
@@ -85,9 +78,7 @@ export function StrikeImpactDashboard() {
     }
     return Math.round(count).toLocaleString();
   };
-
-  return (
-    <div className="relative overflow-hidden">
+  return <div className="relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/5 via-background to-primary-blue-subtle"></div>
       
@@ -263,19 +254,9 @@ export function StrikeImpactDashboard() {
               </div>
             </Card>
 
-            <Card className="p-8 bg-gradient-to-br from-surface-elevated to-surface-subtle border border-border/30 shadow-xl">
-              <div className="text-center space-y-4">
-                <h3 className="text-lg font-semibold text-foreground">30 Days Impact</h3>
-                <div className="text-number-large font-mono text-loss-indicator">
-                  $285,000
-                </div>
-                <p className="text-sm text-muted-foreground">burned per flight attendant</p>
-                <p className="text-xs text-muted-foreground/70 italic">= Years of salary per worker</p>
-              </div>
-            </Card>
+            
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
