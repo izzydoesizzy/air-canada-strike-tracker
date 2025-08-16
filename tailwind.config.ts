@@ -52,6 +52,8 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'loss-red': 'hsl(var(--loss-red))',
+				'loss-red-glow': 'hsl(var(--loss-red-glow))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
