@@ -8,18 +8,26 @@
     "liveTracker": "Live Tracker",
     "projectedLoss": "Projected Loss",
     "timeElapsed": "Time Elapsed",
-    "flights": "flights"
+    "flights": "flights",
+    "language": "Language"
   },
   "buttons": {
-    "viewSource": "View source",
-    "learnMore": "Learn More"
+    "readMore": "Read More",
+    "viewSource": "View Source",
+    "dismiss": "Dismiss",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next"
   },
-  "common": {
-    "loading": "Loading...",
-    "error": "Error",
-    "days": "days",
-    "hours": "hours",
-    "minutes": "minutes",
-    "seconds": "seconds"
+  "labels": {
+    "breakingNews": "BREAKING NEWS",
+    "update": "UPDATE",
+    "source": "Source",
+    "lastUpdated": "Last Updated"
+  },
+  "breaking": {
+    "title": "BREAKING: Jobs minister orders Air Canada flight attendants back to work",
+    "message": "Government orders binding arbitration to end strike, operations resuming gradually",
+    "link": "https://www.reuters.com/business/world-at-work/canadian-government-moves-end-air-canada-strike-seeks-binding-arbitration-2025-08-16/"
   }
 }

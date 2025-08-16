@@ -6,13 +6,13 @@ import { SourceTooltip } from "./SourceTooltip";
 import { Clock, AlertTriangle, Gavel, Users, ArrowRight } from "lucide-react";
 
 const sources = {
-  govIntervention: {
-    title: "Government Orders End to Air Canada Strike",
-    url: "https://www.canada.ca/en/employment-social-development/news/2025/08/government-orders-end-to-air-canada-strike.html"
+  ctv: {
+    title: "CTV News - Air Canada Flight Attendants Strike",
+    url: "https://www.ctvnews.ca/business/article/air-canada-flight-attendants-officially-begin-strike/"
   },
-  ministerStatement: {
-    title: "Minister Hajdu Statement on Air Canada Labour Dispute",
-    url: "https://www.canada.ca/en/employment-social-development/news/2025/08/minister-hajdu-statement.html"
+  reuters: {
+    title: "Reuters - Government Orders End to Air Canada Strike",
+    url: "https://www.reuters.com/business/world-at-work/canadian-government-moves-end-air-canada-strike-seeks-binding-arbitration-2025-08-16/"
   },
   labourCode: {
     title: "Canada Labour Code - Section 107",
@@ -25,7 +25,7 @@ const sources = {
 };
 
 export function StrikeTimeline() {
-  const { t } = useTranslation(['content', 'common']);
+  const { t } = useTranslation('timeline');
 
   const timelineEvents = [
     {
@@ -50,7 +50,7 @@ export function StrikeTimeline() {
       description: t('timeline.events.govIntervention.description'),
       icon: Gavel,
       type: 'default' as const,
-      source: sources.govIntervention
+      source: sources.reuters
     },
     {
       time: t('timeline.events.recovery.time'),
@@ -58,7 +58,7 @@ export function StrikeTimeline() {
       description: t('timeline.events.recovery.description'),
       icon: Clock,
       type: 'secondary' as const,
-      source: sources.govIntervention
+      source: sources.reuters
     }
   ];
 
@@ -72,7 +72,7 @@ export function StrikeTimeline() {
     {
       title: t('timeline.news.operationalRecovery.title'),
       description: t('timeline.news.operationalRecovery.description'),
-      source: sources.govIntervention,
+      source: sources.reuters,
       type: 'warning' as const
     },
     {

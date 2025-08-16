@@ -6,20 +6,24 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import enCommon from '../locales/en/common.json';
 import enDashboard from '../locales/en/dashboard.json';
 import enContent from '../locales/en/content.json';
+import enTimeline from '../locales/en/timeline.json';
 import frCommon from '../locales/fr/common.json';
 import frDashboard from '../locales/fr/dashboard.json';
 import frContent from '../locales/fr/content.json';
+import frTimeline from '../locales/fr/timeline.json';
 
 const resources = {
   en: {
     common: enCommon,
     dashboard: enDashboard,
     content: enContent,
+    timeline: enTimeline,
   },
   fr: {
     common: frCommon,
     dashboard: frDashboard,
     content: frContent,
+    timeline: frTimeline,
   },
 };
 
@@ -41,7 +45,7 @@ i18n
     },
 
     defaultNS: 'common',
-    ns: ['common', 'dashboard', 'content'],
+    ns: ['common', 'dashboard', 'content', 'timeline'],
   });
 
 export default i18n;
