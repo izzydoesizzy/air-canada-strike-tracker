@@ -2,7 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Calendar, MapPin, Briefcase } from "lucide-react";
 import { SourceTooltip } from "@/components/SourceTooltip";
-
 const sources = {
   cupe: {
     title: "CUPE 4092 represents flight attendants",
@@ -13,10 +12,8 @@ const sources = {
     url: "https://www.aircanada.com/media/air-canada-receives-72-hour-strike-notice-from-cupe-and-issues-lockout-notice-in-response/"
   }
 };
-
 export function StrikeOverview() {
-  return (
-    <div className="space-y-8">
+  return <div className="space-y-8">
       <div className="text-center space-y-4">
         <h2 className="text-3xl font-light text-foreground tracking-tight">Strike Overview</h2>
         <p className="text-base text-muted-foreground max-w-2xl mx-auto">
@@ -42,7 +39,7 @@ export function StrikeOverview() {
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">Affected Workers</span>
-              <span className="font-mono font-medium">9,300+</span>
+              <span className="font-mono font-medium">10,000+</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">Strike Notice</span>
@@ -114,13 +111,12 @@ export function StrikeOverview() {
             <div className="flex items-center space-x-3">
               <Briefcase className="h-8 w-8 text-primary-blue" />
               <div>
-                <div className="text-lg font-mono font-semibold">9,300</div>
+                <div className="text-lg font-mono font-semibold">10,000+</div>
                 <div className="text-sm text-muted-foreground">Flight attendants on strike</div>
               </div>
             </div>
           </div>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 }
