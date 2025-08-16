@@ -13,7 +13,7 @@ const FLIGHT_ATTENDANTS = 10511;
 
 // Visitor simulation settings (simulated, not real analytics)
 const BASE_VISITORS_PER_HOUR = 1000; // ~1K/hour baseline
-const INITIAL_VISITOR_BASELINE = 15300; // 15.3K total at baseline
+const INITIAL_VISITOR_BASELINE = 18200; // 18.2K total at baseline
 const RATE_VARIANCE = 0.1; // ±10% small variance
 
 function diurnalFactor(hour: number) {
