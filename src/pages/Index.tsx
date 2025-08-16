@@ -40,24 +40,31 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/20 bg-surface-subtle">
+      <footer className="border-t border-border/30 bg-primary/5 backdrop-blur-sm">
         <div className="container mx-auto px-8 py-12">
-          <div className="text-center space-y-4 text-sm text-muted-foreground">
+          <div className="text-center space-y-4 text-sm text-foreground/80">
             <div className="space-y-2">
               <p>
-                <a href="https://forms.gle/f8cfuoKsXHuNuaAt9" target="_blank" rel="noopener noreferrer" className="text-primary-blue hover:text-accent-blue transition-colors underline">
+                <a href="https://forms.gle/f8cfuoKsXHuNuaAt9" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline">
                   Reach out for affiliate opportunities
                 </a>
               </p>
               <p>Data compiled from verified official sources and news reports</p>
             </div>
-            <div className="space-y-1 text-xs">
+            <div className="space-y-2 text-xs">
               <p>
-                Vibe coded by{" "}
-                <a href="http://linkedin.com/in/izzydoesizzy" target="_blank" rel="noopener noreferrer" className="text-primary-blue hover:text-accent-blue transition-colors underline">
-                  Izzy Piyale-Sheard
+                Research via{" "}
+                <a href="https://perplexity.ai/pro?referral_code=J1IO81TK" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline">
+                  Perplexity
                 </a>
               </p>
+              <p>
+                Vibe coded using{" "}
+                <a href="https://lovable.dev/invite/8433fb85-552a-4d89-ac05-c37d7794426b" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline">
+                  Lovable
+                </a>
+              </p>
+              <p>made by Izzy Piyale-Sheard</p>
             </div>
           </div>
         </div>
