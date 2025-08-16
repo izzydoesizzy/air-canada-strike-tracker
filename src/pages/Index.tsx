@@ -1,3 +1,6 @@
+import { HeroMetrics } from "@/components/HeroMetrics";
+import { StrikeDurationCounter } from "@/components/StrikeDurationCounter";
+import { StockTracker } from "@/components/StockTracker";
 import { LossCounter } from "@/components/LossCounter";
 import { StrikeInfo } from "@/components/StrikeInfo";
 import { Sources } from "@/components/Sources";
@@ -5,36 +8,50 @@ import { Sources } from "@/components/Sources";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border/20 bg-surface-elevated/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto px-8 py-6">
-          <div className="text-center space-y-2">
-            <h1 className="text-3xl font-light text-foreground tracking-tight">Air Canada Strike Impact Tracker</h1>
-            <p className="text-sm text-muted-foreground">Real-time economic impact monitoring with verified data sources</p>
-          </div>
+      {/* Hero Section */}
+      <section>
+        <HeroMetrics />
+      </section>
+
+      {/* Critical Metrics Dashboard */}
+      <section className="container mx-auto px-8 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <StrikeDurationCounter />
+          <StockTracker />
         </div>
-      </header>
+      </section>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-8 py-16 space-y-20">
-        {/* Loss Counter Section */}
-        <section>
-          <LossCounter />
-        </section>
+      {/* Detailed Loss Analysis */}
+      <section className="container mx-auto px-8 pb-16">
+        <div className="text-center space-y-4 mb-16">
+          <h2 className="text-4xl font-light text-foreground tracking-tight">Economic Impact Breakdown</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Comprehensive analysis of financial losses across different time intervals
+          </p>
+        </div>
+        <LossCounter />
+      </section>
 
-        {/* Strike Information Section */}
-        <section>
+      {/* Strike Information */}
+      <section className="bg-primary-blue-subtle/30 py-20">
+        <div className="container mx-auto px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-4xl font-light text-foreground tracking-tight">Strike Details & Background</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive overview of the labour dispute, negotiations, and operational impact
+            </p>
+          </div>
           <StrikeInfo />
-        </section>
+        </div>
+      </section>
 
-        {/* Sources Section */}
-        <section>
-          <Sources />
-        </section>
-      </main>
+      {/* Sources & Verification */}
+      <section className="container mx-auto px-8 py-20">
+        <Sources />
+      </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/20 bg-surface-subtle mt-20">
+      <footer className="border-t border-border/20 bg-surface-subtle">
         <div className="container mx-auto px-8 py-12">
           <div className="text-center space-y-2 text-sm text-muted-foreground">
             <p>Data compiled from verified official sources and news reports</p>
