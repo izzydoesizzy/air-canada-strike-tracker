@@ -44,6 +44,11 @@ const Index = () => {
         <div className="container mx-auto px-8 py-12">
           <div className="text-center space-y-4 text-sm text-muted-foreground">
             <div className="space-y-2">
+              <p>
+                <a href="https://forms.gle/f8cfuoKsXHuNuaAt9" target="_blank" rel="noopener noreferrer" className="text-primary-blue hover:text-accent-blue transition-colors underline">
+                  Reach out for affiliate opportunities
+                </a>
+              </p>
               <p>Data compiled from verified official sources and news reports</p>
             </div>
             <div className="space-y-1 text-xs">

@@ -10,6 +10,13 @@ const LOSS_PER_MINUTE = LOSS_PER_DAY / (24 * 60);
 const LOSS_PER_SECOND = LOSS_PER_DAY / (24 * 60 * 60);
 const FLIGHT_ATTENDANTS = 10511;
 
+// Visitor tracking constants
+const BASE_VISITORS_8AM = 6000; // 6K visitors at 8 AM
+const CURRENT_VISITORS_9AM = 7300; // 7.3K visitors at 9 AM
+const VISITORS_PER_HOUR = 1300; // 1.3K visitors per hour
+const VISITORS_PER_MINUTE = VISITORS_PER_HOUR / 60;
+const VISITORS_PER_SECOND = VISITORS_PER_HOUR / 3600;
+
 const sources = {
   dailyLoss: {
     title: "TD Cowen analyst estimates C$300M ($217M) loss for 3-day strike - Reuters",
@@ -37,6 +44,11 @@ export function StrikeImpactDashboard() {
   const totalLoss = daysElapsed * LOSS_PER_DAY;
   const totalLossPerFA = totalLoss / FLIGHT_ATTENDANTS;
 
+  // Visitor calculations
+  const hoursElapsedSinceStart = timeElapsed / (1000 * 60 * 60);
+  const totalVisitors = BASE_VISITORS_8AM + (hoursElapsedSinceStart * VISITORS_PER_HOUR);
+  const currentVisitorRate = VISITORS_PER_HOUR;
+
   const daysElapsedWhole = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
   const hoursElapsed = Math.floor((timeElapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutesElapsed = Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60));
@@ -60,6 +72,15 @@ export function StrikeImpactDashboard() {
       return `$${(amount / 1000).toFixed(0)}K`;
     }
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+  };
+
+  const formatVisitors = (count: number) => {
+    if (count >= 1000000) {
+      return `${(count / 1000000).toFixed(1)}M`;
+    } else if (count >= 1000) {
+      return `${(count / 1000).toFixed(1)}K`;
+    }
+    return Math.round(count).toLocaleString();
   };
 
   return (
@@ -87,7 +108,7 @@ export function StrikeImpactDashboard() {
           </div>
 
           {/* Main Side-by-Side Impact Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
                 <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Total Strike Losses</h2>
@@ -119,6 +140,40 @@ export function StrikeImpactDashboard() {
                   <p className="text-sm text-muted-foreground">burned per worker</p>
                   <div className="text-lg font-mono text-loss-indicator">
                     +{formatCurrency(LOSS_PER_DAY / FLIGHT_ATTENDANTS)}/day each
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
+              <div className="text-center space-y-6">
+                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Total Page Visitors</h2>
+                <div className="h-20 flex items-center justify-center">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-primary-blue leading-none animate-fade-in overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
+                    {formatVisitors(totalVisitors)}
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-sm text-muted-foreground">and counting...</p>
+                  <div className="text-lg font-mono text-primary-blue">
+                    +{Math.round(VISITORS_PER_SECOND * 10) / 10}/sec
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
+              <div className="text-center space-y-6">
+                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Visitors Per Hour</h2>
+                <div className="h-20 flex items-center justify-center">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-primary-blue leading-none animate-fade-in overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
+                    {formatVisitors(currentVisitorRate)}
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-sm text-muted-foreground">current rate</p>
+                  <div className="text-lg font-mono text-primary-blue">
+                    +{Math.round(VISITORS_PER_MINUTE)}/min
                   </div>
                 </div>
               </div>
