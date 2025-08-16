@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, TrendingDown, Plane, AlertCircle } from "lucide-react";
 import { LanguageNavigation } from "./LanguageNavigation";
+import { MobileNavigationMenu } from "./MobileNavigationMenu";
+import { DesktopNavigationMenu } from "./DesktopNavigationMenu";
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00");
 const LOSS_PER_DAY = 100000000;
 export function Navigation() {
@@ -70,33 +71,35 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-6 text-sm">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-muted-foreground hover:text-foreground transition-colors">
-              {t('navigation.liveTracker')}
-            </button>
-            <button onClick={() => scrollToSection('story')} className="text-muted-foreground hover:text-foreground transition-colors">
-              The Story
-            </button>
-            <button onClick={() => scrollToSection('timeline')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Timeline
-            </button>
-            <button onClick={() => scrollToSection('analysis')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Analysis
-            </button>
-            <button onClick={() => scrollToSection('resources')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Resources
-            </button>
-            <button onClick={() => scrollToSection('sources')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Sources
-            </button>
+          {/* Enhanced Navigation */}
+          <div className="flex items-center space-x-4">
+            {/* Quick Live Tracker Link - Always visible on desktop */}
+            <div className="hidden lg:block">
+              <button 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t('navigation.liveTracker')}
+              </button>
+            </div>
+
+            {/* Desktop collapsible navigation */}
+            <DesktopNavigationMenu scrollToSection={scrollToSection} />
+
             {/* Desktop language navigation */}
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <LanguageNavigation />
             </div>
-          </div>
 
-          {/* Last Updated */}
+            {/* Mobile navigation menu */}
+            <MobileNavigationMenu 
+              currentTime={currentTime}
+              strikeStart={STRIKE_START}
+              totalLoss={totalLoss}
+              formatCompactCurrency={formatCompactCurrency}
+              scrollToSection={scrollToSection}
+            />
+          </div>
           
         </div>
       </div>

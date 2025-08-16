@@ -10,7 +10,18 @@
     "timeElapsed": "Time Elapsed",
     "flights": "flights",
     "language": "Language",
-    "resources": "Resources"
+    "resources": "Resources",
+    "menu": "Menu",
+    "liveData": "Live Data",
+    "quickNavigation": "Quick Navigation",
+    "mainContent": "Main Content",
+    "additionalInfo": "Additional Info",
+    "settings": "Settings",
+    "theStory": "The Story",
+    "timeline": "Timeline",
+    "analysis": "Analysis",
+    "breakingNews": "Breaking News",
+    "keyUpdates": "Key Updates"
   },
   "buttons": {
     "readMore": "Read More",

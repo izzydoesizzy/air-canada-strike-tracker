@@ -10,7 +10,18 @@
     "timeElapsed": "Temps Écoulé",
     "flights": "vols",
     "language": "Langue",
-    "resources": "Ressources"
+    "resources": "Ressources",
+    "menu": "Menu",
+    "liveData": "Données en Direct",
+    "quickNavigation": "Navigation Rapide",
+    "mainContent": "Contenu Principal",
+    "additionalInfo": "Informations Additionnelles",
+    "settings": "Paramètres",
+    "theStory": "L'Histoire",
+    "timeline": "Chronologie",
+    "analysis": "Analyse",
+    "breakingNews": "Nouvelles de Dernière Heure",
+    "keyUpdates": "Mises à Jour Importantes"
   },
   "buttons": {
     "readMore": "Lire la suite",
