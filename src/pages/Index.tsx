@@ -50,6 +50,7 @@ const Index = () => {
                 <p className="text-sm text-foreground/80">
                   by <a href="http://linkedin.com/in/izzydoesizzy" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:text-primary/90 transition-colors underline">Izzy Piyale-Sheard</a>
                 </p>
+                <p className="text-sm text-primary font-medium">strikecost.ca</p>
               </div>
               <div className="space-y-1 text-xs text-foreground/70">
                 <p>
