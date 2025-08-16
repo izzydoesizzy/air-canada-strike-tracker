@@ -13,10 +13,10 @@ export function LanguageSwitcher() {
 
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       size="sm"
       onClick={toggleLanguage}
-      className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+      className="flex items-center gap-2 text-foreground border-border hover:bg-accent hover:text-accent-foreground transition-colors font-medium"
     >
       <Globe className="h-4 w-4" />
       <span className="text-sm font-medium">

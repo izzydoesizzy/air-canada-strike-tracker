@@ -43,6 +43,10 @@ export function Navigation() {
               <AlertCircle className="h-3 w-3" />
               <span className="text-xs font-medium">{t('navigation.status')}</span>
             </Badge>
+            {/* Mobile-prominent language switcher */}
+            <div className="md:hidden">
+              <LanguageSwitcher />
+            </div>
           </div>
 
           {/* Quick Stats */}
@@ -80,7 +84,10 @@ export function Navigation() {
             <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-muted-foreground hover:text-foreground transition-colors">
               {t('navigation.liveTracker')}
             </button>
-            <LanguageSwitcher />
+            {/* Desktop language switcher */}
+            <div className="hidden md:block">
+              <LanguageSwitcher />
+            </div>
           </div>
 
           {/* Last Updated */}
