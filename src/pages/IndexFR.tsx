@@ -124,7 +124,7 @@ const IndexFR = () => {
                   href="/fr/changelog" 
                   className="block text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                 >
-                  {t('navigation.changelog')}
+                  Journal du Site Web
                 </a>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Suivez toutes les mises à jour et améliorations du tracker.
