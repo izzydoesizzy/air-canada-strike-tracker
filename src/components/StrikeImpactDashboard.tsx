@@ -100,7 +100,7 @@ export function StrikeImpactDashboard() {
               <span className="text-sm font-medium text-primary-blue uppercase tracking-wide">Air Canada Labour Dispute</span>
             </div>
             <h1 className="text-display-large md:text-[5rem] font-light text-foreground tracking-tight leading-none">
-              Strike Impact Tracker
+              Projected Strike Impact Tracker
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground font-normal max-w-3xl mx-auto leading-relaxed">
               Live projection of economic impact based on analyst estimates

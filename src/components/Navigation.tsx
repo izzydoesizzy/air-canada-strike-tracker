@@ -33,7 +33,7 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo and Status */}
           <div className="flex items-center space-x-4">
-            <h1 className="text-lg font-semibold text-foreground">Air Canada Strike Tracker</h1>
+            <h1 className="text-lg font-semibold text-foreground">Air Canada Projected Strike Tracker</h1>
             <Badge variant="destructive" className="flex items-center space-x-1">
               <AlertCircle className="h-3 w-3" />
               <span className="text-xs font-medium">ONGOING</span>
@@ -47,7 +47,7 @@ export function Navigation() {
               <span className="font-mono text-loss-indicator font-medium">
                 {formatCompactCurrency(totalLoss)}
               </span>
-              <span className="text-muted-foreground">lost</span>
+              <span className="text-muted-foreground">projected loss</span>
             </div>
             <div className="flex items-center space-x-2 text-sm">
               <Clock className="h-4 w-4 text-muted-foreground" />
