@@ -86,42 +86,37 @@ export function StrikeImpactDashboard() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/5 via-background to-primary-blue-subtle"></div>
       
-      <div className="relative z-10 py-20 px-8">
-        <div className="max-w-7xl mx-auto space-y-16">
-          {/* Main headline */}
-          <div className="text-center space-y-6">
-            <div className="inline-flex items-center space-x-3 px-6 py-3 bg-primary-blue/10 border border-primary-blue/20 rounded-full mb-4">
-              <Plane className="h-5 w-5 text-primary-blue" />
-              <span className="text-sm font-medium text-primary-blue uppercase tracking-wide">Air Canada Labour Dispute</span>
+      <div className="relative z-10 py-8 px-8">
+        <div className="max-w-7xl mx-auto space-y-8">
+          {/* Compact headline */}
+          <div className="text-center space-y-4">
+            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-primary-blue/10 border border-primary-blue/20 rounded-full">
+              <Plane className="h-4 w-4 text-primary-blue" />
+              <span className="text-xs font-medium text-primary-blue uppercase tracking-wide">Air Canada Labour Dispute</span>
             </div>
-            <h1 className="text-display-large md:text-[5rem] font-light text-foreground tracking-tight leading-none">
-              Projected Strike Impact Tracker
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground tracking-tight leading-tight">
+              Strike Impact Tracker
             </h1>
-            <a 
-              href="https://strikecost.ca" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-primary-blue/10 border border-primary/20 rounded-full text-primary hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group"
-            >
-              <span className="text-sm font-medium">strikecost.ca</span>
-              <svg className="w-3 h-3 opacity-70 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-            <p className="text-lg md:text-xl text-muted-foreground font-normal max-w-3xl mx-auto leading-relaxed">
-              Live projection of economic impact based on analyst estimates
-            </p>
-            <div className="flex items-center justify-center space-x-2 text-xs text-muted-foreground/70 bg-muted/20 px-4 py-2 rounded-full border border-border/30 max-w-2xl mx-auto">
-              <span className="font-medium text-warning">PROJECTED</span>
+            <div className="flex items-center justify-center space-x-4 text-sm text-muted-foreground">
+              <a 
+                href="https://strikecost.ca" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-1 text-primary hover:text-primary/80 transition-colors"
+              >
+                <span>strikecost.ca</span>
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
               <span>•</span>
-              <span>Based on TD Cowen analyst estimates, not confirmed losses</span>
+              <SourceTooltip source={sources.strikeStart}>
+                <span className="cursor-help">Since Aug 16, 1:00 AM ET</span>
+              </SourceTooltip>
             </div>
-            <SourceTooltip source={sources.strikeStart}>
-              <p className="text-sm text-muted-foreground/70">Since August 16, 2025 at 1:00 AM ET</p>
-            </SourceTooltip>
           </div>
 
-          {/* Main Side-by-Side Impact Cards - 2x2 grid layout */}
+          {/* Key Financial Numbers - Priority Above Fold */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
@@ -195,6 +190,15 @@ export function StrikeImpactDashboard() {
                 </div>
               </div>
             </Card>
+          </div>
+
+          {/* Compact disclaimer */}
+          <div className="text-center">
+            <div className="inline-flex items-center space-x-2 text-xs text-muted-foreground/70 bg-muted/20 px-3 py-1 rounded-full border border-border/30">
+              <span className="font-medium text-warning">PROJECTED</span>
+              <span>•</span>
+              <span>Based on TD Cowen analyst estimates</span>
+            </div>
           </div>
 
           {/* Live Breakdown Stats */}
