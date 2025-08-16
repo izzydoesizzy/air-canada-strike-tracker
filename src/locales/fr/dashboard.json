@@ -1,6 +1,10 @@
 {
   "title": "Grève des Agents de Bord d'Air Canada",
   "subtitle": "Suivi en temps réel de l'impact financier",
+  "badge": {
+    "laborDispute": "Conflit de Travail Air Canada",
+    "sinceStart": "Depuis le 16 août, 1h00 HE"
+  },
   "metrics": {
     "projectedStrikeLosses": "Pertes Projetées de la Grève",
     "lossPerFlightAttendant": "Perte par Agent de Bord",
@@ -16,6 +20,21 @@
   "milestones": {
     "strikeDuration": "Durée de la Grève",
     "impactPerFA": "Impact par Agent de Bord (10 Jours)"
+  },
+  "labels": {
+    "basedOnAnalyst": "basé sur les projections d'analystes",
+    "projectedRate": "taux projeté",
+    "burnedPerWorker": "brûlé par travailleur",
+    "perDayEach": "/jour chacun",
+    "andCounting": "et ça continue...",
+    "currentRate": "taux actuel",
+    "burnedPerFA": "brûlé par agent de bord"
+  },
+  "timeUnits": {
+    "days": "JOURS",
+    "hours": "H",
+    "minutes": "MIN",
+    "seconds": "SEC"
   },
   "disclaimer": "* Projections basées sur des données publiques et des estimations industrielles"
 }

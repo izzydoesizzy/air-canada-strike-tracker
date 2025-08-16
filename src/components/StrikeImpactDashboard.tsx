@@ -135,7 +135,7 @@ export function StrikeImpactDashboard() {
           <div className="text-center space-y-4">
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-primary-blue/10 border border-primary-blue/20 rounded-full">
               <Plane className="h-4 w-4 text-primary-blue" />
-              <span className="text-xs font-medium text-primary-blue uppercase tracking-wide">Air Canada Labour Dispute</span>
+              <span className="text-xs font-medium text-primary-blue uppercase tracking-wide">{t('badge.laborDispute')}</span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground tracking-tight leading-tight">
               {t('title')}
@@ -154,7 +154,7 @@ export function StrikeImpactDashboard() {
               </a>
               <span>•</span>
               <SourceTooltip source={sources.strikeStart}>
-                <span className="cursor-help">Since Aug 16, 1:00 AM ET</span>
+                <span className="cursor-help">{t('badge.sinceStart')}</span>
               </SourceTooltip>
             </div>
           </div>
@@ -175,9 +175,9 @@ export function StrikeImpactDashboard() {
                   </div>
                 </SourceTooltip>
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">based on analyst projections</p>
+                  <p className="text-sm text-muted-foreground">{t('labels.basedOnAnalyst')}</p>
                   <div className="text-lg font-mono text-loss-indicator">
-                    projected rate: {formatCurrency(LOSS_PER_SECOND)}/sec
+                    {t('labels.projectedRate')}: {formatCurrency(LOSS_PER_SECOND)}/sec
                   </div>
                 </div>
               </div>
@@ -192,9 +192,9 @@ export function StrikeImpactDashboard() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">burned per worker</p>
+                  <p className="text-sm text-muted-foreground">{t('labels.burnedPerWorker')}</p>
                   <div className="text-lg font-mono text-loss-indicator">
-                    +{formatCurrency(LOSS_PER_DAY / FLIGHT_ATTENDANTS)}/day each
+                    +{formatCurrency(LOSS_PER_DAY / FLIGHT_ATTENDANTS)}{t('labels.perDayEach')}
                   </div>
                 </div>
               </div>
@@ -212,7 +212,7 @@ export function StrikeImpactDashboard() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">and counting...</p>
+                  <p className="text-sm text-muted-foreground">{t('labels.andCounting')}</p>
                   <div className="text-lg font-mono text-primary-blue">
                     +{Math.round(currentVisitorsPerSecond * 10) / 10}/sec
                   </div>
@@ -232,7 +232,7 @@ export function StrikeImpactDashboard() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">current rate</p>
+                  <p className="text-sm text-muted-foreground">{t('labels.currentRate')}</p>
                   <div className="text-lg font-mono text-primary-blue">
                     +{Math.round(currentVisitorsPerMinute)}/min
                   </div>
@@ -294,19 +294,19 @@ export function StrikeImpactDashboard() {
                 <div className="grid grid-cols-4 gap-2 text-center">
                   <div>
                     <div className="text-number-small font-mono text-loss-indicator">{daysElapsedWhole.toString().padStart(2, '0')}</div>
-                    <div className="text-xs text-muted-foreground font-medium">DAYS</div>
+                    <div className="text-xs text-muted-foreground font-medium">{t('timeUnits.days')}</div>
                   </div>
                   <div>
                     <div className="text-number-small font-mono text-loss-indicator">{hoursElapsed.toString().padStart(2, '0')}</div>
-                    <div className="text-xs text-muted-foreground font-medium">HRS</div>
+                    <div className="text-xs text-muted-foreground font-medium">{t('timeUnits.hours')}</div>
                   </div>
                   <div>
                     <div className="text-number-small font-mono text-loss-indicator">{minutesElapsed.toString().padStart(2, '0')}</div>
-                    <div className="text-xs text-muted-foreground font-medium">MIN</div>
+                    <div className="text-xs text-muted-foreground font-medium">{t('timeUnits.minutes')}</div>
                   </div>
                   <div>
                     <div className="text-number-small font-mono text-loss-indicator">{secondsElapsed.toString().padStart(2, '0')}</div>
-                    <div className="text-xs text-muted-foreground font-medium">SEC</div>
+                    <div className="text-xs text-muted-foreground font-medium">{t('timeUnits.seconds')}</div>
                   </div>
                 </div>
               </div>
@@ -318,7 +318,7 @@ export function StrikeImpactDashboard() {
                 <div className="text-number-large font-mono text-loss-indicator">
                   $95,000
                 </div>
-                <p className="text-sm text-muted-foreground">burned per flight attendant</p>
+                <p className="text-sm text-muted-foreground">{t('labels.burnedPerFA')}</p>
               </div>
             </Card>
           </div>
