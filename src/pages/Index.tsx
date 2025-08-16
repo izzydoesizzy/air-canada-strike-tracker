@@ -1,4 +1,5 @@
 import { Navigation } from "@/components/Navigation";
+import { StoryIntroduction } from "@/components/StoryIntroduction";
 import { HeroMetrics } from "@/components/HeroMetrics";
 import { StrikeOverview } from "@/components/StrikeOverview";
 import { StrikeDurationCounter } from "@/components/StrikeDurationCounter";
@@ -12,6 +13,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <Navigation />
+
+      {/* Story Introduction */}
+      <StoryIntroduction />
 
       {/* Hero Dashboard */}
       <section id="hero">
@@ -39,28 +43,28 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Market Response */}
-      <section id="market" className="container mx-auto px-8 py-20">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-display-small font-light text-foreground">Market Response</h2>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-            Air Canada stock performance and market reaction to the labour disruption
-          </p>
-        </div>
-        <StockTracker />
-      </section>
-
-      {/* Detailed Analysis */}
+      {/* The Human Reality */}
       <section id="analysis" className="bg-primary-blue-subtle/20 py-20">
         <div className="container mx-auto px-8">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-display-small font-light text-foreground">Detailed Analysis</h2>
+            <h2 className="text-display-small font-light text-foreground">The Human Reality</h2>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive breakdown of the labour dispute and operational impact
+              Understanding the workers' perspective and the broader labour dispute context
             </p>
           </div>
           <StrikeInfo />
         </div>
+      </section>
+
+      {/* Market Response */}
+      <section id="market" className="container mx-auto px-8 py-20">
+        <div className="text-center space-y-4 mb-16">
+          <h2 className="text-display-small font-light text-foreground">Secondary Market Effects</h2>
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+            While the human cost matters most, here's how markets are responding
+          </p>
+        </div>
+        <StockTracker />
       </section>
 
       {/* Sources & Verification */}

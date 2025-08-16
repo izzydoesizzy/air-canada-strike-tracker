@@ -6,7 +6,10 @@ const STRIKE_START = new Date("2025-08-16T01:00:00-04:00"); // August 16, 2025, 
 const LOSS_PER_DAY = 100000000; // $100M per day
 const LOSS_PER_HOUR = LOSS_PER_DAY / 24;
 const LOSS_PER_MINUTE = LOSS_PER_DAY / (24 * 60);
-const LOSS_PER_ATTENDANT_PER_DAY = 10000; // $10K per attendant per day
+const LOSS_PER_SECOND = LOSS_PER_DAY / (24 * 60 * 60); // $1,157 per second
+const FLIGHT_ATTENDANTS = 10511; // Official number of Air Canada flight attendants
+const LOSS_PER_ATTENDANT_PER_DAY = LOSS_PER_DAY / FLIGHT_ATTENDANTS;
+const LOSS_PER_FA_PER_SECOND = LOSS_PER_SECOND / FLIGHT_ATTENDANTS; // ~$0.11 per FA per second
 
 const sources = {
   dailyLoss: {
@@ -38,8 +41,10 @@ export function LossCounter() {
   const daysElapsed = timeElapsed / (1000 * 60 * 60 * 24);
   const hoursElapsed = timeElapsed / (1000 * 60 * 60);
   const minutesElapsed = timeElapsed / (1000 * 60);
-
-  const totalLoss = daysElapsed * LOSS_PER_DAY;
+  const secondsElapsed = timeElapsed / 1000;
+  
+  const totalLoss = secondsElapsed * LOSS_PER_SECOND;
+  const totalLossPerFA = totalLoss / FLIGHT_ATTENDANTS;
 
   const formatCurrency = (amount: number) => {
     if (amount >= 1000000000) {
@@ -95,10 +100,10 @@ export function LossCounter() {
       </Card>
 
       {/* Breakdown Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
-          <div className="text-center space-y-4">
-            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Estimated Daily Impact</h3>
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+        <Card className="p-6 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
+          <div className="text-center space-y-3">
+            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Day</h3>
             <SourceTooltip source={sources.dailyLoss}>
               <div className="text-number-small font-mono font-medium text-loss-indicator group-hover:scale-105 transition-transform duration-200">
                 {formatCurrency(LOSS_PER_DAY)}
@@ -107,8 +112,8 @@ export function LossCounter() {
           </div>
         </Card>
 
-        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
-          <div className="text-center space-y-4">
+        <Card className="p-6 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
+          <div className="text-center space-y-3">
             <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Hour</h3>
             <div className="text-number-small font-mono font-medium text-loss-indicator group-hover:scale-105 transition-transform duration-200">
               {formatCurrency(LOSS_PER_HOUR)}
@@ -116,8 +121,8 @@ export function LossCounter() {
           </div>
         </Card>
 
-        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
-          <div className="text-center space-y-4">
+        <Card className="p-6 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
+          <div className="text-center space-y-3">
             <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Minute</h3>
             <div className="text-number-small font-mono font-medium text-loss-indicator group-hover:scale-105 transition-transform duration-200">
               {formatCurrency(LOSS_PER_MINUTE)}
@@ -125,17 +130,41 @@ export function LossCounter() {
           </div>
         </Card>
 
-        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
-          <div className="text-center space-y-4">
-            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Flight Attendant Daily</h3>
+        <Card className="p-6 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
+          <div className="text-center space-y-3">
+            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Second</h3>
+            <div className="text-number-small font-mono font-medium text-loss-indicator group-hover:scale-105 transition-transform duration-200">
+              {formatCurrency(LOSS_PER_SECOND)}
+            </div>
+          </div>
+        </Card>
+
+        <Card className="p-6 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
+          <div className="text-center space-y-3">
+            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Total Per Flight Attendant</h3>
             <SourceTooltip source={sources.attendantCount}>
               <div className="text-number-small font-mono font-medium text-loss-indicator group-hover:scale-105 transition-transform duration-200">
-                {formatCurrency(LOSS_PER_ATTENDANT_PER_DAY)}
+                {formatCurrency(totalLossPerFA)}
               </div>
             </SourceTooltip>
           </div>
         </Card>
       </div>
+
+      {/* Comparative Context */}
+      <Card className="p-8 bg-gradient-to-r from-amber-500/10 to-loss-indicator/10 border border-amber-500/20">
+        <div className="text-center space-y-4">
+          <h3 className="text-lg font-semibold text-foreground">The Financial Absurdity</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            In just <span className="font-mono text-loss-indicator font-semibold">{Math.ceil(daysElapsed)}</span> days, 
+            Air Canada has lost more than it would cost to provide fair annual wage increases 
+            to all <span className="font-semibold">{FLIGHT_ATTENDANTS.toLocaleString()}</span> flight attendants.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Every second costs <span className="font-mono text-loss-indicator font-semibold">${LOSS_PER_FA_PER_SECOND.toFixed(2)}</span> per flight attendant
+          </p>
+        </div>
+      </Card>
 
       {/* Live Stats */}
       <Card className="p-8 bg-primary-blue-subtle border border-primary-blue/10 shadow-elegant">
