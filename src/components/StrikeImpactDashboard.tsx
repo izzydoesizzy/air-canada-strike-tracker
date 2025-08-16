@@ -11,7 +11,7 @@ const LOSS_PER_SECOND = LOSS_PER_DAY / (24 * 60 * 60);
 const FLIGHT_ATTENDANTS = 10511;
 
 // Visitor tracking constants
-const CURRENT_TOTAL_VISITORS = 8300; // 8.3K visitors currently
+const CURRENT_TOTAL_VISITORS = 9000; // 9K visitors currently
 const BASE_VISITORS_PER_HOUR = 1000; // Base 1K visitors per hour
 const ACCELERATION_FACTOR = 0.1; // 10% increase per hour
 const BASE_VISITORS_PER_MINUTE = BASE_VISITORS_PER_HOUR / 60;

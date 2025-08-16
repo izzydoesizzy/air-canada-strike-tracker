@@ -46,21 +46,21 @@ const Index = () => {
             {/* Left side - Personal & Credits */}
             <div className="space-y-4">
               <div className="space-y-2">
-                <h3 className="text-base font-medium text-foreground">Made with curiosity ✨</h3>
+                <h3 className="text-sm font-semibold text-foreground">Made with curiosity ✨</h3>
                 <p className="text-sm text-foreground/80">
-                  by <span className="font-medium text-primary">Izzy Piyale-Sheard</span>
+                  by <span className="font-semibold text-primary">Izzy Piyale-Sheard</span>
                 </p>
               </div>
               <div className="space-y-1 text-xs text-foreground/70">
                 <p>
                   Research powered by{" "}
-                  <a href="https://perplexity.ai/pro?referral_code=J1IO81TK" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline font-medium">
+                  <a href="https://perplexity.ai/pro?referral_code=J1IO81TK" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/90 transition-colors underline font-medium">
                     Perplexity
                   </a>
                 </p>
                 <p>
                   Built with{" "}
-                  <a href="https://lovable.dev/invite/8433fb85-552a-4d89-ac05-c37d7794426b" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline font-medium">
+                  <a href="https://lovable.dev/invite/8433fb85-552a-4d89-ac05-c37d7794426b" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/90 transition-colors underline font-medium">
                     Lovable
                   </a>
                 </p>
@@ -70,16 +70,16 @@ const Index = () => {
             {/* Right side - Data & Business */}
             <div className="space-y-4 md:text-right">
               <div className="space-y-2">
-                <p className="text-sm text-foreground/80 font-medium">
+                <p className="text-sm text-foreground/80 font-semibold">
                   Data compiled from verified official sources and news reports
                 </p>
-                <p className="text-xs text-foreground/60">
+                <p className="text-xs text-foreground/70">
                   Numbers based on publicly available analyst projections
                 </p>
               </div>
               <div className="text-xs">
-                <a href="https://forms.gle/f8cfuoKsXHuNuaAt9" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline font-medium">
-                  Reach out for affiliate opportunities →
+                <a href="https://forms.gle/f8cfuoKsXHuNuaAt9" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/90 transition-colors underline font-medium">
+                  Reach out for advertising/affiliate opportunities →
                 </a>
               </div>
             </div>
