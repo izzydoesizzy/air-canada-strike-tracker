@@ -6,6 +6,7 @@ import { StoryIntroduction } from "@/components/StoryIntroduction";
 import { StoryHighlights } from "@/components/StoryHighlights";
 import { StrikeImpactDashboard } from "@/components/StrikeImpactDashboard";
 import { StrikeOverview } from "@/components/StrikeOverview";
+import { StrikeTimeline } from "@/components/StrikeTimeline";
 import { StrikeInfo } from "@/components/StrikeInfo";
 import { Sources } from "@/components/Sources";
 
@@ -38,6 +39,9 @@ const IndexFR = () => {
       <section id="overview" className="container mx-auto px-8 py-20">
         <StrikeOverview />
       </section>
+
+      {/* Strike Timeline & Updates */}
+      <StrikeTimeline />
 
       {/* The Human Reality */}
       <section id="analysis" className="bg-surface-subtle/50 py-20">

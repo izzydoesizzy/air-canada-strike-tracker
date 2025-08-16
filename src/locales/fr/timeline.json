@@ -1,0 +1,51 @@
+{
+  "title": "Chronologie de la Grève et Dernières Mises à Jour",
+  "description": "Événements clés et développements actuels dans le conflit de travail des agents de bord d'Air Canada et l'intervention gouvernementale.",
+  "sections": {
+    "events": "Chronologie des Événements",
+    "updates": "Nouvelles et Mises à Jour"
+  },
+  "sectionsDescription": {
+    "events": "Séquence chronologique des développements majeurs du conflit de travail",
+    "updates": "Informations actuelles sur l'intervention gouvernementale et le processus de rétablissement"
+  },
+  "events": {
+    "negotiations": {
+      "time": "12-15 août 2025",
+      "title": "Échec des Négociations",
+      "description": "Rupture des pourparlers entre Air Canada et le SCFP concernant les augmentations salariales et les conditions de travail. Le syndicat rejette l'offre finale de l'entreprise."
+    },
+    "strikeStart": {
+      "time": "16 août, 0h58 HE",
+      "title": "Début de la Grève",
+      "description": "Les agents de bord d'Air Canada commencent officiellement la grève. Tous les vols annulés, affectant des milliers de passagers."
+    },
+    "govIntervention": {
+      "time": "16 août, Soirée",
+      "title": "Intervention Gouvernementale",
+      "description": "La ministre de l'Emploi Patty Hajdu ordonne un arbitrage exécutoire en vertu de l'article 107 du Code canadien du travail, mettant fin à la grève."
+    },
+    "recovery": {
+      "time": "17-21 août 2025",
+      "title": "Période de Rétablissement",
+      "description": "Les opérations d'Air Canada reprennent graduellement. Rétablissement complet du réseau prévu dans les 4-5 jours suivant l'ordre gouvernemental."
+    }
+  },
+  "news": {
+    "bindingArbitration": {
+      "title": "Processus d'Arbitrage Exécutoire Initié",
+      "description": "Le Conseil canadien des relations industrielles supervisera l'arbitrage accéléré. Les deux parties doivent accepter la décision finale de l'arbitre sur les salaires, avantages et conditions de travail."
+    },
+    "operationalRecovery": {
+      "title": "Délai de Rétablissement de 4-5 Jours",
+      "description": "Air Canada prévoit un rétablissement graduel des opérations de vol sur 4-5 jours. Les passagers doivent s'attendre à des retards et annulations continues pendant cette période."
+    },
+    "unionResponse": {
+      "title": "Déclaration du SCFP sur l'Arbitrage Forcé",
+      "description": "La direction syndicale exprime sa déception face à l'intervention gouvernementale mais confirme la conformité à l'ordre de retour au travail pendant l'arbitrage."
+    }
+  },
+  "badges": {
+    "update": "MISE À JOUR"
+  }
+}

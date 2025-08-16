@@ -1,0 +1,51 @@
+{
+  "title": "Strike Timeline & Latest Updates",
+  "description": "Key events and current developments in the Air Canada flight attendant labor dispute and government intervention.",
+  "sections": {
+    "events": "Timeline of Events",
+    "updates": "Latest News & Updates"
+  },
+  "sectionsDescription": {
+    "events": "Chronological sequence of major developments in the labor dispute",
+    "updates": "Current information about government intervention and recovery process"
+  },
+  "events": {
+    "negotiations": {
+      "time": "Aug 12-15, 2025",
+      "title": "Failed Negotiations",
+      "description": "Breakdown in talks between Air Canada and CUPE over wage increases and working conditions. Union rejects company's final offer."
+    },
+    "strikeStart": {
+      "time": "Aug 16, 12:58 AM ET",
+      "title": "Strike Begins",
+      "description": "Air Canada flight attendants officially begin strike action. All flights cancelled, affecting thousands of passengers."
+    },
+    "govIntervention": {
+      "time": "Aug 16, Evening",
+      "title": "Government Intervention",
+      "description": "Jobs Minister Patty Hajdu orders binding arbitration under Section 107 of the Canada Labour Code, effectively ending the strike."
+    },
+    "recovery": {
+      "time": "Aug 17-21, 2025",
+      "title": "Recovery Period",
+      "description": "Air Canada operations resume gradually. Full network restoration expected within 4-5 days of government order."
+    }
+  },
+  "news": {
+    "bindingArbitration": {
+      "title": "Binding Arbitration Process Initiated",
+      "description": "The Canada Industrial Relations Board will oversee fast-tracked arbitration. Both parties must accept the arbitrator's final decision on wages, benefits, and working conditions."
+    },
+    "operationalRecovery": {
+      "title": "4-5 Day Recovery Timeline",
+      "description": "Air Canada expects gradual restoration of flight operations over 4-5 days. Passengers should expect continued delays and cancellations during this recovery period."
+    },
+    "unionResponse": {
+      "title": "CUPE Statement on Forced Arbitration",
+      "description": "Union leadership expresses disappointment with government intervention but confirms compliance with back-to-work order while arbitration proceeds."
+    }
+  },
+  "badges": {
+    "update": "UPDATE"
+  }
+}
