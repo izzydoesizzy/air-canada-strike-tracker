@@ -36,6 +36,9 @@ const IndexEN = () => {
 
       {/* Strike Analysis - Comprehensive details */}
       <StrikeAnalysis />
+      
+      {/* Resources Section */}
+      <Resources />
 
       {/* Sources & Verification */}
       <section id="sources" className="container mx-auto px-8 py-20">
