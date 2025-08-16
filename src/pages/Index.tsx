@@ -56,7 +56,7 @@ const Index = () => {
             </div>
             <div className="space-y-1 text-xs">
               <p>
-                Coded by{" "}
+                Vibe coded by{" "}
                 <a 
                   href="http://linkedin.com/in/izzydoesizzy" 
                   target="_blank" 
@@ -65,8 +65,6 @@ const Index = () => {
                 >
                   Izzy Piyale-Sheard
                 </a>
-                {" • "}
-                Idea from Jeska Eedens
               </p>
             </div>
           </div>
