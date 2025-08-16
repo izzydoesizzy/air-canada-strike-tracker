@@ -35,7 +35,6 @@ export function Navigation() {
           <div className="flex items-center space-x-4">
             <div className="flex flex-col">
               <h1 className="text-lg font-semibold text-foreground">Air Canada Projected Strike Tracker</h1>
-              <span className="text-sm text-primary font-medium">strikecost.ca</span>
             </div>
             <Badge variant="destructive" className="flex items-center space-x-1">
               <AlertCircle className="h-3 w-3" />

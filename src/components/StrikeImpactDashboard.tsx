@@ -93,9 +93,17 @@ export function StrikeImpactDashboard() {
             <h1 className="text-display-large md:text-[5rem] font-light text-foreground tracking-tight leading-none">
               Projected Strike Impact Tracker
             </h1>
-            <div className="text-xl md:text-2xl font-semibold text-primary mb-2">
-              strikecost.ca
-            </div>
+            <a 
+              href="https://strikecost.ca" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-primary-blue/10 border border-primary/20 rounded-full text-primary hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group"
+            >
+              <span className="text-sm font-medium">strikecost.ca</span>
+              <svg className="w-3 h-3 opacity-70 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
             <p className="text-lg md:text-xl text-muted-foreground font-normal max-w-3xl mx-auto leading-relaxed">
               Live projection of economic impact based on analyst estimates
             </p>
