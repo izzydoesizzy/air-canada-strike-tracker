@@ -46,27 +46,27 @@ const Index = () => {
             
             {/* Creator & Tools */}
             <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-foreground tracking-wide">Creator & Tools</h3>
-              <div className="space-y-4">
+              <h3 className="text-base font-semibold text-foreground tracking-wide">Creator & Tools</h3>
+              <div className="space-y-5">
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Made with curiosity by{" "}
                   <a 
                     href="http://linkedin.com/in/izzydoesizzy" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-foreground hover:text-primary transition-colors underline"
+                    className="font-medium text-foreground hover:text-primary transition-colors underline"
                   >
                     Izzy Piyale-Sheard
                   </a>
                 </p>
-                <div className="space-y-2">
-                  <p className="text-xs text-muted-foreground uppercase tracking-wide">Powered by</p>
-                  <div className="space-y-1">
+                <div className="space-y-3">
+                  <p className="text-xs font-medium text-foreground/80 uppercase tracking-wider">Powered by</p>
+                  <div className="space-y-2">
                     <a 
                       href="https://perplexity.ai/pro?referral_code=J1IO81TK" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      className="block text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                     >
                       Perplexity
                     </a>
@@ -74,7 +74,7 @@ const Index = () => {
                       href="https://lovable.dev/invite/8433fb85-552a-4d89-ac05-c37d7794426b" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      className="block text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                     >
                       Lovable
                     </a>
@@ -85,24 +85,24 @@ const Index = () => {
 
             {/* Contact & Inquiries */}
             <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-foreground tracking-wide">Contact & Inquiries</h3>
-              <div className="space-y-4">
+              <h3 className="text-base font-semibold text-foreground tracking-wide">Contact & Inquiries</h3>
+              <div className="space-y-5">
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Media Inquiries</p>
+                  <p className="text-xs font-medium text-foreground/80 uppercase tracking-wider mb-3">Media Inquiries</p>
                   <a 
                     href="mailto:izzy@joinclearcareer.com" 
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                   >
                     izzy@joinclearcareer.com
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Business & Partnerships</p>
+                  <p className="text-xs font-medium text-foreground/80 uppercase tracking-wider mb-3">Advertising & Partnerships</p>
                   <a 
                     href="https://forms.gle/f8cfuoKsXHuNuaAt9" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                   >
                     Partnership Form
                   </a>
@@ -112,15 +112,15 @@ const Index = () => {
 
             {/* Data & Methodology */}
             <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-foreground tracking-wide">Data & Methodology</h3>
-              <div className="space-y-3">
+              <h3 className="text-base font-semibold text-foreground tracking-wide">Data & Methodology</h3>
+              <div className="space-y-4">
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Financial projections compiled from verified official sources and respected financial news outlets.
                 </p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-xs text-muted-foreground/80 leading-relaxed">
                   Based on analyst projections from TD Cowen and industry reports. Real-time calculations provide illustrative impact modeling.
                 </p>
-                <div className="flex items-center space-x-2 text-xs text-muted-foreground pt-2">
+                <div className="flex items-center space-x-2 text-xs font-medium text-warning pt-2">
                   <div className="w-1.5 h-1.5 bg-warning rounded-full"></div>
                   <span>Updates every second</span>
                 </div>
