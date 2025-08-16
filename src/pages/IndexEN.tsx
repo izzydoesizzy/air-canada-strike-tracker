@@ -124,7 +124,7 @@ const IndexEN = () => {
                   href="/changelog" 
                   className="block text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                 >
-                  {t('navigation.changelog')}
+                  Website Changelog
                 </a>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Track all feature updates and improvements to the tracker.
