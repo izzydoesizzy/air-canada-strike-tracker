@@ -185,7 +185,6 @@ export function StrikeImpactDashboard() {
                   $95,000
                 </div>
                 <p className="text-sm text-muted-foreground">burned per flight attendant</p>
-                <p className="text-xs text-muted-foreground/70 italic">= New car for each worker</p>
               </div>
             </Card>
 

@@ -48,8 +48,8 @@ export function Sources() {
   ];
 
   return (
-    <Card className="p-10 bg-gradient-to-br from-surface-elevated to-surface-subtle border border-border/30 shadow-large">
-      <div className="space-y-8">
+    <div className="w-full bg-gradient-to-br from-surface-elevated to-surface-subtle">
+      <div className="max-w-7xl mx-auto p-10 space-y-8">
         <div className="text-center space-y-4">
           <h2 className="text-3xl font-light text-foreground tracking-tight">Data Sources & Verification</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -110,6 +110,6 @@ export function Sources() {
           </div>
         </Card>
       </div>
-    </Card>
+    </div>
   );
 }
