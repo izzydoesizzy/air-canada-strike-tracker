@@ -1,12 +1,8 @@
 import { Navigation } from "@/components/Navigation";
 import { StoryIntroduction } from "@/components/StoryIntroduction";
 import { StoryHighlights } from "@/components/StoryHighlights";
-import { HeroMetrics } from "@/components/HeroMetrics";
-import { ComparisonCards } from "@/components/ComparisonCards";
+import { StrikeImpactDashboard } from "@/components/StrikeImpactDashboard";
 import { StrikeOverview } from "@/components/StrikeOverview";
-import { StrikeDurationCounter } from "@/components/StrikeDurationCounter";
-import { StockTracker } from "@/components/StockTracker";
-import { LossCounter } from "@/components/LossCounter";
 import { StrikeInfo } from "@/components/StrikeInfo";
 import { Sources } from "@/components/Sources";
 
@@ -22,43 +18,14 @@ const Index = () => {
       {/* Story Highlights */}
       <StoryHighlights />
 
-      {/* Hero Dashboard */}
+      {/* Strike Impact Dashboard */}
       <section id="hero">
-        <HeroMetrics />
+        <StrikeImpactDashboard />
       </section>
-
-      {/* Financial Loss Counter */}
-      <section id="losses" className="bg-surface-subtle/50 py-20">
-        <div className="container mx-auto px-8">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-display-small font-light text-foreground">The Daily Financial Hemorrhage</h2>
-            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-              Side-by-side comparison: Total losses vs. cost per flight attendant
-            </p>
-          </div>
-          <LossCounter />
-        </div>
-      </section>
-
-      {/* Comparison Cards */}
-      <ComparisonCards />
 
       {/* Strike Overview */}
       <section id="overview" className="container mx-auto px-8 py-20">
         <StrikeOverview />
-      </section>
-
-      {/* Strike Duration */}
-      <section id="duration" className="bg-primary-blue-subtle/20 py-20">
-        <div className="container mx-auto px-8">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-display-small font-light text-foreground">Strike Timeline</h2>
-            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-              Real-time tracking of strike duration
-            </p>
-          </div>
-          <StrikeDurationCounter />
-        </div>
       </section>
 
       {/* The Human Reality */}
@@ -72,17 +39,6 @@ const Index = () => {
           </div>
           <StrikeInfo />
         </div>
-      </section>
-
-      {/* Market Response - De-emphasized */}
-      <section id="market" className="container mx-auto px-8 py-12">
-        <div className="text-center space-y-2 mb-12">
-          <h3 className="text-lg font-medium text-muted-foreground">Market Response</h3>
-          <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-            Secondary impact tracking
-          </p>
-        </div>
-        <StockTracker />
       </section>
 
       {/* Sources & Verification */}
