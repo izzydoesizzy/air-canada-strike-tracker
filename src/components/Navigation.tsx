@@ -87,7 +87,7 @@ export function Navigation() {
             <DesktopNavigationMenu scrollToSection={scrollToSection} />
 
             {/* Desktop language navigation */}
-            <div className="hidden lg:block">
+            <div className="hidden md:block">
               <LanguageNavigation />
             </div>
 

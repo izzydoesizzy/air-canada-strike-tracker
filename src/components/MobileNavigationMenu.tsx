@@ -186,19 +186,19 @@ export function MobileNavigationMenu({
                 <Button 
                   variant="ghost" 
                   className="w-full justify-start" 
-                  onClick={() => scrollToSection('resources')}
+                  onClick={() => scrollToSection('sources')}
                 >
-                  <FileText className="h-4 w-4 mr-2" />
-                  {t('navigation.resources')}
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  {t('navigation.sources')}
                 </Button>
                 
                 <Button 
                   variant="ghost" 
                   className="w-full justify-start" 
-                  onClick={() => scrollToSection('sources')}
+                  onClick={() => scrollToSection('resources')}
                 >
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  {t('navigation.sources')}
+                  <FileText className="h-4 w-4 mr-2" />
+                  {t('navigation.resources')}
                 </Button>
               </AccordionContent>
             </AccordionItem>

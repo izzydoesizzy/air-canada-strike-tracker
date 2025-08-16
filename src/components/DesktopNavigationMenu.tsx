@@ -8,7 +8,8 @@ import {
   FileText,
   ExternalLink,
   ChevronDown,
-  BarChart3
+  BarChart3,
+  Menu
 } from "lucide-react";
 
 interface DesktopNavigationMenuProps {
@@ -24,7 +25,7 @@ export function DesktopNavigationMenu({ scrollToSection }: DesktopNavigationMenu
         <AccordionItem value="main-nav" className="border-0">
           <AccordionTrigger className="hover:no-underline py-0 text-sm text-muted-foreground hover:text-foreground transition-colors">
             <div className="flex items-center gap-1">
-              <span>{t('navigation.browseSections')}</span>
+              <Menu className="h-4 w-4" />
               <ChevronDown className="h-3 w-3 shrink-0 transition-transform duration-200" />
             </div>
           </AccordionTrigger>
@@ -79,20 +80,20 @@ export function DesktopNavigationMenu({ scrollToSection }: DesktopNavigationMenu
                   variant="ghost" 
                   size="sm"
                   className="w-full justify-start h-auto p-2" 
-                  onClick={() => scrollToSection('resources')}
+                  onClick={() => scrollToSection('sources')}
                 >
-                  <FileText className="h-4 w-4 mr-2" />
-                  {t('navigation.resources')}
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  {t('navigation.sources')}
                 </Button>
                 
                 <Button 
                   variant="ghost" 
                   size="sm"
                   className="w-full justify-start h-auto p-2" 
-                  onClick={() => scrollToSection('sources')}
+                  onClick={() => scrollToSection('resources')}
                 >
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  {t('navigation.sources')}
+                  <FileText className="h-4 w-4 mr-2" />
+                  {t('navigation.resources')}
                 </Button>
               </div>
             </div>
