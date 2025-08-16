@@ -49,7 +49,7 @@ const Index = () => {
               <h3 className="text-base font-semibold text-foreground tracking-wide">Creator & Tools</h3>
               <div className="space-y-5">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Made with curiosity by{" "}
+                  Made by{" "}
                   <a 
                     href="http://linkedin.com/in/izzydoesizzy" 
                     target="_blank" 
