@@ -45,10 +45,10 @@ export function HeroMetrics() {
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Main headline */}
           <div className="space-y-6">
-            <h1 className="text-6xl md:text-8xl font-extralight text-foreground tracking-tight leading-none">
+            <h1 className="text-display-large md:text-[5rem] font-light text-foreground tracking-tight leading-none">
               Air Canada Strike
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground font-normal max-w-3xl mx-auto leading-relaxed">
               Real-time tracking of economic impact, operational disruption, and market response
             </p>
           </div>
@@ -59,7 +59,7 @@ export function HeroMetrics() {
               <div className="text-center space-y-4">
                 <h3 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">Total Economic Impact</h3>
                 <SourceTooltip source={sources.dailyLoss}>
-                  <div className="text-4xl md:text-5xl font-light text-loss-indicator font-mono tracking-tight">
+                  <div className="text-number-large md:text-number-large font-mono text-loss-indicator">
                     {formatLargeCurrency(totalLoss)}
                   </div>
                 </SourceTooltip>
@@ -70,7 +70,7 @@ export function HeroMetrics() {
             <Card className="p-8 bg-surface-elevated/80 backdrop-blur-sm border border-border/30 shadow-2xl hover:shadow-3xl transition-all duration-500">
               <div className="text-center space-y-4">
                 <h3 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">Daily Passenger Impact</h3>
-                <div className="text-4xl md:text-5xl font-light text-loss-indicator">
+                <div className="text-number-large md:text-number-large font-mono text-loss-indicator">
                   130,000
                 </div>
                 <p className="text-xs text-muted-foreground">affected travelers per day</p>
@@ -80,7 +80,7 @@ export function HeroMetrics() {
             <Card className="p-8 bg-surface-elevated/80 backdrop-blur-sm border border-border/30 shadow-2xl hover:shadow-3xl transition-all duration-500">
               <div className="text-center space-y-4">
                 <h3 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">Flight Cancellations</h3>
-                <div className="text-4xl md:text-5xl font-light text-loss-indicator">
+                <div className="text-number-large md:text-number-large font-mono text-loss-indicator">
                   500+
                 </div>
                 <p className="text-xs text-muted-foreground">flights cancelled daily</p>

@@ -1,4 +1,6 @@
+import { Navigation } from "@/components/Navigation";
 import { HeroMetrics } from "@/components/HeroMetrics";
+import { StrikeOverview } from "@/components/StrikeOverview";
 import { StrikeDurationCounter } from "@/components/StrikeDurationCounter";
 import { StockTracker } from "@/components/StockTracker";
 import { LossCounter } from "@/components/LossCounter";
@@ -8,37 +10,53 @@ import { Sources } from "@/components/Sources";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section>
+      {/* Navigation */}
+      <Navigation />
+
+      {/* Hero Dashboard */}
+      <section id="hero">
         <HeroMetrics />
       </section>
 
-      {/* Critical Metrics Dashboard */}
-      <section className="container mx-auto px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <StrikeDurationCounter />
-          <StockTracker />
-        </div>
+      {/* Strike Overview */}
+      <section id="overview" className="container mx-auto px-8 py-20">
+        <StrikeOverview />
       </section>
 
-      {/* Detailed Loss Analysis */}
-      <section className="container mx-auto px-8 pb-16">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl font-light text-foreground tracking-tight">Economic Impact Breakdown</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive analysis of financial losses across different time intervals
-          </p>
-        </div>
-        <LossCounter />
-      </section>
-
-      {/* Strike Information */}
-      <section className="bg-primary-blue-subtle/30 py-20">
+      {/* Real-Time Impact */}
+      <section id="real-time" className="bg-surface-subtle/50 py-20">
         <div className="container mx-auto px-8">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-4xl font-light text-foreground tracking-tight">Strike Details & Background</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive overview of the labour dispute, negotiations, and operational impact
+            <h2 className="text-display-small font-light text-foreground">Real-Time Impact</h2>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+              Live tracking of strike duration and immediate economic consequences
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <StrikeDurationCounter />
+            <LossCounter />
+          </div>
+        </div>
+      </section>
+
+      {/* Market Response */}
+      <section id="market" className="container mx-auto px-8 py-20">
+        <div className="text-center space-y-4 mb-16">
+          <h2 className="text-display-small font-light text-foreground">Market Response</h2>
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+            Air Canada stock performance and market reaction to the labour disruption
+          </p>
+        </div>
+        <StockTracker />
+      </section>
+
+      {/* Detailed Analysis */}
+      <section id="analysis" className="bg-primary-blue-subtle/20 py-20">
+        <div className="container mx-auto px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-display-small font-light text-foreground">Detailed Analysis</h2>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive breakdown of the labour dispute and operational impact
             </p>
           </div>
           <StrikeInfo />
@@ -46,7 +64,7 @@ const Index = () => {
       </section>
 
       {/* Sources & Verification */}
-      <section className="container mx-auto px-8 py-20">
+      <section id="sources" className="container mx-auto px-8 py-20">
         <Sources />
       </section>
 

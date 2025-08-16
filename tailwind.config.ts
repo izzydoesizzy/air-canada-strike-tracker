@@ -18,6 +18,19 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif"],
+				mono: ["Inter", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+				display: ["Inter", "ui-sans-serif", "system-ui"],
+			},
+			fontSize: {
+				'display-large': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+				'display-medium': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+				'display-small': ['2.25rem', { lineHeight: '1.25' }],
+				'number-large': ['3rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+				'number-medium': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+				'number-small': ['1.5rem', { lineHeight: '1.3' }],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

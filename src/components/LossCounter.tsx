@@ -72,11 +72,11 @@ export function LossCounter() {
             </h1>
             <div className="relative inline-block">
               <SourceTooltip source={sources.dailyLoss}>
-                <div className="text-7xl md:text-8xl font-light text-loss-indicator font-mono tracking-tight transition-all duration-500">
+                <div className="text-display-large md:text-[5rem] font-mono text-loss-indicator font-medium tracking-tight transition-all duration-500">
                   {formatLargeCurrency(totalLoss)}
                 </div>
               </SourceTooltip>
-              <div className="absolute inset-0 text-7xl md:text-8xl font-light text-loss-indicator font-mono tracking-tight opacity-10 blur-sm">
+              <div className="absolute inset-0 text-display-large md:text-[5rem] font-mono text-loss-indicator font-medium tracking-tight opacity-10 blur-sm">
                 {formatLargeCurrency(totalLoss)}
               </div>
             </div>
@@ -100,7 +100,7 @@ export function LossCounter() {
           <div className="text-center space-y-4">
             <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Estimated Daily Impact</h3>
             <SourceTooltip source={sources.dailyLoss}>
-              <div className="text-3xl font-semibold text-loss-indicator group-hover:scale-105 transition-transform duration-200">
+              <div className="text-number-small font-mono font-medium text-loss-indicator group-hover:scale-105 transition-transform duration-200">
                 {formatCurrency(LOSS_PER_DAY)}
               </div>
             </SourceTooltip>
@@ -110,7 +110,7 @@ export function LossCounter() {
         <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
           <div className="text-center space-y-4">
             <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Hour</h3>
-            <div className="text-3xl font-semibold text-loss-indicator group-hover:scale-105 transition-transform duration-200">
+            <div className="text-number-small font-mono font-medium text-loss-indicator group-hover:scale-105 transition-transform duration-200">
               {formatCurrency(LOSS_PER_HOUR)}
             </div>
           </div>
@@ -119,7 +119,7 @@ export function LossCounter() {
         <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
           <div className="text-center space-y-4">
             <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Minute</h3>
-            <div className="text-3xl font-semibold text-loss-indicator group-hover:scale-105 transition-transform duration-200">
+            <div className="text-number-small font-mono font-medium text-loss-indicator group-hover:scale-105 transition-transform duration-200">
               {formatCurrency(LOSS_PER_MINUTE)}
             </div>
           </div>
@@ -129,7 +129,7 @@ export function LossCounter() {
           <div className="text-center space-y-4">
             <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Flight Attendant Daily</h3>
             <SourceTooltip source={sources.attendantCount}>
-              <div className="text-3xl font-semibold text-loss-indicator group-hover:scale-105 transition-transform duration-200">
+              <div className="text-number-small font-mono font-medium text-loss-indicator group-hover:scale-105 transition-transform duration-200">
                 {formatCurrency(LOSS_PER_ATTENDANT_PER_DAY)}
               </div>
             </SourceTooltip>
@@ -142,19 +142,19 @@ export function LossCounter() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="space-y-3">
             <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Days Elapsed</h3>
-            <div className="text-2xl font-semibold text-foreground">
+            <div className="text-xl font-mono font-medium text-foreground">
               {daysElapsed.toFixed(2)}
             </div>
           </div>
           <div className="space-y-3">
             <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Hours Elapsed</h3>
-            <div className="text-2xl font-semibold text-foreground">
+            <div className="text-xl font-mono font-medium text-foreground">
               {hoursElapsed.toFixed(1)}
             </div>
           </div>
           <div className="space-y-3">
             <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Minutes Elapsed</h3>
-            <div className="text-2xl font-semibold text-foreground">
+            <div className="text-xl font-mono font-medium text-foreground">
               {minutesElapsed.toFixed(0)}
             </div>
           </div>
