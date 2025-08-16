@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { SourceTooltip } from "@/components/SourceTooltip";
-import { Clock, Users, DollarSign, AlertTriangle } from "lucide-react";
+import { Clock, Users, DollarSign, AlertTriangle, Timer } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const sources = {
@@ -121,6 +121,55 @@ export function TheStrikeStory() {
                         <span className="underline decoration-dotted">{t('storyIntroduction.strikeCostsExceed')}</span>
                       </SourceTooltip> {t('storyIntroduction.dailyLossDesc')}
                     </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            {/* Unpaid Hours Crisis */}
+            <div className="space-y-6">
+              <Card className="p-8 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20">
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <Timer className="h-8 w-8 text-amber-500 mt-1 flex-shrink-0" />
+                    <div className="space-y-4">
+                      <div>
+                        <h2 className="text-xl font-semibold text-foreground mb-2">{t('unpaidHours.title')}</h2>
+                        <p className="text-muted-foreground">{t('unpaidHours.description')}</p>
+                      </div>
+                      
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <h3 className="font-semibold text-foreground mb-3">{t('unpaidHours.whatIsUnpaid')}</h3>
+                          <ul className="space-y-2 text-sm text-muted-foreground">
+                            {(t('unpaidHours.unpaidDuties', { returnObjects: true }) as string[]).map((duty, index) => (
+                              <li key={index} className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                                <span>{duty}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div className="space-y-4">
+                          <div>
+                            <h3 className="font-semibold text-foreground mb-2">{t('unpaidHours.impactTitle')}</h3>
+                            <p className="text-sm text-muted-foreground">{t('unpaidHours.impactDescription')}</p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="font-semibold text-foreground mb-2">{t('unpaidHours.safetyTitle')}</h3>
+                            <p className="text-sm text-muted-foreground">{t('unpaidHours.safetyDescription')}</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-amber-500/5 border border-amber-500/20 rounded-lg p-4">
+                        <p className="text-sm font-medium text-foreground">
+                          💡 {t('unpaidHours.financialImpact')}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Card>

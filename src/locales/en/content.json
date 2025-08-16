@@ -40,6 +40,25 @@
       "Meanwhile, the union is asking for fair pay across all hours worked — a fraction of what Air Canada is already losing."
     ]
   },
+  "unpaidHours": {
+    "title": "The Unpaid Hours Crisis",
+    "subtitle": "Understanding what flight attendants don't get paid for",
+    "description": "Flight attendants perform critical safety duties during 'ground time' that goes completely uncompensated, creating significant financial hardship despite full-time schedules.",
+    "whatIsUnpaid": "What Work Goes Unpaid?",
+    "unpaidDuties": [
+      "Boarding assistance and passenger safety briefings (30-45 minutes per flight)",
+      "Pre-flight safety equipment checks and cabin preparation (15-30 minutes)",
+      "Post-flight cleaning, restocking, and security procedures (20-30 minutes)", 
+      "Passenger deplaning assistance and gate coordination (15-20 minutes)",
+      "Mandatory crew briefings and schedule coordination (varies)",
+      "Aircraft turnaround duties between connecting flights (30+ minutes)"
+    ],
+    "impactTitle": "The Real Impact",
+    "impactDescription": "These unpaid hours add up to 2-4 hours per shift. For a full-time flight attendant working 80 hours per month, this represents 20-30% of their actual working time going uncompensated.",
+    "safetyTitle": "Why This Matters for Safety",
+    "safetyDescription": "Many of these unpaid duties are safety-critical. When essential safety work isn't valued through compensation, it creates systemic issues that can affect aviation safety standards and employee wellbeing.",
+    "financialImpact": "A flight attendant earning $50,000 annually could be losing $10,000-15,000 per year in unpaid work—equivalent to working for free 2-3 months annually."
+  },
   "strikeInfo": {
     "title": "Air Canada Flight Attendant Strike Information",
     "description": "Comprehensive overview of the ongoing labor dispute between Air Canada and the Canadian Union of Public Employees (CUPE), representing flight attendants.",

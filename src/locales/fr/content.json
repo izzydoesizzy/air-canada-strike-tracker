@@ -40,6 +40,25 @@
       "Pendant ce temps, le syndicat demande un salaire équitable pour toutes les heures travaillées — une fraction de ce qu'Air Canada perd déjà."
     ]
   },
+  "unpaidHours": {
+    "title": "La Crise des Heures Non Payées",
+    "subtitle": "Comprendre ce pour quoi les agents de bord ne sont pas payés",
+    "description": "Les agents de bord effectuent des tâches de sécurité critiques pendant le 'temps au sol' qui ne sont pas du tout rémunérées, créant des difficultés financières importantes malgré des horaires à temps plein.",
+    "whatIsUnpaid": "Quel Travail N'est Pas Payé?",
+    "unpaidDuties": [
+      "Assistance à l'embarquement et consignes de sécurité aux passagers (30-45 minutes par vol)",
+      "Vérifications pré-vol de l'équipement de sécurité et préparation de la cabine (15-30 minutes)",
+      "Nettoyage post-vol, réapprovisionnement et procédures de sécurité (20-30 minutes)",
+      "Assistance au débarquement des passagers et coordination de la porte (15-20 minutes)",
+      "Briefings d'équipage obligatoires et coordination des horaires (varie)",
+      "Tâches de rotation d'aéronef entre les vols de correspondance (30+ minutes)"
+    ],
+    "impactTitle": "L'Impact Réel",
+    "impactDescription": "Ces heures non payées s'accumulent à 2-4 heures par quart. Pour un agent de bord à temps plein travaillant 80 heures par mois, cela représente 20-30% de leur temps de travail réel non rémunéré.",
+    "safetyTitle": "Pourquoi C'est Important pour la Sécurité",
+    "safetyDescription": "Beaucoup de ces tâches non payées sont critiques pour la sécurité. Quand le travail de sécurité essentiel n'est pas valorisé par la rémunération, cela crée des problèmes systémiques qui peuvent affecter les normes de sécurité aérienne et le bien-être des employés.",
+    "financialImpact": "Un agent de bord gagnant 50 000$ annuellement pourrait perdre 10 000$-15 000$ par année en travail non payé—équivalent à travailler gratuitement 2-3 mois par année."
+  },
   "strikeInfo": {
     "title": "Informations sur la Grève des Agents de Bord d'Air Canada",
     "description": "Aperçu complet du conflit de travail en cours entre Air Canada et le Syndicat canadien de la fonction publique (SCFP), représentant les agents de bord.",
