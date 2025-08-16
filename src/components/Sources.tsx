@@ -7,6 +7,27 @@ export function Sources() {
   
   const sources = [
     {
+      title: "Air Canada flight attendants officially begin strike",
+      description: "Breaking news coverage of the official strike commencement at 12:58 AM ET, flight cancellations, and passenger impacts.",
+      url: "https://www.ctvnews.ca/business/article/air-canada-flight-attendants-officially-begin-strike/",
+      type: t('sources.sourceTypes.breakingNews'),
+      organization: "CTV News"
+    },
+    {
+      title: "Air Canada suspends operations as flight attendants go on strike",
+      description: "CBC News coverage of the strike beginning, operational suspensions, and government response to the labour dispute.",
+      url: "https://www.cbc.ca/news/politics/air-canada-flight-attendants-strike-1.7610891",
+      type: t('sources.sourceTypes.breakingNews'),
+      organization: "CBC News"
+    },
+    {
+      title: "Air Canada flight attendants on strike, airline's flights cancelled",
+      description: "Global News coverage of the strike impact, passenger stranding, and operational challenges across Canada.",
+      url: "https://globalnews.ca/news/11337522/air-canada-flight-attendants/",
+      type: t('sources.sourceTypes.breakingNews'),
+      organization: "Global News"
+    },
+    {
       title: "Air Canada Receives 72-Hour Strike Notice from CUPE and Issues Lockout Notice",
       description: "Official Air Canada press release detailing the strike notice and company response, including compensation offer details and operational impact.",
       url: "https://www.aircanada.com/media/air-canada-receives-72-hour-strike-notice-from-cupe-and-issues-lockout-notice-in-response/",

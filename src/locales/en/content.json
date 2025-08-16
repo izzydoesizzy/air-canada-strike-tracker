@@ -91,7 +91,8 @@
       "advisory": "Customer Advisory",
       "union": "Union Statement",
       "news": "News Coverage",
-      "analysis": "News Analysis"
+      "analysis": "News Analysis",
+      "breakingNews": "Breaking News"
     }
   },
   "footerSections": {

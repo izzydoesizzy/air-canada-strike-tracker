@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Navigation } from "@/components/Navigation";
+import { BreakingNewsBanner } from "@/components/BreakingNewsBanner";
 import { StoryIntroduction } from "@/components/StoryIntroduction";
 import { StoryHighlights } from "@/components/StoryHighlights";
 import { StrikeImpactDashboard } from "@/components/StrikeImpactDashboard";
@@ -16,6 +17,9 @@ const IndexFR = () => {
   }, [i18n]);
 
   return <div className="min-h-screen bg-background">
+      {/* Breaking News Banner */}
+      <BreakingNewsBanner />
+      
       {/* Navigation */}
       <Navigation />
 

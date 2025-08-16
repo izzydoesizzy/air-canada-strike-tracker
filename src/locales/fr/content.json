@@ -91,7 +91,8 @@
       "advisory": "Avis Client",
       "union": "Déclaration Syndicale",
       "news": "Couverture Médiatique",
-      "analysis": "Analyse Médiatique"
+      "analysis": "Analyse Médiatique",
+      "breakingNews": "Nouvelles de Dernière Heure"
     }
   },
   "footerSections": {

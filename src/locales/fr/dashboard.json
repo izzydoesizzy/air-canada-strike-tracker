@@ -1,12 +1,18 @@
 {
   "title": "Grève des Agents de Bord d'Air Canada",
   "subtitle": "Suivi en temps réel de l'impact financier",
+  "breakingNews": {
+    "label": "NOUVELLES DE DERNIÈRE HEURE",
+    "message": "Les agents de bord d'Air Canada ont officiellement commencé la grève à 0h58 HE le samedi 16 août 2025. Tous les vols annulés.",
+    "readMore": "Lire Plus",
+    "dismiss": "Fermer"
+  },
   "badge": {
     "laborDispute": "Conflit de Travail Air Canada",
     "sinceStart": "Depuis le 16 août, 1h00 HE"
   },
   "metrics": {
-    "projectedStrikeLosses": "Pertes Projetées de la Grève",
+    "projectedStrikeLosses": "Pertes en Cours de la Grève",
     "lossPerFlightAttendant": "Perte par Agent de Bord",
     "totalPageVisitors": "Total des Visiteurs",
     "visitorsPerHour": "Visiteurs par Heure"
@@ -22,8 +28,8 @@
     "impactPerFA": "Impact par Agent de Bord (10 Jours)"
   },
   "labels": {
-    "basedOnAnalyst": "basé sur les projections d'analystes",
-    "projectedRate": "taux projeté",
+    "basedOnAnalyst": "basé sur les données de grève en cours",
+    "projectedRate": "taux actuel",
     "burnedPerWorker": "brûlé par travailleur",
     "perDayEach": "/jour chacun",
     "andCounting": "et ça continue...",
@@ -36,5 +42,5 @@
     "minutes": "MIN",
     "seconds": "SEC"
   },
-  "disclaimer": "* Projections basées sur des données publiques et des estimations industrielles"
+  "disclaimer": "* Estimations financières basées sur les données de grève en cours et l'analyse industrielle"
 }

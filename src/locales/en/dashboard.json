@@ -1,12 +1,18 @@
 {
   "title": "Air Canada Flight Attendant Strike",
   "subtitle": "Real-time financial impact tracking",
+  "breakingNews": {
+    "label": "BREAKING NEWS",
+    "message": "Air Canada flight attendants officially began striking at 12:58 AM ET on Saturday, August 16, 2025. All flights cancelled.",
+    "readMore": "Read More",
+    "dismiss": "Dismiss"
+  },
   "badge": {
     "laborDispute": "Air Canada Labour Dispute",
     "sinceStart": "Since Aug 16, 1:00 AM ET"
   },
   "metrics": {
-    "projectedStrikeLosses": "Projected Strike Losses",
+    "projectedStrikeLosses": "Ongoing Strike Losses",
     "lossPerFlightAttendant": "Loss Per Flight Attendant",
     "totalPageVisitors": "Total Page Visitors",
     "visitorsPerHour": "Visitors Per Hour"
@@ -22,8 +28,8 @@
     "impactPerFA": "Impact Per Flight Attendant (10 Days)"
   },
   "labels": {
-    "basedOnAnalyst": "based on analyst projections",
-    "projectedRate": "projected rate",
+    "basedOnAnalyst": "based on ongoing strike data",
+    "projectedRate": "current rate",
     "burnedPerWorker": "burned per worker",
     "perDayEach": "/day each",
     "andCounting": "and counting...",
@@ -36,5 +42,5 @@
     "minutes": "MIN",
     "seconds": "SEC"
   },
-  "disclaimer": "* Projections based on publicly available data and industry estimates"
+  "disclaimer": "* Financial estimates based on ongoing strike data and industry analysis"
 }
