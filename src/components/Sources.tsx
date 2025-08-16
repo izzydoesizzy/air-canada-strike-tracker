@@ -94,17 +94,6 @@ export function Sources() {
           ))}
         </div>
 
-        <Card className="p-6 bg-destructive/5 border border-destructive/20">
-          <div className="space-y-4">
-            <h3 className="font-semibold text-destructive text-lg">⚠️ Important Disclaimer</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              This website is an independent informational resource about the ongoing Air Canada flight attendants strike. 
-              All financial figures and operational details are estimates based on public reports and may not reflect actual losses or outcomes. 
-              This site is not affiliated with Air Canada or any union and should not be construed as legal or financial advice.
-            </p>
-          </div>
-        </Card>
-
         <Card className="p-6 bg-primary-blue-subtle border border-primary-blue/10">
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground text-lg">Methodology & Calculations</h3>
@@ -118,6 +107,17 @@ export function Sources() {
                 <p><span className="font-medium text-foreground">Real-time Updates:</span> All calculations update continuously based on precise elapsed time since strike initiation.</p>
               </div>
             </div>
+          </div>
+        </Card>
+
+        <Card className="p-6 bg-surface-subtle border border-border/30">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-muted-foreground text-lg">Important Disclaimer</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              This website is an independent informational resource about the ongoing Air Canada flight attendants strike. 
+              All financial figures and operational details are estimates based on public reports and may not reflect actual losses or outcomes. 
+              This site is not affiliated with Air Canada or any union and should not be construed as legal or financial advice.
+            </p>
           </div>
         </Card>
       </div>

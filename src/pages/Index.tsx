@@ -52,7 +52,6 @@ const Index = () => {
           <div className="text-center space-y-4 text-sm text-muted-foreground">
             <div className="space-y-2">
               <p>Data compiled from verified official sources and news reports</p>
-              <p>Real-time calculations • Updated continuously</p>
             </div>
             <div className="space-y-1 text-xs">
               <p>
