@@ -68,17 +68,14 @@ export function Navigation() {
             <button onClick={() => scrollToSection('overview')} className="text-muted-foreground hover:text-foreground transition-colors">
               Overview
             </button>
-            <button onClick={() => scrollToSection('real-time')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Real-Time
-            </button>
-            <button onClick={() => scrollToSection('market')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Market
-            </button>
             <button onClick={() => scrollToSection('analysis')} className="text-muted-foreground hover:text-foreground transition-colors">
-              Analysis
+              Impact Analysis
             </button>
             <button onClick={() => scrollToSection('sources')} className="text-muted-foreground hover:text-foreground transition-colors">
               Sources
+            </button>
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-muted-foreground hover:text-foreground transition-colors">
+              Live Tracker
             </button>
           </div>
 
