@@ -69,21 +69,21 @@ export function HeroMetrics() {
 
             <Card className="p-8 bg-surface-elevated/80 backdrop-blur-sm border border-border/30 shadow-2xl hover:shadow-3xl transition-all duration-500">
               <div className="text-center space-y-4">
-                <h3 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">Daily Passenger Impact</h3>
+                <h3 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">Cost Per Flight Attendant</h3>
                 <div className="text-number-large md:text-number-large font-mono text-loss-indicator">
-                  130,000
+                  $9,500
                 </div>
-                <p className="text-xs text-muted-foreground">affected travelers per day</p>
+                <p className="text-xs text-muted-foreground">burned daily per FA</p>
               </div>
             </Card>
 
             <Card className="p-8 bg-surface-elevated/80 backdrop-blur-sm border border-border/30 shadow-2xl hover:shadow-3xl transition-all duration-500">
               <div className="text-center space-y-4">
-                <h3 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">Flight Cancellations</h3>
+                <h3 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">Flight Attendants Affected</h3>
                 <div className="text-number-large md:text-number-large font-mono text-loss-indicator">
-                  500+
+                  10,511
                 </div>
-                <p className="text-xs text-muted-foreground">flights cancelled daily</p>
+                <p className="text-xs text-muted-foreground">workers asking for fair pay</p>
               </div>
             </Card>
           </div>

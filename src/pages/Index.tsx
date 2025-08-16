@@ -1,6 +1,8 @@
 import { Navigation } from "@/components/Navigation";
 import { StoryIntroduction } from "@/components/StoryIntroduction";
+import { StoryHighlights } from "@/components/StoryHighlights";
 import { HeroMetrics } from "@/components/HeroMetrics";
+import { ComparisonCards } from "@/components/ComparisonCards";
 import { StrikeOverview } from "@/components/StrikeOverview";
 import { StrikeDurationCounter } from "@/components/StrikeDurationCounter";
 import { StockTracker } from "@/components/StockTracker";
@@ -17,34 +19,50 @@ const Index = () => {
       {/* Story Introduction */}
       <StoryIntroduction />
 
+      {/* Story Highlights */}
+      <StoryHighlights />
+
       {/* Hero Dashboard */}
       <section id="hero">
         <HeroMetrics />
       </section>
+
+      {/* Financial Loss Counter */}
+      <section id="losses" className="bg-surface-subtle/50 py-20">
+        <div className="container mx-auto px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-display-small font-light text-foreground">The Daily Financial Hemorrhage</h2>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+              Side-by-side comparison: Total losses vs. cost per flight attendant
+            </p>
+          </div>
+          <LossCounter />
+        </div>
+      </section>
+
+      {/* Comparison Cards */}
+      <ComparisonCards />
 
       {/* Strike Overview */}
       <section id="overview" className="container mx-auto px-8 py-20">
         <StrikeOverview />
       </section>
 
-      {/* Real-Time Impact */}
-      <section id="real-time" className="bg-surface-subtle/50 py-20">
+      {/* Strike Duration */}
+      <section id="duration" className="bg-primary-blue-subtle/20 py-20">
         <div className="container mx-auto px-8">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-display-small font-light text-foreground">Real-Time Impact</h2>
+            <h2 className="text-display-small font-light text-foreground">Strike Timeline</h2>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-              Live tracking of strike duration and immediate economic consequences
+              Real-time tracking of strike duration
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <StrikeDurationCounter />
-            <LossCounter />
-          </div>
+          <StrikeDurationCounter />
         </div>
       </section>
 
       {/* The Human Reality */}
-      <section id="analysis" className="bg-primary-blue-subtle/20 py-20">
+      <section id="analysis" className="bg-surface-subtle/50 py-20">
         <div className="container mx-auto px-8">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-display-small font-light text-foreground">The Human Reality</h2>
@@ -56,12 +74,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Market Response */}
-      <section id="market" className="container mx-auto px-8 py-20">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-display-small font-light text-foreground">Secondary Market Effects</h2>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-            While the human cost matters most, here's how markets are responding
+      {/* Market Response - De-emphasized */}
+      <section id="market" className="container mx-auto px-8 py-12">
+        <div className="text-center space-y-2 mb-12">
+          <h3 className="text-lg font-medium text-muted-foreground">Market Response</h3>
+          <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+            Secondary impact tracking
           </p>
         </div>
         <StockTracker />

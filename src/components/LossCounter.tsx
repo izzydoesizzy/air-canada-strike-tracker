@@ -68,36 +68,59 @@ export function LossCounter() {
 
   return (
     <div className="space-y-12">
-      {/* Main Counter */}
-      <Card className="p-12 bg-gradient-to-br from-surface-elevated to-surface-subtle border border-border/50 shadow-large hover:shadow-xl transition-all duration-300">
-        <div className="text-center space-y-8">
-          <div className="space-y-3">
-            <h1 className="text-lg font-medium text-muted-foreground">
-              Estimated Economic Impact
-            </h1>
-            <div className="relative inline-block">
-              <SourceTooltip source={sources.dailyLoss}>
-                <div className="text-display-large md:text-[5rem] font-mono text-loss-indicator font-medium tracking-tight transition-all duration-500">
-                  {formatLargeCurrency(totalLoss)}
-                </div>
-              </SourceTooltip>
-              <div className="absolute inset-0 text-display-large md:text-[5rem] font-mono text-loss-indicator font-medium tracking-tight opacity-10 blur-sm">
-                {formatLargeCurrency(totalLoss)}
+      {/* Side-by-Side Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Total Strike Losses */}
+        <Card className="p-12 bg-gradient-to-br from-loss-indicator/10 to-loss-indicator/5 border border-loss-indicator/20 shadow-large hover:shadow-xl transition-all duration-300">
+          <div className="text-center space-y-8">
+            <div className="space-y-3">
+              <h2 className="text-xl font-semibold text-foreground mb-2">
+                Total Strike Losses
+              </h2>
+              <div className="relative inline-block">
+                <SourceTooltip source={sources.dailyLoss}>
+                  <div className="text-display-large md:text-[4rem] font-mono text-loss-indicator font-medium tracking-tight transition-all duration-500">
+                    {formatLargeCurrency(totalLoss)}
+                  </div>
+                </SourceTooltip>
               </div>
+              <p className="text-base font-semibold text-loss-indicator">
+                ${(LOSS_PER_SECOND).toLocaleString()} per second
+              </p>
+            </div>
+            <div className="space-y-2">
+              <SourceTooltip source={sources.strikeStart}>
+                <p className="text-muted-foreground text-base">
+                  Since August 16, 2025 at 1:00 AM ET
+                </p>
+              </SourceTooltip>
             </div>
           </div>
-          <div className="space-y-2">
-            <SourceTooltip source={sources.strikeStart}>
-              <p className="text-muted-foreground text-base">
-                Since August 16, 2025 at 1:00 AM ET
+        </Card>
+
+        {/* Per Flight Attendant Impact */}
+        <Card className="p-12 bg-gradient-to-br from-accent-blue/10 to-accent-blue/5 border border-accent-blue/20 shadow-large hover:shadow-xl transition-all duration-300">
+          <div className="text-center space-y-8">
+            <div className="space-y-3">
+              <h2 className="text-xl font-semibold text-foreground mb-2">
+                What This Means Per Flight Attendant
+              </h2>
+              <SourceTooltip source={sources.attendantCount}>
+                <div className="text-display-large md:text-[4rem] font-mono text-accent-blue font-medium tracking-tight transition-all duration-500">
+                  {formatLargeCurrency(totalLossPerFA)}
+                </div>
+              </SourceTooltip>
+              <p className="text-base font-semibold text-accent-blue">
+                ${LOSS_PER_ATTENDANT_PER_DAY.toLocaleString()} per day per FA
               </p>
-            </SourceTooltip>
-            <p className="text-xs text-muted-foreground/70">
-              Real-time calculation • Updates every second
-            </p>
+            </div>
+            <div className="space-y-1 text-sm text-muted-foreground">
+              <p><span className="font-mono text-accent-blue font-semibold">{FLIGHT_ATTENDANTS.toLocaleString()}</span> flight attendants</p>
+              <p>Every second costs <span className="font-mono text-accent-blue font-semibold">${LOSS_PER_FA_PER_SECOND.toFixed(2)}</span> per FA</p>
+            </div>
           </div>
-        </div>
-      </Card>
+        </Card>
+      </div>
 
       {/* Breakdown Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
@@ -151,20 +174,44 @@ export function LossCounter() {
         </Card>
       </div>
 
-      {/* Comparative Context */}
-      <Card className="p-8 bg-gradient-to-r from-amber-500/10 to-loss-indicator/10 border border-amber-500/20">
-        <div className="text-center space-y-4">
-          <h3 className="text-lg font-semibold text-foreground">The Financial Absurdity</h3>
-          <p className="text-muted-foreground leading-relaxed">
-            In just <span className="font-mono text-loss-indicator font-semibold">{Math.ceil(daysElapsed)}</span> days, 
-            Air Canada has lost more than it would cost to provide fair annual wage increases 
-            to all <span className="font-semibold">{FLIGHT_ATTENDANTS.toLocaleString()}</span> flight attendants.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Every second costs <span className="font-mono text-loss-indicator font-semibold">${LOSS_PER_FA_PER_SECOND.toFixed(2)}</span> per flight attendant
-          </p>
-        </div>
-      </Card>
+      {/* Milestone Callouts */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card className="p-8 bg-gradient-to-r from-amber-500/10 to-amber-500/5 border border-amber-500/20 shadow-elegant">
+          <div className="text-center space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">10 Days of Strike</h3>
+            <div className="text-number-medium font-mono text-amber-600 font-semibold">
+              $95,000
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Lost per flight attendant = <strong>more than average annual salary</strong>
+            </p>
+          </div>
+        </Card>
+
+        <Card className="p-8 bg-gradient-to-r from-red-500/10 to-red-500/5 border border-red-500/20 shadow-elegant">
+          <div className="text-center space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">30 Days of Strike</h3>
+            <div className="text-number-medium font-mono text-red-600 font-semibold">
+              $285,000
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Lost per flight attendant = <strong>more than many make in years</strong>
+            </p>
+          </div>
+        </Card>
+
+        <Card className="p-8 bg-gradient-to-r from-green-500/10 to-green-500/5 border border-green-500/20 shadow-elegant">
+          <div className="text-center space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">Fair Pay Settlement</h3>
+            <div className="text-number-medium font-mono text-green-600 font-semibold">
+              Fraction
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Union demands = <strong>fraction of current losses</strong>
+            </p>
+          </div>
+        </Card>
+      </div>
 
       {/* Live Stats */}
       <Card className="p-8 bg-primary-blue-subtle border border-primary-blue/10 shadow-elegant">
