@@ -9,12 +9,13 @@ const LOSS_PER_MINUTE = LOSS_PER_DAY / (24 * 60);
 const LOSS_PER_SECOND = LOSS_PER_DAY / (24 * 60 * 60);
 const FLIGHT_ATTENDANTS = 10511;
 
-// Visitor tracking constants
-const CURRENT_TOTAL_VISITORS = 9000; // 9K visitors currently
-const BASE_VISITORS_PER_HOUR = 1000; // Base 1K visitors per hour
-const ACCELERATION_FACTOR = 0.1; // 10% increase per hour
-const BASE_VISITORS_PER_MINUTE = BASE_VISITORS_PER_HOUR / 60;
-const BASE_VISITORS_PER_SECOND = BASE_VISITORS_PER_HOUR / 3600;
+// Visitor tracking constants - Updated to match real data
+const VISITORS_AT_START = 9600; // 9.6K visitors at strike start
+const CURRENT_TOTAL_VISITORS = 27100; // Current real total: 27.1K
+const CURRENT_VISITORS_PER_HOUR = 1900; // Current real rate: 1.9K/hour
+const ACCELERATION_FACTOR = 0.15; // Increased acceleration to match real growth
+const BASE_VISITORS_PER_MINUTE = CURRENT_VISITORS_PER_HOUR / 60;
+const BASE_VISITORS_PER_SECOND = CURRENT_VISITORS_PER_HOUR / 3600;
 const sources = {
   dailyLoss: {
     title: "TD Cowen analyst estimates C$300M ($217M) loss for 3-day strike - Reuters",
@@ -38,13 +39,16 @@ export function StrikeImpactDashboard() {
   const totalLoss = daysElapsed * LOSS_PER_DAY;
   const totalLossPerFA = totalLoss / FLIGHT_ATTENDANTS;
 
-  // Visitor calculations with acceleration
+  // Visitor calculations - Updated to match real data
   const hoursElapsedSinceStart = timeElapsed / (1000 * 60 * 60);
-  const acceleratedRate = BASE_VISITORS_PER_HOUR * (1 + ACCELERATION_FACTOR * hoursElapsedSinceStart);
-  const totalVisitors = CURRENT_TOTAL_VISITORS + hoursElapsedSinceStart * acceleratedRate;
-  const currentVisitorRate = acceleratedRate;
-  const currentVisitorsPerSecond = acceleratedRate / 3600;
-  const currentVisitorsPerMinute = acceleratedRate / 60;
+  // Calculate what the base rate should be to reach current totals
+  const effectiveBaseRate = hoursElapsedSinceStart > 0 ? 
+    (CURRENT_TOTAL_VISITORS - VISITORS_AT_START) / hoursElapsedSinceStart : 
+    CURRENT_VISITORS_PER_HOUR;
+  const currentVisitorRate = CURRENT_VISITORS_PER_HOUR * (1 + ACCELERATION_FACTOR * (hoursElapsedSinceStart / 24));
+  const totalVisitors = VISITORS_AT_START + (hoursElapsedSinceStart * effectiveBaseRate);
+  const currentVisitorsPerSecond = currentVisitorRate / 3600;
+  const currentVisitorsPerMinute = currentVisitorRate / 60;
   const daysElapsedWhole = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
   const hoursElapsed = Math.floor(timeElapsed % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
   const minutesElapsed = Math.floor(timeElapsed % (1000 * 60 * 60) / (1000 * 60));
@@ -117,8 +121,8 @@ export function StrikeImpactDashboard() {
             </SourceTooltip>
           </div>
 
-          {/* Main Side-by-Side Impact Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+          {/* Main Side-by-Side Impact Cards - 2x2 grid layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
                 <div className="flex items-center justify-center space-x-2 mb-2">
