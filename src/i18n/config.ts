@@ -8,11 +8,13 @@ import enDashboard from '../locales/en/dashboard.json';
 import enContent from '../locales/en/content.json';
 import enTimeline from '../locales/en/timeline.json';
 import enResources from '../locales/en/resources.json';
+import enChangelog from '../locales/en/changelog.json';
 import frCommon from '../locales/fr/common.json';
 import frDashboard from '../locales/fr/dashboard.json';
 import frContent from '../locales/fr/content.json';
 import frTimeline from '../locales/fr/timeline.json';
 import frResources from '../locales/fr/resources.json';
+import frChangelog from '../locales/fr/changelog.json';
 
 const resources = {
   en: {
@@ -21,6 +23,7 @@ const resources = {
     content: enContent,
     timeline: enTimeline,
     resources: enResources,
+    changelog: enChangelog,
   },
   fr: {
     common: frCommon,
@@ -28,6 +31,7 @@ const resources = {
     content: frContent,
     timeline: frTimeline,
     resources: frResources,
+    changelog: frChangelog,
   },
 };
 
@@ -49,7 +53,7 @@ i18n
     },
 
     defaultNS: 'common',
-    ns: ['common', 'dashboard', 'content', 'timeline', 'resources'],
+    ns: ['common', 'dashboard', 'content', 'timeline', 'resources', 'changelog'],
   });
 
 export default i18n;

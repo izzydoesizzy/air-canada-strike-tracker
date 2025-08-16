@@ -1,0 +1,138 @@
+{
+  "title": "Changelog",
+  "subtitle": "Track all updates, improvements, and new features",
+  "description": "A comprehensive history of all changes made to the Air Canada Strike Tracker",
+  "versions": {
+    "1.1.0": {
+      "title": "Enhanced Navigation & User Experience",
+      "date": "August 16, 2025",
+      "type": "major",
+      "summary": "Complete navigation overhaul with mobile-first design and improved accessibility",
+      "changes": [
+        {
+          "category": "Navigation",
+          "type": "feature",
+          "description": "Mobile-responsive hamburger menu with organized sections"
+        },
+        {
+          "category": "Navigation", 
+          "type": "feature",
+          "description": "Desktop collapsible navigation with categorized content"
+        },
+        {
+          "category": "UX",
+          "type": "improvement",
+          "description": "Improved accessibility with proper ARIA labels and keyboard navigation"
+        },
+        {
+          "category": "UX",
+          "type": "improvement", 
+          "description": "Enhanced mobile experience with touch-friendly interface"
+        },
+        {
+          "category": "Navigation",
+          "type": "feature",
+          "description": "Quick navigation shortcuts for key sections"
+        }
+      ]
+    },
+    "1.0.1": {
+      "title": "Content Enhancement & Context",
+      "date": "August 15, 2025", 
+      "type": "minor",
+      "summary": "Added detailed explanations and context for strike impact calculations",
+      "changes": [
+        {
+          "category": "Content",
+          "type": "feature",
+          "description": "Detailed unpaid hours explanation with flight attendant work context"
+        },
+        {
+          "category": "Content",
+          "type": "feature", 
+          "description": "Safety implications coverage in strike analysis"
+        },
+        {
+          "category": "Content",
+          "type": "improvement",
+          "description": "Enhanced transparency in loss calculation methodology"
+        },
+        {
+          "category": "Sources",
+          "type": "improvement",
+          "description": "Expanded source verification with tooltips"
+        }
+      ]
+    },
+    "1.0.0": {
+      "title": "Initial Launch", 
+      "date": "August 14, 2025",
+      "type": "major",
+      "summary": "Full launch of Air Canada Strike Tracker with comprehensive features",
+      "changes": [
+        {
+          "category": "Dashboard",
+          "type": "feature",
+          "description": "Real-time strike tracking with projected financial losses"
+        },
+        {
+          "category": "Localization",
+          "type": "feature", 
+          "description": "Complete bilingual support (English/French)"
+        },
+        {
+          "category": "News",
+          "type": "feature",
+          "description": "Breaking news banner system with live updates"
+        },
+        {
+          "category": "Timeline",
+          "type": "feature",
+          "description": "Interactive timeline of strike events and milestones"
+        },
+        {
+          "category": "Analysis", 
+          "type": "feature",
+          "description": "Comprehensive strike analysis with economic impact"
+        },
+        {
+          "category": "Sources",
+          "type": "feature",
+          "description": "Source verification system with credible news outlets"
+        },
+        {
+          "category": "Resources",
+          "type": "feature", 
+          "description": "Resource center with external links and documentation"
+        },
+        {
+          "category": "Technical",
+          "type": "feature",
+          "description": "Responsive design optimized for all devices"
+        }
+      ]
+    }
+  },
+  "categories": {
+    "Dashboard": "Core tracking functionality",
+    "Navigation": "Site navigation and menu systems",
+    "Content": "Editorial content and explanations", 
+    "UX": "User experience improvements",
+    "Localization": "Language and regional features",
+    "News": "Breaking news and updates system",
+    "Timeline": "Event timeline features",
+    "Analysis": "Data analysis and insights",
+    "Sources": "Source verification and credibility", 
+    "Resources": "External resources and documentation",
+    "Technical": "Technical infrastructure and performance"
+  },
+  "types": {
+    "feature": "New Feature",
+    "improvement": "Improvement", 
+    "fix": "Bug Fix",
+    "security": "Security Update"
+  },
+  "footer": {
+    "changelog": "Changelog"
+  }
+}

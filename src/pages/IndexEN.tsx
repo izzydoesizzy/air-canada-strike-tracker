@@ -136,9 +136,19 @@ const IndexEN = () => {
           
           {/* Bottom section */}
           <div className="mt-16 pt-8 border-t border-border">
-            <p className="text-sm text-muted-foreground text-center">
-              {t('footerSections.copyright', { ns: 'content' })}
-            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-sm text-muted-foreground">
+                {t('footerSections.copyright', { ns: 'content' })}
+              </p>
+              <div className="flex items-center gap-4">
+                <a 
+                  href="/changelog" 
+                  className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                >
+                  {t('footer.changelog', { ns: 'changelog' })}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
