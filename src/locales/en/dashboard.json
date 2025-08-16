@@ -1,6 +1,10 @@
 {
   "title": "Air Canada Flight Attendant Strike",
   "subtitle": "Real-time financial impact tracking",
+  "badge": {
+    "laborDispute": "Air Canada Labour Dispute",
+    "sinceStart": "Since Aug 16, 1:00 AM ET"
+  },
   "metrics": {
     "projectedStrikeLosses": "Projected Strike Losses",
     "lossPerFlightAttendant": "Loss Per Flight Attendant",
@@ -16,6 +20,21 @@
   "milestones": {
     "strikeDuration": "Strike Duration",
     "impactPerFA": "Impact Per Flight Attendant (10 Days)"
+  },
+  "labels": {
+    "basedOnAnalyst": "based on analyst projections",
+    "projectedRate": "projected rate",
+    "burnedPerWorker": "burned per worker",
+    "perDayEach": "/day each",
+    "andCounting": "and counting...",
+    "currentRate": "current rate",
+    "burnedPerFA": "burned per flight attendant"
+  },
+  "timeUnits": {
+    "days": "DAYS",
+    "hours": "HRS",
+    "minutes": "MIN",
+    "seconds": "SEC"
   },
   "disclaimer": "* Projections based on publicly available data and industry estimates"
 }

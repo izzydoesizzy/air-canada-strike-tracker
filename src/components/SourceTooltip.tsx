@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { ExternalLink } from "lucide-react";
 
@@ -11,6 +12,8 @@ interface SourceTooltipProps {
 }
 
 export function SourceTooltip({ children, source }: SourceTooltipProps) {
+  const { t } = useTranslation('common');
+  
   return (
     <TooltipProvider>
       <Tooltip>
@@ -31,7 +34,7 @@ export function SourceTooltip({ children, source }: SourceTooltipProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-xs text-primary-blue hover:text-accent-blue transition-colors"
             >
-              View source
+              {t('buttons.viewSource')}
               <ExternalLink className="h-3 w-3" />
             </a>
           </div>
