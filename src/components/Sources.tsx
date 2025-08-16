@@ -94,13 +94,24 @@ export function Sources() {
           ))}
         </div>
 
+        <Card className="p-6 bg-destructive/5 border border-destructive/20">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-destructive text-lg">⚠️ Important Disclaimer</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              This website is an independent informational resource about the ongoing Air Canada flight attendants strike. 
+              All financial figures and operational details are estimates based on public reports and may not reflect actual losses or outcomes. 
+              This site is not affiliated with Air Canada or any union and should not be construed as legal or financial advice.
+            </p>
+          </div>
+        </Card>
+
         <Card className="p-6 bg-primary-blue-subtle border border-primary-blue/10">
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground text-lg">Methodology & Calculations</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground">
               <div className="space-y-2">
-                <p><span className="font-medium text-foreground">Loss Estimation:</span> $100M daily impact based on Air Canada's operational scale, passenger volume, and industry economic assessments during major disruptions.</p>
-                <p><span className="font-medium text-foreground">Per-Attendant Impact:</span> Calculated as total daily impact divided by 10,000 CUPE-represented flight attendants.</p>
+                <p><span className="font-medium text-foreground">Loss Estimation:</span> $100M daily impact based on TD Cowen analyst estimate of C$300M ($217M) for a 3-day strike, extrapolated to daily figures.</p>
+                <p><span className="font-medium text-foreground">Per-Attendant Impact:</span> Calculated as total daily impact divided by 10,511 CUPE-represented flight attendants.</p>
               </div>
               <div className="space-y-2">
                 <p><span className="font-medium text-foreground">Strike Timeline:</span> Counter begins at officially announced strike commencement: August 16, 2025, 1:00 AM Eastern Time.</p>

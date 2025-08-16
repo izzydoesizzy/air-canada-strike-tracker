@@ -12,8 +12,8 @@ const FLIGHT_ATTENDANTS = 10511;
 
 const sources = {
   dailyLoss: {
-    title: "Air Canada's estimated daily operational impact during labour disruption",
-    url: "https://www.aircanada.com/media/air-canada-receives-72-hour-strike-notice-from-cupe-and-issues-lockout-notice-in-response/"
+    title: "TD Cowen analyst estimates C$300M ($217M) loss for 3-day strike - Reuters",
+    url: "https://www.reuters.com/business/world-at-work/air-canada-flight-attendants-deadlocked-with-strike-looming-2025-08-15/"
   },
   strikeStart: {
     title: "Strike begins August 16, 2025, at 01:00 ET",
@@ -108,7 +108,7 @@ export function StrikeImpactDashboard() {
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
                 <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Loss Per Flight Attendant</h2>
-                <div className="text-[2.5rem] md:text-[6rem] font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden">
+                <div className="text-[1.8rem] sm:text-[2.5rem] md:text-[6rem] font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden break-all">
                   {formatLargeCurrency(totalLossPerFA)}
                 </div>
                 <div className="space-y-2">

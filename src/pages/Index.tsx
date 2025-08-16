@@ -49,9 +49,26 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border/20 bg-surface-subtle">
         <div className="container mx-auto px-8 py-12">
-          <div className="text-center space-y-2 text-sm text-muted-foreground">
-            <p>Data compiled from verified official sources and news reports</p>
-            <p>Real-time calculations • Updated continuously</p>
+          <div className="text-center space-y-4 text-sm text-muted-foreground">
+            <div className="space-y-2">
+              <p>Data compiled from verified official sources and news reports</p>
+              <p>Real-time calculations • Updated continuously</p>
+            </div>
+            <div className="space-y-1 text-xs">
+              <p>
+                Coded by{" "}
+                <a 
+                  href="http://linkedin.com/in/izzydoesizzy" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary-blue hover:text-accent-blue transition-colors underline"
+                >
+                  Izzy Piyale-Sheard
+                </a>
+                {" • "}
+                Idea from Jeska Eedens
+              </p>
+            </div>
           </div>
         </div>
       </footer>
