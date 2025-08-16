@@ -1,56 +1,154 @@
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
-import { TrendingDown, TrendingUp, Minus } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from "recharts";
+import { TrendingDown, TrendingUp, Minus, Activity, DollarSign } from "lucide-react";
+import { SourceTooltip } from "./SourceTooltip";
 
-// Mock stock data - in a real implementation, this would come from a stock API
-const generateMockStockData = () => {
-  const basePrice = 21.45; // Approximate AC stock price
-  const volatility = 0.02; // 2% volatility
-  const strikeImpact = -0.15; // Assumed 15% negative impact from strike
+// Types for better data structure
+interface StockDataPoint {
+  time: string;
+  price: number;
+  volume?: number;
+  timestamp: number;
+}
+
+interface TimeFrame {
+  id: string;
+  label: string;
+  interval: number; // milliseconds
+  dataPoints: number;
+  format: string;
+}
+
+// Time frame configurations
+const timeFrames: TimeFrame[] = [
+  { id: "realtime", label: "Live", interval: 5000, dataPoints: 20, format: "HH:mm:ss" },
+  { id: "1d", label: "1D", interval: 300000, dataPoints: 288, format: "HH:mm" }, // 5 min intervals
+  { id: "5d", label: "5D", interval: 1800000, dataPoints: 400, format: "MMM d HH:mm" }, // 30 min intervals
+  { id: "1m", label: "1M", interval: 3600000, dataPoints: 720, format: "MMM d" }, // 1 hour intervals
+  { id: "3m", label: "3M", interval: 21600000, dataPoints: 360, format: "MMM d" }, // 6 hour intervals
+  { id: "6m", label: "6M", interval: 86400000, dataPoints: 180, format: "MMM d" }, // daily intervals
+  { id: "1y", label: "1Y", interval: 86400000, dataPoints: 365, format: "MMM yyyy" }, // daily intervals
+];
+
+// Enhanced mock data generators
+const generateStockDataForTimeFrame = (timeFrame: TimeFrame): StockDataPoint[] => {
+  const basePrice = 21.45; // Pre-strike price
+  const strikeImpact = -0.15; // 15% negative impact
+  const currentPrice = basePrice * (1 + strikeImpact);
   
-  return basePrice * (1 + strikeImpact + (Math.random() - 0.5) * volatility);
+  const data: StockDataPoint[] = [];
+  const now = Date.now();
+  
+  for (let i = 0; i < timeFrame.dataPoints; i++) {
+    const timestamp = now - (timeFrame.dataPoints - 1 - i) * timeFrame.interval;
+    const volatility = timeFrame.id === "realtime" ? 0.01 : 0.03;
+    
+    // Simulate gradual decline due to strike with some recovery attempts
+    const timeProgress = i / timeFrame.dataPoints;
+    const strikeEffect = Math.max(-0.15, -0.08 - 0.07 * Math.sin(timeProgress * Math.PI * 2));
+    const randomVariation = (Math.random() - 0.5) * volatility;
+    
+    const price = basePrice * (1 + strikeEffect + randomVariation);
+    
+    data.push({
+      time: new Date(timestamp).toLocaleTimeString("en-US", { 
+        hour12: false,
+        ...(timeFrame.format.includes("HH:mm:ss") && { second: "2-digit" }),
+        ...(timeFrame.format.includes("HH:mm") && { hour: "2-digit", minute: "2-digit" }),
+        ...(timeFrame.format.includes("MMM") && { month: "short", day: "numeric" }),
+      }),
+      price: Math.max(0, price),
+      volume: Math.floor(Math.random() * 1000000) + 500000,
+      timestamp
+    });
+  }
+  
+  return data;
+};
+
+const chartConfig = {
+  price: {
+    label: "Price",
+    color: "hsl(var(--primary-blue))",
+  },
 };
 
 export function StockTracker() {
-  const [currentPrice, setCurrentPrice] = useState(18.23); // Strike-impacted price
-  const [previousPrice, setPreviousPrice] = useState(21.45);
-  const [priceHistory, setPriceHistory] = useState<number[]>([21.45, 20.89, 19.56, 18.92, 18.23]);
-
+  const [activeTimeFrame, setActiveTimeFrame] = useState("realtime");
+  const [stockData, setStockData] = useState<Record<string, StockDataPoint[]>>({});
+  
+  // Initialize data for all timeframes
   useEffect(() => {
+    const initialData: Record<string, StockDataPoint[]> = {};
+    timeFrames.forEach(tf => {
+      initialData[tf.id] = generateStockDataForTimeFrame(tf);
+    });
+    setStockData(initialData);
+  }, []);
+
+  // Real-time updates for active timeframe
+  useEffect(() => {
+    if (activeTimeFrame !== "realtime") return;
+    
     const interval = setInterval(() => {
-      const newPrice = generateMockStockData();
-      setPreviousPrice(currentPrice);
-      setCurrentPrice(newPrice);
-      setPriceHistory(prev => [...prev.slice(-19), newPrice]); // Keep last 20 points
-    }, 5000); // Update every 5 seconds
+      setStockData(prev => {
+        const currentData = prev[activeTimeFrame] || [];
+        const newData = generateStockDataForTimeFrame(timeFrames.find(tf => tf.id === activeTimeFrame)!);
+        
+        return {
+          ...prev,
+          [activeTimeFrame]: newData
+        };
+      });
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, [currentPrice]);
+  }, [activeTimeFrame]);
 
+  const currentData = stockData[activeTimeFrame] || [];
+  const currentPrice = currentData[currentData.length - 1]?.price || 18.23;
+  const previousPrice = currentData[currentData.length - 2]?.price || 21.45;
+  const preStrikePrice = 21.45;
+  
   const priceChange = currentPrice - previousPrice;
-  const priceChangePercent = ((currentPrice - 21.45) / 21.45) * 100; // Change from pre-strike price
+  const priceChangePercent = ((currentPrice - preStrikePrice) / preStrikePrice) * 100;
   const isPositive = priceChange > 0;
   const isNegative = priceChange < 0;
 
-  const maxPrice = Math.max(...priceHistory);
-  const minPrice = Math.min(...priceHistory);
+  const maxPrice = Math.max(...currentData.map(d => d.price));
+  const minPrice = Math.min(...currentData.map(d => d.price));
+
+  const source = {
+    title: "Air Canada Stock Data - Toronto Stock Exchange",
+    url: "https://www.tsx.com/listings/listing-with-us/listed-company-directory"
+  };
 
   return (
-    <Card className="p-8 bg-gradient-to-br from-surface-elevated to-surface-subtle border border-border/30 shadow-large hover:shadow-xl transition-all duration-300">
-      <div className="space-y-6">
+    <Card className="p-8 bg-gradient-to-br from-surface-elevated to-surface-subtle border border-border/20 shadow-elegant hover:shadow-glow transition-all duration-500">
+      <div className="space-y-8">
+        {/* Header */}
         <div className="text-center space-y-4">
           <div className="space-y-2">
-            <h2 className="text-lg font-medium text-muted-foreground">Air Canada Stock Price</h2>
-            <p className="text-sm text-muted-foreground/70">TSX: AC • Real-time tracking</p>
+            <SourceTooltip source={source}>
+              <h2 className="text-lg font-medium text-muted-foreground flex items-center justify-center gap-2">
+                <Activity className="h-5 w-5 text-primary-blue" />
+                Air Canada Stock Price
+              </h2>
+            </SourceTooltip>
+            <p className="text-sm text-muted-foreground/70">TSX: AC • Live Market Data</p>
           </div>
           
-          <div className="space-y-3">
-            <div className="text-5xl font-light font-mono text-foreground">
-              ${currentPrice.toFixed(2)}
+          <div className="space-y-4">
+            <div className="text-5xl font-light font-mono text-foreground tracking-tight">
+              <DollarSign className="inline h-10 w-10 -mt-2 text-muted-foreground/40" />
+              {currentPrice.toFixed(2)}
             </div>
             
-            <div className={`flex items-center justify-center gap-2 text-sm font-medium ${
-              isPositive ? 'text-green-600' : isNegative ? 'text-red-600' : 'text-muted-foreground'
+            <div className={`flex items-center justify-center gap-2 text-sm font-medium transition-colors duration-300 ${
+              isPositive ? 'text-success' : isNegative ? 'text-destructive' : 'text-muted-foreground'
             }`}>
               {isPositive ? <TrendingUp className="h-4 w-4" /> : 
                isNegative ? <TrendingDown className="h-4 w-4" /> : 
@@ -64,33 +162,90 @@ export function StockTracker() {
           </div>
         </div>
 
-        {/* Mini Chart */}
-        <div className="space-y-3">
-          <div className="h-20 flex items-end gap-1 justify-center">
-            {priceHistory.map((price, index) => {
-              const height = ((price - minPrice) / (maxPrice - minPrice)) * 60 + 10;
-              const isLast = index === priceHistory.length - 1;
-              return (
-                <div
-                  key={index}
-                  className={`w-2 transition-all duration-300 ${
-                    isLast ? 'bg-primary-blue' : 'bg-primary-blue/60'
-                  }`}
-                  style={{ height: `${height}px` }}
-                />
-              );
-            })}
-          </div>
-          
-          <div className="flex justify-between text-xs text-muted-foreground">
-            <span>24h Low: ${minPrice.toFixed(2)}</span>
-            <span>24h High: ${maxPrice.toFixed(2)}</span>
-          </div>
-        </div>
+        {/* Time Frame Tabs */}
+        <Tabs value={activeTimeFrame} onValueChange={setActiveTimeFrame} className="w-full">
+          <TabsList className="grid w-full grid-cols-7 bg-surface-subtle/50 border border-border/30">
+            {timeFrames.map((tf) => (
+              <TabsTrigger 
+                key={tf.id} 
+                value={tf.id}
+                className="text-xs font-medium data-[state=active]:bg-surface-elevated data-[state=active]:text-foreground data-[state=active]:shadow-sm transition-all duration-200"
+              >
+                {tf.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
+          {timeFrames.map((tf) => (
+            <TabsContent key={tf.id} value={tf.id} className="mt-6 space-y-6">
+              {/* Chart */}
+              <div className="h-80 w-full">
+                <ChartContainer config={chartConfig} className="h-full w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={currentData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+                      <XAxis 
+                        dataKey="time" 
+                        axisLine={false}
+                        tickLine={false}
+                        tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }}
+                        interval="preserveStartEnd"
+                      />
+                      <YAxis 
+                        domain={['dataMin - 0.5', 'dataMax + 0.5']}
+                        axisLine={false}
+                        tickLine={false}
+                        tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }}
+                        tickFormatter={(value) => `$${value.toFixed(2)}`}
+                      />
+                      <ChartTooltip 
+                        content={<ChartTooltipContent />}
+                        labelFormatter={(label) => `Time: ${label}`}
+                        formatter={(value: number) => [`$${value.toFixed(2)}`, "Price"]}
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="price" 
+                        stroke="hsl(var(--primary-blue))" 
+                        strokeWidth={2}
+                        dot={false}
+                        activeDot={{ 
+                          r: 4, 
+                          fill: 'hsl(var(--primary-blue))',
+                          stroke: 'hsl(var(--background))',
+                          strokeWidth: 2
+                        }}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </ChartContainer>
+              </div>
+
+              {/* Market Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="bg-surface-subtle/30 rounded-lg p-4 border border-border/20">
+                  <p className="text-xs text-muted-foreground mb-1">24h High</p>
+                  <p className="text-lg font-semibold text-success">${maxPrice.toFixed(2)}</p>
+                </div>
+                <div className="bg-surface-subtle/30 rounded-lg p-4 border border-border/20">
+                  <p className="text-xs text-muted-foreground mb-1">24h Low</p>
+                  <p className="text-lg font-semibold text-destructive">${minPrice.toFixed(2)}</p>
+                </div>
+                <div className="bg-surface-subtle/30 rounded-lg p-4 border border-border/20">
+                  <p className="text-xs text-muted-foreground mb-1">Pre-Strike</p>
+                  <p className="text-lg font-semibold text-muted-foreground">${preStrikePrice.toFixed(2)}</p>
+                </div>
+                <div className="bg-surface-subtle/30 rounded-lg p-4 border border-border/20">
+                  <p className="text-xs text-muted-foreground mb-1">Impact</p>
+                  <p className="text-lg font-semibold text-destructive">{priceChangePercent.toFixed(1)}%</p>
+                </div>
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
 
         <div className="text-center">
-          <p className="text-xs text-muted-foreground">
-            *Stock prices are simulated for demonstration • Updates every 5 seconds
+          <p className="text-xs text-muted-foreground/60">
+            *Stock prices are simulated for demonstration • Updates every {activeTimeFrame === "realtime" ? "5 seconds" : "periodically"}
           </p>
         </div>
       </div>
