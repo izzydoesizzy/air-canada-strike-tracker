@@ -17,21 +17,21 @@ export function BreakingNewsBanner() {
         <div className="animate-pulse absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
       </div>
       
-      <div className="relative z-10 container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 flex-1">
-            <div className="flex items-center gap-2">
-              <AlertTriangle className="h-5 w-5 animate-pulse" />
-              <span className="font-bold text-sm uppercase tracking-wider">
+      <div className="relative z-10 container mx-auto px-3 sm:px-4 py-2 sm:py-3">
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 flex-1">
+            <div className="flex items-center gap-1 sm:gap-2">
+              <AlertTriangle className="h-4 w-4 sm:h-5 sm:w-5 animate-pulse" />
+              <span className="font-bold text-xs sm:text-sm uppercase tracking-wider">
                 {t('labels.breakingNews')}
               </span>
             </div>
             <div className="hidden sm:block w-px h-6 bg-destructive-foreground/30"></div>
             <div className="flex-1">
-              <p className="text-sm font-semibold text-white mb-1">
+              <p className="text-xs sm:text-sm font-semibold text-white mb-0 sm:mb-1">
                 {t('breaking.title')}
               </p>
-              <p className="text-xs text-white/90">
+              <p className="text-xs text-white/90 hidden sm:block">
                 {t('breaking.message')}
               </p>
             </div>
