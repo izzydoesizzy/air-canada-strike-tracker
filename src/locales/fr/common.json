@@ -21,7 +21,9 @@
     "timeline": "Chronologie",
     "analysis": "Analyse",
     "breakingNews": "Nouvelles de Dernière Heure",
-    "keyUpdates": "Mises à Jour Importantes"
+    "keyUpdates": "Mises à Jour Importantes",
+    "browseSections": "Parcourir les Sections",
+    "changelog": "Journal des Modifications"
   },
   "buttons": {
     "readMore": "Lire la suite",

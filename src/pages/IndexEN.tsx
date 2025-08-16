@@ -116,20 +116,19 @@ const IndexEN = () => {
               </div>
             </div>
 
-            {/* Data & Methodology */}
+            {/* Changelog Link */}
             <div className="space-y-6">
-              <h3 className="text-base font-semibold text-foreground tracking-wide">{t('footerSections.dataMethodology', { ns: 'content' })}</h3>
+              <h3 className="text-base font-semibold text-foreground tracking-wide">Updates</h3>
               <div className="space-y-4">
+                <a 
+                  href="/changelog" 
+                  className="block text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                >
+                  {t('navigation.changelog')}
+                </a>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  {t('footerSections.dataMethodologyDesc', { ns: 'content' })}
+                  Track all feature updates and improvements to the tracker.
                 </p>
-                <p className="text-xs text-muted-foreground/80 leading-relaxed">
-                  {t('footerSections.analystProjections', { ns: 'content' })}
-                </p>
-                <div className="flex items-center space-x-2 text-xs font-medium text-warning pt-2">
-                  <div className="w-1.5 h-1.5 bg-warning rounded-full"></div>
-                  <span>{t('footerSections.updatesEverySecond', { ns: 'content' })}</span>
-                </div>
               </div>
             </div>
           </div>
@@ -138,16 +137,8 @@ const IndexEN = () => {
           <div className="mt-16 pt-8 border-t border-border">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-sm text-muted-foreground">
-                {t('footerSections.copyright', { ns: 'content' })}
+                © 2025 Strikecost.ca - {t('footerSections.copyright', { ns: 'content' })}
               </p>
-              <div className="flex items-center gap-4">
-                <a 
-                  href="/changelog" 
-                  className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                >
-                  {t('footer.changelog', { ns: 'changelog' })}
-                </a>
-              </div>
             </div>
           </div>
         </div>

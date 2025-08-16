@@ -21,7 +21,9 @@
     "timeline": "Timeline",
     "analysis": "Analysis",
     "breakingNews": "Breaking News",
-    "keyUpdates": "Key Updates"
+    "keyUpdates": "Key Updates",
+    "browseSections": "Browse Sections",
+    "changelog": "Changelog"
   },
   "buttons": {
     "readMore": "Read More",

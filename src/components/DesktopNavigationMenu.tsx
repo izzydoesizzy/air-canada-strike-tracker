@@ -7,7 +7,8 @@ import {
   BarChart2,
   FileText,
   ExternalLink,
-  ChevronDown
+  ChevronDown,
+  BarChart3
 } from "lucide-react";
 
 interface DesktopNavigationMenuProps {
@@ -23,13 +24,23 @@ export function DesktopNavigationMenu({ scrollToSection }: DesktopNavigationMenu
         <AccordionItem value="main-nav" className="border-0">
           <AccordionTrigger className="hover:no-underline py-0 text-sm text-muted-foreground hover:text-foreground transition-colors">
             <div className="flex items-center gap-1">
-              <span>Navigation</span>
+              <span>{t('navigation.browseSections')}</span>
               <ChevronDown className="h-3 w-3 shrink-0 transition-transform duration-200" />
             </div>
           </AccordionTrigger>
           <AccordionContent className="absolute top-full right-0 mt-2 w-64 bg-background/95 backdrop-blur-md border border-border/20 rounded-lg shadow-lg p-4 z-50">
             <div className="space-y-2">
               <div className="text-xs font-medium text-muted-foreground mb-3">{t('navigation.mainContent')}</div>
+              
+              <Button 
+                variant="ghost" 
+                size="sm"
+                className="w-full justify-start h-auto p-2" 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                <BarChart3 className="h-4 w-4 mr-2" />
+                {t('navigation.liveTracker')}
+              </Button>
               
               <Button 
                 variant="ghost" 
