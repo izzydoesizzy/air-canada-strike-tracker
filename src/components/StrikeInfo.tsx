@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SourceTooltip } from "@/components/SourceTooltip";
+import { useTranslation } from "react-i18next";
 
 const sources = {
   strikeDetails: {
@@ -26,6 +27,8 @@ const sources = {
 };
 
 export function StrikeInfo() {
+  const { t } = useTranslation('content');
+  
   return (
     <div className="space-y-12">
       {/* Strike Overview */}
@@ -33,14 +36,13 @@ export function StrikeInfo() {
         <div className="text-center space-y-6 max-w-4xl mx-auto">
           <div className="space-y-4">
             <Badge variant="outline" className="border-primary-blue/20 text-primary-blue bg-primary-blue-light px-4 py-2 text-sm font-medium">
-              LABOUR DISRUPTION
+              {t('strikeInfo.labourDisruption')}
             </Badge>
             <h2 className="text-4xl font-light text-foreground tracking-tight">
-              Air Canada Flight Attendants Strike
+              {t('strikeInfo.strikeTitle')}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              CUPE-represented flight attendants commence work stoppage after eight months of 
-              unsuccessful negotiations, creating significant operational disruptions across Canada's aviation network.
+              {t('strikeInfo.strikeDescription')}
             </p>
           </div>
         </div>
@@ -57,7 +59,7 @@ export function StrikeInfo() {
               <SourceTooltip source={sources.impact}>
                 <div className="text-3xl font-semibold text-foreground">130K</div>
               </SourceTooltip>
-              <p className="text-sm text-muted-foreground">Daily affected passengers</p>
+              <p className="text-sm text-muted-foreground">{t('strikeInfo.dailyAffectedPassengers')}</p>
             </div>
           </div>
         </Card>
@@ -71,7 +73,7 @@ export function StrikeInfo() {
               <SourceTooltip source={sources.union}>
                 <div className="text-3xl font-semibold text-foreground">10K</div>
               </SourceTooltip>
-              <p className="text-sm text-muted-foreground">Flight attendants on strike</p>
+              <p className="text-sm text-muted-foreground">{t('strikeInfo.flightAttendantsOnStrike')}</p>
             </div>
           </div>
         </Card>
@@ -85,7 +87,7 @@ export function StrikeInfo() {
               <SourceTooltip source={sources.impact}>
                 <div className="text-3xl font-semibold text-foreground">500+</div>
               </SourceTooltip>
-              <p className="text-sm text-muted-foreground">Daily flight cancellations</p>
+              <p className="text-sm text-muted-foreground">{t('strikeInfo.dailyFlightCancellations')}</p>
             </div>
           </div>
         </Card>
@@ -95,10 +97,10 @@ export function StrikeInfo() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-foreground">Strike Timeline</h3>
+            <h3 className="text-2xl font-semibold text-foreground">{t('strikeInfo.strikeTimeline')}</h3>
             <div className="space-y-4">
               <div className="flex justify-between items-start py-3 border-b border-border/20">
-                <span className="text-muted-foreground font-medium">Commencement</span>
+                <span className="text-muted-foreground font-medium">{t('strikeInfo.commencement')}</span>
                 <SourceTooltip source={sources.strikeDetails}>
                   <div className="text-right">
                     <div className="text-foreground">August 16, 2025</div>
@@ -107,19 +109,19 @@ export function StrikeInfo() {
                 </SourceTooltip>
               </div>
               <div className="flex justify-between items-start py-3 border-b border-border/20">
-                <span className="text-muted-foreground font-medium">Union Representative</span>
+                <span className="text-muted-foreground font-medium">{t('strikeInfo.unionRep')}</span>
                 <SourceTooltip source={sources.union}>
                   <span className="text-foreground">CUPE</span>
                 </SourceTooltip>
               </div>
               <div className="flex justify-between items-start py-3 border-b border-border/20">
-                <span className="text-muted-foreground font-medium">Negotiation Period</span>
+                <span className="text-muted-foreground font-medium">{t('strikeInfo.negotiationPeriod')}</span>
                 <SourceTooltip source={sources.negotiation}>
                   <span className="text-foreground">8 months</span>
                 </SourceTooltip>
               </div>
               <div className="flex justify-between items-start py-3">
-                <span className="text-muted-foreground font-medium">Wind-down Period</span>
+                <span className="text-muted-foreground font-medium">{t('strikeInfo.windDownPeriod')}</span>
                 <SourceTooltip source={sources.strikeDetails}>
                   <span className="text-foreground">72 hours</span>
                 </SourceTooltip>
@@ -130,24 +132,24 @@ export function StrikeInfo() {
 
         <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-foreground">Key Dispute Areas</h3>
+            <h3 className="text-2xl font-semibold text-foreground">{t('strikeInfo.keyDisputeAreas')}</h3>
             <div className="space-y-4">
               <div className="space-y-2">
-                <h4 className="font-medium text-foreground">Company Offer</h4>
+                <h4 className="font-medium text-foreground">{t('strikeInfo.companyOffer')}</h4>
                 <SourceTooltip source={sources.negotiation}>
-                  <p className="text-sm text-muted-foreground">38% total compensation increase over four years</p>
+                  <p className="text-sm text-muted-foreground">{t('strikeInfo.companyOfferDetails')}</p>
                 </SourceTooltip>
               </div>
               <div className="space-y-2">
-                <h4 className="font-medium text-foreground">Primary Issue</h4>
+                <h4 className="font-medium text-foreground">{t('strikeInfo.primaryIssue')}</h4>
                 <SourceTooltip source={sources.union}>
-                  <p className="text-sm text-muted-foreground">Ground pay for all required duties and working hours</p>
+                  <p className="text-sm text-muted-foreground">{t('strikeInfo.primaryIssueDetails')}</p>
                 </SourceTooltip>
               </div>
               <div className="space-y-2">
-                <h4 className="font-medium text-foreground">Union Position</h4>
+                <h4 className="font-medium text-foreground">{t('strikeInfo.unionPosition')}</h4>
                 <SourceTooltip source={sources.union}>
-                  <p className="text-sm text-muted-foreground">Full compensation for all working time, not just flight time</p>
+                  <p className="text-sm text-muted-foreground">{t('strikeInfo.unionPositionDetails')}</p>
                 </SourceTooltip>
               </div>
             </div>
@@ -158,49 +160,49 @@ export function StrikeInfo() {
       {/* Operational Impact */}
       <Card className="p-8 bg-primary-blue-subtle border border-primary-blue/10 shadow-elegant">
         <div className="space-y-6">
-          <h3 className="text-2xl font-semibold text-foreground text-center">Operational Impact</h3>
+          <h3 className="text-2xl font-semibold text-foreground text-center">{t('strikeInfo.operationalImpact')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-semibold text-foreground text-lg">Affected Operations</h4>
+              <h4 className="font-semibold text-foreground text-lg">{t('strikeInfo.affectedOps')}</h4>
               <div className="space-y-3">
                 <SourceTooltip source={sources.operations}>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary-blue rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-muted-foreground">Air Canada mainline flights suspended</span>
+                    <span className="text-muted-foreground">{t('strikeInfo.airCanadaMainline')}</span>
                   </div>
                 </SourceTooltip>
                 <SourceTooltip source={sources.operations}>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary-blue rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-muted-foreground">Air Canada Rouge operations halted</span>
+                    <span className="text-muted-foreground">{t('strikeInfo.airCanadaRouge')}</span>
                   </div>
                 </SourceTooltip>
                 <SourceTooltip source={sources.strikeDetails}>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary-blue rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-muted-foreground">Customer rebooking and refund programs active</span>
+                    <span className="text-muted-foreground">{t('strikeInfo.customerRebooking')}</span>
                   </div>
                 </SourceTooltip>
               </div>
             </div>
             <div className="space-y-4">
-              <h4 className="font-semibold text-foreground text-lg">Continuing Services</h4>
+              <h4 className="font-semibold text-foreground text-lg">{t('strikeInfo.continuingServices')}</h4>
               <div className="space-y-3">
                 <SourceTooltip source={sources.operations}>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-muted-foreground">Air Canada Express (Jazz Airlines)</span>
+                    <span className="text-muted-foreground">{t('strikeInfo.airCanadaExpress')}</span>
                   </div>
                 </SourceTooltip>
                 <SourceTooltip source={sources.operations}>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-muted-foreground">PAL Airlines regional operations</span>
+                    <span className="text-muted-foreground">{t('strikeInfo.palAirlines')}</span>
                   </div>
                 </SourceTooltip>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-muted-foreground">Cargo services (limited impact)</span>
+                  <span className="text-muted-foreground">{t('strikeInfo.cargoServices')}</span>
                 </div>
               </div>
             </div>

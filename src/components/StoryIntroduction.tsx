@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { SourceTooltip } from "@/components/SourceTooltip";
 import { Clock, Users, DollarSign, AlertTriangle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const sources = {
   cupeNotice: {
@@ -18,6 +19,8 @@ const sources = {
 };
 
 export function StoryIntroduction() {
+  const { t } = useTranslation('content');
+  
   return (
     <section id="story" className="bg-gradient-to-b from-surface-subtle to-background py-20">
       <div className="container mx-auto px-8">
@@ -25,10 +28,10 @@ export function StoryIntroduction() {
           {/* Header */}
           <div className="text-center space-y-4">
             <h1 className="text-display-large font-light text-foreground">
-              The Human Cost Behind the Numbers
+              {t('storyIntroduction.title')}
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A decade of wage stagnation meets financial absurdity: Why Air Canada's strike losses dwarf the cost of fair compensation
+              {t('storyIntroduction.subtitle')}
             </p>
           </div>
 
@@ -38,11 +41,11 @@ export function StoryIntroduction() {
               <div className="flex items-start gap-3">
                 <Clock className="h-5 w-5 text-amber-500 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-foreground mb-2">Nearly a Decade</h3>
+                  <h3 className="font-semibold text-foreground mb-2">{t('storyIntroduction.nearlyDecade')}</h3>
                   <p className="text-sm text-muted-foreground">
                     <SourceTooltip source={sources.cupeNotice}>
-                      <span className="underline decoration-dotted">Flight attendants faced stagnant wages</span>
-                    </SourceTooltip>, unpaid ground duty hours, and rising living costs while performing critical safety roles.
+                      <span className="underline decoration-dotted">{t('storyIntroduction.nearlyDecadeDesc')}</span>
+                    </SourceTooltip>
                   </p>
                 </div>
               </div>
@@ -52,11 +55,11 @@ export function StoryIntroduction() {
               <div className="flex items-start gap-3">
                 <DollarSign className="h-5 w-5 text-primary-blue mt-1" />
                 <div>
-                  <h3 className="font-semibold text-foreground mb-2">38% Increase Offered</h3>
+                  <h3 className="font-semibold text-foreground mb-2">{t('storyIntroduction.increaseOffered')}</h3>
                   <p className="text-sm text-muted-foreground">
                     <SourceTooltip source={sources.airCanadaOffer}>
-                      <span className="underline decoration-dotted">Air Canada's proposal</span>
-                    </SourceTooltip> over four years, plus ground pay adjustments and improved pensions.
+                      <span className="underline decoration-dotted">{t('storyIntroduction.increaseOfferedDesc')}</span>
+                    </SourceTooltip>
                   </p>
                 </div>
               </div>
@@ -66,9 +69,9 @@ export function StoryIntroduction() {
               <div className="flex items-start gap-3">
                 <Users className="h-5 w-5 text-red-500 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-foreground mb-2">Union Rejection</h3>
+                  <h3 className="font-semibold text-foreground mb-2">{t('storyIntroduction.unionRejection')}</h3>
                   <p className="text-sm text-muted-foreground">
-                    Flight attendants rejected the offer, citing incomplete compensation for all hours worked and inflation concerns.
+                    {t('storyIntroduction.unionRejectionDesc')}
                   </p>
                 </div>
               </div>
@@ -78,11 +81,11 @@ export function StoryIntroduction() {
               <div className="flex items-start gap-3">
                 <AlertTriangle className="h-5 w-5 text-loss-red mt-1" />
                 <div>
-                  <h3 className="font-semibold text-foreground mb-2">$100M Daily Loss</h3>
+                  <h3 className="font-semibold text-foreground mb-2">{t('storyIntroduction.dailyLoss')}</h3>
                   <p className="text-sm text-muted-foreground">
                     <SourceTooltip source={sources.cnbcCoverage}>
-                      <span className="underline decoration-dotted">Strike costs exceed</span>
-                    </SourceTooltip> what fair compensation would cost annually.
+                      <span className="underline decoration-dotted">{t('storyIntroduction.strikeCostsExceed')}</span>
+                    </SourceTooltip> {t('storyIntroduction.dailyLossDesc')}
                   </p>
                 </div>
               </div>
@@ -93,11 +96,9 @@ export function StoryIntroduction() {
           <div className="text-center">
             <Card className="p-8 bg-gradient-to-r from-loss-red/10 to-amber-500/10 border border-loss-red/20">
               <div className="max-w-2xl mx-auto space-y-4">
-                <h2 className="text-xl font-semibold text-foreground">The Financial Absurdity</h2>
+                <h2 className="text-xl font-semibold text-foreground">{t('storyIntroduction.financialAbsurdity')}</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Every day this strike continues, Air Canada hemorrhages more money than it would cost to provide 
-                  fair compensation to all 10,511 flight attendants for an entire year. This isn't just an economic 
-                  disaster—it's an ethical failure where keeping planes grounded costs more than treating employees fairly.
+                  {t('storyIntroduction.financialAbsurdityDesc')}
                 </p>
               </div>
             </Card>

@@ -63,7 +63,7 @@ const Index = () => {
                   </a>
                 </p>
                 <div className="space-y-3">
-                  <p className="text-xs font-medium text-foreground/80 uppercase tracking-wider">Powered by</p>
+                  <p className="text-xs font-medium text-foreground/80 uppercase tracking-wider">{t('footerSections.poweredBy', { ns: 'content' })}</p>
                   <div className="space-y-2">
                     <a 
                       href="https://perplexity.ai/pro?referral_code=J1IO81TK" 
@@ -88,10 +88,10 @@ const Index = () => {
 
             {/* Contact & Inquiries */}
             <div className="space-y-6">
-              <h3 className="text-base font-semibold text-foreground tracking-wide">Contact & Inquiries</h3>
+              <h3 className="text-base font-semibold text-foreground tracking-wide">{t('footerSections.contactInquiries', { ns: 'content' })}</h3>
               <div className="space-y-5">
                 <div>
-                  <p className="text-xs font-medium text-foreground/80 uppercase tracking-wider mb-3">Media Inquiries</p>
+                  <p className="text-xs font-medium text-foreground/80 uppercase tracking-wider mb-3">{t('footerSections.mediaInquiries', { ns: 'content' })}</p>
                   <a 
                     href="mailto:izzy@joinclearcareer.com" 
                     className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
@@ -100,14 +100,14 @@ const Index = () => {
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-foreground/80 uppercase tracking-wider mb-3">Advertising & Partnerships</p>
+                  <p className="text-xs font-medium text-foreground/80 uppercase tracking-wider mb-3">{t('footerSections.advertisingPartnerships', { ns: 'content' })}</p>
                   <a 
                     href="https://forms.gle/f8cfuoKsXHuNuaAt9" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                   >
-                    Partnership Form
+                    {t('footerSections.partnershipForm', { ns: 'content' })}
                   </a>
                 </div>
               </div>
@@ -115,17 +115,17 @@ const Index = () => {
 
             {/* Data & Methodology */}
             <div className="space-y-6">
-              <h3 className="text-base font-semibold text-foreground tracking-wide">Data & Methodology</h3>
+              <h3 className="text-base font-semibold text-foreground tracking-wide">{t('footerSections.dataMethodology', { ns: 'content' })}</h3>
               <div className="space-y-4">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Financial projections compiled from verified official sources and respected financial news outlets.
+                  {t('footerSections.dataMethodologyDesc', { ns: 'content' })}
                 </p>
                 <p className="text-xs text-muted-foreground/80 leading-relaxed">
-                  Based on analyst projections from TD Cowen and industry reports. Real-time calculations provide illustrative impact modeling.
+                  {t('footerSections.analystProjections', { ns: 'content' })}
                 </p>
                 <div className="flex items-center space-x-2 text-xs font-medium text-warning pt-2">
                   <div className="w-1.5 h-1.5 bg-warning rounded-full"></div>
-                  <span>Updates every second</span>
+                  <span>{t('footerSections.updatesEverySecond', { ns: 'content' })}</span>
                 </div>
               </div>
             </div>
@@ -134,7 +134,7 @@ const Index = () => {
           {/* Bottom section */}
           <div className="mt-16 pt-8 border-t border-border">
             <p className="text-sm text-muted-foreground text-center">
-              © 2025 StrikeCost.ca • Real-time labour dispute impact tracking
+              {t('footerSections.copyright', { ns: 'content' })}
             </p>
           </div>
         </div>

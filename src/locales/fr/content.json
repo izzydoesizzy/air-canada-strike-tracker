@@ -15,6 +15,32 @@
     "affectedDestinations": "Destinations Affectées",
     "strikingAttendants": "Agents de Bord en Grève"
   },
+  "storyIntroduction": {
+    "title": "Le Coût Humain Derrière les Chiffres",
+    "subtitle": "Une décennie de stagnation salariale rencontre l'absurdité financière : Pourquoi les pertes de grève d'Air Canada dépassent le coût d'une compensation équitable",
+    "nearlyDecade": "Presque une Décennie",
+    "nearlyDecadeDesc": "Les agents de bord ont fait face à des salaires stagnants, des heures de service au sol non payées et des coûts de la vie croissants tout en remplissant des rôles de sécurité critiques.",
+    "increaseOffered": "Augmentation de 38% Offerte",
+    "increaseOfferedDesc": "sur quatre ans, plus des ajustements de rémunération au sol et des pensions améliorées.",
+    "unionRejection": "Rejet du Syndicat",
+    "unionRejectionDesc": "Les agents de bord ont rejeté l'offre, citant une compensation incomplète pour toutes les heures travaillées et des préoccupations d'inflation.",
+    "dailyLoss": "Perte Quotidienne de 100M$",
+    "dailyLossDesc": "ce qu'une compensation équitable coûterait annuellement.",
+    "financialAbsurdity": "L'Absurdité Financière",
+    "financialAbsurdityDesc": "Chaque jour que cette grève continue, Air Canada perd plus d'argent qu'il n'en coûterait pour fournir une compensation équitable à tous les 10 511 agents de bord pour une année entière. Ce n'est pas seulement un désastre économique—c'est un échec éthique où garder les avions au sol coûte plus cher que de traiter les employés équitablement.",
+    "strikeCostsExceed": "Les coûts de grève dépassent"
+  },
+  "storyHighlights": {
+    "lookingAtNumbers": "Regardons les",
+    "numbersStory": "Les chiffres racontent une histoire choquante",
+    "highlights": [
+      "Chaque jour de grève coûte à Air Canada 100 millions de dollars.",
+      "C'est comme brûler 9 500$ par agent de bord par jour.",
+      "Après seulement 10 jours, Air Canada aura perdu l'équivalent de 95 000$ par agent de bord.",
+      "D'ici 30 jours, c'est 285 000$ par agent de bord — plus que ce que gagnent de nombreux agents en années.",
+      "Pendant ce temps, le syndicat demande un salaire équitable pour toutes les heures travaillées — une fraction de ce qu'Air Canada perd déjà."
+    ]
+  },
   "strikeInfo": {
     "title": "Informations sur la Grève des Agents de Bord d'Air Canada",
     "description": "Aperçu complet du conflit de travail en cours entre Air Canada et le Syndicat canadien de la fonction publique (SCFP), représentant les agents de bord.",
@@ -30,7 +56,55 @@
     "primaryIssue": "Question Principale",
     "unionPosition": "Position du Syndicat",
     "affectedOps": "Opérations Affectées",
-    "continuingServices": "Services Continus"
+    "continuingServices": "Services Continus",
+    "labourDisruption": "PERTURBATION DU TRAVAIL",
+    "strikeTitle": "Grève des Agents de Bord d'Air Canada",
+    "strikeDescription": "Les agents de bord représentés par le SCFP commencent un arrêt de travail après huit mois de négociations infructueuses, créant des perturbations opérationnelles importantes à travers le réseau aérien du Canada.",
+    "dailyAffectedPassengers": "Passagers affectés quotidiennement",
+    "flightAttendantsOnStrike": "Agents de bord en grève",
+    "dailyFlightCancellations": "Annulations de vols quotidiennes",
+    "companyOfferDetails": "Augmentation totale de compensation de 38% sur quatre ans",
+    "primaryIssueDetails": "Rémunération au sol pour toutes les tâches et heures de travail requises",
+    "unionPositionDetails": "Compensation complète pour tout le temps de travail, pas seulement le temps de vol",
+    "airCanadaMainline": "Vols principaux d'Air Canada suspendus",
+    "airCanadaRouge": "Opérations d'Air Canada Rouge interrompues",
+    "customerRebooking": "Programmes de report et remboursement clients actifs",
+    "airCanadaExpress": "Air Canada Express (Jazz Airlines)",
+    "palAirlines": "Opérations régionales PAL Airlines",
+    "cargoServices": "Services de fret (impact limité)"
+  },
+  "sources": {
+    "title": "Sources de Données et Vérification",
+    "description": "Tous les chiffres et informations proviennent de déclarations officielles, de rapports de nouvelles vérifiés et de dossiers publics. Passez la souris sur n'importe quel point de données pour voir sa source.",
+    "methodologyTitle": "Méthodologie et Calculs",
+    "lossEstimation": "Estimation des Pertes",
+    "lossEstimationDesc": "Impact quotidien de 100M$ basé sur l'estimation de l'analyste TD Cowen de 300M$ CAD (217M$ USD) pour une grève de 3 jours, extrapolée aux chiffres quotidiens.",
+    "perAttendantImpact": "Impact par Agent de Bord",
+    "perAttendantImpactDesc": "Calculé comme l'impact quotidien total divisé par 10 511 agents de bord représentés par le SCFP.",
+    "strikeTimelineCalc": "Chronologie de la Grève",
+    "strikeTimelineCalcDesc": "Le compteur commence au commencement officiellement annoncé de la grève : 16 août 2025, 1h00 heure de l'Est.",
+    "realTimeUpdates": "Mises à Jour en Temps Réel",
+    "realTimeUpdatesDesc": "Tous les calculs se mettent à jour en continu basés sur le temps écoulé précis depuis l'initiation de la grève.",
+    "disclaimerTitle": "Avertissement Important",
+    "disclaimerText": "Ce site web est une ressource d'information indépendante sur la grève en cours des agents de bord d'Air Canada. Tous les chiffres financiers et détails opérationnels sont des estimations basées sur des rapports publics et peuvent ne pas refléter les pertes ou résultats réels. Ce site n'est pas affilié à Air Canada ou à tout syndicat et ne doit pas être interprété comme des conseils juridiques ou financiers.",
+    "sourceTypes": {
+      "official": "Déclaration Officielle",
+      "advisory": "Avis Client",
+      "union": "Déclaration Syndicale",
+      "news": "Couverture Médiatique",
+      "analysis": "Analyse Médiatique"
+    }
+  },
+  "footerSections": {
+    "contactInquiries": "Contact et Demandes",
+    "mediaInquiries": "Demandes Médiatiques",
+    "advertisingPartnerships": "Publicité et Partenariats",
+    "partnershipForm": "Formulaire de Partenariat",
+    "dataMethodology": "Données et Méthodologie",
+    "dataMethodologyDesc": "Projections financières compilées à partir de sources officielles vérifiées et de médias financiers respectés.",
+    "analystProjections": "Basé sur les projections d'analystes de TD Cowen et les rapports de l'industrie. Les calculs en temps réel fournissent une modélisation d'impact illustrative.",
+    "updatesEverySecond": "Mises à jour chaque seconde",
+    "copyright": "© 2025 StrikeCost.ca • Suivi en temps réel de l'impact des conflits de travail"
   },
   "footer": {
     "creatorTools": "Créateur et Outils",
@@ -39,6 +113,7 @@
     "sources": "Sources et Méthodologie",
     "disclaimer": "Données provenant de rapports publics et de déclarations officielles. Les projections sont des estimations basées sur les informations disponibles.",
     "contact": "Questions ou suggestions ? Connectez-vous avec moi sur",
-    "dataNote": "Les calculs en temps réel sont basés sur des données financières publiques et des estimations industrielles."
+    "dataNote": "Les calculs en temps réel sont basés sur des données financières publiques et des estimations industrielles.",
+    "poweredBy": "Alimenté par"
   }
 }

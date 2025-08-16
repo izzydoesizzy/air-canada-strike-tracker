@@ -35,21 +35,21 @@ export function StrikeOverview() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">Union</span>
+              <span className="text-sm text-muted-foreground">{t('strikeOverview.union')}</span>
               <SourceTooltip source={sources.cupe}>
                 <Badge variant="outline">CUPE 4092</Badge>
               </SourceTooltip>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">Affected Workers</span>
+              <span className="text-sm text-muted-foreground">{t('strikeOverview.affectedWorkers')}</span>
               <span className="font-mono font-medium">10,000+</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">Strike Notice</span>
+              <span className="text-sm text-muted-foreground">{t('strikeOverview.strikeNotice')}</span>
               <span className="text-sm">72 hours</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">Status</span>
+              <span className="text-sm text-muted-foreground">{t('strikeOverview.status')}</span>
               <Badge variant="destructive">Active Strike</Badge>
             </div>
           </CardContent>
@@ -60,7 +60,7 @@ export function StrikeOverview() {
           <CardHeader>
             <CardTitle className="flex items-center space-x-2 text-lg">
               <Calendar className="h-5 w-5" />
-              <span>Timeline</span>
+              <span>{t('strikeOverview.timeline')}</span>
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -68,7 +68,7 @@ export function StrikeOverview() {
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-primary-blue rounded-full mt-2 flex-shrink-0"></div>
                 <div>
-                  <div className="text-sm font-medium">Strike Notice Issued</div>
+                  <div className="text-sm font-medium">{t('strikeOverview.strikeNoticeIssued')}</div>
                   <div className="text-xs text-muted-foreground">August 13, 2025</div>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export function StrikeOverview() {
                 <div className="w-2 h-2 bg-loss-indicator rounded-full mt-2 flex-shrink-0"></div>
                 <div>
                   <SourceTooltip source={sources.negotiations}>
-                    <div className="text-sm font-medium">Strike Begins</div>
+                    <div className="text-sm font-medium">{t('strikeOverview.strikeCommenced')}</div>
                   </SourceTooltip>
                   <div className="text-xs text-muted-foreground">August 16, 2025 - 1:00 AM ET</div>
                 </div>
@@ -101,21 +101,21 @@ export function StrikeOverview() {
               <Users className="h-8 w-8 text-primary-blue" />
               <div>
                 <div className="text-lg font-mono font-semibold">130,000</div>
-                <div className="text-sm text-muted-foreground">Passengers affected daily</div>
+                <div className="text-sm text-muted-foreground">{t('strikeOverview.affectedPassengers')}</div>
               </div>
             </div>
             <div className="flex items-center space-x-3">
               <MapPin className="h-8 w-8 text-primary-blue" />
               <div>
                 <div className="text-lg font-mono font-semibold">80+</div>
-                <div className="text-sm text-muted-foreground">Destinations impacted</div>
+                <div className="text-sm text-muted-foreground">{t('strikeOverview.affectedDestinations')}</div>
               </div>
             </div>
             <div className="flex items-center space-x-3">
               <Briefcase className="h-8 w-8 text-primary-blue" />
               <div>
                 <div className="text-lg font-mono font-semibold">10,000+</div>
-                <div className="text-sm text-muted-foreground">Flight attendants on strike</div>
+                <div className="text-sm text-muted-foreground">{t('strikeOverview.strikingAttendants')}</div>
               </div>
             </div>
           </div>

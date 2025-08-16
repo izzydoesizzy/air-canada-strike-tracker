@@ -15,6 +15,32 @@
     "affectedDestinations": "Affected Destinations",
     "strikingAttendants": "Striking Flight Attendants"
   },
+  "storyIntroduction": {
+    "title": "The Human Cost Behind the Numbers",
+    "subtitle": "A decade of wage stagnation meets financial absurdity: Why Air Canada's strike losses dwarf the cost of fair compensation",
+    "nearlyDecade": "Nearly a Decade",
+    "nearlyDecadeDesc": "Flight attendants faced stagnant wages, unpaid ground duty hours, and rising living costs while performing critical safety roles.",
+    "increaseOffered": "38% Increase Offered",
+    "increaseOfferedDesc": "over four years, plus ground pay adjustments and improved pensions.",
+    "unionRejection": "Union Rejection",
+    "unionRejectionDesc": "Flight attendants rejected the offer, citing incomplete compensation for all hours worked and inflation concerns.",
+    "dailyLoss": "$100M Daily Loss",
+    "dailyLossDesc": "what fair compensation would cost annually.",
+    "financialAbsurdity": "The Financial Absurdity",
+    "financialAbsurdityDesc": "Every day this strike continues, Air Canada hemorrhages more money than it would cost to provide fair compensation to all 10,511 flight attendants for an entire year. This isn't just an economic disaster—it's an ethical failure where keeping planes grounded costs more than treating employees fairly.",
+    "strikeCostsExceed": "Strike costs exceed"
+  },
+  "storyHighlights": {
+    "lookingAtNumbers": "Looking at the",
+    "numbersStory": "The numbers tell an shocking story",
+    "highlights": [
+      "Every day of strike costs Air Canada $100 million.",
+      "That's the same as burning $9,500 per flight attendant per day.",
+      "After just 10 days, Air Canada will have lost the equivalent of $95,000 per flight attendant.",
+      "By 30 days, that's $285,000 per flight attendant — more than many attendants make in years.",
+      "Meanwhile, the union is asking for fair pay across all hours worked — a fraction of what Air Canada is already losing."
+    ]
+  },
   "strikeInfo": {
     "title": "Air Canada Flight Attendant Strike Information",
     "description": "Comprehensive overview of the ongoing labor dispute between Air Canada and the Canadian Union of Public Employees (CUPE), representing flight attendants.",
@@ -30,7 +56,55 @@
     "primaryIssue": "Primary Issue",
     "unionPosition": "Union's Position",
     "affectedOps": "Affected Operations",
-    "continuingServices": "Continuing Services"
+    "continuingServices": "Continuing Services",
+    "labourDisruption": "LABOUR DISRUPTION",
+    "strikeTitle": "Air Canada Flight Attendants Strike",
+    "strikeDescription": "CUPE-represented flight attendants commence work stoppage after eight months of unsuccessful negotiations, creating significant operational disruptions across Canada's aviation network.",
+    "dailyAffectedPassengers": "Daily affected passengers",
+    "flightAttendantsOnStrike": "Flight attendants on strike",
+    "dailyFlightCancellations": "Daily flight cancellations",
+    "companyOfferDetails": "38% total compensation increase over four years",
+    "primaryIssueDetails": "Ground pay for all required duties and working hours",
+    "unionPositionDetails": "Full compensation for all working time, not just flight time",
+    "airCanadaMainline": "Air Canada mainline flights suspended",
+    "airCanadaRouge": "Air Canada Rouge operations halted", 
+    "customerRebooking": "Customer rebooking and refund programs active",
+    "airCanadaExpress": "Air Canada Express (Jazz Airlines)",
+    "palAirlines": "PAL Airlines regional operations",
+    "cargoServices": "Cargo services (limited impact)"
+  },
+  "sources": {
+    "title": "Data Sources & Verification",
+    "description": "All figures and information are sourced from official statements, verified news reports, and public records. Hover over any data point to view its source.",
+    "methodologyTitle": "Methodology & Calculations",
+    "lossEstimation": "Loss Estimation",
+    "lossEstimationDesc": "$100M daily impact based on TD Cowen analyst estimate of C$300M ($217M) for a 3-day strike, extrapolated to daily figures.",
+    "perAttendantImpact": "Per-Attendant Impact",
+    "perAttendantImpactDesc": "Calculated as total daily impact divided by 10,511 CUPE-represented flight attendants.",
+    "strikeTimelineCalc": "Strike Timeline",
+    "strikeTimelineCalcDesc": "Counter begins at officially announced strike commencement: August 16, 2025, 1:00 AM Eastern Time.",
+    "realTimeUpdates": "Real-time Updates",
+    "realTimeUpdatesDesc": "All calculations update continuously based on precise elapsed time since strike initiation.",
+    "disclaimerTitle": "Important Disclaimer",
+    "disclaimerText": "This website is an independent informational resource about the ongoing Air Canada flight attendants strike. All financial figures and operational details are estimates based on public reports and may not reflect actual losses or outcomes. This site is not affiliated with Air Canada or any union and should not be construed as legal or financial advice.",
+    "sourceTypes": {
+      "official": "Official Statement",
+      "advisory": "Customer Advisory",
+      "union": "Union Statement",
+      "news": "News Coverage",
+      "analysis": "News Analysis"
+    }
+  },
+  "footerSections": {
+    "contactInquiries": "Contact & Inquiries",
+    "mediaInquiries": "Media Inquiries",
+    "advertisingPartnerships": "Advertising & Partnerships",
+    "partnershipForm": "Partnership Form",
+    "dataMethodology": "Data & Methodology",
+    "dataMethodologyDesc": "Financial projections compiled from verified official sources and respected financial news outlets.",
+    "analystProjections": "Based on analyst projections from TD Cowen and industry reports. Real-time calculations provide illustrative impact modeling.",
+    "updatesEverySecond": "Updates every second",
+    "copyright": "© 2025 StrikeCost.ca • Real-time labour dispute impact tracking"
   },
   "footer": {
     "creatorTools": "Creator & Tools",
