@@ -6,17 +6,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-foreground">Air Canada Strike Loss Tracker</h1>
-            <p className="text-sm text-muted-foreground mt-1">Real-time economic impact monitor</p>
+      <header className="border-b border-border/20 bg-surface-elevated/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="container mx-auto px-8 py-6">
+          <div className="text-center space-y-2">
+            <h1 className="text-3xl font-light text-foreground tracking-tight">Air Canada Strike Impact Tracker</h1>
+            <p className="text-sm text-muted-foreground">Real-time economic impact monitoring with verified data sources</p>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-6 py-8 space-y-12">
+      <main className="container mx-auto px-8 py-16 space-y-20">
         {/* Loss Counter Section */}
         <section>
           <LossCounter />
@@ -34,11 +34,11 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card/50 mt-16">
-        <div className="container mx-auto px-6 py-8">
-          <div className="text-center text-sm text-muted-foreground">
-            <p>Data compiled from official sources and verified news reports</p>
-            <p className="mt-2">Last updated: Real-time counter with live calculations</p>
+      <footer className="border-t border-border/20 bg-surface-subtle mt-20">
+        <div className="container mx-auto px-8 py-12">
+          <div className="text-center space-y-2 text-sm text-muted-foreground">
+            <p>Data compiled from verified official sources and news reports</p>
+            <p>Real-time calculations • Updated continuously</p>
           </div>
         </div>
       </footer>

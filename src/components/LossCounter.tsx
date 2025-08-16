@@ -1,11 +1,27 @@
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
+import { SourceTooltip } from "@/components/SourceTooltip";
 
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00"); // August 16, 2025, 1:00 AM ET
 const LOSS_PER_DAY = 100000000; // $100M per day
 const LOSS_PER_HOUR = LOSS_PER_DAY / 24;
 const LOSS_PER_MINUTE = LOSS_PER_DAY / (24 * 60);
 const LOSS_PER_ATTENDANT_PER_DAY = 10000; // $10K per attendant per day
+
+const sources = {
+  dailyLoss: {
+    title: "Air Canada's estimated daily operational impact during labour disruption",
+    url: "https://www.aircanada.com/media/air-canada-receives-72-hour-strike-notice-from-cupe-and-issues-lockout-notice-in-response/"
+  },
+  attendantCount: {
+    title: "CUPE represents approximately 10,000 Air Canada flight attendants",
+    url: "https://cupe.ca/air-canada-flight-attendants-forced-issue-strike-notice-end-unpaid-work"
+  },
+  strikeStart: {
+    title: "Strike begins August 16, 2025, at 01:00 ET",
+    url: "https://www.aircanada.com/ca/en/aco/home/book/travel-news-and-updates/2025/ac-action.html"
+  }
+};
 
 export function LossCounter() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -46,84 +62,99 @@ export function LossCounter() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       {/* Main Counter */}
-      <Card className="p-8 bg-gradient-to-br from-card to-secondary border-border shadow-2xl">
-        <div className="text-center space-y-4">
-          <h1 className="text-2xl font-semibold text-muted-foreground">
-            Total Estimated Losses
-          </h1>
-          <div className="relative">
-            <div className="text-6xl md:text-8xl font-bold text-loss-red font-mono tracking-tight">
-              {formatLargeCurrency(totalLoss)}
-            </div>
-            <div className="absolute inset-0 text-6xl md:text-8xl font-bold text-loss-red-glow font-mono tracking-tight opacity-50 blur-sm animate-pulse">
-              {formatLargeCurrency(totalLoss)}
+      <Card className="p-12 bg-gradient-to-br from-surface-elevated to-surface-subtle border border-border/50 shadow-large hover:shadow-xl transition-all duration-300">
+        <div className="text-center space-y-8">
+          <div className="space-y-3">
+            <h1 className="text-lg font-medium text-muted-foreground">
+              Estimated Economic Impact
+            </h1>
+            <div className="relative inline-block">
+              <SourceTooltip source={sources.dailyLoss}>
+                <div className="text-7xl md:text-8xl font-light text-loss-indicator font-mono tracking-tight transition-all duration-500">
+                  {formatLargeCurrency(totalLoss)}
+                </div>
+              </SourceTooltip>
+              <div className="absolute inset-0 text-7xl md:text-8xl font-light text-loss-indicator font-mono tracking-tight opacity-10 blur-sm">
+                {formatLargeCurrency(totalLoss)}
+              </div>
             </div>
           </div>
-          <p className="text-muted-foreground text-lg">
-            Since August 16, 2025 at 1:00 AM ET
-          </p>
+          <div className="space-y-2">
+            <SourceTooltip source={sources.strikeStart}>
+              <p className="text-muted-foreground text-base">
+                Since August 16, 2025 at 1:00 AM ET
+              </p>
+            </SourceTooltip>
+            <p className="text-xs text-muted-foreground/70">
+              Real-time calculation • Updates every second
+            </p>
+          </div>
         </div>
       </Card>
 
       {/* Breakdown Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="p-6 bg-gradient-to-br from-card to-secondary border-border">
-          <div className="text-center space-y-2">
-            <h3 className="text-sm text-muted-foreground font-medium">Loss Per Day</h3>
-            <div className="text-2xl font-bold text-loss-red">
-              {formatCurrency(LOSS_PER_DAY)}
-            </div>
+        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
+          <div className="text-center space-y-4">
+            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Estimated Daily Impact</h3>
+            <SourceTooltip source={sources.dailyLoss}>
+              <div className="text-3xl font-semibold text-loss-indicator group-hover:scale-105 transition-transform duration-200">
+                {formatCurrency(LOSS_PER_DAY)}
+              </div>
+            </SourceTooltip>
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-to-br from-card to-secondary border-border">
-          <div className="text-center space-y-2">
-            <h3 className="text-sm text-muted-foreground font-medium">Loss Per Hour</h3>
-            <div className="text-2xl font-bold text-loss-red">
+        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
+          <div className="text-center space-y-4">
+            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Hour</h3>
+            <div className="text-3xl font-semibold text-loss-indicator group-hover:scale-105 transition-transform duration-200">
               {formatCurrency(LOSS_PER_HOUR)}
             </div>
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-to-br from-card to-secondary border-border">
-          <div className="text-center space-y-2">
-            <h3 className="text-sm text-muted-foreground font-medium">Loss Per Minute</h3>
-            <div className="text-2xl font-bold text-loss-red">
+        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
+          <div className="text-center space-y-4">
+            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Minute</h3>
+            <div className="text-3xl font-semibold text-loss-indicator group-hover:scale-105 transition-transform duration-200">
               {formatCurrency(LOSS_PER_MINUTE)}
             </div>
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-to-br from-card to-secondary border-border">
-          <div className="text-center space-y-2">
-            <h3 className="text-sm text-muted-foreground font-medium">Per Flight Attendant/Day</h3>
-            <div className="text-2xl font-bold text-loss-red">
-              {formatCurrency(LOSS_PER_ATTENDANT_PER_DAY)}
-            </div>
+        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300 group">
+          <div className="text-center space-y-4">
+            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Per Flight Attendant Daily</h3>
+            <SourceTooltip source={sources.attendantCount}>
+              <div className="text-3xl font-semibold text-loss-indicator group-hover:scale-105 transition-transform duration-200">
+                {formatCurrency(LOSS_PER_ATTENDANT_PER_DAY)}
+              </div>
+            </SourceTooltip>
           </div>
         </Card>
       </div>
 
       {/* Live Stats */}
-      <Card className="p-6 bg-gradient-to-br from-card to-secondary border-border">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <div className="space-y-2">
-            <h3 className="text-sm text-muted-foreground font-medium">Days Elapsed</h3>
-            <div className="text-xl font-bold text-foreground">
+      <Card className="p-8 bg-primary-blue-subtle border border-primary-blue/10 shadow-elegant">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="space-y-3">
+            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Days Elapsed</h3>
+            <div className="text-2xl font-semibold text-foreground">
               {daysElapsed.toFixed(2)}
             </div>
           </div>
-          <div className="space-y-2">
-            <h3 className="text-sm text-muted-foreground font-medium">Hours Elapsed</h3>
-            <div className="text-xl font-bold text-foreground">
+          <div className="space-y-3">
+            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Hours Elapsed</h3>
+            <div className="text-2xl font-semibold text-foreground">
               {hoursElapsed.toFixed(1)}
             </div>
           </div>
-          <div className="space-y-2">
-            <h3 className="text-sm text-muted-foreground font-medium">Minutes Elapsed</h3>
-            <div className="text-xl font-bold text-foreground">
+          <div className="space-y-3">
+            <h3 className="text-sm text-muted-foreground font-medium tracking-wide">Minutes Elapsed</h3>
+            <div className="text-2xl font-semibold text-foreground">
               {minutesElapsed.toFixed(0)}
             </div>
           </div>

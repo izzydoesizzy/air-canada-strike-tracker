@@ -1,125 +1,206 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { SourceTooltip } from "@/components/SourceTooltip";
+
+const sources = {
+  strikeDetails: {
+    title: "Official Air Canada strike notice and operational impact details",
+    url: "https://www.aircanada.com/ca/en/aco/home/book/travel-news-and-updates/2025/ac-action.html"
+  },
+  union: {
+    title: "CUPE union official statement on strike action",
+    url: "https://cupe.ca/air-canada-flight-attendants-forced-issue-strike-notice-end-unpaid-work"
+  },
+  negotiation: {
+    title: "Air Canada's compensation offer and negotiation details",
+    url: "https://www.aircanada.com/media/air-canada-declares-an-impasse-in-cupe-negotiations-as-midnight-threshold-for-a-strike-or-lockout-notice-nears/"
+  },
+  impact: {
+    title: "CBC News: Daily impact and passenger numbers during strike",
+    url: "https://www.cbc.ca/news/business/air-canada-flight-attendants-final-day-strike-1.7610225"
+  },
+  operations: {
+    title: "Reuters: Operational status and affected services",
+    url: "https://www.reuters.com/business/world-at-work/air-canada-flight-attendants-deadlocked-with-strike-looming-2025-08-15/"
+  }
+};
 
 export function StrikeInfo() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       {/* Strike Overview */}
-      <Card className="p-8 bg-gradient-to-br from-card to-secondary border-border">
-        <div className="space-y-6">
-          <div className="text-center space-y-4">
-            <Badge variant="destructive" className="text-sm px-4 py-2">
-              ACTIVE STRIKE
+      <Card className="p-10 bg-gradient-to-br from-surface-elevated to-surface-subtle border border-border/30 shadow-large">
+        <div className="text-center space-y-6 max-w-4xl mx-auto">
+          <div className="space-y-4">
+            <Badge variant="outline" className="border-primary-blue/20 text-primary-blue bg-primary-blue-light px-4 py-2 text-sm font-medium">
+              LABOUR DISRUPTION
             </Badge>
-            <h2 className="text-3xl font-bold text-foreground">
+            <h2 className="text-4xl font-light text-foreground tracking-tight">
               Air Canada Flight Attendants Strike
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              CUPE-represented flight attendants walk off the job after eight months of failed negotiations, 
-              affecting approximately 130,000 customers daily.
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              CUPE-represented flight attendants commence work stoppage after eight months of 
+              unsuccessful negotiations, creating significant operational disruptions across Canada's aviation network.
             </p>
           </div>
         </div>
       </Card>
 
-      {/* Key Facts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <Card className="p-6 bg-gradient-to-br from-card to-secondary border-border">
-          <h3 className="text-xl font-semibold text-foreground mb-4">Strike Details</h3>
-          <div className="space-y-3 text-sm">
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Start Date:</span>
-              <span className="text-foreground font-medium">August 16, 2025, 1:00 AM ET</span>
+      {/* Key Statistics Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300">
+          <div className="text-center space-y-4">
+            <div className="w-12 h-12 bg-primary-blue-light rounded-full flex items-center justify-center mx-auto">
+              <div className="w-6 h-6 bg-primary-blue rounded-full"></div>
             </div>
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Union:</span>
-              <span className="text-foreground font-medium">CUPE (Canadian Union of Public Employees)</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Affected Workers:</span>
-              <span className="text-foreground font-medium">~10,000 Flight Attendants</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Daily Impact:</span>
-              <span className="text-foreground font-medium">130,000 customers affected</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Flights Cancelled (Day 1):</span>
-              <span className="text-foreground font-medium">~500 flights</span>
+            <div className="space-y-2">
+              <SourceTooltip source={sources.impact}>
+                <div className="text-3xl font-semibold text-foreground">130K</div>
+              </SourceTooltip>
+              <p className="text-sm text-muted-foreground">Daily affected passengers</p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-to-br from-card to-secondary border-border">
-          <h3 className="text-xl font-semibold text-foreground mb-4">Negotiation History</h3>
-          <div className="space-y-3 text-sm">
-            <div className="space-y-1">
-              <span className="text-muted-foreground">Air Canada's Offer:</span>
-              <span className="text-foreground font-medium block">38% total compensation increase over 4 years</span>
+        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300">
+          <div className="text-center space-y-4">
+            <div className="w-12 h-12 bg-primary-blue-light rounded-full flex items-center justify-center mx-auto">
+              <div className="w-6 h-6 bg-primary-blue rounded-full"></div>
             </div>
-            <div className="space-y-1">
-              <span className="text-muted-foreground">Negotiation Period:</span>
-              <span className="text-foreground font-medium block">8 months of failed talks</span>
+            <div className="space-y-2">
+              <SourceTooltip source={sources.union}>
+                <div className="text-3xl font-semibold text-foreground">10K</div>
+              </SourceTooltip>
+              <p className="text-sm text-muted-foreground">Flight attendants on strike</p>
             </div>
-            <div className="space-y-1">
-              <span className="text-muted-foreground">Main Dispute:</span>
-              <span className="text-foreground font-medium block">Ground pay for required duties</span>
+          </div>
+        </Card>
+
+        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant hover:shadow-medium transition-all duration-300">
+          <div className="text-center space-y-4">
+            <div className="w-12 h-12 bg-primary-blue-light rounded-full flex items-center justify-center mx-auto">
+              <div className="w-6 h-6 bg-primary-blue rounded-full"></div>
             </div>
-            <div className="space-y-1">
-              <span className="text-muted-foreground">Union Position:</span>
-              <span className="text-foreground font-medium block">Full pay for all working hours</span>
+            <div className="space-y-2">
+              <SourceTooltip source={sources.impact}>
+                <div className="text-3xl font-semibold text-foreground">500+</div>
+              </SourceTooltip>
+              <p className="text-sm text-muted-foreground">Daily flight cancellations</p>
             </div>
           </div>
         </Card>
       </div>
 
-      {/* Impact Analysis */}
-      <Card className="p-6 bg-gradient-to-br from-card to-secondary border-border">
-        <h3 className="text-xl font-semibold text-foreground mb-4">Economic Impact</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center space-y-2">
-            <div className="text-2xl font-bold text-loss-red">500+</div>
-            <div className="text-sm text-muted-foreground">Daily Flight Cancellations</div>
+      {/* Detailed Information */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant">
+          <div className="space-y-6">
+            <h3 className="text-2xl font-semibold text-foreground">Strike Timeline</h3>
+            <div className="space-y-4">
+              <div className="flex justify-between items-start py-3 border-b border-border/20">
+                <span className="text-muted-foreground font-medium">Commencement</span>
+                <SourceTooltip source={sources.strikeDetails}>
+                  <span className="text-foreground text-right">August 16, 2025<br />1:00 AM ET</span>
+                </SourceTooltip>
+              </div>
+              <div className="flex justify-between items-start py-3 border-b border-border/20">
+                <span className="text-muted-foreground font-medium">Union Representative</span>
+                <SourceTooltip source={sources.union}>
+                  <span className="text-foreground">CUPE</span>
+                </SourceTooltip>
+              </div>
+              <div className="flex justify-between items-start py-3 border-b border-border/20">
+                <span className="text-muted-foreground font-medium">Negotiation Period</span>
+                <SourceTooltip source={sources.negotiation}>
+                  <span className="text-foreground">8 months</span>
+                </SourceTooltip>
+              </div>
+              <div className="flex justify-between items-start py-3">
+                <span className="text-muted-foreground font-medium">Wind-down Period</span>
+                <SourceTooltip source={sources.strikeDetails}>
+                  <span className="text-foreground">72 hours</span>
+                </SourceTooltip>
+              </div>
+            </div>
           </div>
-          <div className="text-center space-y-2">
-            <div className="text-2xl font-bold text-loss-red">130K</div>
-            <div className="text-sm text-muted-foreground">Daily Affected Passengers</div>
-          </div>
-          <div className="text-center space-y-2">
-            <div className="text-2xl font-bold text-loss-red">Peak Season</div>
-            <div className="text-sm text-muted-foreground">Summer Travel Impact</div>
-          </div>
-        </div>
-        <div className="mt-6 text-sm text-muted-foreground">
-          <p>
-            <strong>Broader Economic Effects:</strong> The shutdown poses significant risks to Canada's economy, 
-            affecting tourism, trade, small businesses, and families during peak summer travel season. 
-            Limited seat availability on alternate carriers compounds rebooking difficulties.
-          </p>
-        </div>
-      </Card>
+        </Card>
 
-      {/* Operational Status */}
-      <Card className="p-6 bg-gradient-to-br from-card to-secondary border-border">
-        <h3 className="text-xl font-semibold text-foreground mb-4">Operational Status</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-3">
-            <h4 className="font-medium text-foreground">Affected Services</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Air Canada mainline flights (suspended)</li>
-              <li>• Air Canada Rouge flights (suspended)</li>
-              <li>• Phased wind-down over 72 hours</li>
-              <li>• Customer refunds and credits available</li>
-            </ul>
+        <Card className="p-8 bg-surface-elevated border border-border/30 shadow-elegant">
+          <div className="space-y-6">
+            <h3 className="text-2xl font-semibold text-foreground">Key Dispute Areas</h3>
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <h4 className="font-medium text-foreground">Company Offer</h4>
+                <SourceTooltip source={sources.negotiation}>
+                  <p className="text-sm text-muted-foreground">38% total compensation increase over four years</p>
+                </SourceTooltip>
+              </div>
+              <div className="space-y-2">
+                <h4 className="font-medium text-foreground">Primary Issue</h4>
+                <SourceTooltip source={sources.union}>
+                  <p className="text-sm text-muted-foreground">Ground pay for all required duties and working hours</p>
+                </SourceTooltip>
+              </div>
+              <div className="space-y-2">
+                <h4 className="font-medium text-foreground">Union Position</h4>
+                <SourceTooltip source={sources.union}>
+                  <p className="text-sm text-muted-foreground">Full compensation for all working time, not just flight time</p>
+                </SourceTooltip>
+              </div>
+            </div>
           </div>
-          <div className="space-y-3">
-            <h4 className="font-medium text-foreground">Unaffected Services</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Air Canada Express (Jazz Airlines)</li>
-              <li>• PAL Airlines regional services</li>
-              <li>• Cargo operations (limited impact)</li>
-              <li>• Aeroplan points remain valid</li>
-            </ul>
+        </Card>
+      </div>
+
+      {/* Operational Impact */}
+      <Card className="p-8 bg-primary-blue-subtle border border-primary-blue/10 shadow-elegant">
+        <div className="space-y-6">
+          <h3 className="text-2xl font-semibold text-foreground text-center">Operational Impact</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <h4 className="font-semibold text-foreground text-lg">Affected Operations</h4>
+              <div className="space-y-3">
+                <SourceTooltip source={sources.operations}>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary-blue rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-muted-foreground">Air Canada mainline flights suspended</span>
+                  </div>
+                </SourceTooltip>
+                <SourceTooltip source={sources.operations}>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary-blue rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-muted-foreground">Air Canada Rouge operations halted</span>
+                  </div>
+                </SourceTooltip>
+                <SourceTooltip source={sources.strikeDetails}>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary-blue rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-muted-foreground">Customer rebooking and refund programs active</span>
+                  </div>
+                </SourceTooltip>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h4 className="font-semibold text-foreground text-lg">Continuing Services</h4>
+              <div className="space-y-3">
+                <SourceTooltip source={sources.operations}>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-muted-foreground">Air Canada Express (Jazz Airlines)</span>
+                  </div>
+                </SourceTooltip>
+                <SourceTooltip source={sources.operations}>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-muted-foreground">PAL Airlines regional operations</span>
+                  </div>
+                </SourceTooltip>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-muted-foreground">Cargo services (limited impact)</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </Card>

@@ -8,43 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 13% 9%;
-    --foreground: 220 13% 97%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 9%;
 
-    --card: 220 13% 11%;
-    --card-foreground: 220 13% 97%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 9%;
 
-    --popover: 220 13% 11%;
-    --popover-foreground: 220 13% 97%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 9%;
 
-    --primary: 0 72% 51%;
+    --primary: 214 88% 52%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 13% 15%;
-    --secondary-foreground: 220 13% 85%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 14%;
 
-    --muted: 220 13% 15%;
-    --muted-foreground: 220 9% 65%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
 
-    --accent: 210 100% 50%;
+    --accent: 214 88% 52%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 20%;
-    --input: 220 13% 15%;
-    --ring: 0 72% 51%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 214 88% 52%;
 
     --radius: 0.75rem;
 
-    --loss-red: 0 72% 51%;
-    --loss-red-glow: 0 72% 51%;
-    --counter-gradient: linear-gradient(135deg, hsl(0 72% 51% / 0.1), hsl(0 72% 51% / 0.05));
-    --card-gradient: linear-gradient(135deg, hsl(220 13% 11%), hsl(220 13% 13%));
-    --glow-shadow: 0 0 30px hsl(0 72% 51% / 0.3);
+    --primary-blue: 214 88% 52%;
+    --primary-blue-light: 214 88% 95%;
+    --primary-blue-subtle: 214 88% 97%;
+    --accent-blue: 214 100% 50%;
+    --loss-indicator: 214 88% 52%;
+    --loss-glow: 214 88% 52%;
     
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --surface-elevated: 0 0% 100%;
+    --surface-subtle: 240 5% 99%;
+    --gradient-subtle: linear-gradient(135deg, hsl(0 0% 100%), hsl(240 5% 99%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(240 5% 98%));
+    --shadow-elegant: 0 1px 3px 0 hsl(240 5% 15% / 0.1), 0 1px 2px 0 hsl(240 5% 15% / 0.06);
+    --shadow-medium: 0 4px 6px -1px hsl(240 5% 15% / 0.1), 0 2px 4px -1px hsl(240 5% 15% / 0.06);
+    --shadow-large: 0 10px 15px -3px hsl(240 5% 15% / 0.1), 0 4px 6px -2px hsl(240 5% 15% / 0.05);
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --text-primary: 240 10% 9%;
+    --text-secondary: 240 4% 46%;
+    --text-tertiary: 240 3% 62%;
 
     --sidebar-background: 0 0% 98%;
 
