@@ -84,6 +84,9 @@ export function Navigation() {
             <button onClick={() => scrollToSection('analysis')} className="text-muted-foreground hover:text-foreground transition-colors">
               Analysis
             </button>
+            <button onClick={() => scrollToSection('resources')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Resources
+            </button>
             <button onClick={() => scrollToSection('sources')} className="text-muted-foreground hover:text-foreground transition-colors">
               Sources
             </button>

@@ -9,7 +9,8 @@
     "projectedLoss": "Projected Loss",
     "timeElapsed": "Time Elapsed",
     "flights": "flights",
-    "language": "Language"
+    "language": "Language",
+    "resources": "Resources"
   },
   "buttons": {
     "readMore": "Read More",

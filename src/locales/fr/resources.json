@@ -1,0 +1,92 @@
+{
+  "title": "Ressources et Soutien",
+  "subtitle": "Ressources essentielles, soutien communautaire et informations officielles pour les passagers et l'équipage pendant la grève des agents de bord d'Air Canada.",
+  "searchPlaceholder": "Rechercher des ressources...",
+  "noResults": "Aucune ressource trouvée correspondant à votre recherche.",
+  
+  "categories": {
+    "all": "Toutes les Ressources",
+    "emergency": "Soutien d'Urgence",
+    "official": "Informations Officielles",
+    "community": "Discussion Communautaire",
+    "analysis": "Contexte et Analyse"
+  },
+  
+  "essential": {
+    "title": "Ressources Essentielles",
+    "description": "Accès rapide aux ressources les plus importantes pour une aide immédiate et des informations officielles."
+  },
+  
+  "priority": {
+    "high": "Priorité",
+    "medium": "Important",
+    "low": "Référence"
+  },
+  
+  "buttons": {
+    "viewResource": "Voir la Ressource"
+  },
+  
+  "resources": {
+    "emergencySupport": {
+      "mutualAid": {
+        "name": "Feuille de Calcul d'Entraide Passagers et Équipage",
+        "description": "Soutien collaboratif offrant repas, contacts d'urgence et entraide pour les employés et passagers d'Air Canada pendant la grève."
+      },
+      "mainMegathread": {
+        "name": "Megathread Grève PNC AC 16 Août (Reddit)",
+        "description": "Hub principal d'aide communautaire et FAQ pour les passagers et équipage d'Air Canada pendant la grève avec mises à jour en temps réel."
+      }
+    },
+    "officialInfo": {
+      "acStrikeUpdate": {
+        "name": "Page Officielle Air Canada - Mise à Jour Grève",
+        "description": "Hub officiel d'Air Canada pour les avis de voyage, politiques de réservation flexibles et options de modification pendant la perturbation."
+      },
+      "acVacations": {
+        "name": "Avis Air Canada Vacances - Négociations",
+        "description": "Mises à jour des négociations spécifiquement pour les forfaits Air Canada Vacances et arrangements de voyage."
+      },
+      "compensationWiki": {
+        "name": "Wiki Compensation et Retards (Reddit)",
+        "description": "FAQ complète et wiki sur les droits de compensation des passagers, règlements APPR, règles UE/RU et politiques de retard."
+      }
+    },
+    "community": {
+      "bindingArbitration": {
+        "name": "Megathread Arbitrage Obligatoire (Reddit)",
+        "description": "Megathread communautaire suivant l'intervention gouvernementale avec mises à jour clés, soutien aux passagers et questions fréquentes."
+      },
+      "strikeMandate": {
+        "name": "Megathread Mandat de Grève (Reddit)",
+        "description": "Thread communautaire antérieur suivant l'approbation du mandat de grève du syndicat et les réactions des passagers pendant la montée."
+      },
+      "aug1213": {
+        "name": "Megathread Grève 12-13 Août (Reddit)",
+        "description": "Discussion communautaire et conseils aux passagers couvrant les événements et développements pendant la période du 12-13 août."
+      },
+      "aug1415": {
+        "name": "Megathread Grève 14-15 Août (Reddit)",
+        "description": "Discussion communautaire et conseils aux passagers couvrant les événements et développements pendant la période du 14-15 août."
+      }
+    },
+    "analysis": {
+      "faSalary": {
+        "name": "Salaire RÉEL des PNC AC (Reddit)",
+        "description": "Analyse collaborative des gains T4 des agents de bord, analyse salariale et commentaires sur le coût de la vie."
+      },
+      "cupeStatement": {
+        "name": "Déclaration SCFP : Arbitrage Obligatoire et Offre AC",
+        "description": "Communiqué de presse officiel du SCFP exposant la position du syndicat sur l'arbitrage forcé, la légalité de grève et les négociations."
+      },
+      "ministerOrder": {
+        "name": "Global News : Ministre Ordonne Retour au Travail",
+        "description": "Couverture médiatique nationale de l'intervention du gouvernement canadien et l'annonce d'arbitrage obligatoire."
+      },
+      "ceaseDesist": {
+        "name": "Paddle Your Own Kanoo : Mise en Demeure à l'Équipage",
+        "description": "Rapport journalistique indépendant sur la réponse légale d'Air Canada aux activités de grève sauvage et 'malades' rapportées."
+      }
+    }
+  }
+}

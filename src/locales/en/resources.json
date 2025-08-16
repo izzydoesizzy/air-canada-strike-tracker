@@ -1,0 +1,92 @@
+{
+  "title": "Resources & Support",
+  "subtitle": "Essential resources, community support, and official information for passengers and crew during the Air Canada flight attendant strike.",
+  "searchPlaceholder": "Search resources...",
+  "noResults": "No resources found matching your search.",
+  
+  "categories": {
+    "all": "All Resources",
+    "emergency": "Emergency Support",
+    "official": "Official Information",
+    "community": "Community Discussion",
+    "analysis": "Background & Analysis"
+  },
+  
+  "essential": {
+    "title": "Essential Resources",
+    "description": "Quick access to the most important resources for immediate help and official information."
+  },
+  
+  "priority": {
+    "high": "Priority",
+    "medium": "Important",
+    "low": "Reference"
+  },
+  
+  "buttons": {
+    "viewResource": "View Resource"
+  },
+  
+  "resources": {
+    "emergencySupport": {
+      "mutualAid": {
+        "name": "Passenger & Crew Mutual Aid Spreadsheet",
+        "description": "Crowdsourced support offering meals, emergency contacts, and mutual aid for Air Canada employees and passengers during the strike."
+      },
+      "mainMegathread": {
+        "name": "AC FA Strike Aug 16 Megathread (Reddit)",
+        "description": "Main community help and FAQ hub for Air Canada passengers and crew during the strike with real-time updates and support."
+      }
+    },
+    "officialInfo": {
+      "acStrikeUpdate": {
+        "name": "Air Canada Official Strike Update Page",
+        "description": "Official Air Canada hub for travel advisories, flexible booking policies, and rebooking options during the labour disruption."
+      },
+      "acVacations": {
+        "name": "Air Canada Vacations Labour Advisory",
+        "description": "Labour negotiations updates specifically for Air Canada Vacations package bookings and travel arrangements."
+      },
+      "compensationWiki": {
+        "name": "Compensation and Delay Wiki (Reddit)",
+        "description": "Comprehensive FAQ and wiki on passenger compensation rights, APPR regulations, EU/UK rules, and delay policies."
+      }
+    },
+    "community": {
+      "bindingArbitration": {
+        "name": "Binding Arbitration Megathread (Reddit)",
+        "description": "Community megathread following government intervention with key updates, passenger support, and frequently asked questions."
+      },
+      "strikeMandate": {
+        "name": "Strike Mandate Update Megathread (Reddit)",
+        "description": "Earlier community thread tracking the union's strike mandate approval and passenger reactions during the buildup."
+      },
+      "aug1213": {
+        "name": "Strike Aug 12-13 Megathread (Reddit)",
+        "description": "Community discussion and passenger advice covering events and developments during the August 12-13 period."
+      },
+      "aug1415": {
+        "name": "Strike Aug 14-15 Megathread (Reddit)",
+        "description": "Community discussion and passenger advice covering events and developments during the August 14-15 period."
+      }
+    },
+    "analysis": {
+      "faSalary": {
+        "name": "How much AC flight attendants ACTUALLY get paid (Reddit)",
+        "description": "Community-sourced breakdown of flight attendant T4 earnings, wage analysis, and cost of living commentary."
+      },
+      "cupeStatement": {
+        "name": "CUPE Statement: Binding Arbitration & AC Offer",
+        "description": "Official CUPE press release outlining the union's position on forced arbitration, strike legality, and contract negotiations."
+      },
+      "ministerOrder": {
+        "name": "Global News: Minister Orders Return to Work",
+        "description": "National news coverage of the Canadian government's intervention ruling and binding arbitration announcement."
+      },
+      "ceaseDesist": {
+        "name": "Paddle Your Own Kanoo: Cease & Desist to Crew",
+        "description": "Independent journalism report on Air Canada's legal response to reported wildcat strike and 'sick out' activities."
+      }
+    }
+  }
+}

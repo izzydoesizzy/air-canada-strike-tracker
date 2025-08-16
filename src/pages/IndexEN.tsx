@@ -6,6 +6,7 @@ import { StrikeImpactDashboard } from "@/components/StrikeImpactDashboard";
 import { TheStrikeStory } from "@/components/TheStrikeStory";
 import { StrikeTimeline } from "@/components/StrikeTimeline";
 import { StrikeAnalysis } from "@/components/StrikeAnalysis";
+import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
 
 const IndexEN = () => {
