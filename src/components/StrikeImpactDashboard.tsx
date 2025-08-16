@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { SourceTooltip } from "@/components/SourceTooltip";
+import { Plane } from "lucide-react";
 
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00");
 const LOSS_PER_DAY = 100000000;
@@ -70,8 +71,12 @@ export function StrikeImpactDashboard() {
         <div className="max-w-7xl mx-auto space-y-16">
           {/* Main headline */}
           <div className="text-center space-y-6">
+            <div className="inline-flex items-center space-x-3 px-6 py-3 bg-primary-blue/10 border border-primary-blue/20 rounded-full mb-4">
+              <Plane className="h-5 w-5 text-primary-blue" />
+              <span className="text-sm font-medium text-primary-blue uppercase tracking-wide">Air Canada Labour Dispute</span>
+            </div>
             <h1 className="text-display-large md:text-[5rem] font-light text-foreground tracking-tight leading-none">
-              Air Canada Strike
+              Strike Impact Tracker
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground font-normal max-w-3xl mx-auto leading-relaxed">
               Real-time tracking of economic impact and financial absurdity

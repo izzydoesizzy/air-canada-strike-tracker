@@ -40,7 +40,7 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo and Status */}
           <div className="flex items-center space-x-4">
-            <h1 className="text-lg font-semibold text-foreground">Strike Tracker</h1>
+            <h1 className="text-lg font-semibold text-foreground">Air Canada Strike Tracker</h1>
             <Badge variant="destructive" className="flex items-center space-x-1">
               <AlertCircle className="h-3 w-3" />
               <span className="text-xs font-medium">ONGOING</span>
