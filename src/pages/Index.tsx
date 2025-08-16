@@ -42,29 +42,46 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border/30 bg-primary/5 backdrop-blur-sm">
         <div className="container mx-auto px-8 py-12">
-          <div className="text-center space-y-4 text-sm text-foreground/80">
-            <div className="space-y-2">
-              <p>
-                <a href="https://forms.gle/f8cfuoKsXHuNuaAt9" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline">
-                  Reach out for affiliate opportunities
-                </a>
-              </p>
-              <p>Data compiled from verified official sources and news reports</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {/* Left side - Personal & Credits */}
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <h3 className="text-base font-medium text-foreground">Made with curiosity ✨</h3>
+                <p className="text-sm text-foreground/80">
+                  by <span className="font-medium text-primary">Izzy Piyale-Sheard</span>
+                </p>
+              </div>
+              <div className="space-y-1 text-xs text-foreground/70">
+                <p>
+                  Research powered by{" "}
+                  <a href="https://perplexity.ai/pro?referral_code=J1IO81TK" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline font-medium">
+                    Perplexity
+                  </a>
+                </p>
+                <p>
+                  Built with{" "}
+                  <a href="https://lovable.dev/invite/8433fb85-552a-4d89-ac05-c37d7794426b" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline font-medium">
+                    Lovable
+                  </a>
+                </p>
+              </div>
             </div>
-            <div className="space-y-2 text-xs">
-              <p>
-                Research via{" "}
-                <a href="https://perplexity.ai/pro?referral_code=J1IO81TK" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline">
-                  Perplexity
+
+            {/* Right side - Data & Business */}
+            <div className="space-y-4 md:text-right">
+              <div className="space-y-2">
+                <p className="text-sm text-foreground/80 font-medium">
+                  Data compiled from verified official sources and news reports
+                </p>
+                <p className="text-xs text-foreground/60">
+                  Numbers based on publicly available analyst projections
+                </p>
+              </div>
+              <div className="text-xs">
+                <a href="https://forms.gle/f8cfuoKsXHuNuaAt9" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline font-medium">
+                  Reach out for affiliate opportunities →
                 </a>
-              </p>
-              <p>
-                Vibe coded using{" "}
-                <a href="https://lovable.dev/invite/8433fb85-552a-4d89-ac05-c37d7794426b" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors underline">
-                  Lovable
-                </a>
-              </p>
-              <p>made by Izzy Piyale-Sheard</p>
+              </div>
             </div>
           </div>
         </div>
