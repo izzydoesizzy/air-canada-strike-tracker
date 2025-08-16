@@ -12,16 +12,16 @@ const Index = () => {
       {/* Navigation */}
       <Navigation />
 
+      {/* Strike Impact Dashboard - First thing users see */}
+      <section id="hero">
+        <StrikeImpactDashboard />
+      </section>
+
       {/* Story Introduction */}
       <StoryIntroduction />
 
       {/* Story Highlights */}
       <StoryHighlights />
-
-      {/* Strike Impact Dashboard */}
-      <section id="hero">
-        <StrikeImpactDashboard />
-      </section>
 
       {/* Strike Overview */}
       <section id="overview" className="container mx-auto px-8 py-20">
