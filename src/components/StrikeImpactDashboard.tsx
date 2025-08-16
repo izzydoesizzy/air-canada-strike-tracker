@@ -92,8 +92,10 @@ export function StrikeImpactDashboard() {
               <div className="text-center space-y-6">
                 <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Total Strike Losses</h2>
                 <SourceTooltip source={sources.dailyLoss}>
-                  <div className="text-[1.8rem] sm:text-[2.5rem] md:text-[6rem] font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden break-all">
-                    {formatLargeCurrency(totalLoss)}
+                  <div className="h-20 flex items-center justify-center">
+                    <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
+                      {formatLargeCurrency(totalLoss)}
+                    </div>
                   </div>
                 </SourceTooltip>
                 <div className="space-y-2">
@@ -108,8 +110,10 @@ export function StrikeImpactDashboard() {
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
                 <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Loss Per Flight Attendant</h2>
-                <div className="text-[1.8rem] sm:text-[2.5rem] md:text-[6rem] font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden break-all">
-                  {formatLargeCurrency(totalLossPerFA)}
+                <div className="h-20 flex items-center justify-center">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
+                    {formatLargeCurrency(totalLossPerFA)}
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <p className="text-sm text-muted-foreground">burned per worker</p>
