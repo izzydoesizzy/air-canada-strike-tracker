@@ -29,33 +29,33 @@ export function StrikeTimeline() {
 
   const timelineEvents = [
     {
-      time: t('timeline.events.negotiations.time'),
-      title: t('timeline.events.negotiations.title'),
-      description: t('timeline.events.negotiations.description'),
+      time: t('events.negotiations.time'),
+      title: t('events.negotiations.title'),
+      description: t('events.negotiations.description'),
       icon: Users,
       type: 'warning' as const,
       source: null
     },
     {
-      time: t('timeline.events.strikeStart.time'),
-      title: t('timeline.events.strikeStart.title'),
-      description: t('timeline.events.strikeStart.description'),
+      time: t('events.strikeStart.time'),
+      title: t('events.strikeStart.title'),
+      description: t('events.strikeStart.description'),
       icon: AlertTriangle,
       type: 'destructive' as const,
       source: null
     },
     {
-      time: t('timeline.events.govIntervention.time'),
-      title: t('timeline.events.govIntervention.title'),
-      description: t('timeline.events.govIntervention.description'),
+      time: t('events.govIntervention.time'),
+      title: t('events.govIntervention.title'),
+      description: t('events.govIntervention.description'),
       icon: Gavel,
       type: 'default' as const,
       source: sources.reuters
     },
     {
-      time: t('timeline.events.recovery.time'),
-      title: t('timeline.events.recovery.title'),
-      description: t('timeline.events.recovery.description'),
+      time: t('events.recovery.time'),
+      title: t('events.recovery.title'),
+      description: t('events.recovery.description'),
       icon: Clock,
       type: 'secondary' as const,
       source: sources.reuters
@@ -64,20 +64,20 @@ export function StrikeTimeline() {
 
   const news = [
     {
-      title: t('timeline.news.bindingArbitration.title'),
-      description: t('timeline.news.bindingArbitration.description'),
+      title: t('news.bindingArbitration.title'),
+      description: t('news.bindingArbitration.description'),
       source: sources.labourCode,
       type: 'info' as const
     },
     {
-      title: t('timeline.news.operationalRecovery.title'),
-      description: t('timeline.news.operationalRecovery.description'),
+      title: t('news.operationalRecovery.title'),
+      description: t('news.operationalRecovery.description'),
       source: sources.reuters,
       type: 'warning' as const
     },
     {
-      title: t('timeline.news.unionResponse.title'),
-      description: t('timeline.news.unionResponse.description'),
+      title: t('news.unionResponse.title'),
+      description: t('news.unionResponse.description'),
       source: sources.cupeResponse,
       type: 'default' as const
     }
@@ -97,10 +97,10 @@ export function StrikeTimeline() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-display-small font-bold text-foreground mb-4">
-            {t('timeline.title')}
+            {t('title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {t('timeline.description')}
+            {t('description')}
           </p>
         </div>
 
@@ -110,10 +110,10 @@ export function StrikeTimeline() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-foreground">
                 <Clock className="h-5 w-5 text-primary-blue" />
-                {t('timeline.sections.events')}
+                {t('sections.events')}
               </CardTitle>
               <CardDescription>
-                {t('timeline.sectionsDescription.events')}
+                {t('sectionsDescription.events')}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -175,10 +175,10 @@ export function StrikeTimeline() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-foreground">
                 <ArrowRight className="h-5 w-5 text-primary-blue" />
-                {t('timeline.sections.updates')}
+                {t('sections.updates')}
               </CardTitle>
               <CardDescription>
-                {t('timeline.sectionsDescription.updates')}
+                {t('sectionsDescription.updates')}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -188,7 +188,7 @@ export function StrikeTimeline() {
                     <div className="p-4 rounded-lg border border-border hover:border-primary-blue/30 transition-colors cursor-pointer">
                       <div className="flex items-start gap-3">
                         <Badge variant={getVariantFromType(item.type)} className="mt-0.5">
-                          {t('timeline.badges.update')}
+                          {t('badges.update')}
                         </Badge>
                         <div className="flex-1 min-w-0">
                           <h3 className="font-semibold text-foreground text-sm mb-2">
