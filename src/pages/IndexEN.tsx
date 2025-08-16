@@ -8,6 +8,7 @@ import { StrikeTimeline } from "@/components/StrikeTimeline";
 import { StrikeAnalysis } from "@/components/StrikeAnalysis";
 import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
+import { AdSpot } from "@/components/AdSpot";
 
 const IndexEN = () => {
   const { t, i18n } = useTranslation('content');
@@ -31,11 +32,29 @@ const IndexEN = () => {
       {/* The Strike Story - Consolidated narrative */}
       <TheStrikeStory />
 
+      {/* Strategic Ad Spot 1 - Between Story and Timeline */}
+      <section className="py-8">
+        <div className="container mx-auto px-8">
+          <div className="max-w-md mx-auto">
+            <AdSpot size="medium" />
+          </div>
+        </div>
+      </section>
+
       {/* Strike Timeline & Updates */}
       <StrikeTimeline />
 
       {/* Strike Analysis - Comprehensive details */}
       <StrikeAnalysis />
+
+      {/* Strategic Ad Spot 2 - After Analysis */}
+      <section className="py-8 bg-surface-subtle/30">
+        <div className="container mx-auto px-8">
+          <div className="max-w-md mx-auto">
+            <AdSpot size="medium" />
+          </div>
+        </div>
+      </section>
 
       {/* Sources & Verification */}
       <section id="sources" className="container mx-auto px-8 py-20">

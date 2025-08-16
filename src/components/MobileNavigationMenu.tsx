@@ -135,6 +135,63 @@ export function MobileNavigationMenu({
               </Button>
             </div>
           </div>
+
+          {/* Ad Spot CTA */}
+          <div className="pt-6 border-t border-border/20">
+            <a 
+              href={`mailto:izzy@joinclearcareer.com?subject=${encodeURIComponent("Advertising Inquiry - StrikeCost.ca Ad Placement")}&body=${encodeURIComponent(`Hi Izzy,
+
+I'm interested in advertising on StrikeCost.ca. Please find my details below:
+
+BUSINESS INFORMATION:
+• Company Name: [Your Company]
+• Website: [Your Website URL]
+• Industry: [Your Industry]
+
+CONTACT DETAILS:
+• Name: [Your Full Name]
+• Email: [Your Email]
+• Phone: [Your Phone Number]
+• Best time to contact: [Time Preference]
+
+ADVERTISING PREFERENCES:
+• Budget Range: [ ] $500-1,000/month [ ] $1,000-2,500/month [ ] $2,500-5,000/month [ ] $5,000+ [ ] Custom
+• Preferred Ad Placement: [ ] Between Story & Timeline [ ] After Analysis Section [ ] Mobile Menu [ ] Custom
+• Campaign Duration: [ ] 1 month [ ] 3 months [ ] 6 months [ ] 12 months [ ] Ongoing
+• Target Audience: [Describe your ideal customer]
+
+CAMPAIGN DETAILS:
+• Campaign Objectives: [Brand awareness, lead generation, sales, etc.]
+• Special Requirements: [Any specific needs or requests]
+• Start Date: [Preferred launch date]
+
+SITE METRICS (for reference):
+• 20,500+ monthly visitors
+• High engagement with strike/labor content
+• Strong mobile traffic (60%+)
+• Professional audience interested in business impact
+
+Looking forward to discussing opportunities!
+
+Best regards,
+[Your Name]`)}`}
+              className="block w-full"
+            >
+              <div className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 rounded-lg p-4 text-center hover:from-primary/15 hover:to-accent/15 transition-all duration-300 group">
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                    🎯 Want an Ad Spot?
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    20.5k monthly visitors • High engagement audience
+                  </p>
+                  <p className="text-xs font-medium text-primary/80 group-hover:text-primary">
+                    Tap to get started →
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </SheetContent>
     </Sheet>
