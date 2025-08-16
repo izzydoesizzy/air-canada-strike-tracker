@@ -55,7 +55,7 @@ export function StrikeImpactDashboard() {
     if (amount >= 1000000000) {
       return `$${(amount / 1000000000).toFixed(1)}B`;
     } else if (amount >= 1000000) {
-      return `$${(amount / 1000000).toFixed(1)}M`;
+      return `$${(amount / 1000000).toFixed(0)}M`;
     } else if (amount >= 1000) {
       return `$${(amount / 1000).toFixed(0)}K`;
     }
