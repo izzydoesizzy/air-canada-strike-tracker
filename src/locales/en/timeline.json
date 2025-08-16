@@ -1,34 +1,64 @@
 {
   "title": "Strike Timeline & Latest Updates",
-  "description": "Key events and current developments in the Air Canada flight attendant labor dispute and government intervention.",
+  "description": "Comprehensive timeline of the 8-month Air Canada flight attendant labor dispute, from contract expiry through government intervention and ongoing developments.",
   "sections": {
     "events": "Timeline of Events",
     "updates": "Latest News & Updates"
   },
   "sectionsDescription": {
-    "events": "Chronological sequence of major developments in the labor dispute",
-    "updates": "Current information about government intervention and recovery process"
+    "events": "Complete chronological sequence of events from contract expiry through current developments",
+    "updates": "Current information about arbitration process, operational recovery, and ongoing issues"
   },
   "events": {
-    "negotiations": {
-      "time": "Aug 12-15, 2025",
-      "title": "Failed Negotiations",
-      "description": "Breakdown in talks between Air Canada and CUPE over wage increases and working conditions. Union rejects company's final offer."
+    "contractExpiry": {
+      "time": "March 2025",
+      "title": "Contract Expires",
+      "description": "10-year collective agreement ends. Flight attendants seek improved pay, ground time compensation, and parity with Air Transat staff."
     },
-    "strikeStart": {
-      "time": "Aug 16, 12:58 AM ET",
+    "negotiationsBegin": {
+      "time": "Nov-Dec 2024",
+      "title": "Negotiations Begin",
+      "description": "8-month bargaining process starts with mediation included. Discussions focus on wages, working conditions, and ground time pay."
+    },
+    "bargainingStalls": {
+      "time": "June-Aug 2025",
+      "title": "Bargaining Stalls",
+      "description": "Air Canada offers 38% pay increase over 4 years. Union rejects offer citing insufficient ground time pay and parity demands."
+    },
+    "strikeVote": {
+      "time": "August 6, 2025",
+      "title": "Strike Mandate Approved",
+      "description": "CUPE members vote 99.7% in favor of strike action, giving union strong mandate for work stoppage if negotiations fail."
+    },
+    "finalOfferRejected": {
+      "time": "August 11, 2025",
+      "title": "Final Offer Rejected",
+      "description": "Air Canada tables revised offer but union rejects due to continued lack of adequate ground time compensation."
+    },
+    "strikeLockoutNotices": {
+      "time": "August 12, 2025",
+      "title": "Strike & Lockout Notices",
+      "description": "Both parties serve 72-hour notices. Air Canada requests government arbitration while union maintains strike position."
+    },
+    "preStrikeCancellations": {
+      "time": "August 14-15, 2025",
+      "title": "Pre-Strike Disruptions",
+      "description": "Over 600 flights cancelled before official strike begins. Express flights continue operating as planned."
+    },
+    "strikeBegins": {
+      "time": "August 16, 00:58 ET",
       "title": "Strike Begins",
-      "description": "Air Canada flight attendants officially begin strike action. All flights cancelled, affecting thousands of passengers."
+      "description": "CUPE flight attendants officially walk off job. Air Canada locks out staff and suspends all mainline and Rouge operations."
     },
     "govIntervention": {
-      "time": "Aug 16, Evening",
-      "title": "Government Intervention",
-      "description": "Jobs Minister Patty Hajdu orders binding arbitration under Section 107 of the Canada Labour Code, effectively ending the strike."
+      "time": "August 16, Morning",
+      "title": "Government Orders Arbitration",
+      "description": "Jobs Minister Patty Hajdu orders binding arbitration, suspends strike, and mandates immediate return to work."
     },
-    "recovery": {
-      "time": "Aug 17-21, 2025",
-      "title": "Recovery Period",
-      "description": "Air Canada operations resume gradually. Full network restoration expected within 4-5 days of government order."
+    "ongoingIssues": {
+      "time": "August 16, Onward",
+      "title": "Ongoing Developments",
+      "description": "Mass refunds and rebooking begin. Picket lines continue with reports of 'sick out' activities and cease-and-desist letters issued."
     }
   },
   "news": {
@@ -37,12 +67,20 @@
       "description": "The Canada Industrial Relations Board will oversee fast-tracked arbitration. Both parties must accept the arbitrator's final decision on wages, benefits, and working conditions."
     },
     "operationalRecovery": {
-      "title": "4-5 Day Recovery Timeline",
-      "description": "Air Canada expects gradual restoration of flight operations over 4-5 days. Passengers should expect continued delays and cancellations during this recovery period."
+      "title": "Gradual Flight Restoration Underway",
+      "description": "Air Canada begins gradual restoration of flight operations. Passengers advised to expect continued disruptions during recovery period with mass refunds and rebooking available."
     },
     "unionResponse": {
-      "title": "CUPE Statement on Forced Arbitration",
-      "description": "Union leadership expresses disappointment with government intervention but confirms compliance with back-to-work order while arbitration proceeds."
+      "title": "CUPE Condemns Government Intervention",
+      "description": "Union leadership expresses strong disappointment with forced arbitration, saying right to strike has been removed and collective bargaining undermined."
+    },
+    "strikeVoteDetails": {
+      "title": "99.7% Strike Vote Mandate",
+      "description": "CUPE members delivered overwhelming support for strike action with 99.7% approval, demonstrating unprecedented unity among flight attendants on key issues."
+    },
+    "ongoingProtests": {
+      "title": "Continued Protest Activities",
+      "description": "Despite government order, picket lines continue with reports of 'sick out' activities. Air Canada issues cease-and-desist letters for alleged illegal strike activities."
     }
   },
   "badges": {

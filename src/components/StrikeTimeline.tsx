@@ -1,26 +1,39 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Clock, ArrowRight, AlertTriangle, Users, Gavel, Calendar, TrendingDown, Vote, X, Plane, Play, AlertCircle } from "lucide-react";
 import { SourceTooltip } from "./SourceTooltip";
-import { Clock, AlertTriangle, Gavel, Users, ArrowRight } from "lucide-react";
 
+// Data sources for the timeline content with comprehensive documentation
 const sources = {
-  ctv: {
-    title: "CTV News - Air Canada Flight Attendants Strike",
-    url: "https://www.ctvnews.ca/business/article/air-canada-flight-attendants-officially-begin-strike/"
+  wikipedia: {
+    title: "Wikipedia - 2025 Air Canada Flight Attendants Strike",
+    url: "https://en.wikipedia.org/wiki/2025_Air_Canada_flight_attendants_strike"
   },
-  reuters: {
-    title: "Reuters - Government Orders End to Air Canada Strike",
-    url: "https://www.reuters.com/business/world-at-work/canadian-government-moves-end-air-canada-strike-seeks-binding-arbitration-2025-08-16/"
+  airCanadaStrike: {
+    title: "Air Canada - Strike Notice Response",
+    url: "https://www.aircanada.com/media/air-canada-receives-72-hour-strike-notice-from-cupe-and-issues-lockout-notice-in-response/"
+  },
+  airCanadaAction: {
+    title: "Air Canada - Strike Action Updates",
+    url: "https://www.aircanada.com/ca/en/aco/home/book/travel-news-and-updates/2025/ac-action.html"
+  },
+  globalNews: {
+    title: "Global News - Government Intervention",
+    url: "https://globalnews.ca/news/11337659/air-canada-hajdu-2/"
+  },
+  cupeArbitration: {
+    title: "CUPE - Statement on Binding Arbitration",
+    url: "https://cupe.ca/statement-cupe-air-canadas-request-binding-arbitration"
+  },
+  paddleKanoo: {
+    title: "Paddle Your Own Kanoo - Cease and Desist Reports",
+    url: "https://www.paddleyourownkanoo.com/2025/08/16/air-canada-serves-cease-and-desist-on-flight-attendants-for-illegal-strike-activity/"
   },
   labourCode: {
-    title: "Canada Labour Code - Section 107",
-    url: "https://laws-lois.justice.gc.ca/eng/acts/L-2/page-21.html#docCont"
-  },
-  cupeResponse: {
-    title: "CUPE Response to Government Intervention",
-    url: "https://cupe.ca/news/cupe-responds-government-intervention-air-canada-dispute"
+    title: "Canada Labour Code Section 107",
+    url: "https://laws-lois.justice.gc.ca/eng/acts/l-2/page-20.html#h-341188"
   }
 };
 
@@ -29,20 +42,68 @@ export function StrikeTimeline() {
 
   const timelineEvents = [
     {
-      time: t('events.negotiations.time'),
-      title: t('events.negotiations.title'),
-      description: t('events.negotiations.description'),
-      icon: Users,
-      type: 'warning' as const,
-      source: null
+      time: t('events.contractExpiry.time'),
+      title: t('events.contractExpiry.title'),
+      description: t('events.contractExpiry.description'),
+      icon: Calendar,
+      type: 'secondary' as const,
+      source: sources.wikipedia
     },
     {
-      time: t('events.strikeStart.time'),
-      title: t('events.strikeStart.title'),
-      description: t('events.strikeStart.description'),
+      time: t('events.negotiationsBegin.time'),
+      title: t('events.negotiationsBegin.title'),
+      description: t('events.negotiationsBegin.description'),
+      icon: Users,
+      type: 'default' as const,
+      source: sources.wikipedia
+    },
+    {
+      time: t('events.bargainingStalls.time'),
+      title: t('events.bargainingStalls.title'),
+      description: t('events.bargainingStalls.description'),
+      icon: TrendingDown,
+      type: 'warning' as const,
+      source: sources.wikipedia
+    },
+    {
+      time: t('events.strikeVote.time'),
+      title: t('events.strikeVote.title'),
+      description: t('events.strikeVote.description'),
+      icon: Vote,
+      type: 'default' as const,
+      source: sources.wikipedia
+    },
+    {
+      time: t('events.finalOfferRejected.time'),
+      title: t('events.finalOfferRejected.title'),
+      description: t('events.finalOfferRejected.description'),
+      icon: X,
+      type: 'warning' as const,
+      source: sources.airCanadaStrike
+    },
+    {
+      time: t('events.strikeLockoutNotices.time'),
+      title: t('events.strikeLockoutNotices.title'),
+      description: t('events.strikeLockoutNotices.description'),
       icon: AlertTriangle,
+      type: 'warning' as const,
+      source: sources.airCanadaStrike
+    },
+    {
+      time: t('events.preStrikeCancellations.time'),
+      title: t('events.preStrikeCancellations.title'),
+      description: t('events.preStrikeCancellations.description'),
+      icon: Plane,
       type: 'destructive' as const,
-      source: null
+      source: sources.wikipedia
+    },
+    {
+      time: t('events.strikeBegins.time'),
+      title: t('events.strikeBegins.title'),
+      description: t('events.strikeBegins.description'),
+      icon: Play,
+      type: 'destructive' as const,
+      source: sources.airCanadaAction
     },
     {
       time: t('events.govIntervention.time'),
@@ -50,15 +111,15 @@ export function StrikeTimeline() {
       description: t('events.govIntervention.description'),
       icon: Gavel,
       type: 'default' as const,
-      source: sources.reuters
+      source: sources.globalNews
     },
     {
-      time: t('events.recovery.time'),
-      title: t('events.recovery.title'),
-      description: t('events.recovery.description'),
-      icon: Clock,
-      type: 'secondary' as const,
-      source: sources.reuters
+      time: t('events.ongoingIssues.time'),
+      title: t('events.ongoingIssues.title'),
+      description: t('events.ongoingIssues.description'),
+      icon: AlertCircle,
+      type: 'warning' as const,
+      source: sources.paddleKanoo
     }
   ];
 
@@ -72,14 +133,26 @@ export function StrikeTimeline() {
     {
       title: t('news.operationalRecovery.title'),
       description: t('news.operationalRecovery.description'),
-      source: sources.reuters,
+      source: sources.airCanadaAction,
       type: 'warning' as const
     },
     {
       title: t('news.unionResponse.title'),
       description: t('news.unionResponse.description'),
-      source: sources.cupeResponse,
+      source: sources.cupeArbitration,
       type: 'default' as const
+    },
+    {
+      title: t('news.strikeVoteDetails.title'),
+      description: t('news.strikeVoteDetails.description'),
+      source: sources.wikipedia,
+      type: 'info' as const
+    },
+    {
+      title: t('news.ongoingProtests.title'),
+      description: t('news.ongoingProtests.description'),
+      source: sources.paddleKanoo,
+      type: 'warning' as const
     }
   ];
 

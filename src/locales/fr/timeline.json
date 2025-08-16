@@ -1,34 +1,64 @@
 {
   "title": "Chronologie de la Grève et Dernières Mises à Jour",
-  "description": "Événements clés et développements actuels dans le conflit de travail des agents de bord d'Air Canada et l'intervention gouvernementale.",
+  "description": "Chronologie complète du conflit de travail de 8 mois des agents de bord d'Air Canada, de l'expiration du contrat à l'intervention gouvernementale et aux développements en cours.",
   "sections": {
     "events": "Chronologie des Événements",
     "updates": "Nouvelles et Mises à Jour"
   },
   "sectionsDescription": {
-    "events": "Séquence chronologique des développements majeurs du conflit de travail",
-    "updates": "Informations actuelles sur l'intervention gouvernementale et le processus de rétablissement"
+    "events": "Séquence chronologique complète des événements de l'expiration du contrat aux développements actuels",
+    "updates": "Informations actuelles sur le processus d'arbitrage, le rétablissement opérationnel et les enjeux en cours"
   },
   "events": {
-    "negotiations": {
-      "time": "12-15 août 2025",
-      "title": "Échec des Négociations",
-      "description": "Rupture des pourparlers entre Air Canada et le SCFP concernant les augmentations salariales et les conditions de travail. Le syndicat rejette l'offre finale de l'entreprise."
+    "contractExpiry": {
+      "time": "Mars 2025",
+      "title": "Expiration du Contrat",
+      "description": "Fin de l'entente collective de 10 ans. Les agents de bord demandent une amélioration des salaires, compensation du temps au sol et parité avec le personnel d'Air Transat."
     },
-    "strikeStart": {
+    "negotiationsBegin": {
+      "time": "Nov-Déc 2024",
+      "title": "Début des Négociations",
+      "description": "Processus de négociation de 8 mois débute avec médiation incluse. Discussions portent sur salaires, conditions de travail et rémunération du temps au sol."
+    },
+    "bargainingStalls": {
+      "time": "Juin-Août 2025",
+      "title": "Blocage des Négociations",
+      "description": "Air Canada offre une augmentation salariale de 38% sur 4 ans. Le syndicat rejette l'offre citant une compensation insuffisante du temps au sol et des demandes de parité."
+    },
+    "strikeVote": {
+      "time": "6 août 2025",
+      "title": "Mandat de Grève Approuvé",
+      "description": "Les membres du SCFP votent à 99,7% en faveur d'une action de grève, donnant au syndicat un mandat fort pour un arrêt de travail si les négociations échouent."
+    },
+    "finalOfferRejected": {
+      "time": "11 août 2025",
+      "title": "Offre Finale Rejetée",
+      "description": "Air Canada présente une offre révisée mais le syndicat la rejette en raison du manque continu de compensation adéquate du temps au sol."
+    },
+    "strikeLockoutNotices": {
+      "time": "12 août 2025",
+      "title": "Avis de Grève et Lock-out",
+      "description": "Les deux parties signifient des avis de 72 heures. Air Canada demande un arbitrage gouvernemental tandis que le syndicat maintient sa position de grève."
+    },
+    "preStrikeCancellations": {
+      "time": "14-15 août 2025",
+      "title": "Perturbations Pré-Grève",
+      "description": "Plus de 600 vols annulés avant le début officiel de la grève. Les vols Express continuent de fonctionner comme prévu."
+    },
+    "strikeBegins": {
       "time": "16 août, 0h58 HE",
       "title": "Début de la Grève",
-      "description": "Les agents de bord d'Air Canada commencent officiellement la grève. Tous les vols annulés, affectant des milliers de passagers."
+      "description": "Les agents de bord du SCFP quittent officiellement leur poste. Air Canada verrouille le personnel et suspend toutes les opérations principales et Rouge."
     },
     "govIntervention": {
-      "time": "16 août, Soirée",
-      "title": "Intervention Gouvernementale",
-      "description": "La ministre de l'Emploi Patty Hajdu ordonne un arbitrage exécutoire en vertu de l'article 107 du Code canadien du travail, mettant fin à la grève."
+      "time": "16 août, Matin",
+      "title": "Arbitrage Ordonné par le Gouvernement",
+      "description": "La ministre de l'Emploi Patty Hajdu ordonne un arbitrage exécutoire, suspend la grève et exige un retour immédiat au travail."
     },
-    "recovery": {
-      "time": "17-21 août 2025",
-      "title": "Période de Rétablissement",
-      "description": "Les opérations d'Air Canada reprennent graduellement. Rétablissement complet du réseau prévu dans les 4-5 jours suivant l'ordre gouvernemental."
+    "ongoingIssues": {
+      "time": "16 août et après",
+      "title": "Développements en Cours",
+      "description": "Début des remboursements massifs et des réservations. Les lignes de piquetage continuent avec des rapports d'activités de 'grève du zèle' et des lettres de cessation émises."
     }
   },
   "news": {
@@ -37,12 +67,20 @@
       "description": "Le Conseil canadien des relations industrielles supervisera l'arbitrage accéléré. Les deux parties doivent accepter la décision finale de l'arbitre sur les salaires, avantages et conditions de travail."
     },
     "operationalRecovery": {
-      "title": "Délai de Rétablissement de 4-5 Jours",
-      "description": "Air Canada prévoit un rétablissement graduel des opérations de vol sur 4-5 jours. Les passagers doivent s'attendre à des retards et annulations continues pendant cette période."
+      "title": "Rétablissement Graduel des Vols en Cours",
+      "description": "Air Canada commence le rétablissement graduel des opérations de vol. Les passagers sont avisés de s'attendre à des perturbations continues pendant la période de rétablissement avec remboursements massifs et réservations disponibles."
     },
     "unionResponse": {
-      "title": "Déclaration du SCFP sur l'Arbitrage Forcé",
-      "description": "La direction syndicale exprime sa déception face à l'intervention gouvernementale mais confirme la conformité à l'ordre de retour au travail pendant l'arbitrage."
+      "title": "Le SCFP Condamne l'Intervention Gouvernementale",
+      "description": "La direction syndicale exprime une forte déception face à l'arbitrage forcé, affirmant que le droit de grève a été retiré et la négociation collective sapée."
+    },
+    "strikeVoteDetails": {
+      "title": "Mandat de Vote de Grève à 99,7%",
+      "description": "Les membres du SCFP ont accordé un soutien écrasant à l'action de grève avec 99,7% d'approbation, démontrant une unité sans précédent parmi les agents de bord sur les enjeux clés."
+    },
+    "ongoingProtests": {
+      "title": "Activités de Protestation Continues",
+      "description": "Malgré l'ordre gouvernemental, les lignes de piquetage continuent avec des rapports d'activités de 'grève du zèle'. Air Canada émet des lettres de cessation pour des activités de grève présumément illégales."
     }
   },
   "badges": {
