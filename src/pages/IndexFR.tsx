@@ -2,12 +2,10 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Navigation } from "@/components/Navigation";
 import { BreakingNewsBanner } from "@/components/BreakingNewsBanner";
-import { StoryIntroduction } from "@/components/StoryIntroduction";
-import { StoryHighlights } from "@/components/StoryHighlights";
 import { StrikeImpactDashboard } from "@/components/StrikeImpactDashboard";
-import { StrikeOverview } from "@/components/StrikeOverview";
+import { TheStrikeStory } from "@/components/TheStrikeStory";
 import { StrikeTimeline } from "@/components/StrikeTimeline";
-import { StrikeInfo } from "@/components/StrikeInfo";
+import { StrikeAnalysis } from "@/components/StrikeAnalysis";
 import { Sources } from "@/components/Sources";
 
 const IndexFR = () => {
@@ -29,27 +27,14 @@ const IndexFR = () => {
         <StrikeImpactDashboard />
       </section>
 
-      {/* Story Introduction */}
-      <StoryIntroduction />
-
-      {/* Story Highlights */}
-      <StoryHighlights />
-
-      {/* Strike Overview */}
-      <section id="overview" className="container mx-auto px-8 py-20">
-        <StrikeOverview />
-      </section>
+      {/* The Strike Story - Consolidated narrative */}
+      <TheStrikeStory />
 
       {/* Strike Timeline & Updates */}
       <StrikeTimeline />
 
-      {/* The Human Reality */}
-      <section id="analysis" className="bg-surface-subtle/50 py-20">
-        <div className="container mx-auto px-8">
-          
-          <StrikeInfo />
-        </div>
-      </section>
+      {/* Strike Analysis - Comprehensive details */}
+      <StrikeAnalysis />
 
       {/* Sources & Verification */}
       <section id="sources" className="container mx-auto px-8 py-20">

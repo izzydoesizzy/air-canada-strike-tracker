@@ -72,17 +72,20 @@ export function Navigation() {
 
           {/* Navigation Links */}
           <div className="hidden lg:flex items-center space-x-6 text-sm">
-            <button onClick={() => scrollToSection('overview')} className="text-muted-foreground hover:text-foreground transition-colors">
-              {t('navigation.overview')}
-            </button>
-            <button onClick={() => scrollToSection('analysis')} className="text-muted-foreground hover:text-foreground transition-colors">
-              {t('navigation.impactAnalysis')}
-            </button>
-            <button onClick={() => scrollToSection('sources')} className="text-muted-foreground hover:text-foreground transition-colors">
-              {t('navigation.sources')}
-            </button>
             <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-muted-foreground hover:text-foreground transition-colors">
               {t('navigation.liveTracker')}
+            </button>
+            <button onClick={() => scrollToSection('story')} className="text-muted-foreground hover:text-foreground transition-colors">
+              The Story
+            </button>
+            <button onClick={() => scrollToSection('timeline')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Timeline
+            </button>
+            <button onClick={() => scrollToSection('analysis')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Analysis
+            </button>
+            <button onClick={() => scrollToSection('sources')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Sources
             </button>
             {/* Desktop language navigation */}
             <div className="hidden md:block">
