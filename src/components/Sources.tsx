@@ -49,7 +49,7 @@ export function Sources() {
 
   return (
     <div className="w-full bg-gradient-to-br from-surface-elevated to-surface-subtle">
-      <div className="max-w-7xl mx-auto p-10 space-y-8">
+      <div className="max-w-7xl mx-auto p-4 md:p-10 space-y-8">
         <div className="text-center space-y-4">
           <h2 className="text-3xl font-light text-foreground tracking-tight">Data Sources & Verification</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -58,7 +58,7 @@ export function Sources() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 px-4 sm:px-0">
+        <div className="grid grid-cols-1 gap-6">
           {sources.map((source, index) => (
             <Card key={index} className="p-6 bg-surface-elevated border border-border/20 shadow-elegant hover:shadow-medium transition-all duration-300 group">
               <div className="space-y-4">
