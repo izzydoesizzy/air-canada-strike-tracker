@@ -93,6 +93,9 @@ export function StrikeImpactDashboard() {
             <h1 className="text-display-large md:text-[5rem] font-light text-foreground tracking-tight leading-none">
               Projected Strike Impact Tracker
             </h1>
+            <div className="text-xl md:text-2xl font-semibold text-primary mb-2">
+              strikecost.ca
+            </div>
             <p className="text-lg md:text-xl text-muted-foreground font-normal max-w-3xl mx-auto leading-relaxed">
               Live projection of economic impact based on analyst estimates
             </p>
