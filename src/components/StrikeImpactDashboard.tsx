@@ -11,11 +11,11 @@ const LOSS_PER_SECOND = LOSS_PER_DAY / (24 * 60 * 60);
 const FLIGHT_ATTENDANTS = 10511;
 
 // Visitor tracking constants
-const BASE_VISITORS_8AM = 6000; // 6K visitors at 8 AM
-const CURRENT_VISITORS_9AM = 7300; // 7.3K visitors at 9 AM
-const VISITORS_PER_HOUR = 1300; // 1.3K visitors per hour
-const VISITORS_PER_MINUTE = VISITORS_PER_HOUR / 60;
-const VISITORS_PER_SECOND = VISITORS_PER_HOUR / 3600;
+const CURRENT_TOTAL_VISITORS = 8300; // 8.3K visitors currently
+const BASE_VISITORS_PER_HOUR = 1000; // Base 1K visitors per hour
+const ACCELERATION_FACTOR = 0.1; // 10% increase per hour
+const BASE_VISITORS_PER_MINUTE = BASE_VISITORS_PER_HOUR / 60;
+const BASE_VISITORS_PER_SECOND = BASE_VISITORS_PER_HOUR / 3600;
 
 const sources = {
   dailyLoss: {
@@ -44,10 +44,13 @@ export function StrikeImpactDashboard() {
   const totalLoss = daysElapsed * LOSS_PER_DAY;
   const totalLossPerFA = totalLoss / FLIGHT_ATTENDANTS;
 
-  // Visitor calculations
+  // Visitor calculations with acceleration
   const hoursElapsedSinceStart = timeElapsed / (1000 * 60 * 60);
-  const totalVisitors = BASE_VISITORS_8AM + (hoursElapsedSinceStart * VISITORS_PER_HOUR);
-  const currentVisitorRate = VISITORS_PER_HOUR;
+  const acceleratedRate = BASE_VISITORS_PER_HOUR * (1 + (ACCELERATION_FACTOR * hoursElapsedSinceStart));
+  const totalVisitors = CURRENT_TOTAL_VISITORS + (hoursElapsedSinceStart * acceleratedRate);
+  const currentVisitorRate = acceleratedRate;
+  const currentVisitorsPerSecond = acceleratedRate / 3600;
+  const currentVisitorsPerMinute = acceleratedRate / 60;
 
   const daysElapsedWhole = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
   const hoursElapsed = Math.floor((timeElapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -156,7 +159,7 @@ export function StrikeImpactDashboard() {
                 <div className="space-y-2">
                   <p className="text-sm text-muted-foreground">and counting...</p>
                   <div className="text-lg font-mono text-primary-blue">
-                    +{Math.round(VISITORS_PER_SECOND * 10) / 10}/sec
+                    +{Math.round(currentVisitorsPerSecond * 10) / 10}/sec
                   </div>
                 </div>
               </div>
@@ -173,7 +176,7 @@ export function StrikeImpactDashboard() {
                 <div className="space-y-2">
                   <p className="text-sm text-muted-foreground">current rate</p>
                   <div className="text-lg font-mono text-primary-blue">
-                    +{Math.round(VISITORS_PER_MINUTE)}/min
+                    +{Math.round(currentVisitorsPerMinute)}/min
                   </div>
                 </div>
               </div>
