@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Navigation } from "@/components/Navigation";
 import { StoryIntroduction } from "@/components/StoryIntroduction";
@@ -7,8 +8,13 @@ import { StrikeOverview } from "@/components/StrikeOverview";
 import { StrikeInfo } from "@/components/StrikeInfo";
 import { Sources } from "@/components/Sources";
 
-const Index = () => {
-  const { t } = useTranslation('content');
+const IndexEN = () => {
+  const { t, i18n } = useTranslation('content');
+
+  useEffect(() => {
+    i18n.changeLanguage('en');
+  }, [i18n]);
+
   return <div className="min-h-screen bg-background">
       {/* Navigation */}
       <Navigation />
@@ -141,4 +147,4 @@ const Index = () => {
       </footer>
     </div>;
 };
-export default Index;
+export default IndexEN;

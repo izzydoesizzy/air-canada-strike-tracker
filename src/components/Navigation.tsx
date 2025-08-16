@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, TrendingDown, Plane, AlertCircle } from "lucide-react";
-import { LanguageSwitcher } from "./LanguageSwitcher";
+import { LanguageNavigation } from "./LanguageNavigation";
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00");
 const LOSS_PER_DAY = 100000000;
 export function Navigation() {
@@ -43,9 +43,9 @@ export function Navigation() {
               <AlertCircle className="h-3 w-3" />
               <span className="text-xs font-medium">{t('navigation.status')}</span>
             </Badge>
-            {/* Mobile-prominent language switcher */}
+            {/* Mobile-prominent language navigation */}
             <div className="md:hidden">
-              <LanguageSwitcher />
+              <LanguageNavigation />
             </div>
           </div>
 
@@ -84,9 +84,9 @@ export function Navigation() {
             <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-muted-foreground hover:text-foreground transition-colors">
               {t('navigation.liveTracker')}
             </button>
-            {/* Desktop language switcher */}
+            {/* Desktop language navigation */}
             <div className="hidden md:block">
-              <LanguageSwitcher />
+              <LanguageNavigation />
             </div>
           </div>
 
