@@ -103,8 +103,13 @@ export function StrikeImpactDashboard() {
               Strike Impact Tracker
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground font-normal max-w-3xl mx-auto leading-relaxed">
-              Real-time tracking of economic impact and financial absurdity
+              Live projection of economic impact based on analyst estimates
             </p>
+            <div className="flex items-center justify-center space-x-2 text-xs text-muted-foreground/70 bg-muted/20 px-4 py-2 rounded-full border border-border/30 max-w-2xl mx-auto">
+              <span className="font-medium text-warning">PROJECTED</span>
+              <span>•</span>
+              <span>Based on TD Cowen analyst estimates, not confirmed losses</span>
+            </div>
             <SourceTooltip source={sources.strikeStart}>
               <p className="text-sm text-muted-foreground/70">Since August 16, 2025 at 1:00 AM ET</p>
             </SourceTooltip>
@@ -114,7 +119,10 @@ export function StrikeImpactDashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
             <Card className="p-10 bg-surface-elevated/90 backdrop-blur-sm border border-border/30 shadow-3xl hover:shadow-4xl transition-all duration-500">
               <div className="text-center space-y-6">
-                <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Total Strike Losses</h2>
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <h2 className="text-xl font-semibold text-foreground tracking-wide uppercase">Projected Strike Losses</h2>
+                  <div className="px-2 py-1 bg-warning/10 border border-warning/20 rounded text-xs text-warning font-medium">EST</div>
+                </div>
                 <SourceTooltip source={sources.dailyLoss}>
                   <div className="h-20 flex items-center justify-center">
                     <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-loss-indicator leading-none animate-fade-in overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
@@ -123,9 +131,9 @@ export function StrikeImpactDashboard() {
                   </div>
                 </SourceTooltip>
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">and counting...</p>
+                  <p className="text-sm text-muted-foreground">based on analyst projections</p>
                   <div className="text-lg font-mono text-loss-indicator">
-                    +{formatCurrency(LOSS_PER_SECOND)}/sec
+                    projected rate: {formatCurrency(LOSS_PER_SECOND)}/sec
                   </div>
                 </div>
               </div>
