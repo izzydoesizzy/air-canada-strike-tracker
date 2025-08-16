@@ -48,7 +48,7 @@ const Index = () => {
               <div className="space-y-2">
                 <h3 className="text-sm font-semibold text-foreground">Made with curiosity ✨</h3>
                 <p className="text-sm text-foreground/80">
-                  by <span className="font-semibold text-primary">Izzy Piyale-Sheard</span>
+                  by <a href="http://linkedin.com/in/izzydoesizzy" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:text-primary/90 transition-colors underline">Izzy Piyale-Sheard</a>
                 </p>
               </div>
               <div className="space-y-1 text-xs text-foreground/70">
