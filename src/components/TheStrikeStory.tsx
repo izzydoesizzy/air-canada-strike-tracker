@@ -193,9 +193,9 @@ export function TheStrikeStory() {
             <Card className="p-12 bg-gradient-to-br from-loss-indicator/5 to-accent-blue/5 border border-loss-indicator/20 shadow-large">
               <div className="space-y-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-display-small font-semibold text-foreground mb-4">{t('storyHighlights.lookingAtNumbers')}</h2>
+                  <h2 className="text-display-small font-semibold text-foreground mb-4">{t('storyHighlights.lookingAtNumbers', { ns: 'content' })}</h2>
                   <p className="text-muted-foreground text-lg">
-                    {t('storyHighlights.numbersStory')}
+                    {t('storyHighlights.numbersStory', { ns: 'content' })}
                   </p>
                 </div>
                 
