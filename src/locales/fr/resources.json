@@ -6,7 +6,7 @@
   
   "categories": {
     "all": "Toutes les Ressources",
-    "emergency": "Soutien d'Urgence",
+    "emergency": "Ressources Utiles",
     "official": "Informations Officielles",
     "community": "Discussion Communautaire",
     "analysis": "Contexte et Analyse"
@@ -30,8 +30,8 @@
   "resources": {
     "emergencySupport": {
       "mutualAid": {
-        "name": "Feuille de Calcul d'Entraide Passagers et Équipage",
-        "description": "Soutien collaboratif offrant repas, contacts d'urgence et entraide pour les employés et passagers d'Air Canada pendant la grève."
+        "name": "Suivi des Annulations Grève PNC AC 2025",
+        "description": "Feuille de calcul collaborative suivant les annulations et perturbations de la grève des PNC d'Air Canada 2025."
       },
       "mainMegathread": {
         "name": "Megathread Grève PNC AC 16 Août (Reddit)",

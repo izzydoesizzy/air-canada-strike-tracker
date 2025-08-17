@@ -6,7 +6,7 @@
   
   "categories": {
     "all": "All Resources",
-    "emergency": "Emergency Support",
+    "emergency": "Useful Resources",
     "official": "Official Information",
     "community": "Community Discussion",
     "analysis": "Background & Analysis"
@@ -30,8 +30,8 @@
   "resources": {
     "emergencySupport": {
       "mutualAid": {
-        "name": "Passenger & Crew Mutual Aid Spreadsheet",
-        "description": "Crowdsourced support offering meals, emergency contacts, and mutual aid for Air Canada employees and passengers during the strike."
+        "name": "AC Strike Flight Attendant 2025 Cancellation Tracker",
+        "description": "Crowdsourced spreadsheet tracking AC Strike Flight Attendant 2025 cancellations and disruptions."
       },
       "mainMegathread": {
         "name": "AC FA Strike Aug 16 Megathread (Reddit)",
