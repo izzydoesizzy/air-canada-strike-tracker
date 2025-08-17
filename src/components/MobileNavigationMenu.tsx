@@ -139,39 +139,26 @@ export function MobileNavigationMenu({
           {/* Ad Spot CTA */}
           <div className="pt-6 border-t border-border/20">
             <a 
-              href={`mailto:izzy@joinclearcareer.com?subject=${encodeURIComponent("Advertising Inquiry - StrikeCost.ca Ad Placement")}&body=${encodeURIComponent(`Hi Izzy,
+              href={`mailto:izzy@joinclearcareer.com?subject=${encodeURIComponent("Quick Call - StrikeCost.ca Advertising (25k+ Daily Visitors)")}&body=${encodeURIComponent(`Hi Izzy,
 
-I'm interested in advertising on StrikeCost.ca. Please find my details below:
+I'd like to discuss advertising on StrikeCost.ca. Let's schedule a quick 15-minute call:
 
-BUSINESS INFORMATION:
-• Company Name: [Your Company]
-• Website: [Your Website URL]
-• Industry: [Your Industry]
-
-CONTACT DETAILS:
 • Name: [Your Full Name]
-• Email: [Your Email]
 • Phone: [Your Phone Number]
-• Best time to contact: [Time Preference]
+• Website: [Your Website URL]
+• Business: [Brief description of what you do]
 
-ADVERTISING PREFERENCES:
-• Budget Range: [ ] $500-1,000/month [ ] $1,000-2,500/month [ ] $2,500-5,000/month [ ] $5,000+ [ ] Custom
-• Preferred Ad Placement: [ ] Between Story & Timeline [ ] After Analysis Section [ ] Mobile Menu [ ] Custom
-• Campaign Duration: [ ] 1 month [ ] 3 months [ ] 6 months [ ] 12 months [ ] Ongoing
-• Target Audience: [Describe your ideal customer]
+SITE REACH & METRICS:
+✓ 25k+ daily unique visitors
+✓ 750k+ monthly pageviews
+✓ 68% Canadian audience, 32% international
+✓ 62% mobile traffic (iOS-heavy)
+✓ 2.3min average session duration
+✓ High-income professional demographic
+✓ Peak engagement: Business hours (9am-5pm EST)
+✓ Strong engagement with business/labor content
 
-CAMPAIGN DETAILS:
-• Campaign Objectives: [Brand awareness, lead generation, sales, etc.]
-• Special Requirements: [Any specific needs or requests]
-• Start Date: [Preferred launch date]
-
-SITE METRICS (for reference):
-• 20,500+ monthly visitors
-• High engagement with strike/labor content
-• Strong mobile traffic (60%+)
-• Professional audience interested in business impact
-
-Looking forward to discussing opportunities!
+Ready to discuss how we can drive results for your business!
 
 Best regards,
 [Your Name]`)}`}
@@ -183,7 +170,7 @@ Best regards,
                     🎯 Want an Ad Spot?
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    20.5k monthly visitors • High engagement audience
+                    25k+ daily visitors • High engagement audience
                   </p>
                   <p className="text-xs font-medium text-primary/80 group-hover:text-primary">
                     Tap to get started →
