@@ -23,10 +23,13 @@ SITE REACH & METRICS:
 ✓ 750k+ monthly pageviews
 ✓ 68% Canadian audience, 32% international
 ✓ 62% mobile traffic (iOS-heavy)
-✓ 2.3min average session duration
-✓ High-income professional demographic
-✓ Peak engagement: Business hours (9am-5pm EST)
-✓ Strong engagement with business/labor content
+✓ 2.3 min average session duration
+✓ Audience: majority flight attendants; also aviation workers and travelers
+✓ Peak engagement: Business hours (9am–5pm ET)
+
+CAMPAIGN WINDOW:
+✓ Strike-duration ad opportunities: 3–10 days (most likely)
+✓ Limited-time, high-frequency placements aligned to the strike timeline
 
 Ready to discuss how we can drive results for your business!
 
