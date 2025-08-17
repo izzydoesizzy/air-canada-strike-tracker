@@ -39,6 +39,10 @@
       }
     },
     "officialInfo": {
+      "accStrikeHQ": {
+        "name": "ACC Strike HQ - Union Information & Updates",
+        "description": "Official Air Canada Component union website with wind down/ramp up agreements, member updates, and official union positions during the strike."
+      },
       "acStrikeUpdate": {
         "name": "Air Canada Official Strike Update Page",
         "description": "Official Air Canada hub for travel advisories, flexible booking policies, and rebooking options during the labour disruption."

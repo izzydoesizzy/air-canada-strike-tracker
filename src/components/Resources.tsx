@@ -42,6 +42,13 @@ export function Resources() {
       priority: 'high'
     },
     {
+      name: t('resources.officialInfo.accStrikeHQ.name'),
+      description: t('resources.officialInfo.accStrikeHQ.description'),
+      url: 'https://accstrikehq.ca/',
+      category: 'official',
+      priority: 'high'
+    },
+    {
       name: t('resources.officialInfo.acStrikeUpdate.name'),
       description: t('resources.officialInfo.acStrikeUpdate.description'),
       url: 'https://www.aircanada.com/ca/en/aco/home/book/travel-news-and-updates/2025/ac-action.html#/',

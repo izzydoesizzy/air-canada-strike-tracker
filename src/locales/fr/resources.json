@@ -39,6 +39,10 @@
       }
     },
     "officialInfo": {
+      "accStrikeHQ": {
+        "name": "QG Grève ACC - Informations et Mises à Jour Syndicales",
+        "description": "Site web officiel du syndicat Composante Air Canada avec accords de ralentissement/reprise, mises à jour des membres et positions syndicales officielles pendant la grève."
+      },
       "acStrikeUpdate": {
         "name": "Page Officielle Air Canada - Mise à Jour Grève",
         "description": "Hub officiel d'Air Canada pour les avis de voyage, politiques de réservation flexibles et options de modification pendant la perturbation."
