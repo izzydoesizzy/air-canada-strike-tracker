@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Clock, ArrowRight, AlertTriangle, Users, Gavel, Calendar, TrendingDown, Vote, X, Plane, Play, AlertCircle } from "lucide-react";
+import { Clock, ArrowRight, AlertTriangle, Users, Gavel, Calendar, TrendingDown, Vote, X, Plane, Play, AlertCircle, Shield } from "lucide-react";
 import { SourceTooltip } from "./SourceTooltip";
 
 // Data sources for the timeline content with comprehensive documentation
@@ -34,6 +34,14 @@ const sources = {
   labourCode: {
     title: "Canada Labour Code Section 107",
     url: "https://laws-lois.justice.gc.ca/eng/acts/l-2/page-20.html#h-341188"
+  },
+  accStrikeHQ: {
+    title: "ACC Strike HQ - Union Updates",
+    url: "https://accstrikehq.ca/"
+  },
+  cirbDecision: {
+    title: "CIRB Decision - Return to Work Order",
+    url: "https://www.cirb-ccri.gc.ca/"
   }
 };
 
@@ -120,6 +128,30 @@ export function StrikeTimeline() {
       icon: AlertCircle,
       type: 'warning' as const,
       source: sources.paddleKanoo
+    },
+    {
+      time: t('events.dayOfAction.time'),
+      title: t('events.dayOfAction.title'),
+      description: t('events.dayOfAction.description'),
+      icon: Users,
+      type: 'secondary' as const,
+      source: sources.accStrikeHQ
+    },
+    {
+      time: t('events.cirbOrder.time'),
+      title: t('events.cirbOrder.title'),
+      description: t('events.cirbOrder.description'),
+      icon: Gavel,
+      type: 'default' as const,
+      source: sources.cirbDecision
+    },
+    {
+      time: t('events.unionDefiance.time'),
+      title: t('events.unionDefiance.title'),
+      description: t('events.unionDefiance.description'),
+      icon: Shield,
+      type: 'destructive' as const,
+      source: sources.accStrikeHQ
     }
   ];
 

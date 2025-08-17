@@ -59,6 +59,21 @@
       "time": "August 16, Onward",
       "title": "Ongoing Developments",
       "description": "Mass refunds and rebooking begin. Picket lines continue with reports of 'sick out' activities and cease-and-desist letters issued."
+    },
+    "dayOfAction": {
+      "time": "August 17, Morning",
+      "title": "Day of Action Protests",
+      "description": "Coast-to-coast demonstrations at airports across Canada. Union receives overwhelming public support and solidarity from other labor groups."
+    },
+    "cirbOrder": {
+      "time": "August 17, 14:00 ET",
+      "title": "CIRB Orders Return to Work",
+      "description": "Canada Industrial Relations Board officially orders Air Canada to resume operations and flight attendants to return to duties. Collective agreement extended."
+    },
+    "unionDefiance": {
+      "time": "August 17, Afternoon",
+      "title": "Union Defies CIRB Order",
+      "description": "CUPE refuses to return to work, maintains strike until government orders Air Canada back to bargaining table. Strike continues despite legal order."
     }
   },
   "news": {

@@ -59,6 +59,21 @@
       "time": "16 août et après",
       "title": "Développements en Cours",
       "description": "Début des remboursements massifs et des réservations. Les lignes de piquetage continuent avec des rapports d'activités de 'grève du zèle' et des lettres de cessation émises."
+    },
+    "dayOfAction": {
+      "time": "17 août, Matin",
+      "title": "Journée d'Action Protestataire",
+      "description": "Manifestations d'un océan à l'autre dans les aéroports à travers le Canada. Le syndicat reçoit un soutien public massif et la solidarité d'autres groupes de travailleurs."
+    },
+    "cirbOrder": {
+      "time": "17 août, 14h00 HE",
+      "title": "CCRI Ordonne le Retour au Travail",
+      "description": "Le Conseil canadien des relations industrielles ordonne officiellement à Air Canada de reprendre les opérations et aux agents de bord de retourner au travail. Convention collective prolongée."
+    },
+    "unionDefiance": {
+      "time": "17 août, Après-midi",
+      "title": "Le Syndicat Défie l'Ordre du CCRI",
+      "description": "SCFP refuse de retourner au travail, maintient la grève jusqu'à ce que le gouvernement ordonne à Air Canada de retourner à la table de négociation. La grève continue malgré l'ordre légal."
     }
   },
   "news": {
