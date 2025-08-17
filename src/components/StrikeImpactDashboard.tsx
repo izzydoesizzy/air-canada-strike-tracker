@@ -13,7 +13,7 @@ const FLIGHT_ATTENDANTS = 10511;
 
 // Visitor simulation settings (simulated, not real analytics)
 const BASE_VISITORS_PER_HOUR = 1000; // ~1K/hour baseline
-const INITIAL_VISITOR_BASELINE = 24000; // 24K total at baseline
+const INITIAL_VISITOR_BASELINE = 24100; // 24.1K total at baseline
 const RATE_VARIANCE = 0.1; // ±10% small variance
 
 function diurnalFactor(hour: number) {
@@ -57,8 +57,8 @@ export function StrikeImpactDashboard() {
 
   // Initialize visitor simulation baseline using localStorage for simple persistence
   useEffect(() => {
-    const storedTotal = localStorage.getItem('visitorBaselineTotal');
-    const storedTime = localStorage.getItem('visitorBaselineTime');
+    const storedTotal = localStorage.getItem('visitorBaselineTotal_v2');
+    const storedTime = localStorage.getItem('visitorBaselineTime_v2');
     if (storedTotal && storedTime) {
       const parsedTotal = parseInt(storedTotal, 10);
       const parsedTime = new Date(storedTime);
@@ -72,8 +72,8 @@ export function StrikeImpactDashboard() {
     const now = new Date();
     setBaselineTotal(initialTotal);
     setBaselineTime(now);
-    localStorage.setItem('visitorBaselineTotal', String(initialTotal));
-    localStorage.setItem('visitorBaselineTime', now.toISOString());
+    localStorage.setItem('visitorBaselineTotal_v2', String(initialTotal));
+    localStorage.setItem('visitorBaselineTime_v2', now.toISOString());
   }, []);
   const timeElapsed = Math.max(0, currentTime.getTime() - STRIKE_START.getTime());
   const daysElapsed = timeElapsed / (1000 * 60 * 60 * 24);
