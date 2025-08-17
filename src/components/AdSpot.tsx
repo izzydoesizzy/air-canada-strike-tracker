@@ -63,7 +63,7 @@ Best regards,
             Place Your Ad Here
           </p>
           <p className="text-xs opacity-75">
-            25k+ daily visitors • High engagement
+            25K+ daily visitors • High engagement
           </p>
           <p className="text-xs font-medium text-primary/80 group-hover:text-primary">
             Click to inquire →

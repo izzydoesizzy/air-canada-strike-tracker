@@ -173,7 +173,7 @@ Best regards,
                     🎯 Want an Ad Spot?
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    25k+ daily visitors • High engagement audience
+                    25K+ daily visitors • High engagement audience
                   </p>
                   <p className="text-xs font-medium text-primary/80 group-hover:text-primary">
                     Tap to get started →
