@@ -9,7 +9,7 @@ import { StrikeAnalysis } from "@/components/StrikeAnalysis";
 import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
 import { CareerAd } from "@/components/CareerAd";
-import ResumeBottomSheet from "@/components/ResumeBottomSheet";
+import EnhancedMobileAd from "@/components/EnhancedMobileAd";
 
 const IndexFR = () => {
   const { t, i18n } = useTranslation('content');
@@ -168,7 +168,7 @@ const IndexFR = () => {
       </footer>
 
       {/* Resume Course Bottom Sheet */}
-      <ResumeBottomSheet />
+      <EnhancedMobileAd />
     </div>;
 };
 export default IndexFR;
