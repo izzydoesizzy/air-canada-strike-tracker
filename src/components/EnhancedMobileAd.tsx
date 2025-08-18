@@ -50,73 +50,75 @@ const EnhancedMobileAd = () => {
     <div 
       className="fixed bottom-4 left-4 right-4 z-50 animate-slide-in-right"
       style={{ 
-        height: '130px',
-        backgroundColor: 'white',
-        borderRadius: '16px',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)'
+        height: '160px',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        borderRadius: '20px',
+        boxShadow: '0 12px 40px rgba(102, 126, 234, 0.3)'
       }}
       onTouchStart={handleSwipeStart}
     >
-      <div className="p-4 h-full flex flex-col relative">
+      <div className="p-5 h-full flex flex-col relative">
         {/* Close button - top right corner */}
         <button
           onClick={dismiss}
-          className="absolute top-3 right-3 p-1 hover:bg-gray-100 rounded-full transition-colors"
-          style={{ width: '28px', height: '28px' }}
+          className="absolute top-4 right-4 p-1.5 hover:bg-white/20 rounded-full transition-colors"
+          style={{ width: '32px', height: '32px' }}
           aria-label="Close ad"
         >
-          <X className="h-4 w-4" style={{ color: '#666666' }} />
+          <X className="h-4 w-4 text-white/80" />
         </button>
 
-        {/* Main content area - two columns */}
-        <div className="flex flex-1 pb-3">
+        {/* Main content area - clear left/right split */}
+        <div className="flex flex-1 pb-4 gap-4">
           {/* Left column: Text content */}
-          <div className="flex-1 pr-4">
+          <div className="flex-1 flex flex-col justify-center">
             {/* Icon + Title row */}
-            <div className="flex items-center mb-2">
+            <div className="flex items-center mb-3">
               {adVariant.icon && (
-                <div className="text-xl mr-3 flex-shrink-0">
+                <div className="text-2xl mr-3 flex-shrink-0">
                   {adVariant.icon}
                 </div>
               )}
-              <h3 className="text-lg font-bold leading-tight" style={{ color: '#1a1a1a' }}>
+              <h3 className="text-xl font-bold leading-tight text-white">
                 {adVariant.title}
               </h3>
             </div>
             
             {/* Subtitle */}
-            <p className="text-sm leading-tight mb-2" style={{ color: '#666666' }}>
+            <p className="text-sm leading-relaxed mb-3 text-white/90">
               {adVariant.subtitle}
             </p>
             
             {/* Price with discount styling */}
             {adVariant.originalPrice ? (
-              <div className="text-sm font-medium">
-                <span style={{ color: '#dc3545' }}>Was {adVariant.originalPrice}</span>
-                {' → '}
-                <span style={{ color: '#28a745', fontSize: '16px', fontWeight: 'bold' }}>Now {adVariant.price}</span>
+              <div className="text-sm font-medium mb-2">
+                <span className="text-white/70 line-through">Was {adVariant.originalPrice}</span>
+                <span className="text-yellow-300 text-lg font-bold ml-2">Now {adVariant.price}</span>
               </div>
             ) : (
-              <div className="text-lg font-bold" style={{ color: '#007bff' }}>
+              <div className="text-xl font-bold text-yellow-300 mb-2">
                 {adVariant.price}
               </div>
             )}
             
             {/* Social proof */}
             {adVariant.socialProof && (
-              <div className="text-xs mt-1" style={{ color: '#666666' }}>
+              <div className="text-xs text-white/80">
                 ✅ {adVariant.socialProof}
               </div>
             )}
           </div>
 
-          {/* Right column: Visual element placeholder */}
-          <div className="w-20 flex-shrink-0 flex items-center justify-center">
+          {/* Right column: Visual element with clear separation */}
+          <div className="w-24 flex-shrink-0 flex items-center justify-center">
             <div 
-              className="w-16 h-16 rounded-lg flex items-center justify-center"
-              style={{ backgroundColor: '#f0f8ff' }}
+              className="w-20 h-20 rounded-2xl flex items-center justify-center backdrop-blur-sm"
+              style={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                border: '1px solid rgba(255, 255, 255, 0.3)'
+              }}
             >
-              <div className="text-2xl">
+              <div className="text-3xl">
                 {adVariant.icon || '📧'}
               </div>
             </div>
@@ -126,11 +128,12 @@ const EnhancedMobileAd = () => {
         {/* Full-width CTA button at bottom */}
         <button
           onClick={handleCTAClick}
-          className="w-full font-bold py-3 rounded-xl text-base transition-all duration-200 hover:scale-[1.02] shadow-sm"
+          className="w-full font-bold py-4 rounded-2xl text-base transition-all duration-200 hover:scale-[1.02] shadow-lg"
           style={{
-            backgroundColor: '#007bff',
-            color: 'white',
-            fontSize: '16px'
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            color: '#667eea',
+            fontSize: '16px',
+            fontWeight: '700'
           }}
         >
           {adVariant.ctaText}
