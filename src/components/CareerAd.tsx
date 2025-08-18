@@ -1,7 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import careerAdLarge from "@/assets/workshop-ad-large.png";
-import careerAdSmall from "@/assets/workshop-ad-small.png";
+// Using direct URL for uploaded image
+const uploadedImageUrl = "/lovable-uploads/cd7fc9da-04b8-43d3-bb2d-7a8e4b999e9f.png";
 
 interface CareerAdProps {
   className?: string;
@@ -12,7 +12,7 @@ export function CareerAd({ className = "", size = "medium" }: CareerAdProps) {
   const careerProductUrl = "https://stan.store/joinclearcareer/p/the-20minute-resume-levelup";
   
   const getImageSrc = () => {
-    return careerAdSmall; // Use same image for all sizes
+    return uploadedImageUrl; // Use uploaded image for all sizes
   };
 
   const sizeClasses = {
