@@ -45,9 +45,9 @@ const ResumeBottomSheet = () => {
     >
       <div className="px-4 py-2 max-w-7xl mx-auto">
         {/* Top row: Main text + Close button */}
-        <div className="flex items-center justify-between mb-1">
+        <div className="flex items-center justify-between mb-2">
           <p className="text-sm font-medium text-foreground">
-            Land your dream job faster
+            Get 2x more interviews in 20 minutes
           </p>
           <button
             onClick={dismiss}
@@ -58,17 +58,16 @@ const ResumeBottomSheet = () => {
           </button>
         </div>
 
-        {/* Bottom row: Price + CTA */}
+        {/* Bottom row: CTA with integrated price */}
         <div className="flex items-center justify-between">
-          <div className="flex items-baseline gap-1">
-            <span className="text-lg font-bold text-foreground">$7</span>
-            <span className="text-xs text-muted-foreground line-through">(was $99)</span>
+          <div className="text-xs text-muted-foreground">
+            (was $99)
           </div>
           <button
             onClick={handleCTAClick}
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-4 py-2 rounded-lg text-sm transition-colors"
           >
-            Get Course
+            Get Course ($7)
           </button>
         </div>
       </div>
