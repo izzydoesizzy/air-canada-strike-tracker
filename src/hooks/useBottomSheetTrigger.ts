@@ -3,110 +3,93 @@ import { useState, useEffect } from 'react';
 interface UseBottomSheetTriggerOptions {
   timerDelay: number; // in milliseconds
   scrollPercentage: number; // 0-100
-  localStorageKey: string;
 }
 
 export const useBottomSheetTrigger = ({
   timerDelay,
-  scrollPercentage,
-  localStorageKey
+  scrollPercentage
 }: UseBottomSheetTriggerOptions) => {
   const [shouldShow, setShouldShow] = useState(false);
-  const [hasBeenShown, setHasBeenShown] = useState(false);
-  const [engagementScore, setEngagementScore] = useState(0);
+  const [isDismissed, setIsDismissed] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
 
   useEffect(() => {
-    // Check if already shown in this session
-    const hasShown = localStorage.getItem(localStorageKey);
-    if (hasShown) {
-      setHasBeenShown(true);
-      return;
-    }
-
     let timeoutId: NodeJS.Timeout;
+    let autoHideTimeout: NodeJS.Timeout;
     let hasTriggered = false;
-    let lastScrollY = 0;
-    let scrollVelocity = 0;
-    let engagementTimer: NodeJS.Timeout;
-    let currentEngagement = 0;
 
-    // Enhanced engagement detection
-    const trackEngagement = () => {
-      currentEngagement++;
-      setEngagementScore(currentEngagement);
-    };
-
-    // Start engagement timer
-    engagementTimer = setInterval(trackEngagement, 3000); // Every 3 seconds of presence
-
-    // Enhanced timer trigger with engagement requirement
+    // Timer trigger
     timeoutId = setTimeout(() => {
-      if (!hasTriggered && !hasBeenShown && currentEngagement >= 5) {
+      if (!hasTriggered && !isDismissed) {
         setShouldShow(true);
         hasTriggered = true;
+        
+        // Auto-hide after 15 seconds
+        autoHideTimeout = setTimeout(() => {
+          setShouldShow(false);
+        }, 15000);
       }
-    }, Math.max(timerDelay, 30000)); // Minimum 30 seconds
+    }, timerDelay);
 
-    // Enhanced scroll detection with exit-intent for mobile
+    // Scroll detection
     const handleScroll = () => {
-      if (hasTriggered || hasBeenShown) return;
-
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / scrollHeight) * 100;
 
-      // Calculate scroll velocity for exit-intent detection
-      scrollVelocity = scrollTop - lastScrollY;
-      lastScrollY = scrollTop;
+      // Detect scroll direction
+      const direction = scrollTop > lastScrollY ? 'down' : 'up';
+      setScrollDirection(direction);
+      setLastScrollY(scrollTop);
 
-      // Standard scroll trigger
-      if (scrollPercent >= scrollPercentage && currentEngagement >= 3) {
-        setShouldShow(true);
-        hasTriggered = true;
-        clearTimeout(timeoutId);
+      // Hide on scroll up (reading mode)
+      if (direction === 'up' && shouldShow) {
+        setShouldShow(false);
         return;
       }
 
-      // Mobile exit-intent: rapid upward scroll near top
-      if (scrollPercent < 10 && scrollVelocity < -50 && currentEngagement >= 2) {
-        setShouldShow(true);
-        hasTriggered = true;
-        clearTimeout(timeoutId);
+      // Show on scroll down past trigger point (if not dismissed)
+      if (!isDismissed && direction === 'down' && scrollPercent >= scrollPercentage) {
+        if (!hasTriggered) {
+          setShouldShow(true);
+          hasTriggered = true;
+          clearTimeout(timeoutId);
+
+          // Auto-hide after 15 seconds
+          autoHideTimeout = setTimeout(() => {
+            setShouldShow(false);
+          }, 15000);
+        } else if (!shouldShow) {
+          // Re-show if scrolling down and was hidden by scroll up
+          setShouldShow(true);
+
+          // Auto-hide after 15 seconds
+          clearTimeout(autoHideTimeout);
+          autoHideTimeout = setTimeout(() => {
+            setShouldShow(false);
+          }, 15000);
+        }
       }
     };
 
-    // Track user interactions for engagement
-    const trackInteraction = () => {
-      currentEngagement += 0.5;
-      setEngagementScore(currentEngagement);
-    };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('click', trackInteraction, { passive: true });
-    window.addEventListener('touchstart', trackInteraction, { passive: true });
 
     return () => {
       clearTimeout(timeoutId);
-      clearInterval(engagementTimer);
+      clearTimeout(autoHideTimeout);
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('click', trackInteraction);
-      window.removeEventListener('touchstart', trackInteraction);
     };
-  }, [timerDelay, scrollPercentage, localStorageKey, hasBeenShown]);
-
-  const markAsShown = () => {
-    localStorage.setItem(localStorageKey, 'true');
-    setHasBeenShown(true);
-    setShouldShow(false);
-  };
+  }, [timerDelay, scrollPercentage, isDismissed, shouldShow, lastScrollY]);
 
   const dismiss = () => {
+    setIsDismissed(true);
     setShouldShow(false);
   };
 
   return {
-    shouldShow: shouldShow && !hasBeenShown,
-    markAsShown,
-    dismiss
+    shouldShow: shouldShow && !isDismissed,
+    dismiss,
+    scrollDirection
   };
 };
