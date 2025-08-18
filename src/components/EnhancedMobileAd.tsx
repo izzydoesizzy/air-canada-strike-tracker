@@ -48,51 +48,76 @@ const EnhancedMobileAd = () => {
 
   return (
     <div 
-      className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border shadow-xl animate-slide-in-right"
-      style={{ height: '110px' }}
+      className="fixed bottom-0 left-0 right-0 z-50 shadow-xl animate-slide-in-right"
+      style={{ 
+        height: '65px',
+        backgroundColor: '#f9f9f9',
+        borderTop: '1px solid #e0e0e0'
+      }}
       onTouchStart={handleSwipeStart}
     >
-      <div className="px-4 py-3 max-w-7xl mx-auto h-full flex flex-col justify-between">
-        {/* Header with close button */}
-        <div className="flex items-start justify-between mb-2">
-          <div className="flex-1 pr-2">
-            {/* Main value proposition */}
-            <h3 className="text-sm font-semibold text-foreground leading-tight mb-1">
-              {adVariant.title}
-            </h3>
-            {/* Supporting detail */}
-            <p className="text-xs text-muted-foreground leading-tight">
-              {adVariant.subtitle}
-            </p>
-          </div>
-          
-          {/* Close button */}
-          <button
-            onClick={dismiss}
-            className="p-1.5 hover:bg-muted rounded-full transition-colors flex-shrink-0 mt-0.5"
-            aria-label="Close ad"
-          >
-            <X className="h-4 w-4 text-muted-foreground" />
-          </button>
-        </div>
-
-        {/* CTA row */}
-        <div className="flex items-center justify-between">
-          {/* Original price */}
-          {adVariant.originalPrice && (
-            <div className="text-xs text-muted-foreground">
-              (was {adVariant.originalPrice})
+      <div className="px-3 py-2 max-w-7xl mx-auto h-full flex items-center justify-between relative">
+        {/* Left content: Icon + Text */}
+        <div className="flex items-center flex-1 pr-3">
+          {/* Icon */}
+          {adVariant.icon && (
+            <div className="text-lg mr-2 flex-shrink-0">
+              {adVariant.icon}
             </div>
           )}
           
-          {/* CTA Button */}
-          <button
-            onClick={handleCTAClick}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-2.5 rounded-lg text-sm transition-all duration-200 hover:scale-105 shadow-sm"
-          >
-            {adVariant.ctaText}
-          </button>
+          {/* Text content */}
+          <div className="flex-1 min-w-0">
+            {/* Main headline */}
+            <h3 className="text-base font-bold leading-tight mb-0.5" style={{ color: '#1a1a1a' }}>
+              {adVariant.title}
+            </h3>
+            
+            {/* Subtitle */}
+            <p className="text-xs leading-tight mb-0.5" style={{ color: '#666666' }}>
+              {adVariant.subtitle}
+            </p>
+            
+            {/* Price with discount styling */}
+            {adVariant.originalPrice && (
+              <div className="text-xs leading-tight">
+                <span style={{ color: '#dc3545' }}>Was {adVariant.originalPrice}</span>
+                {' → '}
+                <span style={{ color: '#28a745' }}>Now {adVariant.price}</span>
+              </div>
+            )}
+            
+            {/* Social proof */}
+            {adVariant.socialProof && (
+              <div className="text-xs mt-0.5" style={{ color: '#666666' }}>
+                ✅ {adVariant.socialProof}
+              </div>
+            )}
+          </div>
         </div>
+
+        {/* Right content: CTA Button */}
+        <button
+          onClick={handleCTAClick}
+          className="font-bold px-4 py-2.5 rounded-lg text-sm transition-all duration-200 hover:scale-105 shadow-sm flex-shrink-0 min-h-[44px]"
+          style={{
+            backgroundColor: '#007bff',
+            color: 'white',
+            borderRadius: '8px'
+          }}
+        >
+          {adVariant.ctaText}
+        </button>
+
+        {/* Close button - top right corner */}
+        <button
+          onClick={dismiss}
+          className="absolute top-1 right-1 p-1 hover:bg-gray-200 rounded-full transition-colors"
+          style={{ width: '24px', height: '24px' }}
+          aria-label="Close ad"
+        >
+          <X className="h-3 w-3" style={{ color: '#666666' }} />
+        </button>
       </div>
     </div>
   );
