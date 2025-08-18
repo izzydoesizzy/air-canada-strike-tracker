@@ -43,36 +43,32 @@ const ResumeBottomSheet = () => {
       style={{ maxHeight: '80px' }}
       onTouchStart={handleSwipeStart}
     >
-      <div className="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
-        {/* Left: Value prop */}
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-foreground truncate">
-            Get hired faster with AI resume prompts
+      <div className="px-4 py-2 max-w-7xl mx-auto">
+        {/* Top row: Main text + Close button */}
+        <div className="flex items-center justify-between mb-1">
+          <p className="text-sm font-medium text-foreground">
+            Land your dream job faster
           </p>
+          <button
+            onClick={dismiss}
+            className="p-1 hover:bg-muted rounded-full transition-colors ml-2"
+            aria-label="Close ad"
+          >
+            <X className="h-4 w-4 text-muted-foreground" />
+          </button>
         </div>
 
-        {/* Center: Price */}
-        <div className="px-4 text-center">
+        {/* Bottom row: Price + CTA */}
+        <div className="flex items-center justify-between">
           <div className="flex items-baseline gap-1">
             <span className="text-lg font-bold text-foreground">$7</span>
             <span className="text-xs text-muted-foreground line-through">(was $99)</span>
           </div>
-        </div>
-
-        {/* Right: CTA + Close */}
-        <div className="flex items-center gap-2">
           <button
             onClick={handleCTAClick}
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-4 py-2 rounded-lg text-sm transition-colors"
           >
             Get Course
-          </button>
-          <button
-            onClick={dismiss}
-            className="p-1 hover:bg-muted rounded-full transition-colors"
-            aria-label="Close ad"
-          >
-            <X className="h-4 w-4 text-muted-foreground" />
           </button>
         </div>
       </div>
