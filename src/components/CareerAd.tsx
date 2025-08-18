@@ -9,7 +9,7 @@ interface CareerAdProps {
 }
 
 export function CareerAd({ className = "", size = "medium" }: CareerAdProps) {
-  const careerProductUrl = "https://stan.store/joinclearcareer";
+  const careerProductUrl = "https://stan.store/joinclearcareer/p/the-20minute-resume-levelup";
   
   const getImageSrc = () => {
     return size === "large" ? careerAdLarge : careerAdSmall;
@@ -39,7 +39,7 @@ export function CareerAd({ className = "", size = "medium" }: CareerAdProps) {
         >
           <img 
             src={getImageSrc()} 
-            alt="Career development tools and templates - Level up your job search"
+            alt="Level-Up Your Resume in 20 Mins - The most high-impact 20-minute resume course online"
             className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
           />
           
