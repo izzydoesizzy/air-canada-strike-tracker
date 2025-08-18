@@ -8,6 +8,7 @@ import { StrikeTimeline } from "@/components/StrikeTimeline";
 import { StrikeAnalysis } from "@/components/StrikeAnalysis";
 import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
+import { WorkshopAd } from "@/components/WorkshopAd";
 
 const IndexFR = () => {
   const { t, i18n } = useTranslation('content');
@@ -31,11 +32,29 @@ const IndexFR = () => {
       {/* The Strike Story - Consolidated narrative */}
       <TheStrikeStory />
 
+      {/* Strategic Ad Spot 1 - Between Story and Timeline */}
+      <section className="py-8">
+        <div className="container mx-auto px-8">
+          <div className="flex justify-center">
+            <WorkshopAd size="large" />
+          </div>
+        </div>
+      </section>
+
       {/* Strike Timeline & Updates */}
       <StrikeTimeline />
 
       {/* Strike Analysis - Comprehensive details */}
       <StrikeAnalysis />
+
+      {/* Strategic Ad Spot 2 - After Analysis */}
+      <section className="py-8 bg-surface-subtle/30">
+        <div className="container mx-auto px-8">
+          <div className="flex justify-center">
+            <WorkshopAd size="medium" />
+          </div>
+        </div>
+      </section>
 
       {/* Sources & Verification */}
       <section id="sources" className="container mx-auto px-8 py-20">
@@ -116,8 +135,11 @@ const IndexFR = () => {
               </div>
             </div>
 
-            {/* Changelog Link */}
+            {/* Workshop Ad & Updates */}
             <div className="space-y-6">
+              <div className="mb-8">
+                <WorkshopAd size="small" />
+              </div>
               <h3 className="text-base font-semibold text-foreground tracking-wide">Mises à jour</h3>
               <div className="space-y-4">
                 <a 

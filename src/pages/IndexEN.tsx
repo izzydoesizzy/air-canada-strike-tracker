@@ -8,7 +8,7 @@ import { StrikeTimeline } from "@/components/StrikeTimeline";
 import { StrikeAnalysis } from "@/components/StrikeAnalysis";
 import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
-import { AdSpot } from "@/components/AdSpot";
+import { WorkshopAd } from "@/components/WorkshopAd";
 
 const IndexEN = () => {
   const { t, i18n } = useTranslation('content');
@@ -35,8 +35,8 @@ const IndexEN = () => {
       {/* Strategic Ad Spot 1 - Between Story and Timeline */}
       <section className="py-8">
         <div className="container mx-auto px-8">
-          <div className="max-w-md mx-auto">
-            <AdSpot size="medium" />
+          <div className="flex justify-center">
+            <WorkshopAd size="large" />
           </div>
         </div>
       </section>
@@ -50,8 +50,8 @@ const IndexEN = () => {
       {/* Strategic Ad Spot 2 - After Analysis */}
       <section className="py-8 bg-surface-subtle/30">
         <div className="container mx-auto px-8">
-          <div className="max-w-md mx-auto">
-            <AdSpot size="medium" />
+          <div className="flex justify-center">
+            <WorkshopAd size="medium" />
           </div>
         </div>
       </section>
@@ -135,8 +135,11 @@ const IndexEN = () => {
               </div>
             </div>
 
-            {/* Changelog Link */}
+            {/* Workshop Ad & Updates */}
             <div className="space-y-6">
+              <div className="mb-8">
+                <WorkshopAd size="small" />
+              </div>
               <h3 className="text-base font-semibold text-foreground tracking-wide">Updates</h3>
               <div className="space-y-4">
                 <a 
