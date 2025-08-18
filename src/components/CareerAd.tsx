@@ -12,7 +12,7 @@ export function CareerAd({ className = "", size = "medium" }: CareerAdProps) {
   const careerProductUrl = "https://stan.store/joinclearcareer/p/the-20minute-resume-levelup";
   
   const getImageSrc = () => {
-    return size === "large" ? careerAdLarge : careerAdSmall;
+    return careerAdSmall; // Use same image for all sizes
   };
 
   const sizeClasses = {
