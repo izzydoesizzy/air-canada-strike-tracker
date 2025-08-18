@@ -1,18 +1,18 @@
 import { ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import workshopAdLarge from "@/assets/workshop-ad-large.png";
-import workshopAdSmall from "@/assets/workshop-ad-small.png";
+import careerAdLarge from "@/assets/workshop-ad-large.png";
+import careerAdSmall from "@/assets/workshop-ad-small.png";
 
-interface WorkshopAdProps {
+interface CareerAdProps {
   className?: string;
   size?: "small" | "medium" | "large";
 }
 
-export function WorkshopAd({ className = "", size = "medium" }: WorkshopAdProps) {
-  const linkedinEventUrl = "https://www.linkedin.com/events/buildahigh-conversioncoachingla7363238985512468481/";
+export function CareerAd({ className = "", size = "medium" }: CareerAdProps) {
+  const careerProductUrl = "https://stan.store/joinclearcareer";
   
   const getImageSrc = () => {
-    return size === "large" ? workshopAdLarge : workshopAdSmall;
+    return size === "large" ? careerAdLarge : careerAdSmall;
   };
 
   const sizeClasses = {
@@ -32,14 +32,14 @@ export function WorkshopAd({ className = "", size = "medium" }: WorkshopAdProps)
       
       <Card className="border-2 border-dashed border-muted-foreground/30 bg-muted/10 hover:border-primary/50 hover:bg-muted/20 transition-all duration-300 group cursor-pointer overflow-hidden">
         <a 
-          href={linkedinEventUrl}
+          href={careerProductUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="block relative"
         >
           <img 
             src={getImageSrc()} 
-            alt="Build a High-Conversion Coaching Landing Page Workshop - Register on LinkedIn"
+            alt="Career development tools and templates - Level up your job search"
             className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
           />
           

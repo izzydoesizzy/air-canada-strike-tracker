@@ -8,7 +8,7 @@ import { StrikeTimeline } from "@/components/StrikeTimeline";
 import { StrikeAnalysis } from "@/components/StrikeAnalysis";
 import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
-import { WorkshopAd } from "@/components/WorkshopAd";
+import { CareerAd } from "@/components/CareerAd";
 
 const IndexEN = () => {
   const { t, i18n } = useTranslation('content');
@@ -36,7 +36,7 @@ const IndexEN = () => {
       <section className="py-8">
         <div className="container mx-auto px-8">
           <div className="flex justify-center">
-            <WorkshopAd size="large" />
+            <CareerAd size="large" />
           </div>
         </div>
       </section>
@@ -51,7 +51,7 @@ const IndexEN = () => {
       <section className="py-8 bg-surface-subtle/30">
         <div className="container mx-auto px-8">
           <div className="flex justify-center">
-            <WorkshopAd size="medium" />
+            <CareerAd size="medium" />
           </div>
         </div>
       </section>
@@ -138,7 +138,7 @@ const IndexEN = () => {
             {/* Workshop Ad & Updates */}
             <div className="space-y-6">
               <div className="mb-8">
-                <WorkshopAd size="small" />
+                <CareerAd size="small" />
               </div>
               <h3 className="text-base font-semibold text-foreground tracking-wide">Updates</h3>
               <div className="space-y-4">
