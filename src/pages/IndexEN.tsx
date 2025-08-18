@@ -9,6 +9,7 @@ import { StrikeAnalysis } from "@/components/StrikeAnalysis";
 import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
 import { CareerAd } from "@/components/CareerAd";
+import ResumeBottomSheet from "@/components/ResumeBottomSheet";
 
 const IndexEN = () => {
   const { t, i18n } = useTranslation('content');
@@ -165,6 +166,9 @@ const IndexEN = () => {
           </div>
         </div>
       </footer>
+
+      {/* Resume Course Bottom Sheet */}
+      <ResumeBottomSheet />
     </div>;
 };
 export default IndexEN;
