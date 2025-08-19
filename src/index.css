@@ -83,12 +83,8 @@ All colors MUST be HSL.
     --primary-blue-light: 214 88% 95%;
     --primary-blue-subtle: 214 88% 97%;
     --accent-blue: 214 100% 50%;
-    --loss-indicator: 0 72% 51%;
-    --loss-glow: 0 72% 51%;
-    --settlement-green: 142 76% 36%;
-    --settlement-blue: 217 91% 60%;
-    --settlement-orange: 45 93% 47%;
-    --settlement-purple: 262 83% 58%;
+    --loss-indicator: 214 88% 52%;
+    --loss-glow: 214 88% 52%;
     
     --surface-elevated: 0 0% 100%;
     --surface-subtle: 240 5% 99%;
