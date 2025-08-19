@@ -11,6 +11,7 @@ import InformativeTooltip from './InformativeTooltip';
 import SettlementCustomizer from './SettlementCustomizer';
 import ContractValueAnalyzer from './ContractValueAnalyzer';
 import LiveStrikeCostCounter from './LiveStrikeCostCounter';
+import DualPerspectiveAnalysis from './DualPerspectiveAnalysis';
 
 // Import strike data from dashboard
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00");
@@ -43,46 +44,49 @@ const StrikeVsSettlement: React.FC = () => {
   const totalStrikeLoss = daysElapsed * LOSS_PER_DAY;
   const lossPerFA = totalStrikeLoss / CONSTANTS.FLIGHT_ATTENDANTS;
 
-  // Scenario definitions
+  // Air Canada's current offer as baseline
+  const baselineOffer = {
+    name: 'Air Canada Current Offer (Baseline)',
+    description: 'Air Canada\'s latest proposal to flight attendants',
+    salaryIncreasePercent: 2,
+    unpaidHoursPercent: 50,
+    contractDurationYears: 6,
+    useParityLock: false,
+  };
+
+  // Scenario definitions - all compared against AC's current offer
   const scenarios = {
+    currentOffer: baselineOffer,
     conservative: {
-      name: 'Conservative Settlement',
-      description: 'Minimal increase, basic unpaid work coverage',
-      salaryIncreasePercent: 3,
-      unpaidHoursPercent: 25,
+      name: 'Conservative Alternative',
+      description: 'Slightly better than AC offer, minimal additional cost',
+      salaryIncreasePercent: 4,
+      unpaidHoursPercent: 60,
       contractDurationYears: 5,
-      useParityLock: false,
-    },
-    currentOffer: {
-      name: 'Current AC Offer',
-      description: 'Air Canada\'s current proposal',
-      salaryIncreasePercent: 2,
-      unpaidHoursPercent: 50,
-      contractDurationYears: 6,
       useParityLock: false,
     },
     moderate: {
       name: 'Moderate Compromise',
-      description: 'Balanced approach between parties',
+      description: 'Balanced approach between AC offer and union demands',
       salaryIncreasePercent: 8,
       unpaidHoursPercent: 75,
       contractDurationYears: 4,
       useParityLock: false,
     },
+    competitive: {
+      name: 'Competitive Package',
+      description: 'Industry-competitive offer to end strike quickly',
+      salaryIncreasePercent: 12,
+      unpaidHoursPercent: 90,
+      contractDurationYears: 4,
+      useParityLock: false,
+    },
     unionTarget: {
       name: 'Union Target',
-      description: 'Full union demands',
+      description: 'Full union demands including parity',
       salaryIncreasePercent: 15,
       unpaidHoursPercent: 100,
       contractDurationYears: 3,
-      useParityLock: true,
-    },
-    industryBenchmark: {
-      name: 'Industry Benchmark',
-      description: 'Market-competitive package',
-      salaryIncreasePercent: 10,
-      unpaidHoursPercent: 100,
-      contractDurationYears: 4,
       useParityLock: true,
     },
   };
@@ -108,8 +112,17 @@ const StrikeVsSettlement: React.FC = () => {
   }, [activeTab, selectedScenario, customSalaryIncrease, customUnpaidHours, customContractDuration, customParityLock, daysElapsed]);
 
   const results = useMemo(() => calculateScenario(inputs), [inputs]);
+  
+  // Calculate baseline (Air Canada's current offer) for comparison
+  const baselineInputs: CalculatorInputs = useMemo(() => ({
+    dailyStrikeCost: LOSS_PER_DAY,
+    strikeDays: daysElapsed,
+    ...baselineOffer,
+  }), [daysElapsed]);
+  
+  const baselineResults = useMemo(() => calculateScenario(baselineInputs), [baselineInputs]);
 
-  // Chart data for comparison
+  // Chart data for comparison - show baseline vs selected scenario
   const comparisonData = [
     {
       name: 'Strike Losses (Total)',
@@ -118,7 +131,13 @@ const StrikeVsSettlement: React.FC = () => {
       type: 'strike'
     },
     {
-      name: 'Settlement (Annual)',
+      name: 'AC Current Offer (Annual)',
+      value: baselineResults.totalSettlementCostPerYear,
+      color: '#94a3b8',
+      type: 'baseline'
+    },
+    {
+      name: `${activeTab === 'custom' ? 'Custom' : scenarios[selectedScenario as keyof typeof scenarios].name} (Annual)`,
       value: results.totalSettlementCostPerYear,
       color: '#22c55e',
       type: 'settlement'
@@ -232,117 +251,14 @@ const StrikeVsSettlement: React.FC = () => {
           </CardContent>
         </Card>
 
-        {/* Enhanced Settlement Analysis */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Users className="w-5 h-5" />
-              Detailed Settlement Analysis
-              <InformativeTooltip
-                title="Settlement Breakdown"
-                content="Comprehensive analysis of compensation changes per flight attendant and total company costs."
-              />
-            </CardTitle>
-            <p className="text-sm text-muted-foreground">
-              Per-flight attendant compensation breakdown and company cost analysis
-            </p>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              {/* Current vs New Salary */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="p-4 bg-muted/30 rounded-lg">
-                  <div className="text-sm font-medium text-muted-foreground">Current Annual Salary</div>
-                  <div className="text-2xl font-bold">{formatCurrency(results.currentAnnualSalary)}</div>
-                  <div className="text-xs text-muted-foreground mt-1">Base compensation</div>
-                </div>
-                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <div className="text-sm font-medium text-green-700">New Total Compensation</div>
-                  <div className="text-2xl font-bold text-green-800">{formatCurrency(results.newAnnualSalary)}</div>
-                  <div className="text-xs text-green-600 mt-1">Including all improvements</div>
-                </div>
-                <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                  <div className="text-sm font-medium text-blue-700">Annual Increase</div>
-                  <div className="text-2xl font-bold text-blue-800">+{formatCurrency(results.salaryIncreasePerFA)}</div>
-                  <div className="text-xs text-blue-600 mt-1">Per flight attendant</div>
-                </div>
-              </div>
-
-              {/* Detailed Breakdown */}
-              <div className="space-y-3">
-                <h4 className="font-medium text-lg mb-3">Compensation Components</h4>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center py-2 border-b">
-                    <div className="flex items-center gap-2">
-                      <span>Base Salary Increase ({inputs.salaryIncreasePercent}%)</span>
-                      <InformativeTooltip
-                        title="Base Salary Increase"
-                        content="Percentage increase applied to the current annual salary of approximately $52,000."
-                      />
-                    </div>
-                    <span className="font-medium">+{formatCurrency(results.salaryIncreaseComponent)}</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b">
-                    <div className="flex items-center gap-2">
-                      <span>Unpaid Work Compensation ({inputs.unpaidHoursPercent}%)</span>
-                      <InformativeTooltip
-                        title="Unpaid Work Value"
-                        content="Compensation for currently unpaid work including boarding, safety checks, and delays. Based on 35 hours per month at the selected hourly rate."
-                        sourceUrl="https://unpaidworkwontfly.ca/"
-                        sourceLabel="CUPE - Unpaid Work Details"
-                      />
-                    </div>
-                    <span className="font-medium">+{formatCurrency(results.unpaidWorkComponent)}</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b">
-                    <div className="flex items-center gap-2">
-                      <span>Hourly Rate</span>
-                      <InformativeTooltip
-                        title="Hourly Rate Comparison"
-                        content={`Current: ${formatCurrency(results.hourlyRateOld)}/hour. ${inputs.useParityLock ? `Proposed: ${formatCurrency(results.hourlyRateNew)}/hour (Air Transat parity)` : 'Proposed: Same as current'}`}
-                      />
-                    </div>
-                    <span className="font-medium">
-                      {formatCurrency(results.hourlyRateOld)} → {formatCurrency(results.hourlyRateNew)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Company Impact */}
-              <div className="bg-orange-50 border border-orange-200 p-4 rounded-lg space-y-3">
-                <h4 className="font-medium text-lg text-orange-800">Company Financial Impact</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span>Annual Cost (All 10,000 FAs):</span>
-                      <span className="font-bold">{formatCurrency(results.totalSettlementCostPerYear, true)}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Daily Settlement Cost:</span>
-                      <span className="font-medium">{formatCurrency(results.totalSettlementCostPerYear / 365, true)}</span>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span>Contract Value ({inputs.contractDurationYears} years):</span>
-                      <span className="font-bold">{formatCurrency(results.contractTotalValue, true)}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Settlement = Strike Days:</span>
-                      <span className="font-medium">{formatNumber(results.settlementEquivalentStrikeDays, 1)} days</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-center pt-2 border-t border-orange-300">
-                  <Badge variant="outline" className="bg-orange-100 text-orange-800 border-orange-300">
-                    This settlement costs the same as {formatNumber(results.settlementEquivalentStrikeDays, 1)} days of striking
-                  </Badge>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Dual Perspective Analysis */}
+        <DualPerspectiveAnalysis
+          results={results}
+          baselineResults={baselineResults}
+          inputs={inputs}
+          totalStrikeLoss={totalStrikeLoss}
+          selectedScenarioName={activeTab === 'custom' ? 'Custom Scenario' : scenarios[selectedScenario as keyof typeof scenarios].name}
+        />
 
         {/* Strike vs Settlement Comparison */}
         <Card className="mb-8">
@@ -370,12 +286,13 @@ const StrikeVsSettlement: React.FC = () => {
             
             <div className="text-center space-y-2">
               <div className="text-lg font-semibold">
-                The strike has cost <span className="text-red-600">{formatCurrency(totalStrikeLoss, true)}</span> vs 
-                settlement costing <span className="text-green-600">{formatCurrency(results.totalSettlementCostPerYear, true)}</span> annually
+                Strike losses: <span className="text-red-600">{formatCurrency(totalStrikeLoss, true)}</span> vs 
+                AC's current offer: <span className="text-gray-600">{formatCurrency(baselineResults.totalSettlementCostPerYear, true)}</span> vs 
+                this scenario: <span className="text-green-600">{formatCurrency(results.totalSettlementCostPerYear, true)}</span> annually
               </div>
               <div className="text-sm text-muted-foreground">
-                Every day of strike costs {formatCurrency(LOSS_PER_DAY, true)} — 
-                this settlement would cost {formatCurrency(results.totalSettlementCostPerYear / 365, true)} per day
+                This scenario costs {formatCurrency(results.totalSettlementCostPerYear - baselineResults.totalSettlementCostPerYear, true)} more 
+                annually than AC's current offer, but saves {formatCurrency(LOSS_PER_DAY, true)} daily by ending the strike
               </div>
             </div>
           </CardContent>
@@ -395,22 +312,25 @@ const StrikeVsSettlement: React.FC = () => {
         <Card className="bg-gradient-to-r from-blue-50 to-green-50 border-blue-200">
           <CardContent className="p-6">
             <div className="text-center space-y-3">
-              <h3 className="text-xl font-bold">Key Insights</h3>
+              <h3 className="text-xl font-bold">The Settlement Math</h3>
               <div className="space-y-2 text-lg">
                 <p>
-                  Settling today with the <strong>
-                    {activeTab === 'custom' ? 'custom' : scenarios[selectedScenario as keyof typeof scenarios].name}
-                  </strong> scenario would provide flight attendants with an annual increase of{' '}
-                  <span className="font-bold text-green-600">{formatCurrency(results.salaryIncreasePerFA)}</span> each.
+                  This scenario gives flight attendants <span className="font-bold text-green-600">
+                    {formatCurrency(results.salaryIncreasePerFA - baselineResults.salaryIncreasePerFA)}
+                  </span> more annually than Air Canada's current offer 
+                  ({formatCurrency(results.salaryIncreasePerFA)} vs {formatCurrency(baselineResults.salaryIncreasePerFA)}).
                 </p>
                 <p>
-                  The strike has cost <span className="font-bold text-red-600">{formatCurrency(totalStrikeLoss, true)}</span> so far, 
-                  while this settlement would cost Air Canada{' '}
-                  <span className="font-bold text-orange-600">{formatCurrency(results.totalSettlementCostPerYear, true)}</span> annually.
+                  It costs Air Canada <span className="font-bold text-orange-600">
+                    {formatCurrency(results.totalSettlementCostPerYear - baselineResults.totalSettlementCostPerYear, true)}
+                  </span> more per year than their current offer, but the strike has already cost{' '}
+                  <span className="font-bold text-red-600">{formatCurrency(totalStrikeLoss, true)}</span>.
                 </p>
                 <p className="text-base text-muted-foreground">
-                  Every additional day of striking costs <strong>{formatCurrency(LOSS_PER_DAY, true)}</strong> — 
-                  equivalent to <strong>{formatNumber(LOSS_PER_DAY / (results.totalSettlementCostPerYear / 365), 1)} days</strong> of this settlement.
+                  The accumulated strike losses could fund the additional settlement cost for{' '}
+                  <strong>
+                    {formatNumber(totalStrikeLoss / (results.totalSettlementCostPerYear - baselineResults.totalSettlementCostPerYear), 1)} years
+                  </strong>.
                 </p>
               </div>
             </div>
