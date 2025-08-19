@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Navigation } from "@/components/Navigation";
@@ -10,7 +11,7 @@ import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
 import { CareerAd } from "@/components/CareerAd";
 import EnhancedMobileAd from "@/components/EnhancedMobileAd";
-import { StorytellingCalculator } from "@/components/StorytellingCalculator";
+import StorytellingCalculator from "@/components/StorytellingCalculator";
 
 const IndexEN = () => {
   const { t, i18n } = useTranslation('content');
@@ -177,4 +178,5 @@ const IndexEN = () => {
       <EnhancedMobileAd />
     </div>;
 };
+
 export default IndexEN;
