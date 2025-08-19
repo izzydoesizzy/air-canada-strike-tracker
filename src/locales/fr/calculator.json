@@ -1,0 +1,77 @@
+{
+  "title": "Calculateur Coût de Grève vs. Salaire Équitable",
+  "subtitle": "Comparez le coût de payer équitablement les agents de bord avec le coût quotidien d'une grève",
+  "controls": {
+    "presets": {
+      "title": "Scénarios Rapides",
+      "current": "Actuel",
+      "airCanadaOffer": "Offre Air Canada (Approx.)",
+      "parityWagesOnly": "Parité: Salaires Seulement",
+      "parityPlus50Unpaid": "Parité + 50% Non-Payé",
+      "parityPlus100Unpaid": "Parité + 100% Non-Payé"
+    },
+    "fixedAssumptions": {
+      "title": "Hypothèses Fixes",
+      "flightAttendants": "Agents de bord: {{count}} (fixe)",
+      "unpaidHours": "Heures de service non payées: {{hours}} par mois (fixe)"
+    },
+    "adjustableParams": {
+      "title": "Paramètres Ajustables",
+      "paidHours": "Heures de vol payées par mois",
+      "baseWage": "Salaire horaire de base (CAD)",
+      "wageIncrease": "Augmentation salariale (%)",
+      "unpaidPercent": "Pourcentage d'heures non payées payées",
+      "strikeCost": "Coût quotidien de grève (CAD)",
+      "timeHorizon": "Horizon temporel (années)",
+      "npvRate": "Taux d'actualisation VAN (%)",
+      "parityLock": "Verrouillage parité ({{rate}} CAD/h)",
+      "npvToggle": "Utiliser calcul VAN"
+    },
+    "quickButtons": {
+      "1year": "1 An",
+      "4years": "4 Ans",
+      "10years": "10 Ans"
+    }
+  },
+  "kpis": {
+    "currentAnnual": "Salaire Annuel Actuel (Par Agent)",
+    "scenarioAnnual": "Salaire Annuel Scénario (Par Agent)",
+    "changePerFA": "Changement par Agent",
+    "addedAnnualCost": "Coût Annuel Ajouté (Compagnie)"
+  },
+  "narrative": {
+    "perFATitle": "Impact par Agent de Bord",
+    "currentPay": "Salaire annuel aujourd'hui: {{amount}}",
+    "unpaidValue": "Valeur du travail non payé au taux de base actuel: {{amount}} par agent par an",
+    "scenarioPay": "Salaire du scénario: {{amount}} (+{{percent}}% vs aujourd'hui)",
+    "change": "Changement: {{amount}} par agent par an",
+    
+    "strikeComparisonTitle": "Comparaison Coût de Grève",
+    "oneDayFunding": "Un jour de grève à {{strikeCost}} pourrait financer {{years}} années de paiement de toutes les heures non payées au taux de base actuel",
+    "settlementEquivalent": "Ce règlement ajoute {{annualCost}} par an à l'échelle de l'entreprise, égal à {{days}} jour(s) de grève",
+    "multiYear": "Sur {{years}} années: règlement total {{settlement}} ou VAN {{npv}}; coût total de grève {{strikeBurn}}",
+    
+    "caption": "Éliminer les heures non payées = +10 000$–15 000$ par agent par an (≈ 2–3 mois de travail gratuit). Valeur en direct avec vos paramètres: {{amount}} par agent"
+  },
+  "charts": {
+    "waterfallTitle": "Répartition de la Rémunération par Agent",
+    "waterfallLabels": {
+      "basePay": "Salaire de Base Actuel",
+      "wageIncrease": "Augmentation Salariale",
+      "unpaidPay": "Temps au Sol Nouvellement Payé",
+      "total": "Total du Scénario"
+    },
+    "comparisonTitle": "Comparaison Règlement vs Coût de Grève",
+    "comparisonLabels": {
+      "annualCost": "Coût Annuel Ajouté",
+      "oneDayStrike": "Coût d'Un Jour de Grève",
+      "settlementTotal": "Règlement ({{years}} années)",
+      "strikeBurn": "Coût de Grève ({{years}} années)"
+    }
+  },
+  "sources": {
+    "title": "Hypothèses et Sources",
+    "disclaimer": "Estimations financières basées sur des données publiques et l'analyse industrielle"
+  },
+  "shareButton": "Partager le Scénario"
+}

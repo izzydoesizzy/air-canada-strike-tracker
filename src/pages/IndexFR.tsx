@@ -10,6 +10,7 @@ import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
 import { CareerAd } from "@/components/CareerAd";
 import EnhancedMobileAd from "@/components/EnhancedMobileAd";
+import { StorytellingCalculator } from "@/components/StorytellingCalculator";
 
 const IndexFR = () => {
   const { t, i18n } = useTranslation('content');
@@ -28,6 +29,11 @@ const IndexFR = () => {
       {/* Strike Impact Dashboard - First thing users see */}
       <section id="hero">
         <StrikeImpactDashboard />
+      </section>
+
+      {/* Storytelling Calculator - Interactive analysis tool */}
+      <section id="calculator" className="bg-surface-subtle/30">
+        <StorytellingCalculator />
       </section>
 
       {/* The Strike Story - Consolidated narrative */}

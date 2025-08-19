@@ -1,0 +1,77 @@
+{
+  "title": "Strike Cost vs. Fair Pay Calculator",
+  "subtitle": "Compare the cost of paying flight attendants fairly with the daily cost of a strike",
+  "controls": {
+    "presets": {
+      "title": "Quick Scenarios",
+      "current": "Current",
+      "airCanadaOffer": "Air Canada Offer (Proxy)",
+      "parityWagesOnly": "Parity: Wages Only",
+      "parityPlus50Unpaid": "Parity + 50% Unpaid",
+      "parityPlus100Unpaid": "Parity + 100% Unpaid"
+    },
+    "fixedAssumptions": {
+      "title": "Fixed Assumptions",
+      "flightAttendants": "Flight Attendants: {{count}} (fixed)",
+      "unpaidHours": "Unpaid duty hours: {{hours}} per month (fixed)"
+    },
+    "adjustableParams": {
+      "title": "Adjustable Parameters",
+      "paidHours": "Paid flight hours per month",
+      "baseWage": "Base hourly wage (CAD)",
+      "wageIncrease": "Wage increase (%)",
+      "unpaidPercent": "Percent of unpaid hours paid",
+      "strikeCost": "Daily strike cost (CAD)",
+      "timeHorizon": "Time horizon (years)",
+      "npvRate": "NPV discount rate (%)",
+      "parityLock": "Parity lock ({{rate}} CAD/hr)",
+      "npvToggle": "Use NPV calculation"
+    },
+    "quickButtons": {
+      "1year": "1 Year",
+      "4years": "4 Years",
+      "10years": "10 Years"
+    }
+  },
+  "kpis": {
+    "currentAnnual": "Current Annual Pay (Per FA)",
+    "scenarioAnnual": "Scenario Annual Pay (Per FA)",
+    "changePerFA": "Change Per FA",
+    "addedAnnualCost": "Added Annual Cost (Company)"
+  },
+  "narrative": {
+    "perFATitle": "Per Flight Attendant Impact",
+    "currentPay": "Annual salary today: {{amount}}",
+    "unpaidValue": "Value of unpaid work at current base: {{amount}} per FA per year",
+    "scenarioPay": "Scenario pay: {{amount}} (+{{percent}}% vs today)",
+    "change": "Change: {{amount}} per FA per year",
+    
+    "strikeComparisonTitle": "Strike Cost Comparison",
+    "oneDayFunding": "One strike day at {{strikeCost}} could fund {{years}} years of paying all unpaid hours at today's base",
+    "settlementEquivalent": "This settlement adds {{annualCost}} per year company-wide, equal to {{days}} strike day(s)",
+    "multiYear": "Over {{years}} years: settlement totals {{settlement}} or NPV {{npv}}; strike burn totals {{strikeBurn}}",
+    
+    "caption": "Ending unpaid hours = +$10,000–15,000 per FA per year (≈ 2–3 months of free work). Live value at your settings: {{amount}} per FA"
+  },
+  "charts": {
+    "waterfallTitle": "Per-FA Compensation Breakdown",
+    "waterfallLabels": {
+      "basePay": "Current Base Pay",
+      "wageIncrease": "Wage Increase",
+      "unpaidPay": "Newly Paid Ground Time",
+      "total": "Scenario Total"
+    },
+    "comparisonTitle": "Settlement vs Strike Cost Comparison",
+    "comparisonLabels": {
+      "annualCost": "Annual Added Cost",
+      "oneDayStrike": "One Day Strike Cost",
+      "settlementTotal": "Settlement ({{years}} years)",
+      "strikeBurn": "Strike Burn ({{years}} years)"
+    }
+  },
+  "sources": {
+    "title": "Assumptions & Sources",
+    "disclaimer": "Financial estimates based on publicly available data and industry analysis"
+  },
+  "shareButton": "Share Scenario"
+}
