@@ -1,36 +1,30 @@
 {
-  "title": "Calculateur Coût de Grève vs. Salaire Équitable",
-  "subtitle": "Comparez le coût de payer équitablement les agents de bord avec le coût quotidien d'une grève",
+  "title": "Calculateur Coût de Grève",
+  "subtitle": "Combien coûte chaque jour de grève par rapport à ce que demande le syndicat?",
   "controls": {
-    "presets": {
-      "title": "Scénarios Rapides",
-      "current": "Actuel",
-      "airCanadaOffer": "Offre Air Canada (Approx.)",
-      "parityWagesOnly": "Parité: Salaires Seulement",
-      "parityPlus50Unpaid": "Parité + 50% Non-Payé",
-      "parityPlus100Unpaid": "Parité + 100% Non-Payé"
-    },
     "fixedAssumptions": {
       "title": "Hypothèses Fixes",
-      "flightAttendants": "Agents de bord: {{count}} (fixe)",
-      "unpaidHours": "Heures de service non payées: {{hours}} par mois (fixe)"
+      "flightAttendants": "Agents de bord: {{count}}",
+      "unpaidHours": "Heures de service non payées: {{hours}}/mois"
     },
     "adjustableParams": {
-      "title": "Paramètres Ajustables",
-      "paidHours": "Heures de vol payées par mois",
-      "baseWage": "Salaire horaire de base (CAD)",
-      "wageIncrease": "Augmentation salariale (%)",
-      "unpaidPercent": "Pourcentage d'heures non payées payées",
+      "title": "Contrôles",
       "strikeCost": "Coût quotidien de grève (CAD)",
-      "timeHorizon": "Horizon temporel (années)",
-      "npvRate": "Taux d'actualisation VAN (%)",
-      "parityLock": "Verrouillage parité ({{rate}} CAD/h)",
-      "npvToggle": "Utiliser calcul VAN"
+      "strikeDays": "Durée de grève (jours)",
+      "unpaidPercent": "Heures non payées à payer",
+      "parityLock": "Utiliser référence parité",
+      "parityLockDesc": "Taux Air Transat: {{rate}}$/h"
     },
-    "quickButtons": {
-      "1year": "1 An",
-      "4years": "4 Ans",
-      "10years": "10 Ans"
+    "strikeDaysPresets": {
+      "1day": "1",
+      "3days": "3", 
+      "7days": "7",
+      "14days": "14"
+    },
+    "unpaidOptions": {
+      "0percent": "0% (Actuel)",
+      "50percent": "50% (Offre AC)",
+      "100percent": "100% (Demande Syndicat)"
     }
   },
   "kpis": {

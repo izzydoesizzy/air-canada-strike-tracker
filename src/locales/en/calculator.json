@@ -1,77 +1,69 @@
 {
-  "title": "Strike Cost vs. Fair Pay Calculator",
-  "subtitle": "Compare the cost of paying flight attendants fairly with the daily cost of a strike",
+  "title": "Strike Cost Calculator",
+  "subtitle": "How much does each strike day cost versus what the union is asking for?",
   "controls": {
-    "presets": {
-      "title": "Quick Scenarios",
-      "current": "Current",
-      "airCanadaOffer": "Air Canada Offer (Proxy)",
-      "parityWagesOnly": "Parity: Wages Only",
-      "parityPlus50Unpaid": "Parity + 50% Unpaid",
-      "parityPlus100Unpaid": "Parity + 100% Unpaid"
-    },
     "fixedAssumptions": {
       "title": "Fixed Assumptions",
-      "flightAttendants": "Flight Attendants: {{count}} (fixed)",
-      "unpaidHours": "Unpaid duty hours: {{hours}} per month (fixed)"
+      "flightAttendants": "Flight Attendants: {{count}}",
+      "unpaidHours": "Unpaid duty hours: {{hours}}/month"
     },
     "adjustableParams": {
-      "title": "Adjustable Parameters",
-      "paidHours": "Paid flight hours per month",
-      "baseWage": "Base hourly wage (CAD)",
-      "wageIncrease": "Wage increase (%)",
-      "unpaidPercent": "Percent of unpaid hours paid",
+      "title": "Controls",
       "strikeCost": "Daily strike cost (CAD)",
-      "timeHorizon": "Time horizon (years)",
-      "npvRate": "NPV discount rate (%)",
-      "parityLock": "Parity lock ({{rate}} CAD/hr)",
-      "npvToggle": "Use NPV calculation"
+      "strikeDays": "Strike duration (days)",
+      "unpaidPercent": "Unpaid hours to be paid",
+      "parityLock": "Use parity benchmark",
+      "parityLockDesc": "Air Transat rate: ${{rate}}/hr"
     },
-    "quickButtons": {
-      "1year": "1 Year",
-      "4years": "4 Years",
-      "10years": "10 Years"
+    "strikeDaysPresets": {
+      "1day": "1",
+      "3days": "3",
+      "7days": "7", 
+      "14days": "14"
+    },
+    "unpaidOptions": {
+      "0percent": "0% (Current)",
+      "50percent": "50% (AC Offer)",
+      "100percent": "100% (Union Ask)"
     }
   },
-  "kpis": {
-    "currentAnnual": "Current Annual Pay (Per FA)",
-    "scenarioAnnual": "Scenario Annual Pay (Per FA)",
-    "changePerFA": "Change Per FA",
-    "addedAnnualCost": "Added Annual Cost (Company)"
+  "cards": {
+    "strikeLoss": {
+      "title": "Strike Loss Counter",
+      "totalLoss": "Total Strike Loss: {{amount}} after {{days}} day(s)",
+      "perDay": "Per day set to {{amount}}",
+      "tdEstimate": "Three days ≈ {{amount}}, consistent with TD's ~$300M estimate",
+      "analystBand": "Analyst band: C$50–60M/day revenue impact, ~C$75M/day EBITDA basis"
+    },
+    "perFAEquivalents": {
+      "title": "Per-FA Strike Equivalents",
+      "subtitle": "Strike losses spread across {{count}} flight attendants",
+      "description": "Strike losses equal {{amount1year}} per FA per year over 1 year, {{amount4years}} per FA per year over 4 years, and {{amount10years}} per FA per year over 10 years"
+    },
+    "unionAsk": {
+      "title": "Union Ask vs Strike",
+      "subtitle": "Unpaid work is boarding, checks, delays; currently uncompensated",
+      "unionAskAmount": "Union ask per FA per year: {{amount}}",
+      "comparison": "{{comparison}} than strike equivalent over {{horizon}} years"
+    },
+    "executiveSummary": {
+      "title": "Executive Summary",
+      "comparison": "At {{strikeCost}} per day for {{days}} day(s) = {{perFAAmount}} per FA per year over 4 years, which is {{comparison}} as paying {{unpaidPercent}} of unpaid hours at {{rate}}"
+    }
   },
   "narrative": {
-    "perFATitle": "Per Flight Attendant Impact",
-    "currentPay": "Annual salary today: {{amount}}",
-    "unpaidValue": "Value of unpaid work at current base: {{amount}} per FA per year",
-    "scenarioPay": "Scenario pay: {{amount}} (+{{percent}}% vs today)",
-    "change": "Change: {{amount}} per FA per year",
-    
-    "strikeComparisonTitle": "Strike Cost Comparison",
-    "oneDayFunding": "One strike day at {{strikeCost}} could fund {{years}} years of paying all unpaid hours at today's base",
-    "settlementEquivalent": "This settlement adds {{annualCost}} per year company-wide, equal to {{days}} strike day(s)",
-    "multiYear": "Over {{years}} years: settlement totals {{settlement}} or NPV {{npv}}; strike burn totals {{strikeBurn}}",
-    
-    "caption": "Ending unpaid hours = +$10,000–15,000 per FA per year (≈ 2–3 months of free work). Live value at your settings: {{amount}} per FA"
-  },
-  "charts": {
-    "waterfallTitle": "Per-FA Compensation Breakdown",
-    "waterfallLabels": {
-      "basePay": "Current Base Pay",
-      "wageIncrease": "Wage Increase",
-      "unpaidPay": "Newly Paid Ground Time",
-      "total": "Scenario Total"
-    },
-    "comparisonTitle": "Settlement vs Strike Cost Comparison",
-    "comparisonLabels": {
-      "annualCost": "Annual Added Cost",
-      "oneDayStrike": "One Day Strike Cost",
-      "settlementTotal": "Settlement ({{years}} years)",
-      "strikeBurn": "Strike Burn ({{years}} years)"
-    }
+    "strikeComparisonTitle": "Strike Funding Analysis",
+    "oneDayFunding": "One day of strike at {{strikeCost}} could fund {{years}} years of paying all unpaid hours at today's base rate"
   },
   "sources": {
     "title": "Assumptions & Sources",
     "disclaimer": "Financial estimates based on publicly available data and industry analysis"
+  },
+  "tooltips": {
+    "strikeCost": "Analysts estimate C$50–60M/day revenue loss, some cite ~C$75M/day EBITDA basis",
+    "strikeDays": "Quick presets match common talking points. '3 days' aligns with recent coverage",
+    "unpaidPercent": "How much of the 35 hours/month of ground duties get paid? Air Canada signaled 50%; union wants 100%",
+    "parityLock": "Targets the Air Transat benchmark as the top rate. Sets higher hourly before calculating unpaid time value"
   },
   "shareButton": "Share Scenario"
 }

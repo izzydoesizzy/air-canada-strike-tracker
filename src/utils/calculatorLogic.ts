@@ -1,111 +1,67 @@
-// Fixed constants based on provided sources
 export const CONSTANTS = {
-  FLIGHT_ATTENDANTS: 10000, // AP News source
-  UNPAID_HOURS_PER_MONTH: 35, // CUPE campaign data
-  UNPAID_HOURS_PER_YEAR: 35 * 12, // 420 hours annually
-  PARITY_BENCHMARK_WAGE: 40.38, // Industry top-tier rate
+  FLIGHT_ATTENDANTS: 10000,
+  UNPAID_HOURS_PER_MONTH: 35,
+  UNPAID_HOURS_PER_YEAR: 35 * 12, // 420
+  BASE_HOURLY_TODAY: 30, // CAD
+  PARITY_HOURLY: 40.38, // Air Transat benchmark
 };
 
 export interface CalculatorInputs {
-  paidHoursPerMonth: number;
-  baseHourlyWage: number;
-  wageIncreasePercent: number;
-  unpaidHoursPercent: number;
   dailyStrikeCost: number;
-  timeHorizonYears: number;
-  npvDiscountRate: number;
-  parityLockEnabled: boolean;
+  strikeDays: number;
+  unpaidHoursPercent: number; // 0, 50, or 100
+  useParityLock: boolean;
 }
 
 export interface CalculatorResults {
-  // Per FA calculations
-  currentAnnualPay: number;
-  scenarioAnnualPay: number;
-  deltaPerFA: number;
-  
-  // Company-wide calculations
-  addedAnnualCost: number;
-  annualCostAllUnpaidAtCurrent: number;
+  totalStrikeLoss: number;
+  perFAStrikeLump: number;
+  perFAStrikeEquivalent1Year: number;
+  perFAStrikeEquivalent4Years: number;
+  perFAStrikeEquivalent10Years: number;
   yearsFundedByOneStrikeDay: number;
-  strikeDaysEquivForOneYear: number;
-  
-  // Multi-year calculations
-  settlementTotal: number;
-  settlementNPV: number;
-  strikeBurnTotal: number;
-  
-  // Additional metrics for narratives
-  unpaidValueAtCurrent: number;
-  unpaidValueAtScenario: number;
-  percentIncrease: number;
+  unionAskPerFAPerYear: number;
+  scenarioHourly: number;
+  annualCostAllUnpaidAtCurrent: number;
 }
 
 export function calculateScenario(inputs: CalculatorInputs): CalculatorResults {
-  const {
-    paidHoursPerMonth,
-    baseHourlyWage,
-    wageIncreasePercent,
-    unpaidHoursPercent,
-    dailyStrikeCost,
-    timeHorizonYears,
-    npvDiscountRate,
-    parityLockEnabled
-  } = inputs;
+  const { dailyStrikeCost, strikeDays, unpaidHoursPercent, useParityLock } = inputs;
 
-  // Determine effective base wage
-  const effectiveBaseWage = parityLockEnabled ? CONSTANTS.PARITY_BENCHMARK_WAGE : baseHourlyWage;
+  // Convert percentage to decimal
+  const unpaidHoursDecimal = unpaidHoursPercent / 100;
   
-  // Calculate annual hours
-  const paidHoursPerYear = paidHoursPerMonth * 12;
+  // Determine hourly rate
+  const scenarioHourly = useParityLock ? CONSTANTS.PARITY_HOURLY : CONSTANTS.BASE_HOURLY_TODAY;
   
-  // Calculate scenario hourly rate
-  const scenarioHourlyRate = effectiveBaseWage * (1 + wageIncreasePercent / 100);
+  // Strike loss calculations
+  const totalStrikeLoss = dailyStrikeCost * strikeDays;
+  const perFAStrikeLump = totalStrikeLoss / CONSTANTS.FLIGHT_ATTENDANTS;
   
-  // Per-attendant calculations
-  const currentAnnualPay = paidHoursPerYear * effectiveBaseWage;
-  const scenarioAnnualPay = (paidHoursPerYear * scenarioHourlyRate) + 
-    (CONSTANTS.UNPAID_HOURS_PER_YEAR * scenarioHourlyRate * unpaidHoursPercent / 100);
-  const deltaPerFA = scenarioAnnualPay - currentAnnualPay;
+  // Per-FA strike equivalents over different time horizons
+  const perFAStrikeEquivalent1Year = perFAStrikeLump / 1;
+  const perFAStrikeEquivalent4Years = perFAStrikeLump / 4;
+  const perFAStrikeEquivalent10Years = perFAStrikeLump / 10;
   
-  // Company-level calculations
-  const addedAnnualCost = deltaPerFA * CONSTANTS.FLIGHT_ATTENDANTS;
-  const annualCostAllUnpaidAtCurrent = CONSTANTS.FLIGHT_ATTENDANTS * CONSTANTS.UNPAID_HOURS_PER_YEAR * effectiveBaseWage;
+  // Annual cost to pay all unpaid hours at current base rate
+  const annualCostAllUnpaidAtCurrent = CONSTANTS.FLIGHT_ATTENDANTS * CONSTANTS.UNPAID_HOURS_PER_YEAR * CONSTANTS.BASE_HOURLY_TODAY;
+  
+  // How many years of paying all unpaid hours could one strike day fund?
   const yearsFundedByOneStrikeDay = dailyStrikeCost / annualCostAllUnpaidAtCurrent;
-  const strikeDaysEquivForOneYear = addedAnnualCost / dailyStrikeCost;
   
-  // Multi-year calculations
-  const settlementTotal = addedAnnualCost * timeHorizonYears;
-  
-  // NPV calculation
-  let settlementNPV: number;
-  if (npvDiscountRate > 0) {
-    const r = npvDiscountRate / 100;
-    settlementNPV = addedAnnualCost * (1 - Math.pow(1 + r, -timeHorizonYears)) / r;
-  } else {
-    settlementNPV = settlementTotal;
-  }
-  
-  const strikeBurnTotal = dailyStrikeCost * 365 * timeHorizonYears;
-  
-  // Additional metrics
-  const unpaidValueAtCurrent = CONSTANTS.UNPAID_HOURS_PER_YEAR * effectiveBaseWage;
-  const unpaidValueAtScenario = CONSTANTS.UNPAID_HOURS_PER_YEAR * scenarioHourlyRate * unpaidHoursPercent / 100;
-  const percentIncrease = currentAnnualPay > 0 ? ((scenarioAnnualPay - currentAnnualPay) / currentAnnualPay) * 100 : 0;
-  
+  // Union ask: pay for unpaid hours
+  const unionAskPerFAPerYear = CONSTANTS.UNPAID_HOURS_PER_YEAR * scenarioHourly * unpaidHoursDecimal;
+
   return {
-    currentAnnualPay,
-    scenarioAnnualPay,
-    deltaPerFA,
-    addedAnnualCost,
-    annualCostAllUnpaidAtCurrent,
+    totalStrikeLoss,
+    perFAStrikeLump,
+    perFAStrikeEquivalent1Year,
+    perFAStrikeEquivalent4Years,
+    perFAStrikeEquivalent10Years,
     yearsFundedByOneStrikeDay,
-    strikeDaysEquivForOneYear,
-    settlementTotal,
-    settlementNPV,
-    strikeBurnTotal,
-    unpaidValueAtCurrent,
-    unpaidValueAtScenario,
-    percentIncrease
+    unionAskPerFAPerYear,
+    scenarioHourly,
+    annualCostAllUnpaidAtCurrent,
   };
 }
 
@@ -133,68 +89,52 @@ export function formatNumber(num: number, decimals: number = 1): string {
   }).format(num);
 }
 
-// Preset configurations
-export const PRESETS = {
-  current: {
-    paidHoursPerMonth: 80,
-    baseHourlyWage: 30,
-    wageIncreasePercent: 0,
-    unpaidHoursPercent: 0,
-    parityLockEnabled: false
-  },
-  airCanadaOffer: {
-    paidHoursPerMonth: 80,
-    baseHourlyWage: 30,
-    wageIncreasePercent: 0,
-    unpaidHoursPercent: 50,
-    parityLockEnabled: false
-  },
-  parityWagesOnly: {
-    paidHoursPerMonth: 80,
-    baseHourlyWage: 30, // Will be overridden by parity lock
-    wageIncreasePercent: 0,
-    unpaidHoursPercent: 0,
-    parityLockEnabled: true
-  },
-  parityPlus50Unpaid: {
-    paidHoursPerMonth: 80,
-    baseHourlyWage: 30, // Will be overridden by parity lock
-    wageIncreasePercent: 0,
-    unpaidHoursPercent: 50,
-    parityLockEnabled: true
-  },
-  parityPlus100Unpaid: {
-    paidHoursPerMonth: 80,
-    baseHourlyWage: 30, // Will be overridden by parity lock
-    wageIncreasePercent: 0,
-    unpaidHoursPercent: 100,
-    parityLockEnabled: true
-  }
+export const DEFAULT_INPUTS: CalculatorInputs = {
+  dailyStrikeCost: 100000000, // $100M default
+  strikeDays: 3, // Current as of Aug 18, 2025
+  unpaidHoursPercent: 50, // Air Canada's offer
+  useParityLock: false,
 };
 
 export const DATA_SOURCES = [
   {
-    label: "AP (strike, 10,000 FAs)",
+    label: "Flight Attendants: 10,000",
+    context: "AP News - Strike coverage",
     url: "https://apnews.com/article/eca99afe8651b9bf64acd708ae987f5f"
   },
   {
-    label: "CUPE campaign (unpaid work context)",
+    label: "Unpaid Hours: 35/month",
+    context: "CUPE - Unpaid work campaign",
     url: "https://unpaidworkwontfly.ca/"
   },
   {
-    label: "CUPE explainer (why unpaid exists)",
+    label: "Unpaid Work Details",
+    context: "CUPE - Work explainer",
     url: "https://cupe.ca/unpaid-work-wont-fly"
   },
   {
-    label: "Air Canada offer details (38% package, 50% boarding/ground pay)",
+    label: "Strike Cost: $50-60M revenue",
+    context: "Yahoo Finance - Daily impact",
+    url: "https://finance.yahoo.com/news/much-money-air-canada-lose-140011375.html"
+  },
+  {
+    label: "Strike Cost: ~$75M EBITDA",
+    context: "Reuters - Analyst estimates",
+    url: "https://www.reuters.com/business/world-at-work/canadian-government-moves-end-air-canada-strike-seeks-binding-arbitration-2025-08-16/"
+  },
+  {
+    label: "Air Canada Offer: 50% ground pay",
+    context: "AC Media - Company position",
     url: "https://www.aircanada.com/media/air-canada-provides-clarity-on-its-offer-to-cupe/"
   },
   {
-    label: "Reuters context on offer/strike",
-    url: "https://www.reuters.com/business/world-at-work/air-canada-resume-flights-after-government-moves-end-strike-2025-08-17/"
+    label: "Parity Benchmark: Air Transat",
+    context: "CUPE - Industry comparison",
+    url: "https://cupe.ca/air-transat-flight-attendants-now-highest-paid-industry"
   },
   {
-    label: "Daily strike cost estimate C$50–60M",
-    url: "https://finance.yahoo.com/news/much-money-air-canada-lose-140011375.html"
+    label: "Three-Day Estimate: ~$300M",
+    context: "Financial Post - TD analysis",
+    url: "https://financialpost.com/transportation/airlines/air-canada-risks-pyrrhic-victory-in-sending-flight-attendants-to-the-picket-lines-says-td-analyst"
   }
 ];
