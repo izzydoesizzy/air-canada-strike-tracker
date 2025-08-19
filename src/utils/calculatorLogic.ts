@@ -12,6 +12,8 @@ export interface CalculatorInputs {
   strikeDays: number;
   unpaidHoursPercent: number; // 0, 50, or 100
   useParityLock: boolean;
+  salaryIncreasePercent: number; // New: 0-25%
+  contractDurationYears: number; // New: 2-6 years
 }
 
 export interface CalculatorResults {
@@ -24,10 +26,18 @@ export interface CalculatorResults {
   unionAskPerFAPerYear: number;
   scenarioHourly: number;
   annualCostAllUnpaidAtCurrent: number;
+  // New negotiation results
+  currentAnnualSalary: number;
+  newAnnualSalary: number;
+  salaryIncreasePerFA: number;
+  totalSettlementCostPerYear: number;
+  settlementEquivalentStrikeDays: number;
+  contractTotalValue: number;
+  negotiationPressureLevel: 'low' | 'medium' | 'high' | 'critical';
 }
 
 export function calculateScenario(inputs: CalculatorInputs): CalculatorResults {
-  const { dailyStrikeCost, strikeDays, unpaidHoursPercent, useParityLock } = inputs;
+  const { dailyStrikeCost, strikeDays, unpaidHoursPercent, useParityLock, salaryIncreasePercent, contractDurationYears } = inputs;
 
   // Convert percentage to decimal
   const unpaidHoursDecimal = unpaidHoursPercent / 100;
@@ -53,6 +63,28 @@ export function calculateScenario(inputs: CalculatorInputs): CalculatorResults {
   // Union ask: pay for unpaid hours
   const unionAskPerFAPerYear = CONSTANTS.UNPAID_HOURS_PER_YEAR * scenarioHourly * unpaidHoursDecimal;
 
+  // New salary calculations
+  const currentAnnualSalary = 52000; // Approximate current FA salary
+  const salaryIncreaseAmount = currentAnnualSalary * (salaryIncreasePercent / 100);
+  const newAnnualSalary = currentAnnualSalary + salaryIncreaseAmount + unionAskPerFAPerYear;
+  const salaryIncreasePerFA = salaryIncreaseAmount + unionAskPerFAPerYear;
+  
+  // Total settlement costs
+  const totalSettlementCostPerYear = salaryIncreasePerFA * CONSTANTS.FLIGHT_ATTENDANTS;
+  const settlementEquivalentStrikeDays = totalSettlementCostPerYear / dailyStrikeCost;
+  const contractTotalValue = totalSettlementCostPerYear * contractDurationYears;
+  
+  // Negotiation pressure calculation
+  const strikeCostSoFar = totalStrikeLoss;
+  const oneYearSettlementCost = totalSettlementCostPerYear;
+  const pressureRatio = strikeCostSoFar / oneYearSettlementCost;
+  
+  let negotiationPressureLevel: 'low' | 'medium' | 'high' | 'critical';
+  if (pressureRatio < 0.5) negotiationPressureLevel = 'low';
+  else if (pressureRatio < 1.0) negotiationPressureLevel = 'medium';
+  else if (pressureRatio < 2.0) negotiationPressureLevel = 'high';
+  else negotiationPressureLevel = 'critical';
+
   return {
     totalStrikeLoss,
     perFAStrikeLump,
@@ -63,6 +95,13 @@ export function calculateScenario(inputs: CalculatorInputs): CalculatorResults {
     unionAskPerFAPerYear,
     scenarioHourly,
     annualCostAllUnpaidAtCurrent,
+    currentAnnualSalary,
+    newAnnualSalary,
+    salaryIncreasePerFA,
+    totalSettlementCostPerYear,
+    settlementEquivalentStrikeDays,
+    contractTotalValue,
+    negotiationPressureLevel,
   };
 }
 
@@ -98,10 +137,12 @@ export function getCurrentStrikeDays(): number {
 }
 
 export const DEFAULT_INPUTS: CalculatorInputs = {
-  dailyStrikeCost: 100000000, // $100M default
+  dailyStrikeCost: 100000000, // $100M default - fixed
   strikeDays: getCurrentStrikeDays(), // Real-time strike duration
   unpaidHoursPercent: 50, // Air Canada's offer
   useParityLock: false,
+  salaryIncreasePercent: 8, // Default 8% salary increase
+  contractDurationYears: 4, // Default 4-year contract
 };
 
 export const DATA_SOURCES = [

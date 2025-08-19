@@ -5,14 +5,15 @@
     "fixedAssumptions": {
       "title": "Fixed Assumptions",
       "flightAttendants": "Flight Attendants: {{count}}",
-      "unpaidHours": "Unpaid duty hours: {{hours}}/month"
+      "unpaidHours": "Unpaid duty hours: {{hours}}/month",
+      "dailyStrikeCost": "Daily strike cost: $100M (fixed)"
     },
-    "adjustableParams": {
-      "title": "Controls",
-      "strikeCost": "Daily strike cost (CAD)",
-      "strikeDays": "Strike duration (days)",
-      "unpaidPercent": "Unpaid hours to be paid",
-      "parityLock": "Use parity benchmark",
+    "negotiationParams": {
+      "title": "Negotiation Scenario Builder",
+      "salaryIncrease": "Salary Increase",
+      "contractDuration": "Contract Duration",
+      "unpaidPercent": "Unpaid Work Coverage",
+      "parityLock": "Use Parity Benchmark",
       "parityLockDesc": "Air Transat rate: ${{rate}}/hr"
     },
     "strikeDaysPresets": {
@@ -25,15 +26,33 @@
       "0percent": "0% (Current)",
       "50percent": "50% (AC Offer)",
       "100percent": "100% (Union Ask)"
+    },
+    "contractDurationOptions": {
+      "2years": "2 years",
+      "3years": "3 years", 
+      "4years": "4 years",
+      "5years": "5 years",
+      "6years": "6 years"
+    },
+    "scenarioPresets": {
+      "title": "Quick Scenarios",
+      "conservative": "Conservative Settlement",
+      "moderate": "Moderate Settlement", 
+      "union": "Union Target",
+      "management": "Management Offer"
     }
   },
   "cards": {
-    "strikeLoss": {
-      "title": "Strike Loss Counter",
-      "totalLoss": "Total Strike Loss: {{amount}} after {{days}} day(s)",
-      "perDay": "Per day set to {{amount}}",
-      "tdEstimate": "Three days ≈ {{amount}}, consistent with TD's ~$300M estimate",
-      "analystBand": "Analyst band: C$50–60M/day revenue impact, ~C$75M/day EBITDA basis"
+    "negotiationPressure": {
+      "title": "Negotiation Pressure Gauge",
+      "subtitle": "Strike costs vs settlement value",
+      "pressureLevels": {
+        "low": "Early Days",
+        "medium": "Building Pressure", 
+        "high": "High Stakes",
+        "critical": "Critical Point"
+      },
+      "description": "Strike costs so far: {{strikeCost}} vs {{contractDuration}}-year settlement: {{settlementCost}}"
     },
     "perFAEquivalents": {
       "title": "Per-FA Strike Equivalents",
@@ -45,6 +64,18 @@
       "subtitle": "Unpaid work is boarding, checks, delays; currently uncompensated",
       "unionAskAmount": "Union ask per FA per year: {{amount}}",
       "comparison": "{{comparison}} than strike equivalent over {{horizon}} years"
+    },
+    "settlementAnalysis": {
+      "title": "Settlement Analysis",
+      "subtitle": "Comprehensive compensation breakdown",
+      "currentSalary": "Current Annual Salary",
+      "salaryIncrease": "Salary Increase ({{percent}}%)",
+      "unpaidWork": "Unpaid Work Value", 
+      "newTotalSalary": "New Total Compensation",
+      "changePerFA": "Total Increase per FA",
+      "totalAnnualCost": "Total Annual Cost (All FAs)",
+      "contractValue": "{{duration}}-Year Contract Value",
+      "strikeEquivalent": "Equivalent to {{days}} strike days"
     },
     "executiveSummary": {
       "title": "Executive Summary",
@@ -60,10 +91,12 @@
     "disclaimer": "Financial estimates based on publicly available data and industry analysis"
   },
   "tooltips": {
-    "strikeCost": "Analysts estimate C$50–60M/day revenue loss, some cite ~C$75M/day EBITDA basis",
-    "strikeDays": "Quick presets match common talking points. '3 days' aligns with recent coverage",
-    "unpaidPercent": "How much of the 35 hours/month of ground duties get paid? Air Canada signaled 50%; union wants 100%",
-    "parityLock": "Targets the Air Transat benchmark as the top rate. Sets higher hourly before calculating unpaid time value"
+    "strikeCost": "Fixed at $100M/day based on analyst estimates",
+    "salaryIncrease": "Base salary increase percentage - industry standard varies 3-15%",
+    "contractDuration": "Longer contracts spread costs over more years but lock in terms",
+    "unpaidPercent": "How much of the 35 hours/month of ground duties get paid? Air Canada offered 50%; union wants 100%",
+    "parityLock": "Targets the Air Transat benchmark as the top rate. Sets higher hourly before calculating unpaid time value",
+    "negotiationPressure": "As strike costs accumulate, pressure increases to settle"
   },
   "shareButton": "Share Scenario"
 }

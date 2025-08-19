@@ -5,14 +5,15 @@
     "fixedAssumptions": {
       "title": "Hypothèses Fixes",
       "flightAttendants": "Agents de bord: {{count}}",
-      "unpaidHours": "Heures de service non payées: {{hours}}/mois"
+      "unpaidHours": "Heures de service non payées: {{hours}}/mois",
+      "dailyStrikeCost": "Coût quotidien de grève: 100M$ (fixe)"
     },
-    "adjustableParams": {
-      "title": "Contrôles",
-      "strikeCost": "Coût quotidien de grève (CAD)",
-      "strikeDays": "Durée de grève (jours)",
-      "unpaidPercent": "Heures non payées à payer",
-      "parityLock": "Utiliser référence parité",
+    "negotiationParams": {
+      "title": "Constructeur de Scénario de Négociation",
+      "salaryIncrease": "Augmentation Salariale",
+      "contractDuration": "Durée du Contrat",
+      "unpaidPercent": "Couverture Travail Non Payé",
+      "parityLock": "Utiliser Référence Parité",
       "parityLockDesc": "Taux Air Transat: {{rate}}$/h"
     },
     "strikeDaysPresets": {
@@ -25,6 +26,20 @@
       "0percent": "0% (Actuel)",
       "50percent": "50% (Offre AC)",
       "100percent": "100% (Demande Syndicat)"
+    },
+    "contractDurationOptions": {
+      "2years": "2 ans",
+      "3years": "3 ans", 
+      "4years": "4 ans",
+      "5years": "5 ans",
+      "6years": "6 ans"
+    },
+    "scenarioPresets": {
+      "title": "Scénarios Rapides",
+      "conservative": "Règlement Conservateur",
+      "moderate": "Règlement Modéré", 
+      "union": "Objectif Syndical",
+      "management": "Offre Direction"
     }
   },
   "kpis": {
