@@ -5,18 +5,21 @@ import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
-import { calculateScenario, formatCurrency, formatNumber, DEFAULT_INPUTS, CONSTANTS, DATA_SOURCES, type CalculatorInputs } from '@/utils/calculatorLogic';
+import { calculateScenario, formatCurrency, formatNumber, DEFAULT_INPUTS, CONSTANTS, DATA_SOURCES, getCurrentStrikeDays, type CalculatorInputs } from '@/utils/calculatorLogic';
 import { toast } from 'sonner';
-import { Share2 } from 'lucide-react';
+import { Share2, Linkedin } from 'lucide-react';
 
 const StorytellingCalculator: React.FC = () => {
   const { t } = useTranslation('calculator');
   
-  const [inputs, setInputs] = useState<CalculatorInputs>(DEFAULT_INPUTS);
+  const [inputs, setInputs] = useState<CalculatorInputs>(() => ({
+    ...DEFAULT_INPUTS,
+    strikeDays: getCurrentStrikeDays() // Use real-time strike duration
+  }));
   
   const results = useMemo(() => calculateScenario(inputs), [inputs]);
 
-  // Load from URL on mount
+  // Load from URL on mount and update strike days in real-time
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const urlInputs: Partial<CalculatorInputs> = {};
@@ -26,6 +29,7 @@ const StorytellingCalculator: React.FC = () => {
     
     const days = params.get('strikeDays');
     if (days) urlInputs.strikeDays = Number(days);
+    else urlInputs.strikeDays = getCurrentStrikeDays(); // Use real-time if not in URL
     
     const unpaid = params.get('unpaidHoursPercent');
     if (unpaid) urlInputs.unpaidHoursPercent = Number(unpaid);
@@ -33,9 +37,19 @@ const StorytellingCalculator: React.FC = () => {
     const parity = params.get('useParityLock');
     if (parity) urlInputs.useParityLock = parity === 'true';
 
-    if (Object.keys(urlInputs).length > 0) {
-      setInputs(prev => ({ ...prev, ...urlInputs }));
-    }
+    setInputs(prev => ({ ...prev, ...urlInputs }));
+  }, []);
+
+  // Update strike days every minute to keep it current
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setInputs(prev => ({
+        ...prev,
+        strikeDays: getCurrentStrikeDays()
+      }));
+    }, 60000); // Update every minute
+
+    return () => clearInterval(interval);
   }, []);
 
   const shareScenario = () => {
@@ -64,6 +78,31 @@ const StorytellingCalculator: React.FC = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
+        {/* Header with branding */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-12">
+          <div className="flex items-center gap-4">
+            <a 
+              href="/" 
+              className="text-lg font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              strikecost.ca
+            </a>
+            <div className="hidden sm:block w-px h-6 bg-border"></div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span>Made with curiosity by</span>
+              <a 
+                href="http://linkedin.com/in/izzydoesizzy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors font-medium"
+              >
+                <Linkedin className="w-3 h-3" />
+                Izzy Piyale-Sheard
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-foreground">{t('title')}</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t('subtitle')}</p>

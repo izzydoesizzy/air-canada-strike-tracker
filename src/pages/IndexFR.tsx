@@ -10,7 +10,6 @@ import { StrikeAnalysis } from "@/components/StrikeAnalysis";
 import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
 import { CareerAd } from "@/components/CareerAd";
-import EnhancedMobileAd from "@/components/EnhancedMobileAd";
 import StorytellingCalculator from "@/components/StorytellingCalculator";
 
 const IndexFR = () => {
@@ -174,8 +173,6 @@ const IndexFR = () => {
         </div>
       </footer>
 
-      {/* Resume Course Bottom Sheet */}
-      <EnhancedMobileAd />
     </div>;
 };
 

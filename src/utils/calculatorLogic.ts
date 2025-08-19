@@ -4,6 +4,7 @@ export const CONSTANTS = {
   UNPAID_HOURS_PER_YEAR: 35 * 12, // 420
   BASE_HOURLY_TODAY: 30, // CAD
   PARITY_HOURLY: 40.38, // Air Transat benchmark
+  STRIKE_START: new Date('2025-08-16T05:58:00Z'), // 12:58 AM ET = 5:58 AM UTC
 };
 
 export interface CalculatorInputs {
@@ -89,9 +90,16 @@ export function formatNumber(num: number, decimals: number = 1): string {
   }).format(num);
 }
 
+export function getCurrentStrikeDays(): number {
+  const now = new Date();
+  const timeDiff = now.getTime() - CONSTANTS.STRIKE_START.getTime();
+  const daysDiff = Math.max(0, timeDiff / (1000 * 60 * 60 * 24));
+  return Math.floor(daysDiff);
+}
+
 export const DEFAULT_INPUTS: CalculatorInputs = {
   dailyStrikeCost: 100000000, // $100M default
-  strikeDays: 3, // Current as of Aug 18, 2025
+  strikeDays: getCurrentStrikeDays(), // Real-time strike duration
   unpaidHoursPercent: 50, // Air Canada's offer
   useParityLock: false,
 };
