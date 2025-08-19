@@ -117,78 +117,19 @@ const StorytellingCalculator: React.FC = () => {
           </div>
         </div>
 
+        {/* Current Strike Status */}
+        <div className="text-center mb-8 p-6 bg-muted/50 rounded-lg">
+          <div className="text-2xl font-bold mb-2">
+            Strike Duration: {inputs.strikeDays} day{inputs.strikeDays !== 1 ? 's' : ''}
+          </div>
+          <div className="text-lg text-muted-foreground">
+            Total Losses: {formatCurrency(results.totalStrikeLoss)}
+          </div>
+        </div>
+
         {/* Main Calculator Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          {/* Card 1: Strike Loss Counter */}
-          <Card className="lg:col-span-2">
-            <CardHeader>
-              <CardTitle>{t('cards.strikeLoss.title')}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-2">
-                  {t('cards.strikeLoss.totalLoss', { 
-                    amount: formatCurrency(results.totalStrikeLoss),
-                    days: inputs.strikeDays 
-                  })}
-                </div>
-                {inputs.strikeDays === 3 && (
-                  <Badge variant="secondary" className="mb-4">
-                    {t('cards.strikeLoss.tdEstimate', { amount: formatCurrency(300000000) })}
-                  </Badge>
-                )}
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="text-sm font-medium mb-2 block">
-                    {t('controls.adjustableParams.strikeCost')}
-                  </label>
-                  <Slider
-                    value={[inputs.dailyStrikeCost]}
-                    onValueChange={([value]) => setInputs(prev => ({ ...prev, dailyStrikeCost: value }))}
-                    min={50000000}
-                    max={120000000}
-                    step={5000000}
-                    className="w-full"
-                  />
-                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                    <span>$50M</span>
-                    <span>$60M (Revenue)</span>
-                    <span>$75M (EBITDA)</span>
-                    <span>$120M</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    {t('cards.strikeLoss.perDay', { amount: formatCurrency(inputs.dailyStrikeCost) })}
-                  </p>
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium mb-2 block">
-                    {t('controls.adjustableParams.strikeDays')}
-                  </label>
-                  <div className="flex gap-2 mb-2">
-                    {[1, 3, 7, 14].map(days => (
-                      <Button
-                        key={days}
-                        variant={inputs.strikeDays === days ? "default" : "outline"}
-                        size="sm"
-                        onClick={() => setInputs(prev => ({ ...prev, strikeDays: days }))}
-                      >
-                        {t(`controls.strikeDaysPresets.${days}${days === 1 ? 'day' : 'days'}`)}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="text-xs text-muted-foreground">
-                {t('cards.strikeLoss.analystBand')}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Card 2: Per-FA Strike Equivalents */}
+          {/* Card 1: Per-FA Strike Equivalents */}
           <Card>
             <CardHeader>
               <CardTitle>{t('cards.perFAEquivalents.title')}</CardTitle>
