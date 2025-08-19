@@ -1,0 +1,59 @@
+{
+  "title": "Strike vs Settlement Visualizer",
+  "subtitle": "Real-time financial impact analysis",
+  "header": {
+    "strikeDuration": "Strike Duration",
+    "totalStrikeLosses": "Total Strike Losses",
+    "lossPerFlightAttendant": "Loss Per Flight Attendant"
+  },
+  "scenarios": {
+    "title": "Settlement Scenarios",
+    "subtitle": "Compare strike costs with potential settlement values",
+    "conservative": {
+      "name": "Conservative Settlement",
+      "description": "Minimal concessions to end strike quickly"
+    },
+    "current": {
+      "name": "Current AC Offer", 
+      "description": "Management's latest proposal"
+    },
+    "moderate": {
+      "name": "Moderate Compromise",
+      "description": "Balanced approach for both parties"
+    },
+    "union": {
+      "name": "Union Target",
+      "description": "Full union demands"
+    },
+    "benchmark": {
+      "name": "Industry Benchmark",
+      "description": "Market-competitive package"
+    }
+  },
+  "metrics": {
+    "salaryIncrease": "Salary Increase",
+    "unpaidWork": "Unpaid Work",
+    "costComparison": "Cost Comparison",
+    "totalSettlementCost": "Total Settlement Cost",
+    "breakEvenPoint": "Break-even Point",
+    "potentialSavings": "Potential Savings",
+    "strikeWillExceed": "Strike cost will exceed settlement in {{days}} days"
+  },
+  "urgency": {
+    "high": "Immediate Settlement",
+    "medium": "Moderate Urgency", 
+    "low": "Low Priority"
+  },
+  "summary": {
+    "title": "Executive Summary",
+    "subtitle": "The cost of continued negotiations vs immediate settlement",
+    "strikeAccumulation": "Strike Cost Accumulation",
+    "settlementWindow": "Settlement Window",
+    "perDay": "Per Day",
+    "perHour": "Per Hour",
+    "perMinute": "Per Minute",
+    "breakEven": "Break-even: {{days}} days",
+    "urgent": "Urgent"
+  },
+  "disclaimer": "Financial estimates based on ongoing strike data and industry analysis"
+}
