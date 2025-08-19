@@ -8,7 +8,7 @@ interface AdSpotProps {
 
 export function AdSpot({ className = "", size = "medium" }: AdSpotProps) {
   const createAdvertiserEmail = () => {
-    const subject = encodeURIComponent("Quick Call - StrikeCost.ca Advertising (25k+ Daily Visitors)");
+    const subject = encodeURIComponent("Quick Call - StrikeCost.ca Advertising (55k+ Daily Visitors)");
     const body = encodeURIComponent(`Hi Izzy,
 
 I'd like to discuss advertising on StrikeCost.ca. Let's schedule a quick 15-minute call:
@@ -19,7 +19,7 @@ I'd like to discuss advertising on StrikeCost.ca. Let's schedule a quick 15-minu
 • Business: [Brief description of what you do]
 
 SITE REACH & METRICS:
-✓ 25k+ daily unique visitors
+✓ 55k+ daily unique visitors
 ✓ 750k+ monthly pageviews
 ✓ 68% Canadian audience, 32% international
 ✓ 62% mobile traffic (iOS-heavy)
@@ -63,7 +63,7 @@ Best regards,
             Place Your Ad Here
           </p>
           <p className="text-xs opacity-75">
-            25K+ daily visitors • High engagement
+            55K+ daily visitors • High engagement
           </p>
           <p className="text-xs font-medium text-primary/80 group-hover:text-primary">
             Click to inquire →

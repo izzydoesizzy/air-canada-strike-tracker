@@ -139,7 +139,7 @@ export function MobileNavigationMenu({
           {/* Ad Spot CTA */}
           <div className="pt-6 border-t border-border/20">
             <a 
-              href={`mailto:izzy@joinclearcareer.com?subject=${encodeURIComponent("Quick Call - StrikeCost.ca Advertising (25k+ Daily Visitors)")}&body=${encodeURIComponent(`Hi Izzy,
+              href={`mailto:izzy@joinclearcareer.com?subject=${encodeURIComponent("Quick Call - StrikeCost.ca Advertising (55k+ Daily Visitors)")}&body=${encodeURIComponent(`Hi Izzy,
 
 I'd like to discuss advertising on StrikeCost.ca. Let's schedule a quick 15-minute call:
 
@@ -149,7 +149,7 @@ I'd like to discuss advertising on StrikeCost.ca. Let's schedule a quick 15-minu
 • Business: [Brief description of what you do]
 
 SITE REACH & METRICS:
-✓ 25k+ daily unique visitors
+✓ 55k+ daily unique visitors
 ✓ 750k+ monthly pageviews
 ✓ 68% Canadian audience, 32% international
 ✓ 62% mobile traffic (iOS-heavy)
@@ -173,7 +173,7 @@ Best regards,
                     🎯 Want an Ad Spot?
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    25K+ daily visitors • High engagement audience
+                    55K+ daily visitors • High engagement audience
                   </p>
                   <p className="text-xs font-medium text-primary/80 group-hover:text-primary">
                     Tap to get started →
