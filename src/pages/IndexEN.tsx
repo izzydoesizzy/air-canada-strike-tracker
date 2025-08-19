@@ -10,7 +10,7 @@ import { StrikeAnalysis } from "@/components/StrikeAnalysis";
 import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
 import { CareerAd } from "@/components/CareerAd";
-import StorytellingCalculator from "@/components/StorytellingCalculator";
+import StrikeVsSettlement from "@/components/StrikeVsSettlement";
 
 const IndexEN = () => {
   const { t, i18n } = useTranslation('content');
@@ -33,7 +33,7 @@ const IndexEN = () => {
 
       {/* Storytelling Calculator - Interactive analysis tool */}
       <section id="calculator" className="bg-surface-subtle/30">
-        <StorytellingCalculator />
+        <StrikeVsSettlement />
       </section>
 
       {/* The Strike Story - Consolidated narrative */}
