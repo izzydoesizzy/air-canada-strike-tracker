@@ -32,9 +32,11 @@ const IndexEN = () => {
       </section>
 
       {/* Storytelling Calculator - Interactive analysis tool */}
+      {/* HIDDEN TEMPORARILY - MAY RE-ENABLE LATER
       <section id="calculator" className="bg-surface-subtle/30">
         <StrikeVsSettlement />
       </section>
+      */}
 
       {/* The Strike Story - Consolidated narrative */}
       <TheStrikeStory />
