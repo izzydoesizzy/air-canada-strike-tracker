@@ -1,0 +1,61 @@
+{
+  "title": "Strike vs Settlement Analysis",
+  "subtitle": "Compare ongoing strike costs with potential settlement scenarios",
+  "scenarios": {
+    "conservative": {
+      "name": "Conservative Settlement",
+      "description": "Minimal increases with basic unpaid work coverage"
+    },
+    "currentOffer": {
+      "name": "Current Air Canada Offer", 
+      "description": "Air Canada's latest proposal to flight attendants"
+    },
+    "moderate": {
+      "name": "Moderate Compromise",
+      "description": "Balanced approach between union and management positions"
+    },
+    "unionTarget": {
+      "name": "Union Target",
+      "description": "Full union demands including parity and complete unpaid work compensation"
+    },
+    "industryBenchmark": {
+      "name": "Industry Benchmark",
+      "description": "Market-competitive package based on industry standards"
+    }
+  },
+  "tooltips": {
+    "parity": {
+      "title": "Parity with Air Transat",
+      "content": "Air Transat flight attendants currently earn $40.38/hour - the highest rate in the Canadian airline industry. Air Canada flight attendants earn approximately $30/hour base rate."
+    },
+    "unpaidWork": {
+      "title": "Unpaid Work Details",
+      "content": "Flight attendants currently work 35 hours per month (420 hours annually) of unpaid time including boarding assistance, safety checks, and handling delays."
+    },
+    "salaryIncrease": {
+      "title": "Base Salary Increase",
+      "content": "Percentage increase applied to current base salary of approximately $52,000 CAD annually, separate from unpaid work compensation."
+    },
+    "contractDuration": {
+      "title": "Contract Length Impact", 
+      "content": "Longer contracts spread costs over more years but increase total financial commitment. Shorter contracts allow more frequent renegotiation."
+    },
+    "strikeCost": {
+      "title": "Strike Cost Methodology",
+      "content": "Based on analyst estimates of $100M daily losses from cancelled flights, rebooking costs, lost revenue, and operational disruptions."
+    }
+  },
+  "analysis": {
+    "currentSalary": "Current Annual Salary",
+    "newCompensation": "New Total Compensation", 
+    "annualIncrease": "Annual Increase",
+    "salaryComponent": "Base Salary Increase",
+    "unpaidComponent": "Unpaid Work Compensation",
+    "hourlyRate": "Hourly Rate",
+    "companyImpact": "Company Financial Impact",
+    "annualCost": "Annual Cost (All FAs)",
+    "dailyCost": "Daily Settlement Cost",
+    "contractValue": "Contract Value",
+    "equivalentDays": "Settlement = Strike Days"
+  }
+}

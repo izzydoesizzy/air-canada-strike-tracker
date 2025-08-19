@@ -1,0 +1,61 @@
+{
+  "title": "Analyse Grève vs Règlement",
+  "subtitle": "Comparer les coûts de grève en cours avec les scénarios de règlement potentiels",
+  "scenarios": {
+    "conservative": {
+      "name": "Règlement Conservateur",
+      "description": "Augmentations minimales avec couverture de base du travail non rémunéré"
+    },
+    "currentOffer": {
+      "name": "Offre Actuelle d'Air Canada",
+      "description": "Dernière proposition d'Air Canada aux agents de bord"
+    },
+    "moderate": {
+      "name": "Compromis Modéré",
+      "description": "Approche équilibrée entre les positions syndicales et patronales"
+    },
+    "unionTarget": {
+      "name": "Objectif Syndical",
+      "description": "Demandes syndicales complètes incluant parité et compensation complète du travail non rémunéré"
+    },
+    "industryBenchmark": {
+      "name": "Référence Industrielle",
+      "description": "Package compétitif basé sur les standards de l'industrie"
+    }
+  },
+  "tooltips": {
+    "parity": {
+      "title": "Parité avec Air Transat",
+      "content": "Les agents de bord d'Air Transat gagnent actuellement 40,38$/heure - le taux le plus élevé de l'industrie aérienne canadienne. Les agents de bord d'Air Canada gagnent environ 30$/heure de base."
+    },
+    "unpaidWork": {
+      "title": "Détails du Travail Non Rémunéré",
+      "content": "Les agents de bord travaillent actuellement 35 heures par mois (420 heures annuellement) de temps non rémunéré incluant l'assistance à l'embarquement, les vérifications de sécurité et la gestion des retards."
+    },
+    "salaryIncrease": {
+      "title": "Augmentation Salariale de Base",
+      "content": "Augmentation en pourcentage appliquée au salaire de base actuel d'environ 52 000$ CAD annuellement, séparée de la compensation du travail non rémunéré."
+    },
+    "contractDuration": {
+      "title": "Impact de la Durée du Contrat",
+      "content": "Les contrats plus longs répartissent les coûts sur plus d'années mais augmentent l'engagement financier total. Les contrats plus courts permettent une renégociation plus fréquente."
+    },
+    "strikeCost": {
+      "title": "Méthodologie du Coût de Grève",
+      "content": "Basé sur les estimations d'analystes de 100M$ de pertes quotidiennes des vols annulés, coûts de rebooking, revenus perdus et perturbations opérationnelles."
+    }
+  },
+  "analysis": {
+    "currentSalary": "Salaire Annuel Actuel",
+    "newCompensation": "Nouvelle Compensation Totale",
+    "annualIncrease": "Augmentation Annuelle",
+    "salaryComponent": "Augmentation Salariale de Base",
+    "unpaidComponent": "Compensation Travail Non Rémunéré",
+    "hourlyRate": "Taux Horaire",
+    "companyImpact": "Impact Financier de l'Entreprise",
+    "annualCost": "Coût Annuel (Tous les Agents)",
+    "dailyCost": "Coût Quotidien du Règlement",
+    "contractValue": "Valeur du Contrat",
+    "equivalentDays": "Règlement = Jours de Grève"
+  }
+}

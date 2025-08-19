@@ -10,10 +10,12 @@ export const CONSTANTS = {
 export interface CalculatorInputs {
   dailyStrikeCost: number;
   strikeDays: number;
-  unpaidHoursPercent: number; // 0, 50, or 100
+  unpaidHoursPercent: number; // 0-100
   useParityLock: boolean;
-  salaryIncreasePercent: number; // New: 0-25%
-  contractDurationYears: number; // New: 2-6 years
+  salaryIncreasePercent: number; // 0-25%
+  contractDurationYears: number; // 2-10 years
+  benefitsImprovement?: number; // Additional benefits cost per FA
+  pensionContribution?: number; // Additional pension cost per FA
 }
 
 export interface CalculatorResults {
@@ -26,7 +28,7 @@ export interface CalculatorResults {
   unionAskPerFAPerYear: number;
   scenarioHourly: number;
   annualCostAllUnpaidAtCurrent: number;
-  // New negotiation results
+  // Enhanced negotiation results
   currentAnnualSalary: number;
   newAnnualSalary: number;
   salaryIncreasePerFA: number;
@@ -34,16 +36,40 @@ export interface CalculatorResults {
   settlementEquivalentStrikeDays: number;
   contractTotalValue: number;
   negotiationPressureLevel: 'low' | 'medium' | 'high' | 'critical';
+  // Multi-year analysis
+  contractValueByYear: Array<{
+    year: number;
+    annualCost: number;
+    cumulativeCost: number;
+  }>;
+  // Detailed breakdown
+  salaryIncreaseComponent: number;
+  unpaidWorkComponent: number;
+  benefitsComponent: number;
+  pensionComponent: number;
+  hourlyRateOld: number;
+  hourlyRateNew: number;
 }
 
 export function calculateScenario(inputs: CalculatorInputs): CalculatorResults {
-  const { dailyStrikeCost, strikeDays, unpaidHoursPercent, useParityLock, salaryIncreasePercent, contractDurationYears } = inputs;
+  const { 
+    dailyStrikeCost, 
+    strikeDays, 
+    unpaidHoursPercent, 
+    useParityLock, 
+    salaryIncreasePercent, 
+    contractDurationYears,
+    benefitsImprovement = 0,
+    pensionContribution = 0
+  } = inputs;
 
   // Convert percentage to decimal
   const unpaidHoursDecimal = unpaidHoursPercent / 100;
   
   // Determine hourly rate
   const scenarioHourly = useParityLock ? CONSTANTS.PARITY_HOURLY : CONSTANTS.BASE_HOURLY_TODAY;
+  const hourlyRateOld = CONSTANTS.BASE_HOURLY_TODAY;
+  const hourlyRateNew = scenarioHourly;
   
   // Strike loss calculations
   const totalStrikeLoss = dailyStrikeCost * strikeDays;
@@ -63,16 +89,30 @@ export function calculateScenario(inputs: CalculatorInputs): CalculatorResults {
   // Union ask: pay for unpaid hours
   const unionAskPerFAPerYear = CONSTANTS.UNPAID_HOURS_PER_YEAR * scenarioHourly * unpaidHoursDecimal;
 
-  // New salary calculations
+  // New salary calculations with detailed breakdown
   const currentAnnualSalary = 52000; // Approximate current FA salary
-  const salaryIncreaseAmount = currentAnnualSalary * (salaryIncreasePercent / 100);
-  const newAnnualSalary = currentAnnualSalary + salaryIncreaseAmount + unionAskPerFAPerYear;
-  const salaryIncreasePerFA = salaryIncreaseAmount + unionAskPerFAPerYear;
+  const salaryIncreaseComponent = currentAnnualSalary * (salaryIncreasePercent / 100);
+  const unpaidWorkComponent = unionAskPerFAPerYear;
+  const benefitsComponent = benefitsImprovement;
+  const pensionComponent = pensionContribution;
+  
+  const totalIncreasePerFA = salaryIncreaseComponent + unpaidWorkComponent + benefitsComponent + pensionComponent;
+  const newAnnualSalary = currentAnnualSalary + totalIncreasePerFA;
   
   // Total settlement costs
-  const totalSettlementCostPerYear = salaryIncreasePerFA * CONSTANTS.FLIGHT_ATTENDANTS;
+  const totalSettlementCostPerYear = totalIncreasePerFA * CONSTANTS.FLIGHT_ATTENDANTS;
   const settlementEquivalentStrikeDays = totalSettlementCostPerYear / dailyStrikeCost;
   const contractTotalValue = totalSettlementCostPerYear * contractDurationYears;
+  
+  // Multi-year contract analysis
+  const contractValueByYear = Array.from({ length: contractDurationYears }, (_, index) => {
+    const year = index + 1;
+    return {
+      year,
+      annualCost: totalSettlementCostPerYear,
+      cumulativeCost: totalSettlementCostPerYear * year,
+    };
+  });
   
   // Negotiation pressure calculation
   const strikeCostSoFar = totalStrikeLoss;
@@ -97,11 +137,18 @@ export function calculateScenario(inputs: CalculatorInputs): CalculatorResults {
     annualCostAllUnpaidAtCurrent,
     currentAnnualSalary,
     newAnnualSalary,
-    salaryIncreasePerFA,
+    salaryIncreasePerFA: totalIncreasePerFA,
     totalSettlementCostPerYear,
     settlementEquivalentStrikeDays,
     contractTotalValue,
     negotiationPressureLevel,
+    contractValueByYear,
+    salaryIncreaseComponent,
+    unpaidWorkComponent,
+    benefitsComponent,
+    pensionComponent,
+    hourlyRateOld,
+    hourlyRateNew,
   };
 }
 
