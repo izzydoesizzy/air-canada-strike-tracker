@@ -89,14 +89,6 @@ const IndexEN = () => {
                     >
                       Perplexity
                     </a>
-                    <a 
-                      href="https://lovable.dev/invite/8433fb85-552a-4d89-ac05-c37d7794426b" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="block text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                    >
-                      Lovable
-                    </a>
                   </div>
                 </div>
               </div>
