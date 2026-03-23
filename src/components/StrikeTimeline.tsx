@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Clock, ArrowRight, AlertTriangle, Users, Gavel, Calendar, TrendingDown, Vote, X, Plane, Play, AlertCircle, Shield } from "lucide-react";
+import { Clock, ArrowRight, AlertTriangle, Users, Gavel, Calendar, TrendingDown, Vote, X, Plane, Play, AlertCircle, Shield, CheckCircle, Scale } from "lucide-react";
 import { SourceTooltip } from "./SourceTooltip";
 
 // Data sources for the timeline content with comprehensive documentation
@@ -42,6 +42,18 @@ const sources = {
   cirbDecision: {
     title: "CIRB Decision - Return to Work Order",
     url: "https://www.cirb-ccri.gc.ca/"
+  },
+  tentativeDeal: {
+    title: "Global News - Air Canada, flight attendants reach tentative deal ending strike",
+    url: "https://globalnews.ca/news/11340448/air-canada-flight-attendants-deal-strike-over/"
+  },
+  ratificationVote: {
+    title: "Wikipedia - 2025 Air Canada flight attendants strike",
+    url: "https://en.wikipedia.org/wiki/2025_Air_Canada_flight_attendants_strike"
+  },
+  arbitratorRuling: {
+    title: "Airways Magazine - Arbitrator Settles Air Canada Flight Attendant Dispute",
+    url: "https://www.airwaysmag.com/new-post/arb-air-canada-flight-attendant-dispute"
   }
 };
 
@@ -152,6 +164,30 @@ export function StrikeTimeline() {
       icon: Shield,
       type: 'destructive' as const,
       source: sources.accStrikeHQ
+    },
+    {
+      time: t('events.tentativeDeal.time'),
+      title: t('events.tentativeDeal.title'),
+      description: t('events.tentativeDeal.description'),
+      icon: CheckCircle,
+      type: 'default' as const,
+      source: sources.tentativeDeal
+    },
+    {
+      time: t('events.ratificationVote.time'),
+      title: t('events.ratificationVote.title'),
+      description: t('events.ratificationVote.description'),
+      icon: Vote,
+      type: 'warning' as const,
+      source: sources.ratificationVote
+    },
+    {
+      time: t('events.arbitratorRuling.time'),
+      title: t('events.arbitratorRuling.title'),
+      description: t('events.arbitratorRuling.description'),
+      icon: Scale,
+      type: 'default' as const,
+      source: sources.arbitratorRuling
     }
   ];
 

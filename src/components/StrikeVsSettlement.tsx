@@ -15,6 +15,7 @@ import DualPerspectiveAnalysis from './DualPerspectiveAnalysis';
 
 // Import strike data from dashboard
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00");
+const STRIKE_END = new Date("2025-08-18T23:59:00-04:00");
 const LOSS_PER_DAY = 100000000;
 
 const StrikeVsSettlement: React.FC = () => {
@@ -38,8 +39,9 @@ const StrikeVsSettlement: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Calculate live strike duration and losses
-  const timeElapsed = Math.max(0, currentTime.getTime() - STRIKE_START.getTime());
+  // Calculate strike duration and losses (capped at strike end)
+  const cappedTime = Math.min(currentTime.getTime(), STRIKE_END.getTime());
+  const timeElapsed = Math.max(0, cappedTime - STRIKE_START.getTime());
   const daysElapsed = timeElapsed / (1000 * 60 * 60 * 24);
   const totalStrikeLoss = daysElapsed * LOSS_PER_DAY;
   const lossPerFA = totalStrikeLoss / CONSTANTS.FLIGHT_ATTENDANTS;

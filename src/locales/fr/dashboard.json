@@ -1,18 +1,18 @@
 {
   "title": "Grève des Agents de Bord d'Air Canada",
-  "subtitle": "Suivi en temps réel de l'impact financier",
+  "subtitle": "Résumé de l'impact financier",
   "breakingNews": {
-    "label": "NOUVELLES DE DERNIÈRE HEURE",
-    "message": "Les agents de bord d'Air Canada ont officiellement commencé la grève à 0h58 HE le samedi 16 août 2025. Tous les vols annulés.",
+    "label": "MISE À JOUR FINALE",
+    "message": "La grève des agents de bord d'Air Canada a duré 3 jours (16–18 août 2025). Un arbitre a rendu sa décision salariale finale en février 2026.",
     "readMore": "Lire Plus",
     "dismiss": "Fermer"
   },
   "badge": {
-    "laborDispute": "Conflit de Travail Air Canada",
-    "sinceStart": "Depuis le 16 août, 1h00 HE"
+    "laborDispute": "Conflit de Travail Air Canada — Résolu",
+    "sinceStart": "16–18 août 2025 (3 jours)"
   },
   "metrics": {
-    "projectedStrikeLosses": "Pertes en Cours de la Grève",
+    "projectedStrikeLosses": "Pertes Totales de la Grève (Final)",
     "lossPerFlightAttendant": "Perte par Agent de Bord",
     "totalPageVisitors": "Total des Visiteurs",
     "visitorsPerHour": "Visiteurs par Heure"
@@ -24,16 +24,16 @@
     "perDay": "Par Jour"
   },
   "milestones": {
-    "strikeDuration": "Durée de la Grève",
-    "impactPerFA": "Impact par Agent de Bord (10 Jours)"
+    "strikeDuration": "Durée Finale de la Grève",
+    "impactPerFA": "Impact par Agent de Bord"
   },
   "labels": {
-    "basedOnAnalyst": "basé sur les données de grève en cours",
-    "projectedRate": "taux actuel",
+    "basedOnAnalyst": "basé sur les données de la grève de 3 jours et l'analyse industrielle",
+    "projectedRate": "taux pendant la grève",
     "burnedPerWorker": "brûlé par travailleur",
     "perDayEach": "/jour chacun",
-    "andCounting": "et ça continue...",
-    "currentRate": "taux actuel",
+    "andCounting": "",
+    "currentRate": "taux pendant la grève",
     "burnedPerFA": "brûlé par agent de bord"
   },
   "timeUnits": {
@@ -42,5 +42,5 @@
     "minutes": "MIN",
     "seconds": "SEC"
   },
-  "disclaimer": "* Estimations financières basées sur les données de grève en cours et l'analyse industrielle"
+  "disclaimer": "* Estimations financières basées sur les données de la grève de 3 jours et l'analyse industrielle"
 }

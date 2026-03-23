@@ -1,12 +1,12 @@
 {
   "navigation": {
-    "title": "Suivi de la Grève Projetée d'Air Canada",
-    "status": "EN COURS",
+    "title": "Suivi de la Grève d'Air Canada",
+    "status": "TERMINÉE",
     "overview": "Aperçu",
     "impactAnalysis": "Analyse d'Impact",
     "sources": "Sources",
     "liveTracker": "Suivi en Direct",
-    "projectedLoss": "Perte Projetée",
+    "projectedLoss": "Perte Totale",
     "timeElapsed": "Temps Écoulé",
     "flights": "vols",
     "language": "Langue",
@@ -34,14 +34,14 @@
     "next": "Suivant"
   },
   "labels": {
-    "breakingNews": "NOUVELLE DE DERNIÈRE HEURE",
+    "breakingNews": "MISE À JOUR FINALE",
     "update": "MISE À JOUR",
     "source": "Source",
     "lastUpdated": "Dernière mise à jour"
   },
   "breaking": {
-    "title": "Air Canada et les agents de bord concluent un accord de principe pour mettre fin à la grève",
-    "message": "Accord de principe conclu après 9 heures de négociations. Les vols reprendront graduellement mardi soir",
-    "link": "https://accstrikehq.ca/"
+    "title": "Grève terminée : L'arbitre accorde des augmentations salariales de 8 à 13 % aux agents de bord d'Air Canada",
+    "message": "La grève de 3 jours (16–18 août) s'est terminée par un accord de principe. Après le rejet de l'offre salariale par 99,1 % des membres, un arbitre a rendu sa décision finale en février 2026.",
+    "link": "https://en.wikipedia.org/wiki/2025_Air_Canada_flight_attendants_strike"
   }
 }

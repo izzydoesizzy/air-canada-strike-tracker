@@ -1,12 +1,12 @@
 {
   "navigation": {
-    "title": "Air Canada Projected Strike Tracker",
-    "status": "ONGOING",
+    "title": "Air Canada Strike Tracker",
+    "status": "ENDED",
     "overview": "Overview",
     "impactAnalysis": "Impact Analysis",
     "sources": "Sources",
     "liveTracker": "Live Tracker",
-    "projectedLoss": "Projected Loss",
+    "projectedLoss": "Total Loss",
     "timeElapsed": "Time Elapsed",
     "flights": "flights",
     "language": "Language",
@@ -34,14 +34,14 @@
     "next": "Next"
   },
   "labels": {
-    "breakingNews": "BREAKING NEWS",
+    "breakingNews": "FINAL UPDATE",
     "update": "UPDATE",
     "source": "Source",
     "lastUpdated": "Last Updated"
   },
   "breaking": {
-    "title": "Air Canada, flight attendants reach tentative deal to end strike",
-    "message": "Tentative agreement reached after 9 hours of talks. Flights to gradually return Tuesday evening",
-    "link": "https://accstrikehq.ca/"
+    "title": "Strike Over: Arbitrator rules 8–13% wage increases for Air Canada flight attendants",
+    "message": "The 3-day strike (Aug 16–18) ended with a tentative deal. After 99.1% of members rejected the wage offer, an arbitrator issued a final ruling in Feb 2026.",
+    "link": "https://en.wikipedia.org/wiki/2025_Air_Canada_flight_attendants_strike"
   }
 }

@@ -5,6 +5,7 @@ export const CONSTANTS = {
   BASE_HOURLY_TODAY: 30, // CAD
   PARITY_HOURLY: 40.38, // Air Transat benchmark
   STRIKE_START: new Date('2025-08-16T05:58:00Z'), // 12:58 AM ET = 5:58 AM UTC
+  STRIKE_END: new Date('2025-08-19T03:59:00Z'), // Aug 18, 11:59 PM ET = Aug 19, 3:59 AM UTC
 };
 
 export interface CalculatorInputs {
@@ -178,7 +179,8 @@ export function formatNumber(num: number, decimals: number = 1): string {
 
 export function getCurrentStrikeDays(): number {
   const now = new Date();
-  const timeDiff = now.getTime() - CONSTANTS.STRIKE_START.getTime();
+  const endTime = Math.min(now.getTime(), CONSTANTS.STRIKE_END.getTime());
+  const timeDiff = endTime - CONSTANTS.STRIKE_START.getTime();
   const daysDiff = Math.max(0, timeDiff / (1000 * 60 * 60 * 24));
   return Math.floor(daysDiff);
 }

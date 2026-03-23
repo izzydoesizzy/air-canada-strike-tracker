@@ -6,6 +6,7 @@ import { LanguageNavigation } from "./LanguageNavigation";
 import { MobileNavigationMenu } from "./MobileNavigationMenu";
 import { DesktopNavigationMenu } from "./DesktopNavigationMenu";
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00");
+const STRIKE_END = new Date("2025-08-18T23:59:00-04:00");
 const LOSS_PER_DAY = 100000000;
 export function Navigation() {
   const { t } = useTranslation();
@@ -16,7 +17,8 @@ export function Navigation() {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
-  const timeElapsed = Math.max(0, currentTime.getTime() - STRIKE_START.getTime());
+  const cappedTime = Math.min(currentTime.getTime(), STRIKE_END.getTime());
+  const timeElapsed = Math.max(0, cappedTime - STRIKE_START.getTime());
   const daysElapsed = timeElapsed / (1000 * 60 * 60 * 24);
   const totalLoss = daysElapsed * LOSS_PER_DAY;
   const formatCompactCurrency = (amount: number) => {
