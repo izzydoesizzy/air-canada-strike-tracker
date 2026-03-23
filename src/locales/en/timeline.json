@@ -74,6 +74,21 @@
       "time": "August 17, Afternoon",
       "title": "Union Defies CIRB Order",
       "description": "CUPE refuses to return to work, maintains strike until government orders Air Canada back to bargaining table. Strike continues despite legal order."
+    },
+    "tentativeDeal": {
+      "time": "August 18, Evening",
+      "title": "Tentative Deal Reached — Strike Ends",
+      "description": "After 9 hours of mediated talks, CUPE and Air Canada reach a tentative agreement. The 3-day strike officially ends. Flights gradually resume August 19."
+    },
+    "ratificationVote": {
+      "time": "September 6, 2025",
+      "title": "Ratification Vote: 99.1% Reject Wage Offer",
+      "description": "Flight attendants overwhelmingly reject the wage portion of the tentative agreement with 99.1% voting against. Only the wage component is sent to binding arbitration."
+    },
+    "arbitratorRuling": {
+      "time": "February 2026",
+      "title": "Arbitrator Issues Final Wage Ruling",
+      "description": "The arbitrator's final ruling awards junior mainline flight attendants a 12% increase in year one, senior crew 8%, and Rouge attendants 13%. The labour dispute officially concludes."
     }
   },
   "news": {

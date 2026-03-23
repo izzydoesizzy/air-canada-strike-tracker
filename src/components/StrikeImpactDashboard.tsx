@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
 import { SourceTooltip } from "@/components/SourceTooltip";
-import { Plane } from "lucide-react";
+import { Plane, CheckCircle, Vote, Scale, Calendar } from "lucide-react";
 
 const STRIKE_START = new Date("2025-08-16T01:00:00-04:00");
+const STRIKE_END = new Date("2025-08-18T23:59:00-04:00");
 const LOSS_PER_DAY = 100000000;
 const LOSS_PER_HOUR = LOSS_PER_DAY / 24;
 const LOSS_PER_MINUTE = LOSS_PER_DAY / (24 * 60);
@@ -75,7 +76,8 @@ export function StrikeImpactDashboard() {
     localStorage.setItem('visitorBaselineTotal_v3', String(initialTotal));
     localStorage.setItem('visitorBaselineTime_v3', now.toISOString());
   }, []);
-  const timeElapsed = Math.max(0, currentTime.getTime() - STRIKE_START.getTime());
+  const cappedTime = Math.min(currentTime.getTime(), STRIKE_END.getTime());
+  const timeElapsed = Math.max(0, cappedTime - STRIKE_START.getTime());
   const daysElapsed = timeElapsed / (1000 * 60 * 60 * 24);
   const totalLoss = daysElapsed * LOSS_PER_DAY;
   const totalLossPerFA = totalLoss / FLIGHT_ATTENDANTS;
@@ -316,11 +318,50 @@ export function StrikeImpactDashboard() {
               <div className="text-center space-y-4">
                 <h3 className="text-lg font-semibold text-foreground">{t('milestones.impactPerFA')}</h3>
                 <div className="text-number-large font-mono text-loss-indicator">
-                  $95,000
+                  {formatLargeCurrency(totalLossPerFA)}
                 </div>
                 <p className="text-sm text-muted-foreground">{t('labels.burnedPerFA')}</p>
               </div>
             </Card>
+          </div>
+
+          {/* Final Outcome Cards */}
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold text-center text-foreground tracking-wide uppercase">Final Outcome</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="p-6 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950/30 dark:to-emerald-900/20 border border-emerald-200 dark:border-emerald-800/30 shadow-xl">
+                <div className="text-center space-y-3">
+                  <Calendar className="h-6 w-6 text-emerald-600 dark:text-emerald-400 mx-auto" />
+                  <h3 className="text-sm font-medium text-emerald-700 dark:text-emerald-300 uppercase tracking-wide">Final Duration</h3>
+                  <div className="text-3xl font-mono font-bold text-emerald-800 dark:text-emerald-200">3 days</div>
+                  <p className="text-xs text-emerald-600 dark:text-emerald-400">Aug 16–18, 2025</p>
+                </div>
+              </Card>
+              <Card className="p-6 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950/30 dark:to-emerald-900/20 border border-emerald-200 dark:border-emerald-800/30 shadow-xl">
+                <div className="text-center space-y-3">
+                  <CheckCircle className="h-6 w-6 text-emerald-600 dark:text-emerald-400 mx-auto" />
+                  <h3 className="text-sm font-medium text-emerald-700 dark:text-emerald-300 uppercase tracking-wide">Total Est. Loss</h3>
+                  <div className="text-3xl font-mono font-bold text-emerald-800 dark:text-emerald-200">~$300M</div>
+                  <p className="text-xs text-emerald-600 dark:text-emerald-400">Based on ~$100M/day</p>
+                </div>
+              </Card>
+              <Card className="p-6 bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-950/30 dark:to-amber-900/20 border border-amber-200 dark:border-amber-800/30 shadow-xl">
+                <div className="text-center space-y-3">
+                  <Vote className="h-6 w-6 text-amber-600 dark:text-amber-400 mx-auto" />
+                  <h3 className="text-sm font-medium text-amber-700 dark:text-amber-300 uppercase tracking-wide">Ratification Vote</h3>
+                  <div className="text-3xl font-mono font-bold text-amber-800 dark:text-amber-200">99.1%</div>
+                  <p className="text-xs text-amber-600 dark:text-amber-400">Rejected wage offer</p>
+                </div>
+              </Card>
+              <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/20 border border-blue-200 dark:border-blue-800/30 shadow-xl">
+                <div className="text-center space-y-3">
+                  <Scale className="h-6 w-6 text-blue-600 dark:text-blue-400 mx-auto" />
+                  <h3 className="text-sm font-medium text-blue-700 dark:text-blue-300 uppercase tracking-wide">Arbitration Result</h3>
+                  <div className="text-3xl font-mono font-bold text-blue-800 dark:text-blue-200">+8–13%</div>
+                  <p className="text-xs text-blue-600 dark:text-blue-400">Wage increases (Feb 2026)</p>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </div>

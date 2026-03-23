@@ -9,7 +9,7 @@ import { StrikeTimeline } from "@/components/StrikeTimeline";
 import { StrikeAnalysis } from "@/components/StrikeAnalysis";
 import { Resources } from "@/components/Resources";
 import { Sources } from "@/components/Sources";
-import { CareerAd } from "@/components/CareerAd";
+import { WhatHappenedNext } from "@/components/WhatHappenedNext";
 import StrikeVsSettlement from "@/components/StrikeVsSettlement";
 
 const IndexEN = () => {
@@ -31,6 +31,9 @@ const IndexEN = () => {
         <StrikeImpactDashboard />
       </section>
 
+      {/* What Happened Next - Post-strike summary */}
+      <WhatHappenedNext />
+
       {/* Storytelling Calculator - Interactive analysis tool */}
       {/* HIDDEN TEMPORARILY - MAY RE-ENABLE LATER
       <section id="calculator" className="bg-surface-subtle/30">
@@ -41,29 +44,11 @@ const IndexEN = () => {
       {/* The Strike Story - Consolidated narrative */}
       <TheStrikeStory />
 
-      {/* Strategic Ad Spot 1 - Between Story and Timeline */}
-      <section className="py-8">
-        <div className="container mx-auto px-8">
-          <div className="flex justify-center">
-            <CareerAd size="large" />
-          </div>
-        </div>
-      </section>
-
       {/* Strike Timeline & Updates */}
       <StrikeTimeline />
 
       {/* Strike Analysis - Comprehensive details */}
       <StrikeAnalysis />
-
-      {/* Strategic Ad Spot 2 - After Analysis */}
-      <section className="py-8 bg-surface-subtle/30">
-        <div className="container mx-auto px-8">
-          <div className="flex justify-center">
-            <CareerAd size="medium" />
-          </div>
-        </div>
-      </section>
 
       {/* Sources & Verification */}
       <section id="sources" className="container mx-auto px-8 py-20">
@@ -144,11 +129,8 @@ const IndexEN = () => {
               </div>
             </div>
 
-            {/* Workshop Ad & Updates */}
+            {/* Updates */}
             <div className="space-y-6">
-              <div className="mb-8">
-                <CareerAd size="small" />
-              </div>
               <h3 className="text-base font-semibold text-foreground tracking-wide">Updates</h3>
               <div className="space-y-4">
                 <a 

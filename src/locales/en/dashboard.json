@@ -1,18 +1,18 @@
 {
   "title": "Air Canada Flight Attendant Strike",
-  "subtitle": "Real-time financial impact tracking",
+  "subtitle": "Financial impact summary",
   "breakingNews": {
-    "label": "BREAKING NEWS",
-    "message": "Air Canada flight attendants officially began striking at 12:58 AM ET on Saturday, August 16, 2025. All flights cancelled.",
+    "label": "FINAL UPDATE",
+    "message": "The Air Canada flight attendant strike lasted 3 days (Aug 16–18, 2025). An arbitrator issued a final wage ruling in Feb 2026.",
     "readMore": "Read More",
     "dismiss": "Dismiss"
   },
   "badge": {
-    "laborDispute": "Air Canada Labour Dispute",
-    "sinceStart": "Since Aug 16, 1:00 AM ET"
+    "laborDispute": "Air Canada Labour Dispute — Resolved",
+    "sinceStart": "Aug 16–18, 2025 (3 days)"
   },
   "metrics": {
-    "projectedStrikeLosses": "Ongoing Strike Losses",
+    "projectedStrikeLosses": "Total Strike Losses (Final)",
     "lossPerFlightAttendant": "Loss Per Flight Attendant",
     "totalPageVisitors": "Total Page Visitors",
     "visitorsPerHour": "Visitors Per Hour"
@@ -24,16 +24,16 @@
     "perDay": "Per Day"
   },
   "milestones": {
-    "strikeDuration": "Strike Duration",
-    "impactPerFA": "Impact Per Flight Attendant (10 Days)"
+    "strikeDuration": "Final Strike Duration",
+    "impactPerFA": "Impact Per Flight Attendant"
   },
   "labels": {
-    "basedOnAnalyst": "based on ongoing strike data",
-    "projectedRate": "current rate",
+    "basedOnAnalyst": "based on 3-day strike data and industry analysis",
+    "projectedRate": "rate during strike",
     "burnedPerWorker": "burned per worker",
     "perDayEach": "/day each",
-    "andCounting": "and counting...",
-    "currentRate": "current rate",
+    "andCounting": "",
+    "currentRate": "rate during strike",
     "burnedPerFA": "burned per flight attendant"
   },
   "timeUnits": {
@@ -42,5 +42,5 @@
     "minutes": "MIN",
     "seconds": "SEC"
   },
-  "disclaimer": "* Financial estimates based on ongoing strike data and industry analysis"
+  "disclaimer": "* Financial estimates based on 3-day strike data and industry analysis"
 }

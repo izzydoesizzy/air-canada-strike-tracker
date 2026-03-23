@@ -74,6 +74,21 @@
       "time": "17 août, Après-midi",
       "title": "Le Syndicat Défie l'Ordre du CCRI",
       "description": "SCFP refuse de retourner au travail, maintient la grève jusqu'à ce que le gouvernement ordonne à Air Canada de retourner à la table de négociation. La grève continue malgré l'ordre légal."
+    },
+    "tentativeDeal": {
+      "time": "18 août, Soir",
+      "title": "Accord de Principe Conclu — Fin de la Grève",
+      "description": "Après 9 heures de négociations avec médiateur, le SCFP et Air Canada concluent un accord de principe. La grève de 3 jours prend fin officiellement. Les vols reprennent graduellement le 19 août."
+    },
+    "ratificationVote": {
+      "time": "6 septembre 2025",
+      "title": "Vote de Ratification : 99,1 % Rejettent l'Offre Salariale",
+      "description": "Les agents de bord rejettent massivement la portion salariale de l'accord de principe avec 99,1 % de votes contre. Seule la composante salariale est envoyée en arbitrage exécutoire."
+    },
+    "arbitratorRuling": {
+      "time": "Février 2026",
+      "title": "L'Arbitre Rend sa Décision Salariale Finale",
+      "description": "La décision finale de l'arbitre accorde aux agents de bord juniors une augmentation de 12 % la première année, aux membres seniors 8 %, et aux agents Rouge 13 %. Le conflit de travail se conclut officiellement."
     }
   },
   "news": {
